@@ -1,0 +1,270 @@
+\documentclass{article}
+
+
+\usepackage{arxiv}
+
+\usepackage[UTF8]{ctex}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables, 三线表
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{algorithm,algorithmic}
+\usepackage{amssymb}
+\usepackage{amsmath}
+% 将参考文献加进目录中
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm} % 使用粗体的向量
+\usepackage{bbm} %使用黑板粗体的数字，如指示函数
+\usepackage{subfigure}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    citecolor=cyan,
+}
+
+\usepackage{xeCJK}
+
+\usepackage[minted]{tcolorbox}
+\tcbuselibrary{skins, listings, xparse, breakable,listings}
+
+\usepackage{pythonhighlight}
+\usepackage{cpphighlight}
+\usepackage{pdfpages}  
+%\graphicspath{ {./images/} }
+
+\newcommand{\tred}[1]{ {\textcolor{red}{#1}} }
+\newcommand{\tbred}[1]{ {\textbf{\textcolor{red}{#1}} } }
+\newcommand{\tbc}[2]{ {\textbf{\textcolor{#1}{#2}} } }
+
+
+%\title{学习之旅}
+\title{\mathcal{Learning LOG}}
+
+\author{
+  郭治焱 \\
+  %图机器学习, 知识图谱\\
+  信息科学与工程学院, 湖南大学\\
+  长沙市, 岳麓区 麓山南路 \\
+  \texttt{zhiyanguo@hnu.edu.cn \hspace{12pt} \href{www.zyzq.site}{www.gzyzq.site}}
+  %% examples of more authors
+%%   \And
+%% Zixuan Lu \\
+%%  School of Coumputing and Information\\
+%%  University of Pittsburgh\\
+%%  Pittsburgh, PA 15213 \\
+%%  \texttt{ZIL50@pitt.edu} \\
+
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+%% defined colors
+\definecolor{Blue}{rgb}{0,0,0.5}
+\definecolor{Green}{rgb}{0,0.75,0.0}
+\definecolor{LightGray}{rgb}{0.6,0.6,0.6}
+\definecolor{DarkGray}{rgb}{0.3,0.3,0.3}
+% 定义一些标记颜色，使用标记名来使用颜色
+\definecolor{InfoColor}{rgb}{0,1,0}
+\definecolor{ImportantColor}{rgb}{1,0,0}
+\definecolor{NormalColor}{rgb}{0,0,1}
+\definecolor{OtherColor}{rgb}{1,.5,0}
+\definecolor{Hint}{rgb}{.99,0.93,0}
+
+
+\begin{document}
+\maketitle
+
+\input{mycmd}
+% \begin{abstract}
+% Data mining is a good way to find the relationship between raw data and predict the target we want which is also widely used in different field nowadays. In this project, we implement a lots of technology and method in data mining to predict the sale of an item based on its previous sale. We create a strong model to predict the sales. After evaluating this model, we conclude that this model can be used in normal life for future sale’s prediction. 
+% \end{abstract}
+
+
+% keywords can be removed
+%\keywords{First keyword \and Second keyword \and More}
+
+
+\vspace{\baselineskip}
+\vspace{\baselineskip}
+\vspace{\baselineskip}
+
+\input{setup/abstract}
+\include{setup/content}
+%\section{Introduction}
+%Our project is a competition on Kaggle (Predict Future Sales).
+
+
+%% 插入一个学习主题
+%% 注意 input 和 include 的差别，input会将导入的内容紧接着之前的内容
+%% include 会重起一页插入内容
+
+% \section{CS224W课程学习}
+% \input{body/sec1}
+
+% \section{Node2vec: Scalable Feature Learning for Networks}
+% \input{body/sec2}
+
+
+% \section{Semi-Supervised Classification with Graph Convolutional Networks}
+% \input{body/sec3}
+
+
+% \section{GraphRNN: Generating Realistic Graphs with Deep Auto-Regressive Models}
+% \input{body/GraphRNN}
+
+% \section{How powerful are graph neural networks?}
+% \input{body/powerful-gnns}
+
+
+
+\section{Concepts about ML}
+\subsection{Basics}
+\input{body/ML/basics}
+
+\section{NLP}
+\input{body/ML/NLP}
+
+\section{Graphs}
+\input{body/ML/graph}
+
+\section{Knowledge Graph}
+\input{body/ML/KG}
+
+\section{Recommender System}
+\input{body/ML/recsys}
+
+\section{Learning to Rank}
+\input{body/ML/rank}
+
+\section{Concepts about Math}
+\subsection{chap01}
+\input{body/Math/chap01}
+
+\section{Algorithms}
+\subsection{Search}
+\input{body/algorithms/search}
+
+\section{\LaTeX}
+\input{body/latex}
+
+\section{Coding}
+
+\subsection{C++}
+\input{body/coding/cpp}
+
+\subsection{Python}
+\input{body/coding/python}
+
+\subsection{Tensorflow/PyTorch}
+\input{body/coding/tensorflow}
+
+\subsection{ML/DL错误集锦}
+\input{body/coding/lessons}
+%\section{IDEAS}
+%\subsection{Ideas01}
+%\input{body/Ideas/chap01}
+
+
+
+% %一 \section{Task description and data construction}
+% \label{sec:headings}
+
+%\subsection{Headings: second level}
+% \begin{equation}
+% \xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
+% \end{equation}
+
+
+
+% \section{Examples of citations, figures, tables, references}
+% The documentation for \verb+natbib+ may be found at
+% \begin{center}
+%   \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
+% \end{center}
+
+
+% \begin{verbatim}
+%   \citet{hasselmo} investigated\dots
+% \end{verbatim}
+
+% \begin{quote}
+%   Hasselmo, et al.\ (1995) investigated\dots
+% \end{quote}
+
+% \begin{center}
+%   \url{https://www.ctan.org/pkg/booktabs}
+% \end{center}
+
+% 引用表格
+% 需要给表格加上标签，格式：\label{fig:fig1}
+% \ref{fig:fig1}
+
+% \subsection{Figures}
+% 123123
+% See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
+% 123123
+
+% \begin{figure}
+%   \centering
+%   \fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+%   \caption{Sample figure caption.}
+%   \label{fig:fig1}
+% \end{figure}
+
+
+% 表格
+% \subsection{Tables}
+% 1312
+% See awesome Table~\ref{tab:table}.
+
+% \begin{table}
+%  \caption{Sample table title}
+%   \centering
+%   \begin{tabular}{lll}
+%     \toprule
+%     \multicolumn{2}{c}{Part}                   \\
+%     \cmidrule(r){1-2}
+%     Name     & Description     & Size ($\mu$m) \\
+%     \midrule
+%     Dendrite & Input terminal  & $\sim$100     \\
+%     Axon     & Output terminal & $\sim$10      \\
+%     Soma     & Cell body       & up to $10^6$  \\
+%     \bottomrule
+%   \end{tabular}
+%   \label{tab:table}
+% \end{table}
+
+
+
+% 打印参考文献
+\printbibliography
+\bibliographystyle{plain}
+\bibliography{references}
+
+
+
+\end{document}
