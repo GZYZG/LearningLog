@@ -1,0 +1,75 @@
+\paragraph{tf.variable\_scope \& tf.name\_scope}
+
+\paragraph{tf.sparse\_tensor}	tf中的稀疏张量。使用三个稠密的张量来表示。
+\begin{itemize}
+	\item indices: 表示原张量中非零值的位置
+	\item values: 表示indices中元素所指位置上的值
+	\item dense\_shape: 表示原张量的shape
+\end{itemize}
+
+\paragraph{tf.train.Saver}tf中用于保存、恢复模型参数的接口。主要由两个接口：1）tf.train.Saver().save()用于保存模型；2）tf.train.Saver().restore()用于回复模型。
+\begin{python}
+	import tensorflow as tf
+	saver = tf.train.Saver(max\_to\_keep=3) # max\_to\_keep表示保存的checkpoint最大次数
+	...
+	# 保存模型
+	# sess: 会话的名字
+	# save\_path: 模型的保存路径
+	# global\_step: 保存模型时的后缀
+	# 使用以下方法保存模型后会产生四个文件，分别是：
+	# checkpoint文件：会记录最新的模型是哪个
+	# .ckpt.meta文件：包含元图，保存了计算图的结构，没有变量的值
+	# .ckpt.data 文件：保存权重等参数
+	# .ckpt.index 文件：为数据文件提供索引，{还不太确定}
+	saver.save(sess=sess, save_path=model_save_path, global_step=step)
+	...
+	# 恢复模型
+	# save_path可以不用加模型的后缀
+	saver.restore(sess=sess, save_path=model_save_path)
+\end{python}
+
+\paragraph{tf.Session}运行tf中操作的类，Session类封装了运行操作所需要的环境。可以使用手动开启和关闭、上下文的方式使用Session。在使用Session时还可以进行配置，将配置作为Session初始化的参数传入。
+
+\paragraph{tf中的RNN}RNN的训练数据与其他神经网络的训练数据有一点不一样。通常的NN中的训练数据，每个样本就是一个向量。但是在RNN中，每个训练样本就是一个矩阵，每一行表示一步的输入，正因为RNN所处理的问题不同，RNN的输出数据也变得更加复杂。\\
+针对不同的RNN有不同形式的输出，但可以进行简单的归纳：对于RNN中的每个样本，其形式为$\mathbb{R}^{max\_time \times embed\_size}$，其中$max\_time$表示所有样本中序列的最大长度，$embed\_size$表示每一步的输入的长度。当输入了一个样本后，会将样本的每一行 --- 即每一步的数据输入到RNN中，由于RNN本身的特点，每一步都可以产生输出，通常来说包含每一步的输出和状态（具体到不同的RNN时会有不同）。每一步的输出维度会收到RNN模型隐层宽度 --- 即隐层单元数量的影响。并且针对不同的任务，最终需要的输出是不一样，例如m对n、m对1、m对m的任务等等。\\
+在tf中，有多种关于RNN单元的类，如BasicLSTMCell、GRUCell、MultiRNNCell。可以在这些类的基础上搭建自己的RNN模型。
+
+
+\paragraph{ImageDataGenerator}
+这是Keras中的一个图像数据生成器，同时也可以在batch中对数据进行增强，扩充数据集大小，增强模型的泛化能力。比如进行旋转，变形，归一化等。
+
+\paragraph{tf.where}
+tf.where(condition, x=None, y=None, name=None)
+
+condition是一个布尔数组，condition、x、y的维度必须相同。
+
+其中x、y可以为None，此时返回的是一个二维数组，该二维数组的行数表示condition中为True的元素的数量，每一行代表对应为True元素的坐标。
+
+当x、y不为None是（x，y必须同时不为None），则会创建一个与condition同样shape的张量，该张量某位置的元素的取值来自x或y，当该位置在condition中为True是则来自x，否则来自y。
+
+\paragraph{pytorch tensor.view}
+\href{https://pytorch.org/docs/stable/tensor_view.html}{view()}相当于数据库中的view --- 对数据进行查看，是查看数据的一种方式。使用view()不会产生数据的复制，与原tensor共享同一块内存，修改view会使原tensor发生变化。
+
+\paragraph{TFRecord}
+下列表来自\href{https://www.jianshu.com/p/72596a8488c3}{简书}：
+\begin{itemize}
+	\item Record顾名思义主要是为了记录数据的。
+	\item 为了更加方便的建图，原来使用placeholder的话，还要每次feed\_dict一下，使用TFRecord+ Dataset 的时候直接就把数据读入操作当成一个图中的节点，就不用每次都feed了。
+	\item 可以方便的和Estimator进行对接。
+	\item TFRecord以字典的方式进行数据的创建。
+\end{itemize}
+
+\paragraph{tf.Graph}
+不同Graph之间的变量是不可以共享的！
+
+
+\paragraph{tf.pad}
+这是tf种对tensor进行填充的函数。\textit{tf.pad(tensor, paddings, mode='CONSTANT', constant\_values=0, name=None)}。其中tensor为要被填充的张量；paddings表示填充时要填充多少值进去，控制了填充后tensor的大小；mode表示填充的模式，什么样的值被填充进去；constant\_value表示mode为CONSTANT时的常量值。其中最重要的参数是\textit{paddings}。\textit{paddings}是一个形状为[n,2]的tensor，n为input的rank（其实可以简单理解为len(input.shape)）。\textit{paddings}中的第$i$个元素可以看做是一个长度为2的数组，第一个元素表示了在input的第$i$维的前面增加的大小，第二个元素表示在第$i$维的后面增加的大小，那么对于input的第$i$来说，它的大小较原来增大了$paddings[i][0]+paddings[i][1]$。
+
+\paragraph{tf.tile}平铺张量。\textit{tf.tile(input, multiples, name=None)}。其中input是一个张量；multiples是一个1-D数组，数组的长度是input的维度数量，每个元素的值表示input被复制的次数，即\textit{input.dims[i] = input.dims[i] * multiples[i]}。
+
+\paragraph{tf.squeeze}压缩张量，将张量中维度大小为1维压缩掉。
+
+\textit{tf.squeeze(input, axis=None, name=None)}。
+
+input为输入的张量；axis为可选参数，可以为整数或者整数1-D数组，为None时表示移除所有大小为1的维，否则移除指定的维。

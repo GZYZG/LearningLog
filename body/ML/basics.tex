@@ -1,0 +1,695 @@
+% 用于记录一些常见的机器学习，深度学习的概念
+\subsubsection{Auto-regressive model---AR}
+自回归模型，“自”体现为：使用某个变量不同时期的值（如时间序列的值）来预测该变量下一个值。AR从线性回归发展而来，假设该变量的不同步之间的值为线性关系。
+
+\subsubsection{Variational Auto Encoder-VAE}
+变分自编码器。
+
+\subsubsection{Spectral cluster}
+谱聚类。将每个样本视作某个空间中的点。
+
+参考资料：
+\begin{enumerate}
+    \item \href{https://www.cnblogs.com/pinard/p/6221564.htm}{谱聚类原理总结}
+\end{enumerate}
+
+
+\subsubsection{Spectral graph convolution}
+
+
+\subsubsection{Semi-supervised learning }
+
+\subsubsection{t-SNE}
+t-distributed Stochastic Neighbor Embedding。一种数据降维的方法。
+
+参考资料：
+\begin{enumerate}
+    \item \href{https://scikit-learn.org/stable/modules/manifold.html#t-distributed-stochastic-neighbor-embedding-t-sne}{sklearn 中关于tSNE的介绍}
+    \item \href{https://www.jianshu.com/p/700f017cd330}{tSNE降维原理}
+\end{enumerate}
+
+
+\subsubsection{L1/2 regularization}
+
+\subsubsection{mini/full-batch gradient descent}
+
+
+\subsubsection{预训练，使用自编码器进行预训练}
+
+\subsubsection{机器学习中常见的数据分布}
+
+\subsubsection{early stopping strategy}
+
+\subsubsection{Jacobean Hessian}
+
+
+\subsubsection{Automatic differentiation} 
+
+\subsubsection{不同的优化器原理}
+可参考：\href{https://mp.weixin.qq.com/s/L9jCK5rtyq3fJZEBpLvagg}{从SGD到NadaMax，十种优化算法原理及实现}
+
+
+\subsubsection{Teacher forcing}     
+RNN训练时使用的一种训练方法。在训练时，使用模型的输出值用来计算误差，但是使用真实的数据作为下一次的输入。
+
+参考资料：
+\begin{enumerate}
+    \item \href{https://blog.csdn.net/aws3217150/article/details/70214422}{自动微分简介}
+\end{enumerate}
+
+
+\subsubsection{熵、相对熵、交叉熵、互信息} 
+\textbf{\checkmark 2020-10-08}\\
+这些概念来自信息论\cite{6773024}。简单来说，熵指的是不确定性或者信息量，熵越大不确定越大。相对熵也叫KL(Kullback-Leibler divergence)散度，用来比较两个概率分布之间的差异。不论是熵、相对熵、交叉熵，都可以看作针对某个（或多个）随机变量，对该随机变量的概率分布的一个某种熵（熵、相对熵、交叉熵）的计算。接下来就从数学上来对其进行描述。
+
+\textbf{熵}：先介绍自信息的概念。对于某个随机变量$X$，当$X$取值为$x_0$时的自信息为$I(x_0) = -log\ p(x_0)$，即事件$x_0$发生时所带来的信息量，如果一个事件发生的概率越大，则其带来的信息量越小。熵是自信息的均值。即$X$取任一值时所能带来的期望信息量，故$X$的信息熵$H(X) = -E_{x\sim p}I(x)$（其中p是$X$所服从的分布），即$H(X) = -\sum_{x \in X}log\ p(x)$。\textbf{因为随机变量$X$会服从某个分布，假设是$p$，则$H(X)$也可以看作是概率分布$p$的信息量的期望。}
+
+\textbf{相对熵}：也称作KL散度。KL是在信息熵的基础上定义的，用来衡量两个分布的差异，其实由上述熵的含义可知，其实KL也可以看作是随机变量$X$，其可能服从的两个分布之间的差异。假设可能服从的两个分布分别是$p, q$，则以$q$去接近$p$时的KL散度表示为：$D_{KL}(p||q) = \sum_{x \in X} p(x) log\ \frac{p(x)}{q(x)} = E_{x\sim p} log\ \frac{p(x)}{q(x)}$。经过化简可得$D_{KL} = -H(p) + \sum_{x \in X}p(x)log\ q(x)$。
+
+\textbf{交叉熵}：\label{ce}cross-entropy，与KL散度相似，也是用来衡量随机变量$X$可能服从的两个分布$p, q$之间的差异的。其数学上的定义为：$Cross-Entropy(p, q) = -E_{x\sim p} log\ q(x) = - \sum_{x \in X}p(x)log\ q(x)$。很显然，交叉熵比KL散度多了一个$H(p)$，即$Cross-Entropy(p, q) = D_{kL}(p || q) + H(p)$。
+
+机器学习中常使用交叉熵，既然KL散度和交叉熵都可以达到相同的目的，那为什么不使用KL散度呢？在机器学习中，上述的分布$q$常作为数据的真实分布，而$q$作为数据的预测分布，此时$H(P)$则可以视作一个常数（因为给定数据后，其真实分布是确定的），在优化模型的参数时，$H(P)$并不会对参数的优化做出贡献（不会影响优化过程），故使用交叉熵即可。
+
+\subsubsection{线性回归\&逻辑回归}
+\textbf{\checkmark 2020-09-30}\\
+线性回归研究的问题是多个变量中某个变量和其他变量之间存在的线性关系，相当于用多个变量线性表示某个变量，某个变量就称为因变量，其他变量就称为自变量。用数学语言来描述的话就是这样的：
+$$
+y=b + \sum_{i=1}^{n} w_i \cdot x_i 
+$$
+在n等于1时，相当于根据数据拟合一条直线；在n大于1的时候，就是多元线性回归了，此时拟合一个平面。自变量也可以称为特征。
+构建线性回归模型时，重要的有这几个点：发现相关性较高的特征，发现与因变量无关的特征，得到最后实际使用的n个特征，对于实值特征的范围进行约束，对于类别特征的类别进行处理。其实，以上这些主要是针对数据的初步分析和预处理。
+得到处理后的数据，接下来可以通过随机梯度下降的方法得到最优的权重。在线性回归中常使用的目标函数是均方误差函数。为了避免模型过拟合，目标函数中还可以加入正则化项，对特征权重进行限制。
+
+其实线性回归模型很像神经络中的一部分———一个激活函数为恒等映射的神经元，也可以看做一个神经网络模型———一个只有一层的神经网络模型。
+
+逻辑回归（Logistic regression, LR），也是在线性回归的基础上的一个分类模型。如果把线性回归看做神经网络单元，那么把激活函数替换为非线性的激活函数就是LR了。从数学形式来看，LR是这样的：
+$$
+z = b + \sum_{i=1}^{n} w_i \cdot x_i 
+$$
+$$
+\bar{y} = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}
+$$
+针对一个样本$x$，LR模型得到的就是$\bar{y}$，很明显这是一个0到1之间的值，即一个概率值，当对样本进行类别划分后（划分为0、1），$\bar{y}$是类别为1的概率。二分类LR的目标函数定义如下：
+$$
+L(w_1,...,w_n) = \prod_{i = 1}^{m} (\bar{y^i} )^{y^i} \cdot ( 1 - \bar{y^i}) ^ {1 - y^i}
+$$
+其中 $y^i$为样本$\boldsymbol{x^i}$的实际类别，$y^i \in \{0, 1\}$。显然这是一个关于权重和偏置的最大似然函数，对其取对数后得到：
+$$
+loss = log L = \sum_{i=1}^{m} \left( y^i log (\bar{y^i}) + (1 - y^i) log ( 1 - \bar{y^i}) \right)
+$$
+
+很明显，线性回归和逻辑回归的目标函数是不一样的，那么为什么LR不适用均方误差损失函数呢？理论上LR也是可以使用均方误差损失函数的，但是均方误差损失在进行SGD时存在一个问题，当预测值与真实值相差越大时，参数变化的越小，训练的越慢（{\color{red}这个可以通过均方误差损失函数进行SGD时对参数的梯度可以看出}）。上述的对数似然函数也可以叫做交叉熵。
+
+对于多类别（例如类别数为$\mathcal{L}$）的LR，可以训练$\mathcal{L}$个二分类的LR，每个LR只输出样本属于某个类别的概率，最后进行集成得到最终的输出结果。此时的目标函数则会发生一点变化：
+$$
+loss = \sum_{i=1}^{m} \sum_{l=1}^{\mathcal{L}} \mathbbm{1}\{y^i = l\} log \frac{e^{ \boldsymbol{w^l} \cdot \boldsymbol{x^i} } }{ \sum_{j=1}^{\mathbb{L}} e^{ \boldsymbol{w^j} \cdot \boldsymbol{x^i}} }
+$$
+其中$\boldsymbol{w^l}$是第$l$个LR模型的权重向量（包括了偏置）。
+
+\subsubsection{metric learning} 
+度量学习。学习如何衡量两个对象之间的相似度/距离。
+
+
+\subsubsection{n-fold cross validation}
+即n折交叉验证。
+
+\subsubsection{xavier innitializatino} 
+Xavier\cite{pmlr-v9-glorot10a}一种参数初始化方法。神经网络模型的参数初始化时很重要的，对模型最终的效果、收敛速度都有很大的影响。
+
+\subsubsection{批训练的过程，原因}
+在训练神经网络时，通常训练数据都是很大的，无法一次性加载进内存。可以把数据分为很多个batch，使用每个batch训练模型后再进行参数调整。
+
+\subsubsection{Contrastive loss, Triplet loss} 
+都是一种损失函数。
+
+Triplet loss用于训练差异较小的数据，常用于人脸识别中。以这种函数为损失函数时，输入的一个样本是一个三元组(anchor, positive, negative)，anchor是随机选择的一个样本，而positive和negative分别于anchor为同类/异类数据。在学习时，Triplet loss的目的就是让anchor的表征与positive的表征尽量靠近，与negative的表征尽量疏远。那么对于一个样本来说，Triplet loss写成公式： $$\mathcal{L} = max( ||f(a)-f(p)||_2^2 - ||f(a) - f(n)||_2^2 + \alpha )
+$$
+公式的含义也很明显，尽量使类内数据相近，类间数据相离。
+
+Contrastive loss是对比损失，也叫zero-one损失，主要用来处理孪生网络中的paired data的关系。通常Contrastive loss的输入是两个样本，且各自都有一个标签，Contrastive loss的目标就是：如果两个样本同类，则loss更小，否则loss更大。写成公式：
+$$
+\mathcal{L} = d_{ij}^2 \cdot Y_{ij} + (1 - Y_{ij} )max(margin - d_{ij}, 0)^2
+$$
+其中，$d_{ij}$就表示样本i, j之间的距离，这个可以有多种形式的定义，$Y_{ij}$表示样本i, j的标签是否相同，margin是一个阈值，如果$d_{ij}$超过阈值则应该尽量把它们划分开。
+
+\subsubsection{Siamese Network}
+孪生网络。
+
+
+\subsubsection{Batch Normalization}
+在神经网络的训练过程中，前一层的输出相当于后一层的输入，当对参数进行更新的时候，前一层的输出会发生变化，可能前一层---后一层的输入的分布就发生了变化，这会降低模型的收敛速度或使得模型难以收敛。为了解决这个问题，BN通过对每一层的输出进行标准化，使其分布尽量稳定下来，加快模型的收敛速度。实际情况在进行BN时，可能是在通过激活函数之间进行BN或者在通过激活函数后再进行BN。通常是在激活函数之前进行BN，因为当输入较大时，通常激活函数的变化都较小，梯度变化不明显，故在激活函数之间就对数据进行BN，使其分布尽量稳定。
+
+
+\subsubsection{判别模型、生成模型}
+\begin{itemize}
+	\item 判别模型：直接对判别函数或者条件概率分布函数进行建模，不考虑样本的产生模型，直接研究预测模型
+	\item 生成模型：学习联合概率密度$P(Y, X)$，然后求出条件概率分布$P(Y|X) = \frac{P(X, Y)}{P(X)}$，不仅要求出联合分布，还要求出训练数据的分布$P(X)$（{\color{red}{不一定要计算$p(X)$，因为对于同一个样本，计算它属于不同分类时，其$p(X)$是一样的，对判别没有帮助}}）。生成模型表示了输入$X$产生输出$Y$的生成关系
+\end{itemize}
+
+对于生成式模型，可以这样理解：\\
+$p(x | y) = p(y)p(x | y)$表示的是，从$p(y)$中采样一个$y$，然后根据$p(x|y)$采样一个$x$。生成式模型希望找到那个能够使$p(x, y)$最大的$y$。1
+
+
+生成模型从统计的角度表示数据的分布情况。判别模型不能反映训练数据本身的特性，但它不断寻找不同类别之间的最优分类面。
+
+也可以从 \textbf{决策函数$Y=f(X)$或条件概率分布$P(Y|X)$} 的角度来看待判别模型和生成模型：
+从数据中学习一个分类器时，希望通过给定的输入$X$输出相应的$Y$。这个模型的一般形式为：
+\begin{itemize}
+	\item 决策函数$Y=f(X)$：输入一个$X$就输出一个$Y$，可以将$Y$于阈值比较得到$X$的类别
+	\item 条件概率分布$P(Y|X)$：输入一个$X$，输出$X$属于各个类的概率，如$P(c_1 | X), P(c_2 | X)$。取其中最大的作为$X$的类别
+\end{itemize}
+实际上$P(Y|X)$是隐含了或者说可以转化为决策函数形式$Y=f(X)$的。例如，将条件概率分布改写为$Y = \frac{P(c_1 | X)}{P(c_2 | X) }$。
+
+参考资料：\href{https://blog.csdn.net/fishmemory/article/details/51711114}{判别模型(Discriminative model)和生成模型(Generative model)}、\href{https://developers.google.cn/machine-learning/gan/generative?hl=zh-cn}{Background: What is a Generative Model?}。
+
+\subsubsection{变分贝叶斯}
+用来近似计算复杂积分，在这类模型中一般包含三类变量：观测变量、未知参数、隐变量，其中位置参数和隐变量统称为不可观测变量。变分贝叶斯的目的主要有两个：
+\begin{itemize}
+	\item 近似估计不可观测变量的后验概率，以便通过这些变量做出推断
+	\item 对于一个特定的模型，给出观测变量边缘似然函数的下界，作为模型选择的依据。一般认为似然概率越高，模型效果越好
+\end{itemize}
+通常情况下，我们会有一组观测数据（D），那么怎么获得不可观测变量（Z））的后验概率P(Z | D)呢？
+
+通常不可观测变量的后验概率是很复杂的，难以直接计算之，但我们可以先假设一个分布Q(Z)与P(Z|D)是近似的。对于衡量两个分布的差异，可以使用KL散度，即：KL(Q(Z) | P(Z|D)) 。
+
+$$
+\begin{equation}\nonumber
+	\begin{aligned}
+		KL(Q(Z) || P(Z|D)) &= \sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z|D)} \\
+		&= \sum_{z \in Z} Q(z) \log \frac{Q(z) P(D) )}{P(z, D) } \\	
+		&= \sum_{z \in Z} Q(z) ( \log \frac{Q(z)}{P(z|D)} + \log P(D) ) \\
+		&= \log P(D) + ( \sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)}) ) 
+	\end{aligned}
+\end{equation}
+$$
+
+显然只要最小化KL散度即可，因为$\log P(D)$是一个常数，所以只要最小化$\sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)})$即可。将$\sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)})$记为$\mathcal{L}$，则$\log P(D) = -\mathcal{L} + KL(Q || P)$。显然KL散度一定是非零的，所以$\log P(D)$的下界就是$-\mathcal{L}$。
+
+
+\subsubsection{自动编码器/变分自动编码器}
+自动编码器是一种无监督的神经网络，用于学习输入数据的低维表示，并能够根据低维表示重建输入数据，也是一种将为的手段。
+
+变分自动编码（Variational Auto Encoder）器运用了变分贝叶斯的思想，也继承了自动编码器的结构，但是存在一定的差别。在VAE中，默认将输入数据的低维表示（即隐变量）服从某个分布，一般认为服从正态分布。在encoder阶段学习到隐表示的分布 --- 通常是学习到假定分布的参数，得到分布后就从该分布中进行采样得到隐表示；decoder时，则将隐表示输入到decoder中。
+
+参考资料：
+\begin{itemize}
+	\item \href{https://www.cnblogs.com/kexinxin/p/9858525.html}{变分自动编码器}
+	\item \href{https://github.com/cdoersch/vae_tutorial}{vae\_tutorial}
+\end{itemize}
+
+\subsubsection{Koopman分析}
+
+
+\subsubsection{Model Collapse}
+模型坍塌，很形象啊，就是模型出现了一个漏洞，不管你输入什么东西都会漏进这个洞里。
+
+这个主要出现在GAN的模型中。GAN通过生成器G和判别器D来使G捕捉到真实数据的分布。在训练GAN模型时会出现model collapse的现象，即G只捕捉到了真实数据的部分分布。为什么会这样呢？简单的介绍一下：当G捕捉到了真实数据的部分分布后，被D识破了，于是G就改变，从某个分布跳到了另外的分布，并且抛弃了原来的分布，于是就成了“猫鼠游戏”，D一直追着G跑，G最终并没有完全捕捉到真实数据的分布。参考：\href{https://blog.csdn.net/SPARKKKK/article/details/72598041}{GAN——ModeCollapse}。
+
+\subsubsection{Inductive Bias}
+归纳偏置，使用某个算法解决问题时所基于的假设，类似于贝叶斯中的先验（prior），与先验不同，归纳偏置在学习过程中不会被更新，而先验会不断被更新。机器学习中常见的归纳偏置：奥卡姆剃刀、CNN中的局部性、KNN中假设相似样本在特征空间中也是相邻的、SVM假设好的分类器应该是类别边界距离最大的等。
+
+\subsubsection{Covariate Shift}
+指机器学习中训练集和测试集样本分布不一致的现象。通常在机器学习中假设训练数据和测试数据的分布是一致的，通过训练数据习得的一组最优参数能否使得模型在测试数据上也有很好的表现呢？当训练集和测试集的分布不是那么相似时，covariate shift就出现了。
+
+怎么解决呢？训练集和测试集的分布不一致导致模型的参数不能很好地应用到测试集上，可能是测试集中地某些样本在训练集中被“轻视”或“过度重视”了，因此可以通过附加一个权重来解决该问题。可参考：\href{https://blog.csdn.net/mao_xiao_feng/article/details/54317852}{covariate shift现象的解释}。
+
+\subsubsection{关于交叉熵损失函数的一点理解}
+交叉熵损失函数可以从多个角度进行理解。从概率论的角度，在极大似然概率估计中，希望参数能够使得已有样本出现的概率最大。
+
+在分类任务中，由于不同样本是有标签的，样本出现的概率应该与标签对应，例如p表示1样本出现的概率，则1-p表示0样本出现的概率，那么对于1样本极大化的应该是p，对于0样本极大化的应该是1-p。
+
+样本的极大化后的概率取对数后为相加的形式。则对于一个样本，其极大化的表示可以写成$log p$ （1样本），或者$log(1-p)$（ 0样本）。如果用一个统一的式子表示的话，可以写成$y log p + (1-y) log(1-p)$，其中y取0或1。
+
+通常是对损失函数最小化，所以可以在极大化的表示前加个符号就变成了交叉熵损失函数：$- y log p - (1-y) log(1-p)$。将一个batch里的样本的损失累加起来就是常见的形式了。并且，在用模型计算p时，p通常通过一个函数来表示$f(x)$，x即为输入的样本，$f(x)$可以是各种机器学习模型，如逻辑回归、神经网络等。
+
+除了从极大似然的角度来理解交叉熵损失函数，当然也可以直接从交叉熵\ref{ce}的角度来理解。
+
+\subsubsection{关于CNN的一点理解}
+于DNN相比，CNN有两个特点：1）局部感知；2）权值共享。
+
+局部感知。在CNN中每个Feature map中的一个值只于上一层的Feature map的一小部分有关。如果将CNN展开成DNN的形式，则一层中的一个神经元的输入只是上一层的某几个神经元。与全连接不同，全连接将上一层的所有信息作为输入，捕捉整体的信息。但局部感知以某个区域内的信息作为输入，捕获上一层数据中存在的局部信息 --- 特定的模式。
+
+权值共享。CNN中的每一个filter都可以得到一个Feature map，同一个Feature map中的元素之间通过同一个filter卷积得到。或者说，同一层的神经元由一个filter产生，共享一套参数。
+见Fig.\ref{fig:share_weight}。图来源于李宏毅老师的ppt。有一点需要注意，CNN模型的输入图像可能是单通道的也可能是三通道的，此时\textbf{每个filter不仅由长和宽还有深度}，filter的深度与图像的通道数是相等的，所以一般来说有多少个filter就有多少个Feature map。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.3\textwidth]{pics/share_weight.png}
+	\caption{CNN的权值共享}
+	\label{fig:share_weight}
+\end{figure}
+
+CNN的应用非常广泛，不仅是图像，在Speech、NLP等很多领域都有非常多的应用。在决定是否要使用基于CNN的模型时，需要考虑：1）数据中存在一些较小的模式，这些模式经常出现在数据中 --- 对用卷积核；2）模式与整个数据相比比较小，更大的语义信息是由很多小的模式组成的；3）进行pooling时不会破坏数据本来的含义。
+
+在探索CNN到底学习到了什么的时候，可以在训练好模型后，通过不断优化输入的数据，来检验是什么样的输入使得基于CNN的模型中的神经元能够得到最大的激活 --- 什么样的输入使神经元最兴奋。这些主要涉及到对CNN的解释和可视化。
+
+\subsubsection{DL中的不可微操作}
+
+\subsubsection{batch normalization、layer normalization}
+
+\subsubsection{Global Max Pooling}
+
+\subsubsection{Attention机制与CNN}
+
+\subsubsection{学习率衰减与参数正则化}
+
+\subsubsection{深度学习中常见的参数初始化方法}
+\paragraph{Glorot initialization}
+
+\subsubsection{机器学习中常用的算法指标及其应用场景}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\paragraph{Accuracy, Recall, Precision, F-score}
+
+$ACC = \frac{TP + TN}{TP+FN+TN+FP}\quad R = \frac{TP}{TP+FN}\quad P = \frac{TP}{TP+FP}\quad F(\beta) = (1 + \beta^2)\frac{P \cdot R}{\beta^2 P + R}$。混淆矩阵（Confusion Matrix）见表.\ref{tab:confusion_mat}。F-score是对R，P的一个综合评价，$\beta$度量了R 相对于 P的重要性，可以理解为$\beta = \frac{importance(R) }{importance(P)}$，则表示$\beta$越大，我们越看重R。
+
+\begin{table}[h]
+	\centering
+	\caption{二分类混淆矩阵}
+	\label{tab:confusion_mat}
+	\begin{tabular}{|c|l|l|}
+		\hline
+		\multicolumn{1}{|l|}{}                          & \multicolumn{2}{c|}{Actual class (observation)}                                                                                   \\ \hline
+		& tp (true positive) Correct result                          & fp (false positive) Unexpected result                                \\ \cline{2-3} 
+		\multirow{-2}{*}{Predicted class (expectation)} & \cellcolor[HTML]{68CBD0}fn (false negative) Missing result & \cellcolor[HTML]{68CBD0}tn (true negative) Correct absence of result \\ \hline
+	\end{tabular}
+\end{table}
+
+\paragraph*{关于$Precision$，$Recall$的选择？}这几个指标在很多任务中都有应用，，但是不同的指标侧重于不同的方面，比如P、R都有不同的侧重，但看一个指标是比较片面的，并不能反映出模型真实的效果。有可能P很高，但是R很低，而在一些场景下R是很重要的。
+
+比如在金融风控等领域，我们希望算法能够尽量识别出所有有可能有风险的用户，这时候就侧重于Recall，即希望算法把所有的正样本（通常有危险的，需要被找出来的被标记为正样本）都筛选出来，即使将所有样本都标为正（这是Recall=1）。因为这种情况下，可能漏掉一个正样本带来的代价是极大的，通常筛选完之后还需要交给人工进行判断。类似的场景还有癌症检测，将一个没有癌症的判断为癌症没有很大关系，但是将一个有癌症的判断为没有癌症则是很严重的，会出人命的！！！
+
+又比如在垃圾邮件分类中，我们可能更侧重于Precision。我们希望算法在识别垃圾邮件时不要把正常邮件错分了，这个时候希望Precision尽可能高，即使将所有样本标为负也没关系（TP=0时可认为Precision=1），或者说算法只把自己十分确信为垃圾邮件的标为正，尽量降低FP，即尽量不要把正常邮件视为垃圾邮件，不然错过了offer那可咋整！！！
+
+通常，将需要识别出的类别，或者简单的说坏的一类为正样本，为什么呢？因为好的漏掉一般不会产生啥大的影响，但是坏的跑了课就不行了！当然，也需要不同场景下选择合适的指标！！！
+
+我们是贪心的，因此就有了一些综合的指标，比如F-score。
+Precision是以被分类的所有样本为分母，Recall则是以原本所有的positives元素为分母。二者之间并没有建立直接联系，如果一个分类器，Precision很高但是Recall很低，或者Recall很高但是Precision很低，这两种分类器都是不好的，都是我们不希望的。所以我们采用F1-Score来建立Precision和Recall的联系。
+
+\textbf{在数学中，调和平均数是永远小于等于算术均值平均数的，当用于求两个数的平均数时，如果直接用算术平均作为结果，那么两数之间的差异将被大的值削平，而调和平均数则不会极大削平这种大的差异，得到的结果更倾向于小的值}。
+
+\paragraph{Micro-F1 \& Macro-F1}基本的F1使针对二分类任务而言的，在多分类中中，Micro-F1和Macro-F1是两种求多类别F1均值的方式。
+\begin{itemize}
+	\item Micro-F1：分别计算每个类别的$TP, FN, FP$，再求整体的$Recall$，$Precision$，再以整体的$P, R$来求$F1$，得到Micro-F1。在计算公式中考虑到了每个类别的数量，所以适用于数据分布不平衡的情况；但同时因为考虑到数据的数量，所以在数据极度不平衡的情况下，\textbf{数量较多的类（即常见的类）会较大的影响到F1的值}
+	\item Macro-F1：分别计算每个类别的F1，再求平均，得到Macro-F1。没有考虑到数据的数量，所以会平等的看待每一类（因为每一类的precision和recall都在0-1之间），\textbf{会相对受高$Precision$和高$Recall$类（即稀有的类）的影响较大}
+\end{itemize}
+$Micro-F1$公式如下所示：
+$$
+\begin{aligned}
+	 Recall_{m i} &=\frac{\sum_i TP_{i}}{\sum_i TP_{i} + \sum_i FN_{i}} \\
+	Precision_{m i} &=\frac{\sum_i TP_{i}}{\sum_i TP_{i} + \sum_i FP_{i}} \\
+	Micro-F1 &= \frac{ Recall_{m i} \times Precision_{m i}}{Recall_{m i}+ Precision_{m i}}
+\end{aligned}
+$$
+$Macro-F1$如下所示：
+$$
+Macro-F1 &=2 \frac{ \sum_i F1_i}{N}
+$$
+
+
+\paragraph{ROC、AUC}接收者操作特征曲线（recevier operating characteristic curve），用于反映一个而分类器的灵敏度（sensitivity）和特异度（specificity）之间的关系。
+$$
+\begin{aligned}
+	Sensitivity &= \frac{TP}{TP + FN}\\
+	Specificity &= \frac{TN}{TN + FP}
+\end{aligned}
+$$
+其中Sensitivity也就是TPR（True Positive Rate），也就是Recall，Specificity是TNR（True Negtive Rate）。ROC的横坐标是$1 - Specificity$，即FPR（False Positive Rate），纵坐标是Sensitivity。横坐标表示的是负样本中被预测为正样本的比例，纵坐标表示的是正样本中被预测为正样本的比例。
+
+ROC如Fig.\ref{fig:roc}所示。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{pics/roc.png}
+	\caption{ROC}
+	\label{fig:roc}
+\end{figure}
+ROC的绘制过程：对于一个二分类问题，使用一个分类器对样本集进行预测后，可以得到每个样本属于正样本的概率，此时我们还需要一个阈值来确定那些为正样本。每选取一个阈值，就可以得到一个（TPR，FPR）数值对。当阈值从1到0不断减小时，被确定为正样本的样本数不断增大，其中TP和FP都会不断增大，由于正负样本的数量是固定的（即TPR，FPR的分母是固定的），则TPR和FPR都会不断增大。那么，
+\begin{itemize}
+	\item 当阈值为1时，（几乎）所有样本都为负样本，则TPR约为0，既然都为负样本那么FP也为0，则FPR也为0
+	\item 当阈值为0时，所有样本都为正样本，那么肯定所有的正样本都找出来了，则TPR为1，由于所有样本都预测为正样本，那么肯定所有的负样本都预测为了正样本，则FPR为1
+\end{itemize}
+因此，在阈值从1到0的过程中，（TPR，FPR）不断增大，从坐标（0，0）到（1，1），如Fig.\ref{fig:threshold}所示，Fig.\ref{fig:threshold}上部分为负样本为正样本的概率的分布图（即横坐标为正样本概率值，纵坐标为对应的样本数量），下部分为正样本为正样本的概率的分布图，可见，当阈值为$B$时，大部分正样本都被分为了正样本（TP），小部分负样本被分为了正样本（FP）。由Fig.\ref{fig:roc-threshold}可见，当阈值减小时，（TPR，FPR）的变化过程。
+
+\begin{figure}[h]
+	\centering
+	\subfigure[阈值变化与预测正负样本的分布]{
+		\includegraphics[width=7cm]{pics/threshold.png}
+		\label{fig:threshold}
+	}
+	\quad
+	\subfigure[阈值变化与ROC]{
+		\includegraphics[width=7cm]{pics/roc-threshold.png}
+		\label{fig:roc-threshold}
+	}
+	\caption{阈值变化}
+	\label{fig:threshold-change}
+\end{figure}
+ROC是一个曲线，那怎么作为一个指标呢？ --- 取ROC与坐标轴围成的面积，即\textbf{AUC（Area Under Curve）}。由于ROC的绘制过程，我们希望当阈值为接近0时，TPR尽量高，FPR尽量低（其实不管阈值为何值，都希望有这个效果），一个好的分类器的ROC的AUC应该尽量大。
+
+AUC的含义：随机挑选一个正样本、一个负样本，分类器分别给出一个分数，正样本的分数大于负样本的分数的概率。
+
+\textbf{为什么要用ROC/AUC呢？}\newline
+因为ROC曲线有个很好的特性：当测试集中的正负样本的分布变化的时候，ROC曲线能够保持不变。在实际的数据集中经常会出现类不平衡(class imbalance)现象，即负样本比正样本多很多(或者相反)，而且测试数据中的正负样本的分布也可能随着时间变化。roc曲线不变原因：TPR和FPR是实际label内部的操作，看混淆矩阵和tpr、fpr计算公式，无论实际label比例怎么变化，tpr、fpr计算公式都是在实际为p或者n的内部计算的
+
+\textbf{如何使用ROC来选择模型？}\newline
+当我们有多个分类器时，给定一个数据集，可以得到多条ROC曲线，那么怎么来选择模型呢？一个很直观的想法是直接比较AUC。但是在不同场景下，我们要结合更看重的指标选择模型。如Fig.\ref{fig:roc-cmp}所示，当ROC不交叉时，可以直接选择AUC高的，当ROC交叉时则需要慎重考虑了。当需要高的Sensitiviy时，选择A，需要高Specificity（即低FPR）时选择B。
+
+
+\begin{figure}[h]
+	\centering
+	\subfigure[ROC不交叉]{
+		\includegraphics[width=7cm]{pics/roc1.png}
+		\label{fig:roc1}
+	}
+	\quad
+	\subfigure[ROC交叉]{
+		\includegraphics[width=7cm]{pics/roc2.png}
+		\label{fig:roc2}
+	}
+	\caption{ROC比较}
+	\label{fig:roc-cmp}
+\end{figure}
+
+参考资料：
+\begin{itemize}
+	\item \href{https://blog.csdn.net/pipisorry/article/details/51788927}{分类模型评估之ROC-AUC曲线和PRC曲线}
+	\item \href{https://zh.wikipedia.org/zh/ROC%E6%9B%B2%E7%BA%BF}{ROC曲线}
+\end{itemize}
+
+
+\paragraph{mIoU}
+Mean Intersection over Union(MIoU，均交并比)，为语义分割的标准度量。其计算两个集合的交并比，在\textbf{语义分割}的问题中，这两个集合为真实值（ground truth）和预测值（predicted segmentation）。令$p_{ij}$表示实际类别为$i$，预测类别为$j$的数量，则
+$$
+mIoU = \frac{1}{C} \sum_{i=1}^{C} \frac{p_{ii}}{ \sum_{j=1}^{C} p_{ij} + \sum_{j=1} p_{ji} - p_{ii} }
+$$
+如下图Fig.\ref{fig:miou}所示：
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{pics/miou.png}
+	\caption{mIoU}
+	\label{fig:miou}
+\end{figure}
+在\textbf{语义分割}中，被分类的对象为每个像素，真实标签为该像素所属的类别，预测标签为预测的类别。计算时，可以先计算出混淆矩阵，将对角线上的元素的值之和除以混淆矩阵中所有元素的和，再除以类别数就是mIoU了。注意，在实际计算中，要注意除零的情况。
+
+\paragraph{Dice}
+有Dice系数和Dice loss之分。
+Dice系数是一种集合相似度度量函数，通常用于计算两个样本的相似度，取值范围在[0,1]，计算公式如下：
+$$
+dice(x, y) = \frac{2|x \cap y|}{|x| + |y|}
+$$
+在\textbf{语义分割}中，$x, y$可以分别代表预测的分割结果、真实的分割，分别以矩阵的形式表示。那么，计算模型的分割效果可以为：
+$$
+dice(pred, ground) = \frac{2(pred \cdot ground).sum()}{pred.sum() + ground.sum()}
+$$
+其中，$\cdot$和\textit{.sum()}分别表示矩阵的逐元素乘积、逐元素求和。
+Dice loss则是：$1 - dice(pred, ground)$，Dice loss 首次在VNet中提出。
+
+在图像分割实践中，可以用Dice loss或者交叉熵损失函数作为目标函数，但是由于交叉损失函数的梯度形式更优，更倾向于选择交叉熵损失函数。
+Dice Loss特点：
+\begin{itemize}
+	\item 训练误差曲线非常混乱，很难看出关于收敛的信息。尽管可以检查在验证集上的误差来避开此问题
+	\item Dice Loss比较\textbf{适用于样本极度不均的情况}，一般的情况下，使用 Dice Loss 会对反向传播造成不利的影响，容易使训练变得不稳定
+	\item Dice对mask的内部填充比较敏感
+	
+\end{itemize}
+作为Dice loss的一个替代，可以使用cross entropy loss。原因：
+\begin{center}
+	使用交叉熵做损失函数时，在反向传播时，计算得到的梯度的形式是类似于（p-t）的，其中$p, t$分别是预测值和标签。而dice loss，如果将其写成$\frac{2pt}{p^2+t^2}$ 或 $\frac{2pt}{p+t}$的形式，则在反向传播时，梯度大概时这个样子的： $\frac{2t(t^2-p^2)}{(p^2+t^2)^2}$ 或 $\frac{2t^2}{(p+t)^2}$。这样的梯度有什么问题呢？当$p, t$都很小时，梯度可能会变得很大，这也是\textbf{dice loss在训练过程中不稳定的原因}了。
+\end{center}
+
+
+
+\paragraph{Rand Error}
+Rand Error是以Rand Index（兰德系数）为基础的。Rand Index用于衡量两个数据簇之间的相似性。Rand Index的定义：
+对数据点集进行分类时，用a表示实际为同一类，预测时也为同一类的数据点对（pair）的数量，b表示实际为不同类，预测时也为不同类的数据点pair的数量，则
+%\binom{n}{k}\qquad\mathrm{C}_n^k
+$$
+RI(Rand Index) = \frac{a + b}{\mathrm{C}_n^k}
+$$
+Rand Error定义为：
+$$
+RE = 1 - RI
+$$
+RE可以用于衡量图像分割算法的效果。可以参考：\href{http://www.otlet-institute.org/wikics/Clustering_Problems.html#toc-Subsection-4.1}{Rand Index计算}。
+
+\paragraph{Hausdorff 距离} 可以用于衡量两个点集之间的距离，定义如下，其中$\boldsymbol{X}, \boldsymbol{Y}, d(x, y)$表示两个点集和点之间的距离度量函数：
+$$
+d_{H}(X, Y) = \max (d_{X Y}, d_{Y x}) = \max \left\{\underset{x \in X}{\max } \min _{y \in Y}d(x, y),\quad \max _{y \in Y} \min _{x \in X} d(x, y)\right\}
+$$
+\textbf{Dice缺陷在于对边界的刻画不敏感}，注意力主要集中在mask的内部。而Hausdorff距离作为形状相似性的一种度量，能够为Dice做出较好的补充。
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{pics/Hausdorff distance.png}
+	\caption{Hausdorff Distance}
+	\label{fig: hausdorff distance}
+\end{figure}
+
+\paragraph{MRR}
+Mean Reciprocal Rank，常用来衡量搜索算法效果的指标，目前被广泛用在允许返回多个结果的问题，或者目前还比较难以解决的问题中（由于如果只返回top 1的结果，准确率或召回率会很差，所以在技术不成熟的情况下，先返回多个结果）。在这类问题中，系统会对每一个返回的结果给一个置信度（打分），然后根据置信度排序，将得分高的结果排在前面返回。核心思想很简单：返回的结果集的优劣，跟第一个正确答案的位置有关，第一个正确答案越靠前，结果越好。定义如下：
+$$
+MRR = \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{1}{rank_i}
+$$
+其中$Q$为查询集合，$rank_i$是第$i$个查询的结果集中正确结果的排名。
+
+\paragraph{AP}
+Average Precision，平均精确率。对于二分类问题，给定样本真实标签$\{y_1, ..., y_n\}$和模型预测的正样本置信度$\{c_1, ..., c_n\}$，计算AP：
+\begin{enumerate}
+	\item 按照置信度从大到小对样本进行排序，令排序后的样本的置信度为$\{c_1, ..., c_n\}$
+	\item 令 $i=1$，重复执行：
+	\begin{enumerate}
+		\item 以$c_i$为阈值，得到预测的正负样本，即前$i$行预测为正样本，之后的均为负样本
+		\item 计算当前阈值下的Recall和Precision
+		\item $i += 1$
+		\item 当$i > n$则结束循环
+	\end{enumerate}
+	\item 排序后的每个样本都对应一个(Recall, Precision)对，即$\{(r_1, p_1), ..., (r_n, p_n)\}$
+	\item 上一步得到的Recall列表$\{r_1, ..., r_n\}$中的元素$r_i$与$r_{i-1}$做差，设$r_0 = 0$，则可以得到$\{d_1, ..., d_n\}$，其中$d_i = r_i - r_{i-1}$
+	\item 求和：$AP = \sum_{i=1}^n d_i \cdot p_i$
+\end{enumerate}
+如Fig.\ref{fig:ap}所示，该表是按照置信度排序后的样本，correct列表示该样本的真实标签，P、R列是按照上述方式计算出来的Recall和Precision。
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.3\textwidth]{pics/AP.png}
+	\caption{AP计算示例}
+	\label{fig:ap}
+\end{figure}
+
+\paragraph{MAP}
+Mean Average Precision，是AP的均值。AP通常是针对单个类别而言的，当有多个类别时，分别计算每个类别的AP，再进行算术平均。
+
+\tbc{red}{注意：}AP和MAP常用在目标检测和信息检索领域中。
+\begin{itemize}
+	\item 目标检测领域中，对于一个类别，可能会检测出多个检测框，每个检测框可以根据IoU来判断检测框的真实标签是1还是0（针对一个类别的检测而言，\tbc{green}{因为目标检测中的Ground Truth也是一个边界框，所以不需要和边界框完全一致才作为正样本，只要IoU大于一定阈值即可}），每个检测框还对应一个置信度。此时即可按照上述方式计算该类别的AP
+	\item 在信息检索领域，对于一个查询$q$，通常希望模型能够给出top K个结果（\tbc{red}{有序的}）。若$q$真实的有序搜索结果列表为$\{d_1, ..., d_m\}$，则可以对这K个结果的标签，由于模型的输出已经是排好序的，故可以直接计算AP。对于多个查询，则计算每个查询的AP后再取平均
+\end{itemize}
+总而言之，根据某种方法判定样本的真实标签（如目标检测中通过IoU判定、分类任务中给定的标签、搜索中给定的真实搜索列表等），再根据置信度进行排序（如目标检测中的置信度、分类任务中输出的分数、搜索中直接给出的排序等），计算每个位置处的$(recall, precision)$，按照上述方式即可算出AP。
+
+
+\paragraph{DCG、NDCG}
+Discounted Cumulative Gain，折扣累计增益。在介绍DCG之前有必要先介绍一下CG，Cumulative Gain，即累计增益。这两个指标主要用于搜索领域。对于模型返回的$p$个结果（\tbc{red}{有序的}），每个位置处的结果与查询的相关性为$rel_i$，则该结果的CG为：
+$$
+CG_p = \sum_{i=1}^p rel_i
+$$
+很明显，CG没有考虑结果的先后顺序，在搜索中，结果的顺序是至关重要的，因此产生了DCG：同一个相关度，排名越后则增益越小，即与所处排名成反比。
+$$
+DCG = \sum_{i=1}^p \frac{rel_i}{\log_2(i+1)}\qquad or\qquad \sum_{i+1}^p \frac{2^{rel_i} - 1}{\log_2(i+1)}
+$$
+通常，不同的查询对应的结果列表是不一样长的（\tbc{green}{不同长度的搜索结果对应的DCG值范围不一样，无法直接比较，例如长的结果列表DCG最大可为10，短的最大可为5，前者的DCG为4和后者的DCG为4并不代表二者的结果列表质量一样}），因此不能将DCG用于评价结果列表长度不同的查询效果，因此需要对DCG进行归一化，即NDCG（Normalized DCG，归一化折扣累计增益），
+$$
+NDCG = \frac{DCG}{IDCG}
+$$
+其中IDCG为理想情况下的折扣累计增益，表示真实的结果列表的DCG，计算方式为取真实结果列表的前$p$个结果计算DCG，即
+$$
+IDCG = \sum_{i=1}^p \frac{2^{rel_i} - 1}{\log_2(i+1)}
+$$
+
+\tbc{red}{注意：}MAP和NDCG都可以用于衡量搜索结果的质量，但是MAP只支持两种相关性：\{相关，不相关\}，NDCG可以支持多种相关性得分，如1-5。
+
+\subsubsection{深度学习模型中特殊的结构}
+\paragraph{Residual learning block}
+跳跃连接，基本的残差块如Fig.\ref{fig:residual}所示（当然残差块不止有这一种形式，可以根据需求定义不同的残差块）。残差学习由何凯明基于以下问题提出：给定一个学习问题后，逐渐加深网络的层的时候，模型的效果应该是逐渐提升的或者不能低于原来模型的效果，但是在实验中发现通常加深后模型的效果反而变差了。按理来说就算不能提升了，额外增加的层也可以学习到一个恒等映射来保持效果不变啊，但是为什么反而下降了呢？这便是\textbf{模型退化问题}。
+
+假设原本要学习的问题是$\mathcal{H}(x)$，之前的想法是直接学习它，在残差学习中，将它进行分解$\mathcal{H}(x) = \mathcal{F}(x) + x$，由于$x$是已知的，那么只需要学习$\mathcal{F}$就好了，$\mathcal{F}$也就是所说的残差。
+
+\textbf{为什么这样会有效呢？}由于神经网络中通常都会使用非线性函数来拟合复杂的函数，但是对于线性关系却有点力不从心（可能这就是为什么不能学习到恒等映射的原因吧）。残差学习不仅保留了学习非线性函数的能力，也提高了线性函数的学习能力 --- $\mathcal{F}$为0即可。Resudial Learning的这种能力使得更深的网络称为可能。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.4\textwidth]{pics/Residual.png}
+	\caption{Residual}
+	\label{fig:residual}
+\end{figure}
+
+\paragraph{Dense Connection}
+稠密连接，如Fig.\ref{fig:dense block}所示。每一层与之前的所有层都有连结。用$H_l$表示第$l$层，$\boldsymbol{X}_l$表示第$l$层的输出，则$\boldsymbol{X}_l = H_l(\boldsymbol{X}_0, \boldsymbol{X}_1, ..., \boldsymbol{X}_{l-1})$。
+
+有以下优点：1）减轻了梯度消失问题；2）加强了特征的传播，能够有效的利用学习到的特征；3）能够利用多层次的特征。
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.4\textwidth]{pics/dense block.png}
+	\caption{Dense Block}
+	\label{fig:dense block}
+\end{figure}
+
+\paragraph{Dilated Convolution}空洞卷积。在pooling时，可以减小feature map的尺寸，也能增大每个元素的感受野但是也损失了空间信息。在进行分割时，pooling损失的那部分信息是难以复原的。dilated卷积是一种特殊的卷积，与通常的卷积不同，dilated卷积会在\textbf{卷积核元素之间插入空格}，其实相当于一个更大的卷积核，而那些插入的卷积核的值一直为0。如Fig.\ref{fig:dilation}所示。Dilation卷积可以在不做pooling损失信息的情况下增大感受野，pooling虽然可以增大感受野但是失去了位置信息，难以从pooling后的层恢复到原来的信息，而dilation卷积不仅增大了感受野，还保留了特征图中元素的相对空间信息。
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.8\textwidth]{pics/dilation.jpg}
+	\caption{Dilation Convolution}
+	\label{fig:dilation}
+\end{figure}
+
+\paragraph{1 $\times$ 1 Conv}
+$1\times 1$卷积很显然，就是卷积核的长宽均为1，用$c_i$ 和$c_o$  分别表示输入和输出通道的数目，为了获得多个通道的输出，可以为每个输出通道创建一个形状为$c_i\times 1 \times 1$ 的卷积核张量，这样卷积核的形状是$c_o \times c_i \times 1 \times 1$。
+
+由于$1\times 1$卷积的长宽为1，无法关注到周围像素的信息，只能关注到同一位置不同通道上的信息，其作用主要由以下几点：
+\begin{itemize}
+	\item 融合多个通道间的信息
+	\item 在不改变feature map尺寸的情况下改变feature map的通道数，例如在图像分割中
+	\item 降低参数量
+	\item 在以每像素为基础应用时，$1\times 1$卷积相当于全连接层
+\end{itemize}
+更多解释可参考动手学深度学习：\href{https://zh-v2.d2l.ai/chapter_convolutional-neural-networks/channels.html#times-1}{$1\times 1$  卷积层}
+
+\subsubsection{常用数据增强手段}
+增强之前，先想一想：真的需要增强数据吗（通常来说是的）？需要增加的多少数据？需要增加什么样的数据（并不是什么样的数据都可以，主要考虑应用场景中一般会出现的数据即可）？
+\paragraph{仿射变换}
+仿射变换（Affine Transformation）是指在二维向量空间中进行一次线性变换(乘以一个矩阵)和一次平移(加上一个向量)，变换到另一个向量空间的过程。
+$$
+\left[\begin{array}{l}
+	u \\
+	v \\
+	1
+\end{array}\right]=\left[\begin{array}{ccc}
+	a_{1} & b_{1} & c_{1} \\
+	a_{2} & b_{2} & c_{2} \\
+	0 & 0 & 1
+\end{array}\right]\left[\begin{array}{l}
+	x \\
+	y \\
+	1
+\end{array}\right]
+$$
+
+图解，放射变换的种类也如Fig.\ref{fig:affine}所示：
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.8\textwidth]{pics/affine.png}
+	\label{fig:affine}
+	\caption{仿射变换}
+\end{figure}
+
+\paragraph{弹性形变\cite{simard2003best}}
+最早是从UNet中了解到弹性形变，在细胞分割中，弹性形变发挥了重要作用；弹性形变也用在手写数字识别中。可以发现，在这两种任务中，任务所涉及的对象并不是刚体，简单的仿射变换并不能满足我们的需求。弹性形变所针对的数据特点：对象不是刚体，可能在不同的场景下会有形变。
+
+弹性形变流程：
+\begin{itemize}
+	\item 对图像imageA进行仿射变换，得到imageB
+	\item 对imageB图像中的每个像素点随机生成一个在x和y方向的位移，$\Delta \mathrm{x}$和$\Delta \mathrm{y}$。其位移范围在(-1, 1)之间，得到一个随机位移场(random displacement fields)
+	\item 用服从高斯分布的$N(0, \delta)$对step2中生成的随机位移场进行卷积操作(和CNN中的卷积操作一样，说白了就是滤波操作)。我们知道δ越大，产生的图像越平滑。下图是论文中的不同δ值对随机位移场的影响，下图左上角为原图，右上角为$\delta$较小的情况(可以发现，位移方向非常随机)，左下角和右下角为较大的不同$\delta$值
+	\item 用一个控制因子$\alpha$与随机位移场相乘，用以控制其变形强度
+	\item 将随机位移场施加到原图上，具体是\textbf{怎么施加的呢}？首先，生成一个和imageB大小一样的meshgrid网格meshB，网格中的每个值就是像素的坐标，比如说meshgrid网格大小为512x512，则meshgrid中的值为(0, 0), (0, 1), ..., (511, 0), (511, 511)，然后将随机位移场和meshB网格相加，这就模拟了imageB中的每个像素点在经过随机位移场的作用后，被偏移的位置，meshB与随机位移场相加后的结果记做imageC
+	\item 弹性变形最终输出的imageC中每个位置的灰度值大小，组成一副变形图像，现在imageC中每个像素点存储的是$(\mathrm{x}+\Delta \mathrm{x}, \mathrm{y}+\Delta \mathrm{y})$，如下图中的$\mathrm{A}^{\prime}$，那怎么转化成灰度值呢，依据论文，作者是根据imageB中的B位置的双线性插值灰度值作为$\mathrm{A}^{\prime}$点的像素灰度值大小（如Fig.\ref{fig:elastic-deform}所示），最终将imageC输出得到变形图像
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.8\textwidth]{pics/elastic_deform.png}
+	\label{fig:elastic-deform}
+	\caption{弹性形变}
+\end{figure}
+参考：\href{https://zhuanlan.zhihu.com/p/342274228}{数据增强：弹性变形(Elastic Distortion)}。
+
+\paragraph{增加噪声}
+如椒盐噪声。
+
+\paragraph{GAN}
+
+
+\subsubsection{方差与偏差}
+\paragraph{偏差（Bias）}讲模型的方差的时候，通常是指：对于一个模型，它的预测结果与真实值之间的差距。方差度量的是学习到的函数与真实函数的差距的期望，即$E[\hat{f} - f]$。
+
+\paragraph{方差（Variance）}选用一种模型（如KNN，SVM，NN等），使用不同的数据可以得到该种模型的多个实例（即训练好参数的模型）。\textbf{这些模型}对于同一个输入给出的预测值的方差，即$E[(\hat{f} - E[\hat{f}])^2]$。方差是受所使用的训练集影响的，我们使用不同分布的数据集训练出来的模型会导致学出来的模型参数变化，这反映出来的就是针对同样的输入会产生不一样的预测值，这些预测值的方差就反映了模型的方差。
+
+在模型很复杂的时候，在训练集上学习的模型能够准确地预测，产生较小的偏差，但是更容易产生大方差，因为模型有更多的参数，能够“死记硬背”记下输入与输出的映射关系，这个时候模型可能记住了一些没用的东西甚至是噪声，而模型是没有见过测试集的，稍微有些不同的数据点的输出可能会有较大的差别，从而产生大的偏差。 --- \textbf{过拟合}
+
+当模型较简单的时候，可能无法充分地利用训练集，在测试集上会产生较大的偏差，但是因为模型参数少，模型关注地特征较少，光从这些特征来看的话，测试集中的数据与训练集中的数据会有更高的相似性，因此就算不同的数据输入，但是由于某些特征被忽略后数据反而是相似的，所以模型给出的输出是类似的，因而方差小。--- \textbf{欠拟合}
+
+参考：\href{http://scott.fortmann-roe.com/docs/BiasVariance.html}{Understanding the Bias-Variance Tradeoff}。
+
+
+\textbf{注意：}\textbf{一种模型相当于一个函数空间}，当我们选择一种模型进行训练，得到了该种模型的各个参数，就相当于得到了一个实例化的模型。模型种类相当于类，训练好的模型相当于对象。喂数据训练模型时相当于在某个特定的函数空间中找到一个合适的函数 --- 即我们要的模型。有时候训练后的模型效果不好，可能不是这种模型不行，可能是没有在这个函数空间中找到合适的函数。
+
+\subsubsection{类别不平衡问题}
+指的是监督学习中，不同类别的样本数目具有较大的差异（样数据分布与均匀分布差异较大）。
+\paragraph{类别不均衡可能造成的问题}
+\begin{itemize}
+	\item 一些评价指标可能失效。例如在癌症检测中，可能$99\%$的样本都是0，只有$1\%$的样本为1，这个时候即使将所有样本预测为0也能有很好的acc，但是漏检是很严重的！类别不平衡使得一些评价指标并不能反映模型真是的能力
+	\item 
+\end{itemize}
+
+\paragraph{决解办法}
+\subparagraph{数据角度}
+中心思想就是直接改变数据分布。
+\begin{itemize}
+	\item 获取更多数据，使数据分布趋向于均衡
+	\item 上采样。通过一些方法，使得占少数的类别（minority类）的样本数增加，常用的方法：
+	\begin{itemize}
+		\item 重复采样minority类，使其样本数增加
+		\item 合成的方法。根据已有数据集生成新的样本，如SMOTE方法及其变体
+		\item 基于聚类。分别对major和minority类进行聚类，再通过过采样的方法使得major和majority中各个簇的数量相等，例如原本major类聚类后样本数目比为1:2:3，minority类聚类后为1:2，通过过采样的方法，先使majority与minority样本数相等，再使类内部各个簇的数目相等。这样不仅可以解决类别间的不平衡，还可以解决类内部的不平衡
+	\end{itemize}
+	\item 下采样。通过一些方法把占多数的类别（major类）的样本数降低。下采样的方法有很多
+	\begin{itemize}
+		\item 随机下采样，从major类中随机保留一部分样本
+		\item 基于临近样本，来选择保留哪些major类样本
+		\item 基于聚类，对major类进行聚类，使其具有N（minority类样本数）个簇，用这N个簇的中心作为major类采样后的样本
+	\end{itemize}
+\end{itemize}
+
+\subparagraph{算法角度}
+\begin{itemize}
+	\item 选择对数据倾斜相对不敏感的算法，如树模型等
+	\item 在下采样时会损失一部分信息，可以从major类中采样多个数据集来学习不同的模型，即集成学习（Ensemble集成算法）。首先从多数类中独立随机抽取出若干子集，将每个子集与少数类数据联合起来训练生成多个基分类器，再加权组成新的分类器，如加法模型、Adaboost、随机森林等
+	\item 将任务转换成异常检测问题。譬如有这样一个项目，需要从高压线的航拍图片中，将松动的螺丝/零件判断为待检测站点，即负样本，其他作为正样本，这样来看，数据倾斜是非常严重的，而且在图像质量一般的情况下小物体检测的难度较大，所以不如将其转换为无监督的异常检测算法，不用过多的去考虑将数据转换为平衡问题来解决
+\end{itemize}
+
+\subparagraph{评价指标角度}
+\begin{itemize}
+	\item 混淆矩阵
+	\item F-score
+\end{itemize}
+
+\subsubsection{交叉验证}
+在训练模型的时候，通过会把数据集划分为训练集和测试集，测试集的作用用于学习模型参数，测试集是为了检验模型在未见过的数据上的效果。但是只将数据集划分为测试集和训练集有以下问题：
+\begin{itemize}
+	\item 最终模型与参数的选取将极大程度依赖于你对训练集和测试集的划分方法。不同的划分情况，学习出来的参数是不一样的；固定模型参数，模型在不同划分上的表现也是不一样的。这种情况使得我们无法准确对模型的能力进行评估，不利于我们选择最优的模型（指何种模型）以及最优的模型参数（一般是指超参数，而不是模型学习到的参数）；
+	\item 该方法只用了部分数据进行模型的训练，无法充分利用已有的数据。测试的效果只是针对某个划分，并不是针对整个数据集，不够有说服力；
+\end{itemize}
+为了解决以上为题，即1）选择最好的模型与参数；2）充分利用数据，使模型的测试结果有说服力，就有了交叉验证（Cross Validation）。常见的交叉验证方法：
+\begin{itemize}
+	\item LOOCV（Leave-one-out cross-validation），即留一验证。对于有N个样本的数据集，重复N次，每次选择其中一个作为测试集，其他的作为训练集，这样就得到了N个$(train_i, test_i), i = 1, ..., N$训练集、测试集对儿。分别用这N个训练集-测试集对儿来训练模型，这样就可以学习到N个模型。每个模型都可以得到一个测试得分，进行平均后就作为这类模型在这个数据集上的测试分数
+	
+	\item K-fold CV，即K折交叉验证。与LOOCV类似，但是对数据集的划分不同，是把数据集划分为K份，每次取其中一份作为测试其，其余作为训练集，这样就可以得到K个测试得分，进行平均后作为最终的测试分数
+\end{itemize}
+\textbf{注意：给定模型种类和一组超参数，这样就确定了一个模型，但是模型的参数需要通过数据来学习（如Fig.\ref{fig:model}所示），比如线性回归中的权重，上述的N个或K个模型是针对某个模型种类和一组超参数组合而言，K或N个不同的训练集学习到的K或N个模型，但它们的超参数都是一样的}，具体过程就是：\tbc{red}{确定模型类别 ==> 确定超参数 ==> 喂数据进行学习（喂K次不同的数据） ==> 得到K个模型（但是超参数都一样） ==> 计算平均得分 ==> 得到这种模型在这种超参数下的得分}，这也就是CV可以用于选择模型（\textbf{选择模型最优的超参数}）的原因。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{pics/model.png}
+	\label{fig:model}
+	\caption{模型的超参数与学习参数}
+\end{figure}
+
+一些值得注意的问题：
+\begin{itemize}
+	\item LOOCV计算成本太高而且不同训练集之间的重合度太高
+	\item K的选取。K太大，投入的训练集也大，得到的模型可能会有较小的偏差，但是由于训练集之间的重叠度较高，会存在较高的方差
+\end{itemize}
+
+
+\subsubsection{归一化 vs 标准化 定量的分析}
+参考：\href{https://mp.weixin.qq.com/s/lO3Li7dWAvtzefVA_M0dJg}{https://mp.weixin.qq.com/s/lO3Li7dWAvtzefVA\_M0dJg}

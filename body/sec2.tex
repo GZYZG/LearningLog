@@ -1,0 +1,23 @@
+%\section{Node2vec: Scalable Feature Learning for Networks}
+
+论文主要解决了网络中结点表征学习的一个问题。首先来描述问题。\\
+以优化的角度来解决结点表征的问题。在论文中具体的体现就是最大化一个似然概率。形式化定义如下：\\
+$G = (V, E)$\\
+$f : V \to \mathbb{R}^d$ \\
+最后需要优化的式子如下：\\
+$$\mathop{max}_{f}\sum_{u \in V} log Pr(N_s(u) | f(u) ) $$
+
+论文中基于两个假设来优化该式子： \\
+（1）条件独立性假设。对于结点$v$，其邻居结点之间是相互独立的；\\
+（2）特征空间的对称性。简言之即任意结点对之间的影响是相等的，与顺序无关。
+
+由于不同节点的特征会有较大偏差，按照softmax对单个的概率进行了归一化。即：\\
+$$
+Pr(n_i | f(u) ) = \frac{exp(f(n_i)\cdot f(u))}{\sum_{v\in V} exp(f(v)\cdot f(u))}
+$$
+
+最后得到的待优化的式子如下：\\
+$$
+\mathop{max}_{f}\sum_{u \in V}[ -log Z_u + \sum_{n_i \in N_S(u)} f(n_i) \cdot f(u) ]
+$$
+其中 $Z_u = \sum_{v\in V} exp(f(u) \codt f(v))$。但是由于直接计算$Z_u$的代价太大，采用Negative Sampling 的方法进行计算。

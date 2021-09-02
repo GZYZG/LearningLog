@@ -1,0 +1,299 @@
+% 用于记录一些常见的机器学习，深度学习的概念
+\subsubsection{Auto-regressive model---AR}
+自回归模型，“自”体现为：使用某个变量不同时期的值（如时间序列的值）来预测该变量下一个值。AR从线性回归发展而来，假设该变量的不同步之间的值为线性关系。
+
+\subsubsection{Variational Auto Encoder-VAE}
+变分自编码器。
+
+\subsubsection{Spectral cluster}
+谱聚类。将每个样本视作某个空间中的点。
+
+参考资料：
+\begin{enumerate}
+    \item \href{https://www.cnblogs.com/pinard/p/6221564.htm}{谱聚类原理总结}
+\end{enumerate}
+
+
+\subsubsection{Spectral graph convolution}
+
+
+\subsubsection{Semi-supervised learning }
+
+\subsubsection{t-SNE}
+t-distributed Stochastic Neighbor Embedding。一种数据降维的方法。
+
+参考资料：
+\begin{enumerate}
+    \item \href{https://scikit-learn.org/stable/modules/manifold.html#t-distributed-stochastic-neighbor-embedding-t-sne}{sklearn 中关于tSNE的介绍}
+    \item \href{https://www.jianshu.com/p/700f017cd330}{tSNE降维原理}
+\end{enumerate}
+
+
+\subsubsection{L1/2 regularization}
+
+\subsubsection{mini/full-batch gradient descent}
+
+\subsubsection{residual connections}
+
+\subsubsection{预训练，使用自编码器进行预训练}
+
+\subsubsection{机器学习中常见的数据分布}
+
+\subsubsection{skip connections}
+
+\subsubsection{Glorot initialization}
+
+\subsubsection{early stopping strategy}
+
+\subsubsection{Jacobean Hessian}
+
+
+\subsubsection{Automatic differentiation} 
+
+\subsubsection{不同的优化器原理}
+
+\subsubsection{Teacher forcing}     RNN训练时使用的一种训练方法。在训练时，使用模型的输出值用来计算误差，但是使用真实的数据作为下一次的输入。
+
+参考资料：
+\begin{enumerate}
+    \item \href{https://blog.csdn.net/aws3217150/article/details/70214422}{自动微分简介}
+\end{enumerate}
+
+
+\subsubsection{熵、相对熵、交叉熵、互信息} 
+\textbf{\checkmark 2020-10-08}\\
+这些概念来自信息论\cite{6773024}。简单来说，熵指的是不确定性或者信息量，熵越大不确定越大。相对熵也叫KL(Kullback-Leibler divergence)散度，用来比较两个概率分布之间的差异。不论是熵、相对熵、交叉熵，都可以看作针对某个（或多个）随机变量，对该随机变量的概率分布的一个某种熵（熵、相对熵、交叉熵）的计算。接下来就从数学上来对其进行描述。
+
+\textbf{熵}：先介绍自信息的概念。对于某个随机变量$X$，当$X$取值为$x_0$时的自信息为$I(x_0) = -log\ p(x_0)$，即事件$x_0$发生时所带来的信息量，如果一个事件发生的概率越大，则其带来的信息量越小。熵是自信息的均值。即$X$取任一值时所能带来的期望信息量，故$X$的信息熵$H(X) = -E_{x\sim p}I(x)$（其中p是$X$所服从的分布），即$H(X) = -\sum_{x \in X}log\ p(x)$。\textbf{因为随机变量$X$会服从某个分布，假设是$p$，则$H(X)$也可以看作是概率分布$p$的信息量的期望。}
+
+\textbf{相对熵}：也称作KL散度。KL是在信息熵的基础上定义的，用来衡量两个分布的差异，其实由上述熵的含义可知，其实KL也可以看作是随机变量$X$，其可能服从的两个分布之间的差异。假设可能服从的两个分布分别是$p, q$，则以$q$去接近$p$时的KL散度表示为：$D_{KL}(p||q) = -\sum_{x \in X} p(x) log\ \frac{p(x)}{q(x)} = -E_{x\sim p} log\ \frac{p(x)}{q(x)}$。经过化简可得$D_{KL} = -H(p) - \sum_{x \in X}p(x)log\ q(x)$。
+
+\textbf{交叉熵}：cross-entropy，与KL散度相似，也是用来衡量随机变量$X$可能服从的两个分布$p, q$之间的差异的。其数学上的定义为：$Cross-Entropy(p, q) = -E_{x\sim p} log\ q(x) = - \sum_{x \in X}p(x)log\ q(x)$。很显然，交叉熵比KL散度多了一个$H(p)$，即$Cross-Entropy(p, q) = D_{kL}(p || q) + H(p)$。
+
+机器学习中常使用交叉熵，既然KL散度和交叉熵都可以达到相同的目的，那为什么不使用KL散度呢？在机器学习中，上述的分布$q$常作为数据的真实分布，而$q$作为数据的预测分布，此时$H(P)$则可以视作一个常数（因为给定数据后，其真实分布是确定的），在优化模型的参数时，$H(P)$并不会对参数的优化做出贡献（不会影响优化过程），故使用交叉熵即可。
+
+\subsubsection{线性回归\&逻辑回归}
+\textbf{\checkmark 2020-09-30}\\
+线性回归研究的问题是多个变量中某个变量和其他变量之间存在的线性关系，相当于用多个变量线性表示某个变量，某个变量就称为因变量，其他变量就称为自变量。用数学语言来描述的话就是这样的：
+$$
+y=b + \sum_{i=1}^{n} w_i \cdot x_i 
+$$
+在n等于1时，相当于根据数据拟合一条直线；在n大于1的时候，就是多元线性回归了，此时拟合一个平面。自变量也可以称为特征。
+构建线性回归模型时，重要的有这几个点：发现相关性较高的特征，发现与因变量无关的特征，得到最后实际使用的n个特征，对于实值特征的范围进行约束，对于类别特征的类别进行处理。其实，以上这些主要是针对数据的初步分析和预处理。
+得到处理后的数据，接下来可以通过随机梯度下降的方法得到最优的权重。在线性回归中常使用的目标函数是均方误差函数。为了避免模型过拟合，目标函数中还可以加入正则化项，对特征权重进行限制。
+
+其实线性回归模型很像神经络中的一部分———一个激活函数为恒等映射的神经元，也可以看做一个神经网络模型———一个只有一层的神经网络模型。
+
+逻辑回归（Logistic regression, LR），也是在线性回归的基础上的一个分类模型。如果把线性回归看做神经网络单元，那么把激活函数替换为非线性的激活函数就是LR了。从数学形式来看，LR是这样的：
+$$
+z = b + \sum_{i=1}^{n} w_i \cdot x_i 
+$$
+$$
+\bar{y} = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^z}
+$$
+针对一个样本$x$，LR模型得到的就是$\bar{y}$，很明显这是一个0到1之间的值，即一个概率值，当对样本进行类别划分后（划分为0、1），$\bar{y}$是类别为1的概率。二分类LR的目标函数定义如下：
+$$
+L(w_1,...,w_n) = \prod_{i = 1}^{m} (\bar{y^i} )^{y^i} \cdot ( 1 - \bar{y^i}) ^ {1 - y^i}
+$$
+其中 $y^i$为样本$\boldsymbol{x^i}$的实际类别，$y^i \in \{0, 1\}$。显然这是一个关于权重和偏置的最大似然函数，对其取对数后得到：
+$$
+loss = log L = \sum_{i=1}^{m} \left( y^i log (\bar{y^i}) + (1 - y^i) log ( 1 - \bar{y^i}) \right)
+$$
+
+很明显，线性回归和逻辑回归的目标函数是不一样的，那么为什么LR不适用均方误差损失函数呢？理论上LR也是可以使用均方误差损失函数的，但是均方误差损失在进行SGD时存在一个问题，当预测值与真实值相差越大时，参数变化的越小，训练的越慢（{\color{red}这个可以通过均方误差损失函数进行SGD时对参数的梯度可以看出}）。上述的对数似然函数也可以叫做交叉熵。
+
+对于多类别（例如类别数为\mathcal{L}）的LR，可以训练\mathcal{L}个二分类的LR，每个LR只输出样本属于某个类别的概率，最后进行集成得到最终的输出结果。此时的目标函数则会发生一点变化：
+$$
+loss = \sum_{i=1}^{m} \sum_{l=1}^{\mathcal{L}} \mathbbm{1}\{y^i = l\} log \frac{e^{ \boldsymbol{w^l} \cdot \boldsymbol{x^i} } }{ \sum_{j=1}^{\mathbb{L}} e^{ \boldsymbol{w^j} \cdot \boldsymbol{x^i}} }
+$$
+其中$\boldsymbol{w^l}$是第$l$个LR模型的权重向量（包括了偏置）。
+
+\subsubsection{metric learning} 
+度量学习。学习如何衡量两个对象之间的相似度/距离。
+
+
+\subsubsection{n-fold cross validation}
+即n折交叉验证。
+
+\subsubsection{xavier innitializatino} 
+Xavier\cite{pmlr-v9-glorot10a}一种参数初始化方法。神经网络模型的参数初始化时很重要的，对模型最终的效果、收敛速度都有很大的影响。
+
+\subsubsection{批训练的过程，原因}
+在训练神经网络时，通常训练数据都是很大的，无法一次性加载进内存。可以把数据分为很多个batch，使用每个batch训练模型后再进行参数调整。
+
+\subsubsection{Contrastive loss, Triplet loss} 
+都是一种损失函数。
+
+Triplet loss用于训练差异较小的数据，常用于人脸识别中。以这种函数为损失函数时，输入的一个样本是一个三元组(anchor, positive, negative)，anchor是随机选择的一个样本，而positive和negative分别于anchor为同类/异类数据。在学习时，Triplet loss的目的就是让anchor的表征与positive的表征尽量靠近，与negative的表征尽量疏远。那么对于一个样本来说，Triplet loss写成公式： $$\mathcal{L} = max( ||f(a)-f(p)||_2^2 - ||f(a) - f(n)||_2^2 + \alpha} )
+$$
+公式的含义也很明显，尽量使类内数据相近，类间数据相离。
+
+Contrastive loss是对比损失，也叫zero-one损失，主要用来处理孪生网络中的paired data的关系。通常Contrastive loss的输入是两个样本，且各自都有一个标签，Contrastive loss的目标就是：如果两个样本同类，则loss更小，否则loss更大。写成公式：
+$$
+\mathcal{L} = d_{ij}^2 \cdot Y_{ij} + (1 - Y_{ij} )max(margin - d_{ij}, 0)^2
+$$
+其中，$d_{ij}$就表示样本i, j之间的距离，这个可以有多种形式的定义，$Y_{ij}$表示样本i, j的标签是否相同，margin是一个阈值，如果$d_{ij}$超过阈值则应该尽量把它们划分开。
+
+\subsubsection{Siamese Network}
+孪生网络。
+
+
+\subsubsection{Batch Normalization}
+在神经网络的训练过程中，前一层的输出相当于后一层的输入，当对参数进行更新的时候，前一层的输出会发生变化，可能前一层---后一层的输入的分布就发生了变化，这会降低模型的收敛速度或使得模型难以收敛。为了解决这个问题，BN通过对每一层的输出进行标准化，使其分布尽量稳定下来，加快模型的收敛速度。实际情况在进行BN时，可能是在通过激活函数之间进行BN或者在通过激活函数后再进行BN。通常是在激活函数之前进行BN，因为当输入较大时，通常激活函数的变化都较小，梯度变化不明显，故在激活函数之间就对数据进行BN，使其分布尽量稳定。
+
+
+\subsubsection{决策函数$Y=f(X)$或条件概率分布$P(Y|X)$}
+从数据中学习一个分类器时，希望通过给定的输入$X$输出相应的$Y$。这个模型的一般形式为：
+\begin{itemize}
+	\item 决策函数$Y=f(X)$：输入一个$X$就输出一个$Y$，可以将$Y$于阈值比较得到$X$的类别
+	\item 条件概率分布$P(Y|X)$：输入一个$X$，输出$X$属于各个类的概率，如$P(c_1 | X), P(c_2 | X)$。取其中最大的作为$X$的类别
+\end{itemize}
+实际上$P(Y|X)$是隐含了或者说可以转化为决策函数形式$Y=f(X)$的。例如，将条件概率分布改写为$Y = \frac{P(c_1 | X)}{P(c_2 | X) }$。
+
+
+
+\subsubsection{生成模型、判别模型}
+\begin{itemize}
+	\item 判别模型：直接对判别函数或者条件概率分布函数进行建模，不考虑样本的产生模型，直接研究预测模型
+	\item 生成模型：学习联合概率密度$P(Y, X)$，然后求出条件概率分布$P(Y|X) = \frac{P(X, Y)}{P(X)}$，不仅要求出联合分布，还要求出训练数据的分布$P(X)$。生成模型表示了输入$X$产生输出$Y$的生成关系
+\end{itemize}
+
+对于生成式模型，可以这样理解：\\
+$p(x | y) = p(y)p(x | y)$表示的是，从$p(y)$中采样一个$y$，然后根据$p(x|y)$采样一个$x$。生成式模型希望找到那个能够使$p(x, y)$最大的$y$。1
+
+
+生成模型从统计的角度表示数据的分布情况。判别模型不能反映训练数据本身的特性，但它不断寻找不同类别之间的最优分类面。
+
+\subsubsection{变分贝叶斯}
+用来近似计算复杂积分，在这类模型中一般包含三类变量：观测变量、未知参数、隐变量，其中位置参数和隐变量统称为不可观测变量。变分贝叶斯的目的主要有两个：
+\begin{itemize}
+	\item 近似估计不可观测变量的后验概率，以便通过这些变量做出推断
+	\item 对于一个特定的模型，给出观测变量边缘似然函数的下界，作为模型选择的依据。一般认为似然概率越高，模型效果越好
+\end{itemize}
+通常情况下，我们会有一组观测数据（D），那么怎么获得不可观测变量（Z））的后验概率P(Z | D)呢？
+
+通常不可观测变量的后验概率是很复杂的，难以直接计算之，但我们可以先假设一个分布Q(Z)与P(Z|D)是近似的。对于衡量两个分布的差异，可以使用KL散度，即：KL(Q(Z) | P(Z|D)) 。
+
+
+\begin{equation}\nonumber
+	\begin{aligned}
+		KL(Q(Z) || P(Z|D)) &= \sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z|D)} \\
+		
+		&= \sum_{z \in Z} Q(z) \log \frac{Q(z) P(D) )}{P(z, D) } \\
+		
+		&= \sum_{z \in Z} Q(z) ( \log \frac{Q(z)}{P(z|D)} + \log P(D) ) \\
+		
+		&= \log P(D) + ( \sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)}) ) \\
+	\end{aligned}
+\end{equation}
+
+
+显然只要最小化KL散度即可，因为$\log P(D)$是一个常数，所以只要最小化$\sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)})$即可。将$\sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)})$记为$\mathcal{L}$，则$\log P(D) = -\mathcal{L} + KL(Q || P)$。显然KL散度一定是非零的，所以$\log P(D)$的下界就是$-\mathcal{L}$。
+
+
+\subsubsection{自动编码器/变分自动编码器}
+自动编码器是一种无监督的神经网络，用于学习输入数据的低维表示，并能够根据低维表示重建输入数据，也是一种将为的手段。
+
+变分自动编码（Variational Auto Encoder）器运用了变分贝叶斯的思想，也继承了自动编码器的结构，但是存在一定的差别。在VAE中，默认将输入数据的低维表示（即隐变量）服从某个分布，一般认为服从正态分布。在encoder阶段学习到隐表示的分布 --- 通常是学习到假定分布的参数，得到分布后就从该分布中进行采样得到隐表示；decoder时，则将隐表示输入到decoder中。
+
+参考资料：
+\begin{itemize}
+	\item \href{https://www.cnblogs.com/kexinxin/p/9858525.html}{变分自动编码器}
+	\item \href{https://github.com/cdoersch/vae_tutorial}{vae\_tutorial}
+\end{itemize}
+
+\subsubsection{马尔科夫链/隐马尔科夫链}
+马尔可夫模型主要用于研究时间序列的分布的，若已有一个是时间序列：$X_0, X_1, X_2, ..., X_n$，马尔可夫模型要解决的就是这些随机变量的取值是如何随着时间而变化的、每个随机变量取值的概率 --- 这些随机变量取值的分布。随机变量的取值可以称为状态。那么问题就成了：
+$$
+P(X_0=s_0, X_1=s_2, ..., X_n=s_m) = ?
+$$
+或者说，下一个时刻的随机变量的取值问题：
+$$
+P(X_n | X_0=s_0, X_1=s_2, ..., X_{n-1}=s_{m-1}) = ?
+$$
+为了简化这个问题，有了马尔科夫假设。
+
+（1阶）马尔可夫假设：当前状态的取值只取决于前一个时刻的状态。即：
+$$
+P(X_n | X_0=s_0, X_1=s_2, ..., X_{n-1}=s_{m-1}) = P(X_n | X_{n-1}=s_{m-1})
+$$
+满足这样性质的一系列随机变量串联在一起就是马尔科夫链了。
+
+那隐马尔科夫链与马尔科夫链又有什么关系呢？
+隐马尔科夫模型描述的是两个时序序列的联合分布：$p( \boldsymbol{X}, \boldsymbol{Y} )$，其中$\boldsymbol{X}, \boldsymbol{Y}$均为时序序列，通常称$\boldsymbol{X}$为观测序列，$\boldsymbol{Y}$为状态序列 --- 不可观测序列。其中观测序列/状态序列均可视为随机变量序列（注意，同一时刻的观测变量和状态变量并不是独立的），观测变量序列的取值为可观测值，状态变量序列的取值为状态值 --- 与马尔可夫模型中的状态含义一致。隐马尔科夫模型的假设：
+\begin{itemize}
+	\item 当前状态变量$\boldsymbol{Y}_t$的取值仅以来与前一个状态变量$\boldsymbol{Y}_{t-1}$的取值有关，连续多个状态变量的取值则构成隐马尔科夫链
+	\item 任意时刻的观测变量$\boldsymbol{X}_t$取值仅依赖于该时刻的状态变量的取值$\boldsymbol{Y}_t$
+\end{itemize}
+
+一个隐马尔科夫模型可以表示为：$\lambda = (\boldsymbol{\pi}, \boldsymbol{A}, \boldsymbol{B})$，含义如下：
+\begin{itemize}
+	\item $\boldsymbol{\lambda}$：初始状态概率向量，即初始时刻的状态变量$\boldsymbol{Y}_0$取值为各个状态的概率
+	\item $\boldsymbol{A}$：状态转移概率矩阵，即上一时刻的状态变量取某值时，当前时刻状态变量取值的概率分布：$p(\boldsymbol{Y}_t=s_j | \boldsymbol{Y}_{t-1}=s_i)$
+	\item $\boldsymbol{B}$：发射概率矩阵，即当前状态变量取某值时观测变量取某观测值的概率分布：$p(\boldsymbol{X}_t=o_j | \boldsymbol{Y}_t=s_j)$
+\end{itemize}
+
+其实，可以看出马尔可夫模型是隐马尔科夫模型的一个特例 --- 状态变量序列与观测变量序列相同，状态值即为观测值，每个状态只对应一个观测值即本身。
+
+隐马尔可夫模型的三个应用：
+\begin{itemize}
+	\item 样本生成问题：给定模型$\lambda = (\boldsymbol{\pi}, \boldsymbol{A}, \boldsymbol{B})$，生成满足模型约束的样本 --- 观测序列即对应的状态序列
+	\item 模型的训练：给定训练数据 --- 观测序列即对应的状态序列，估计模型参数$\lambda = (\boldsymbol{\pi}, \boldsymbol{A}, \boldsymbol{B})$
+	\item 序列预测：已知模型参数$\lambda = (\boldsymbol{\pi}, \boldsymbol{A}, \boldsymbol{B})$，给定观测序列，求状态序列
+\end{itemize}
+
+怎么解决上述的三个问题呢？
+
+对于样本生成问题，其实很简单，指要逐步采样状态，得到一个状态序列，在根据每一步的状态取值采样得到观察值，就可以得到观测序列，样本生成就完成了。
+
+对于模型的训练问题，需要估计的参数为：$(\boldsymbol{\pi}, \boldsymbol{A}, \boldsymbol{B})$，对于$\boldsymbol{\lambda}$则统计所有的状态序列中，计算以每个状态为开头的序列的频率即可，其他两个概率矩阵的训练类比即可。
+
+对于序列预测问题可以通过维特比算法解决。给定一个观测序列，求解最有可能的状态序列。本质上这是一个搜索问题，搜索最有可能的状态序列，使观测序列的似然概率最大。简要地说一下。
+
+维特比算法通过动态规划的方法解决这个问题。假设我们已经有最优的状态路劲，那么其中一条从起点开始的子路径也是最优的子路径。因此可以通过维护两个动态规划的矩阵来记录路径的选择和其概率。假设有两个矩阵$\boldsymbol{\sigma}, \boldsymbol{\psi}$。其中$\boldsymbol{\sigma}_{ti}$表示在时刻$t$时以$s_i$结尾的所有局部路径的最大概率，$\boldsymbol{\psi}_{ti}$表示在时刻$t$时末状态为$s_i$的前驱状态。
+
+\paragraph{应用}使用隐马尔科夫模型可以解中文分词问题。给定训练数据 --- 每个样本为一个句子，对于每个样本，目标是给每个词分配一个标签（如{B, M, E, S}），然后可以根据序列对句子进行分词。为达成这个目的，需要训练隐马尔科夫模型，获得模型的各个参数，根据训练数据是否被标注可以使用不同的方法进行训练。获得训练数据后即可使用模型进行序列预测任务，再根据序列进行分词。
+
+
+\colorbox{red}{注：本节内容主要参考何晗所著《自然语言处理入门》}。
+
+
+\subsubsection{概率图模型}
+将联合概率分布以图的形式来表示，可以分为有向概率图模型和无向概率图模型。
+概率图模型中，将随机变量表示为结点，相关联的随机变量之间会有边连接。
+
+有向图模型中按变量的因果关系进行连接，可以刻画变量之间的因果关系。有向图表示的联合概率可以根据图中的变量依赖关系分解成多个条件概率的积。（听着有点像拓扑图）
+
+无向图模型没有体现出因果关系，强调的是变量之间的相互关系。无向图模型将联合概率分布分解为“无向图中-最大团上-随机变量的函数-的乘积”。
+
+\subsubsection{inductive bias}
+归纳偏置。
+
+
+\subsubsection{命名实体识别}
+NLP中的命名实体识别（Named Entity Recognition）指的是将识别出文本中描述实体的词汇，比如人名、地名、组织机构名、股票基金、医学术语等，更一般地讲，不同的领域会有不同的实体，用于描述该领域内的实体对象。NER的目的就是识别出文本中实体与其他文本的边界和实体的类别。主要以下几个难点：
+\begin{itemize}
+	\item 实体的数量是无穷的。不同的领域会有不同的实体，且实体并不是定量的，会不断的增加
+	\item 实体的构词灵活。同一个实体可能会有多个名字，比如实体的简写；实体也可能是嵌套形成的
+	\item 类别模糊。同一个实体在不同的语境下可能会有不同的类别
+\end{itemize}
+
+命名实体的识别，从某个角度来看可以视作一个序列标注问题。具体做法是将命名实体附着到{B, M, E, S}标签。其实，词性标注问题也可以以这样的方法来处理。更一般地看，词性标注与命名实体识别是同一个问题，它们都需要对文本进行分词，词性标注中的词性和NER中的实体类别是等价地。
+
+\subsubsection{TF-IDF}
+词频-倒排文档频次。通常用于衡量一个词语在文档中的重要程度。单单使用词频评价词语重要程度是不全面的，有些词可能会在文档中出现很多次，但是如果其在很多文档中都出现，却又体现不了其重要性。因此，需要一个对词频进行扩充，希望得到的重要的词应该是这样的：词频高，同时又不是出现在大部分文档中。
+$$
+TF-IDF(t, d) = \frac{TF(t, d)}{DF(t)} = TF(t, d) \cdot IDF(t)
+$$
+其中，$TF(t, d)$表示词$t$z在文档在$d$中出现的次数，$DF(t)$表示包含词$t$的文档数。实际中计算$TF-ID$时会加入一些平滑操作（如加一平滑、对IDF取对数）防止结果下溢等。 
+
+\subsubsection{词袋模型}
+用于表示文档/句子（其实句子可以看作只有一个句子的文档）的一种方法。
+词袋模型一般会先构建一个词表，每个文档经过分词后，可以使用不同的统计量来构建文档/句子的向量，词表之外的词不予考虑。可以选用的不同的统计量有：
+\begin{itemize}
+	\item 词频
+	\item 布尔词频
+	\item TF-IDF
+	\item 词向量
+\end{itemize}
+

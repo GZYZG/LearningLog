@@ -1,0 +1,20 @@
+%\section{Semi-Supervised Classification with Graph Convolutional Networks}
+
+论文主要以图卷积为基础进行半监督学习。
+$$
+H^{(l+1)} = \sigma(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)} )
+$$
+
+论文中两个tricks：\\
+1）卷积时结合结点自身的信息：
+$$
+{\color{red}{\tilde{A} = A + I_N}}
+$$
+
+2）归一化：
+$$
+{\color{red} { I_N + D^{-\frac{1}{2}}AD^{-\frac{1}{2}}  \to \tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} } }  
+$$
+其中，$\tilde{D}_{ii} = \sum_j \tilde{A}_{ij}$
+
+

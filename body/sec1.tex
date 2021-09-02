@@ -1,0 +1,102 @@
+%\section{CS224W课程学习}
+这份文档是对CS224w课程的一个总结，该课程一共分为19个lecture，我在每个lecture的基础上进行总结，对每个lecture的知识点进行归纳，以自己理解的方式进行解释说明。课程链接点击\href{http://web.stanford.edu/class/cs224w/}{\emph{这里}}. 
+
+\subsection{Lecture 1: Introduction; Structure of Graphs }
+这一个lecture里讲的主要就是图的一些基本概念，如图的定义、传统的表示方法、图的一些属性等。这里想区分一下\textit{图和网络}：在我的理解中，图更强调一种拓扑关系，更关注点之间关系，点/边也没有各种特征或属性；网络则是“丰富版”的图，network中的结点/边是有各种各样的属性、特征的，关注的也是更深层的意义，如知识图谱、社交网络等。
+\subsubsection{网络中的几个重要属性}
+\textbf{Degree} \par 
+\textbf{Cluster Coefficient} \par 
+\textbf{Centrality} \par 
+\textbf{Path} \par 
+\textbf{Connected Component} \par
+
+
+\subsection{Lecture 2: Properties of Networks
+and Random Graph Models}
+
+\subsection{Lecture 3: Motifs and Structural Roles in Networks}
+
+\subsection{Lecture 4: Community Structure in Networks}
+
+\subsection{Lecture 5: Spectral Clustering}
+
+\subsection{Lecture 6: Message passing and Node Classification}
+\subsubsection{Belief Propagation}
+
+对于每个结点，重复下列更新，直至收敛或达到最大迭代次数：
+$$
+m_{i\to j}(Y_j) = \alpha \sum_{Y_i \in \mathcal{L}} \underbrace{\psi (Y_i, Y_j)\phi_i(Y_i) }_{Pr(\phi_j(Y_j) , \phi_i(Y_i)) }\prod_{k\in N_i \ j}m_{k\to i}(Y_i)  
+$$
+
+迭代结束后，结点$i$的为$Y_i$的belief为 $b_i(Y_i)$
+$$
+b_i(Y_i) = \alpha \phi_i(Y_i)\sum_{j\in N_i} m_{j \to i}\phi_i(Y_i), Y_i \in \mathcal{L}
+$$
+
+\subsection{Lecture 7: Graph Representation Learning}
+
+最终的优化目标：
+$$
+\mathop{ max}_Z  \sum_{v \in V} log \underbrace{Pr(N_R(v | Z_v)}_{\sum_{u\in N_R(v)}Pr(u|Z_u) }   \Longrightarrow \mathop{min}_{Z} \sum_{v\in V} \sum_{u\in N_R(v)} -log\underbrace{Pr(u | Z_v) }_{=\frac{e^{z_u\top \cdot z_v}}{\sum_n z_n \top \cdot z_v} }
+$$
+
+但是计算上是很耗时的，可以采用negative sampling:
+$$
+log Pr(u | Z_v) \\
+= log\frac{e^{z_u ^ \top \cdot z_v}}{\sum_n z_n ^ \top \cdot z_v} \\
+\approx log (\sigma (e^{z_u^\top \cdot z_v})) - \sum_{i=1}^{k}log(\sigma( e^{z_{n_{i}}^\top \cdot z_v})) , n_i \sim P_V 
+$$
+
+
+\subsection{Lecture 8: Graph Neural Networks}
+
+GCN: Graph Convolutional Networks
+借鉴CNN的想法，网络中的卷积操作是通过聚集邻居结点的信息来完成的。关键点在于“如何聚集邻居的信息”，一中简单的方法是取均值：
+$$
+h_{v}^{k} = \sigma(W_k\sum_{u \in N(v)}\frac{h_{u}^{k-1}}{|N(v)|}  +B_kh_{v}^{k-1}) 
+$$
+
+在GraphSAGE中对聚集进行了泛化：
+
+$$
+h_{v}^{k} = \sigma([W_k\cdot AGG(\left\{ h_{u}^{k-1},\forall  u \in N(v) \right\}  ),B_kh_{v}^{k-1}]) 
+$$
+
+GraphSAGE在GCN的基础上对aggregator进行了泛化，但是对于一个结点的邻居都赋予了同等的权重，显然这是不合理的，我们并不能假定邻居结点的信息都是同等重要的，由此引入了注意力机制---Graph Attention Mechanism.
+
+假设我们已经有了注意力机制 $a$。对于结点$v$的任意邻居结点$u$的权重为$\alpha_{vu}$.
+这里再引入一个中间值$e_{vu}$, 表示通过$a$直接计算出的注意力值（个人叫法），即未归一化之前的权重。则有：
+$$
+e_{vu} = a(W_kh_v^{k-1}, W_kh_u^{k-1})
+$$
+
+$$
+\alpha_{vu} = \frac{e_{vu}}{\sum_{k \in N(v)} e_{vk}}
+$$
+
+那么如何来获得一个注意力机制$a$ 呢？  \\
+Multi-Head Attention.
+
+\subsection{Lecture 9: Graph Neural Networks:
+Hands-on Session}
+
+\subsection{Lecture 10: Deep Generative Models for Graphs}
+
+\subsection{Lecture 11: Link Analysis: PageRank}
+
+\subsection{Lecture 12: Network Effects and Cascading Behavior}
+
+\subsection{Lecture 13: Probabilistic Contagion
+and Models of Influence}
+
+\subsection{Lecture 14: Influence Maximization in Networks}
+
+\subsection{Lecture 15: Outbreak Detection in Networks}
+
+\subsection{Lecture 16: Network Evolution}
+
+\subsection{Lecture 17: Reasoning over Knowledge Graphs}
+
+\subsection{Lecture 18: Limitations of Graph Neural Networks}
+
+\subsection{Lecture 19: Applications of Graph Neural Networks}

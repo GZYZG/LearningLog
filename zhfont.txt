@@ -1,0 +1,44 @@
+FZYaoTi,方正姚体
+AR PL SungtiL GB,文鼎ＰＬ简报宋
+SimHei,黑体
+Microsoft YaHei,微软雅黑
+STFangsong,华文仿宋
+STKaiti,华文楷体
+STLiti,华文隶书
+YouYuan,幼圆
+Microsoft JhengHei UI
+STXihei,华文细黑
+DengXian,等线
+FandolFang,FandolFang R
+FZShuTi,方正舒体
+AR PL Mingti2L Big5,文鼎ＰＬ細上海宋
+FandolKai
+DengXian,等线,DengXian Light,等线 Light
+Microsoft JhengHei UI,Microsoft JhengHei UI Light
+NSimSun,新宋体
+STZhongsong,华文中宋
+Microsoft JhengHei,微軟正黑體
+AR PL KaitiM GB,文鼎ＰＬ简中楷
+STSong,华文宋体
+Microsoft YaHei,微软雅黑
+Microsoft JhengHei,微軟正黑體
+Microsoft YaHei UI
+FandolHei
+FangSong,仿宋
+Microsoft YaHei,微软雅黑,Microsoft YaHei Light,微软雅黑 Light
+FandolSong
+FandolHei
+FandolSong
+SimSun,宋体
+STCaiyun,华文彩云
+Microsoft JhengHei UI
+DengXian,等线
+KaiTi,楷体
+STXingkai,华文行楷
+LiSu,隶书
+AR PL KaitiM Big5,文鼎ＰＬ中楷
+Microsoft YaHei UI
+STXinwei,华文新魏
+Microsoft YaHei UI,Microsoft YaHei UI Light
+STHupo,华文琥珀
+Microsoft JhengHei,微軟正黑體,Microsoft JhengHei Light,微軟正黑體 Light

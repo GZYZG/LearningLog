@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{s}\PYG{p}{.}\PYG{n}{erase}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{,} \PYG{n}{len}\PYG{p}{,} \PYG{l+s}{\PYGZdq{}erase\PYGZdq{}}\PYG{p}{);}
+\end{Verbatim}
