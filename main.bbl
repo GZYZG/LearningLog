@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{bahdanau2016neural}
+Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio.
+\newblock Neural machine translation by jointly learning to align and
+  translate.
+\newblock {\em international conference on learning representations}, 2016.
+
 \bibitem{chen2018stochastic}
 Jianfei Chen, Jun Zhu, and Le~Song.
 \newblock Stochastic training of graph convolutional networks with variance
@@ -19,6 +25,13 @@ Heng-Tze Cheng, Levent Koc, Jeremiah Harmsen, Tal Shaked, Tushar Chandra,
 \newblock Wide & deep learning for recommender systems.
 \newblock {\em Proceedings of the 1st Workshop on Deep Learning for Recommender
   Systems}, 2016.
+
+\bibitem{cho2014learning}
+Kyunghyun Cho, van~Bart Merrienboer, Çaglar Gülçehre, Dzmitry Bahdanau,
+  Fethi Bougares, Holger Schwenk, and Yoshua Bengio.
+\newblock Learning phrase representations using rnn encoder-decoder for
+  statistical machine translation.
+\newblock {\em EMNLP}, pages 1724--1734, 2014.
 
 \bibitem{covington2016deep}
 Paul Covington, Jay Adams, and Emre Sargin.
@@ -63,6 +76,12 @@ Greg Linden, Brent Smith, and Jeremy York.
 \newblock Amazon.com recommendations: Item-to-item collaborative filtering.
 \newblock {\em Internet Computing, IEEE}, pages 76--80, 2003.
 
+\bibitem{luong2015effective}
+Thang Luong, Hieu Pham, and D.~Christopher Manning.
+\newblock Effective approaches to attention-based neural machine translation.
+\newblock {\em Conference on Empirical Methods in Natural Language Processing},
+  2015.
+
 \bibitem{6773024}
 C.~E. {Shannon}.
 \newblock A mathematical theory of communication.
@@ -79,5 +98,18 @@ Y.~Patrice Simard, Dave Steinkraus, and John~Platt C.
 \newblock Best practices for convolutional neural networks applied to visual
   document analysis.
 \newblock {\em ICDAR-1}, pages 958--963, 2003.
+
+\bibitem{sutskever2014sequence}
+Ilya Sutskever, Oriol Vinyals, and V.~Quoc Le.
+\newblock Sequence to sequence learning with neural networks.
+\newblock {\em ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS 27 (NIPS
+  2014)}, pages 3104--3112, 2014.
+
+\bibitem{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  N.~Aidan Gomez, Lukasz Kaiser, and Illia Polosukhin.
+\newblock Attention is all you need.
+\newblock {\em ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS 30 (NIPS
+  2017)}, pages 5998--6008, 2017.
 
 \end{thebibliography}

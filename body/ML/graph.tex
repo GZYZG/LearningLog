@@ -7,7 +7,7 @@
 	\item 对$G_1, G_2$中的结点都赋予一个标签，都为1；
 	\item 对于每个结点$v$重复执行：
 	\begin{enumerate}
-		\item 汇集$v$的邻居结点的标签，放在一个列表里，$S_v = {u_l | u \in \mathcal{N}_v }$
+		\item 汇集$v$的邻居结点的标签，放在一个列表里，$S_v = \{u_l | u \in \mathcal{N}_v \}$
 		\item 将$v$的标签$v_l$和S组合成一个pair---$(v_l, S_v)$
 	\end{enumerate}
 	\item 利用一个hash函数将每个结点的$(v_l, S_v)$映射成一个新的标签，将新的标签赋予给对应的结点。至此一轮迭代就结束了，如果图中结点的标签都没发生变化则结束，否则返回步骤2.

@@ -119,3 +119,22 @@ $p(Y=c_k)$是很好计算的，只需要统计训练数据中类别为$c_k$的�
 \paragraph{依存句法树}关注的是句子中词语之间的语法关联系，并将其约束为树形结构。在句子中，如果一个词语修饰另一个词语，则称修饰词为从属词，被修饰词为支配词，两者之间的语法关系称为依存关系，在可视化时，由支配词指向从属词。依存句法树描述了句子中的各个词之间的依赖关系，一般约定同一个词不能依存于多个词。
 
 \textbf{复合性原理}：一个复杂表达式的意义是由其各组成部分的意义以及结合它们的规则决定的。通过将句子分解为短语、分解短语为单词，下游应用会得到更多更深层次的结构化信息。
+
+\subsubsection{Transformer}
+在NLP中有很多输入为序列输出为序列的\textbf{seq2seq}任务，例如机器翻译、文本摘要、序列标注、文本生成等等。早期的seq2seq任务RNN-based\cite{sutskever2014sequence, cho2014learning}模型为主，但RNN-based的模型容易出现以下问问题：
+\begin{itemize}
+	\item RNN处理seq2seq任务时通常将输入序列转换成一个context向量，再基于context来得到输出的序列。单个向量难以包含输入序列的所有信息
+	\item RNN在递归的解码过程使得其难以处理长文本序列
+	\item RNN的反向传播容易出现梯度弥散/爆炸问题
+	\item 序列的处理是串行的，难以并行化，计算效率低
+\end{itemize}
+\textbf{Attention}\cite{bahdanau2016neural, luong2015effective}技术 --- 帮助RNN-based模型解决了一部分困难。具体是怎么做的呢？在RNN-based模型的基础上主要有以下几个变化：
+\begin{itemize}
+	\item 编码器传给解码器的不再只是一个context向量，会利用编码过程中的所有隐向量
+	\item 解码时，会根据所处的时间步，为每一个隐向量计算一个分数，归一化后再分别与隐向量相乘得到当前时间步的context向量
+\end{itemize}
+
+有了Attention，RNN-based模型的一部分缺点得到了解决（处理长文本序列的问题），但还是有一些问题：不能并行化处理输入序列，且能不能直接在Attention上构建seq2seq模型呢？
+
+\textbf{Transformer}\cite{vaswani2017attention}来了！！！
+Transformer采用的也是编解码的结构：先对输入序列进行编码，再根据编码的输出进行解码。与RNN-based模型不同的是，其
