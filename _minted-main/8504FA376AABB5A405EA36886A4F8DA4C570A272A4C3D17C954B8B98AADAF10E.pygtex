@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}incldue \PYGZlt{}queue\PYGZgt{}}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{main}\PYG{p}{()\PYGZob{}}
+\PYG{+w}{	}\PYG{c+c1}{// 大根堆}
+\PYG{+w}{	}\PYG{n}{priority\PYGZus{}queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// \PYGZlt{}=\PYGZgt{} priority\PYGZus{}queue\PYGZlt{}int, vector\PYGZlt{}int\PYGZgt{}, less\PYGZlt{}int\PYGZgt{} \PYGZgt{}a}
+
+\PYG{+w}{	}\PYG{c+c1}{// 小根堆}
+\PYG{+w}{	}\PYG{n}{priority\PYGZus{}queue}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{greater}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

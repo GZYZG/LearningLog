@@ -64,7 +64,7 @@ compare
 		// do something 
 	}
 
-	// 方法4：auto，以值的形式遍历，不可以修改
+	// 方法4：auto，以值的形式遍历，不可以修改值
 	for(auto it: nums){
 		// do something
 	}
@@ -91,5 +91,33 @@ for\_each源码如下：
 	}
 \end{cpp}
 其中参数fn是一个一元函数（即只能有一个参数），它的返回值会被忽略。
+
+\subsubsection{deque}
+\mintinline{cpp}{#include <deque>}。double ended queue，双端队列。\href{https://www.cplusplus.com/reference/deque/deque/?kw=deque}{dequ}e是一种动态容器（通常以动态数组的形式，如链表，来实现），可以在两端增加或者删除元素，随机访问deque中的元素。
+
+\subsubsection{priority\_queue}
+\mintinline[bgcolor=yellow]{cpp}{#include <queue>}。
+\begin{minted}{cpp}
+	template <class T, class Container = vector<T>,
+	class Compare = less<typename Container::value_type> > class priority_queue;
+\end{minted}
+\href{https://www.cplusplus.com/reference/queue/priority_queue/?kw=priority_queue}{priority\_queue}，优先队列。priority\_queue是一种容器适配器（container adaptor），它使用某种容器（可以是queue、vector等，默认是vector）作为其数据的容器，并提供了一些接口来访问容器内的元素，重点就在这些接口上（\mintinline{cpp}{push, pop, top}）！priority\_queue的特点：
+\begin{myitemize}
+	\item 第一个元素是优先级最大/小的元素（大/小根堆）
+	\item \mintinline{cpp}{top} ：返回顶部的元素，即优先级最大/最小的元素
+	\item \mintinline{cpp}{pop} ：删除顶部的元素
+\end{myitemize}
+例子：
+\begin{minted}[linenos, breakafter=true,autogobble=true,frame=leftline]{cpp}
+	#incldue <queue>
+	
+	int main(){
+		// 大根堆
+		priority_queue<int> a; // <=> priority_queue<int, vector<int>, less<int> >a
+		
+		// 小根堆
+		priority_queue<int, vector<int>, greater<int> > b;
+	}
+\end{minted}
 
 

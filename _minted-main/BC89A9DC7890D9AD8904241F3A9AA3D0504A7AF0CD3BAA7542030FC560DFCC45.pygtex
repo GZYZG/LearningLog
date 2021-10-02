@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{push}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pop}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{top}
+\end{Verbatim}

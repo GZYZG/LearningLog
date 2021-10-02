@@ -1,3 +1,46 @@
+\subsection{常见NLP任务}
+
+\subsubsection{命名实体识别}
+NLP中的命名实体识别（Named Entity Recognition）指的是将识别出文本中描述实体的词汇，比如人名、地名、组织机构名、股票基金、医学术语等，更一般地讲，不同的领域会有不同的实体，用于描述该领域内的实体对象。NER的目的就是识别出文本中实体与其他文本的边界和实体的类别。主要以下几个难点：
+\begin{itemize}
+	\item 实体的数量是无穷的。不同的领域会有不同的实体，且实体并不是定量的，会不断的增加
+	\item 实体的构词灵活。同一个实体可能会有多个名字，比如实体的简写；实体也可能是嵌套形成的
+	\item 类别模糊。同一个实体在不同的语境下可能会有不同的类别
+\end{itemize}
+
+命名实体的识别，从某个角度来看可以视作一个序列标注问题。具体做法是将命名实体附着到{B, M, E, S}标签。其实，词性标注问题也可以以这样的方法来处理。更一般地看，词性标注与命名实体识别是同一个问题，它们都需要对文本进行分词，词性标注中的词性和NER中的实体类别是等价地。
+
+\subsubsection{语法分析}
+分析句子中的语法结构并将其表示为容易理解的结构（通常为树形结构）。
+\paragraph{短语结构树}根据上下文无关文法将句子/短语分解为树状结构。短语结构语法（上下文无关文法）描述了如何自定向下地生成一个句子，同样句子/短语也可以通过短语结构语法进行分解。这其实和编译原理中的上下文无关文法是很类似的，也是通过很多产生式进行推导，那么是否可以使用编译原理中的词法分析来解决这个问题呢？
+
+\paragraph{依存句法树}关注的是句子中词语之间的语法关联系，并将其约束为树形结构。在句子中，如果一个词语修饰另一个词语，则称修饰词为从属词，被修饰词为支配词，两者之间的语法关系称为依存关系，在可视化时，由支配词指向从属词。依存句法树描述了句子中的各个词之间的依赖关系，一般约定同一个词不能依存于多个词。
+
+\textbf{复合性原理}：一个复杂表达式的意义是由其各组成部分的意义以及结合它们的规则决定的。通过将句子分解为短语、分解短语为单词，下游应用会得到更多更深层次的结构化信息。
+
+\subsubsection{序列标注}
+通常也可以看作是token级别的分类问题：对每一个token进行分类。token级别的分类任务通常指的是为为文本中的每一个token预测一个标签结果，如命名实体识、词性标注等。
+\begin{itemize}
+	\item NER (Named-entity recognition 名词-实体识别) 分辨出文本中的名词和实体 (person人名, organization组织机构名, location地点名...).
+	\item POS (Part-of-speech tagging词性标注) 根据语法对token进行词性标注 (noun名词, verb动词, adjective形容词...)
+	\item Chunk (Chunking短语组块) 将同一个短语的tokens组块放在一起。
+\end{itemize}
+
+\subsubsection{问答系统}
+问答式信息检索是一种允许用户以自然语言方式询问，系统从单语或多语文档集中查找并返回确切答案或者蕴含答案文本片断的新型信息检索的方式。问答系统分类如Fig.\ref{fig:qa}所示。
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.7\textwidth]{pics/qa.png}
+	\caption{问答系统分类，源图\href{https://blog.csdn.net/sinat_33231573/article/details/83473741}{出处}}
+	\label{fig:qa}
+\end{figure}
+
+
+
+
+
+
+\subsection{统计自然语言处理}
 \subsubsection{马尔科夫链/隐马尔科夫链}
 马尔可夫模型主要用于研究时间序列的分布的，若已有一个是时间序列：$X_0, X_1, X_2, ..., X_n$，马尔可夫模型要解决的就是这些随机变量的取值是如何随着时间而变化的、每个随机变量取值的概率 --- 这些随机变量取值的分布。随机变量的取值可以称为状态。那么问题就成了：
 $$
@@ -62,15 +105,7 @@ $$
 
 无向图模型没有体现出因果关系，强调的是变量之间的相互关系。无向图模型将联合概率分布分解为“无向图中-最大团上-随机变量的函数-的乘积”。
 
-\subsubsection{命名实体识别}
-NLP中的命名实体识别（Named Entity Recognition）指的是将识别出文本中描述实体的词汇，比如人名、地名、组织机构名、股票基金、医学术语等，更一般地讲，不同的领域会有不同的实体，用于描述该领域内的实体对象。NER的目的就是识别出文本中实体与其他文本的边界和实体的类别。主要以下几个难点：
-\begin{itemize}
-	\item 实体的数量是无穷的。不同的领域会有不同的实体，且实体并不是定量的，会不断的增加
-	\item 实体的构词灵活。同一个实体可能会有多个名字，比如实体的简写；实体也可能是嵌套形成的
-	\item 类别模糊。同一个实体在不同的语境下可能会有不同的类别
-\end{itemize}
 
-命名实体的识别，从某个角度来看可以视作一个序列标注问题。具体做法是将命名实体附着到{B, M, E, S}标签。其实，词性标注问题也可以以这样的方法来处理。更一般地看，词性标注与命名实体识别是同一个问题，它们都需要对文本进行分词，词性标注中的词性和NER中的实体类别是等价地。
 
 \subsubsection{TF-IDF}
 词频-倒排文档频次。通常用于衡量一个词语在文档中的重要程度。单单使用词频评价词语重要程度是不全面的，有些词可能会在文档中出现很多次，但是如果其在很多文档中都出现，却又体现不了其重要性。因此，需要一个对词频进行扩充，希望得到的重要的词应该是这样的：词频高，同时又不是出现在大部分文档中。
@@ -112,13 +147,22 @@ $p(Y=c_k)$是很好计算的，只需要统计训练数据中类别为$c_k$的�
 
 关于样本的特征向量：通常可以采用词袋模型的方法来表示一个文本/句子。
 
-\subsubsection{语法分析}
-分析句子中的语法结构并将其表示为容易理解的结构（通常为树形结构）。
-\paragraph{短语结构树}根据上下文无关文法将句子/短语分解为树状结构。短语结构语法（上下文无关文法）描述了如何自定向下地生成一个句子，同样句子/短语也可以通过短语结构语法进行分解。这其实和编译原理中的上下文无关文法是很类似的，也是通过很多产生式进行推导，那么是否可以使用编译原理中的词法分析来解决这个问题呢？
 
-\paragraph{依存句法树}关注的是句子中词语之间的语法关联系，并将其约束为树形结构。在句子中，如果一个词语修饰另一个词语，则称修饰词为从属词，被修饰词为支配词，两者之间的语法关系称为依存关系，在可视化时，由支配词指向从属词。依存句法树描述了句子中的各个词之间的依赖关系，一般约定同一个词不能依存于多个词。
+\subsubsection{预训练}
+预训练在很多领域上都有应用，如CV、NLP。当用深度学习来解决一个任务时，使用的深度模型通常会包含很多参数，我们需要使用大量的数据来更新我们的参数使之能够在特定的任务上取得不错的效果。一般，我们会对模型的参数初始化，然后使用大量带标签的数据来更新模型参数。
 
-\textbf{复合性原理}：一个复杂表达式的意义是由其各组成部分的意义以及结合它们的规则决定的。通过将句子分解为短语、分解短语为单词，下游应用会得到更多更深层次的结构化信息。
+但实际情况是，带标签的数据总是很少的。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{pics/pre-train.jpg}
+	\caption{预训练模型（\href{https://www.zhihu.com/question/327642286/answer/1215812016}{出处}）}
+	\label{fig:pre-train}
+\end{figure}
+预训练通常在大量无监督的数据上学习（可以是无监督的学习任务、简单的有监督学习任务），用无监督的数据帮助模型的参数收敛，后续再在监督数据上进行调整。
+
+
+\subsection{Deep Model for NLP}
 
 \subsubsection{Transformer}
 在NLP中有很多输入为序列输出为序列的\textbf{seq2seq}任务，例如机器翻译、文本摘要、序列标注、文本生成等等。早期的seq2seq任务RNN-based\cite{sutskever2014sequence, cho2014learning}模型为主，但RNN-based的模型容易出现以下问问题：
@@ -137,4 +181,42 @@ $p(Y=c_k)$是很好计算的，只需要统计训练数据中类别为$c_k$的�
 有了Attention，RNN-based模型的一部分缺点得到了解决（处理长文本序列的问题），但还是有一些问题：不能并行化处理输入序列，且能不能直接在Attention上构建seq2seq模型呢？
 
 \textbf{Transformer}\cite{vaswani2017attention}来了！！！
-Transformer采用的也是编解码的结构：先对输入序列进行编码，再根据编码的输出进行解码。与RNN-based模型不同的是，其
+Transformer采用的也是编解码的结构：先对输入序列进行编码，再根据编码的输出进行解码。与RNN-based模型不同的是，其不是递归的处理输入，Transformer可以并行地处理整个文本序列。 
+
+Transformer的模型结构如Fig.\ref{fig:transformer}所示。具体的计算过程可以参考论文\cite{bivaswani2017attentionbid}的论文笔记。
+\begin{figure}[h] 
+	\centering
+	\includegraphics[width=.4\textwidth]{pics/Transformer.png}
+	\caption{Architecture of Transformer}
+	\label{fig:transformer}
+\end{figure}
+
+\begin{itemize}
+	\item 由于Transformer没有循环结构，但是加入了Positional Encoding
+	\item 编码部分最终的输出。会作为Decoder Block中Attention的$K, V$，解码器的输入作为$Q$
+	\item Decoder Block中的Masked Multi-head Attention，处理当前输入时只允许看到当前位置之前的输入
+	\item 在编码器中，也有mask。因为通常对输入进行padding
+\end{itemize}
+
+\subsubsection{一些关于Transformer的问题}
+\paragraph{1.}{\textbf{为什么输入$X$要经过变换得到$Q, K, V$？ 为什么不直接使用$X$？}}
+
+如果直接使用$X$，则$X$直接承担了三种角色：查询、键和值。难以学习到满足要求的$X$。经过变换后得到的$Q, K, V$，$Q$负责表示查询的问题，$V$表示输入的信息，$K$表示与输入相关的“关键词”，$Q, K$相乘用于衡量查询的问题与各条信息之间的相似性。
+
+\subsubsection{BERT}
+\paragraph{Motivation}
+BERT（Bidirectional Encoder Representations from Transformers）\cite{devlin2019bert}缘自Transformer模型。通常的语言模型都是单向的，例如从左到右，这使得在处理每个token时只能利用其之前的token。单向的模型处理token-level的任务时，难以应用到上下文的信息。
+
+\paragraph{HOW?}
+BERT在大量无标签的文本数据集进行预训练，得到模型的参数后，再添加具体任务相关的神经网络层，微调后即可得到适用于具体任务的模型，即：pre-training + fine-tuning。
+
+\par{\textbf{Pre-training}}BERT使用两个预训练任务。
+
+\par{\textbf{Fine-tuning}}
+
+\paragraph{title}
+
+\subsection{词嵌入模型}
+\subsubsection{Word2Vec}
+
+\subsubsection{ELOM}

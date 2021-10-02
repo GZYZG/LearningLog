@@ -4,46 +4,47 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: setup/content.aux
 The style file: plain.bst
 Database file #1: references.bib
+Warning--I didn't find a database entry for "bivaswani2017attentionbid"
 Warning--empty booktitle in pmlr-v9-glorot10a
-You've used 18 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            598 strings with 7698 characters,
-and the built_in function-call counts, 8204 in all, are:
-= -- 814
-> -- 478
+            604 strings with 7965 characters,
+and the built_in function-call counts, 8506 in all, are:
+= -- 841
+> -- 501
 < -- 12
-+ -- 189
-- -- 170
-* -- 594
-:= -- 1322
-add.period$ -- 55
-call.type$ -- 18
-change.case$ -- 139
++ -- 198
+- -- 178
+* -- 615
+:= -- 1379
+add.period$ -- 58
+call.type$ -- 19
+change.case$ -- 146
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 299
-empty$ -- 506
-format.name$ -- 170
-if$ -- 1724
+cite$ -- 20
+duplicate$ -- 309
+empty$ -- 523
+format.name$ -- 178
+if$ -- 1782
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 18
-newline$ -- 93
-num.names$ -- 36
-pop$ -- 137
+int.to.str$ -- 19
+missing$ -- 19
+newline$ -- 98
+num.names$ -- 38
+pop$ -- 144
 preamble$ -- 1
-purify$ -- 121
+purify$ -- 127
 quote$ -- 0
-skip$ -- 264
+skip$ -- 271
 stack$ -- 0
-substring$ -- 511
-swap$ -- 122
+substring$ -- 516
+swap$ -- 123
 text.length$ -- 12
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 72
+type$ -- 76
 warning$ -- 1
-while$ -- 72
-width$ -- 20
-write$ -- 197
-(There was 1 warning)
+while$ -- 74
+width$ -- 21
+write$ -- 207
+(There were 2 warnings)

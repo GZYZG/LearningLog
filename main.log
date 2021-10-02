@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.1)  14 SEP 2021 22:22
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.1)  1 OCT 2021 20:51
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1334,51 +1334,35 @@ File: ppxetex.def 2021/03/06 v0.5t Pdfpages driver for XeTeX (AM)
 \c@AM@survey=\count396
 \AM@templatesizebox=\box90
 )
-Runaway argument?
-{ 郭治焱 \\ 信息科学与工程学院, 湖南大学\\ 长沙市,\ETC.
-! Paragraph ended before \author  was complete.
-<to be read again> 
-                   \par 
-l.67 
-     
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
-
-! Too many }'s.
-l.83 }
-      
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > ma
 in.aex <nul: /p x=^%~$PATH:i>> main.aex)...executed.
 
 runsystem(del main.aex)...executed.
 
-(./main.aux (./setup/content.aux))
+ (./main.aux
+(./setup/content.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 97.
+LaTeX Font Info:    ... okay on input line 97.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1447,64 +1431,64 @@ LaTeX Font Info:    ... okay on input line 98.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 98.
+LaTeX Info: Redefining \selectfont on input line 97.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 98.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 98.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 98.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 98.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 98.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 98.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 98.
-LaTeX Font Info:    Redeclaring math accent \check on input line 98.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 98.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 98.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 98.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 98.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 98.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 97.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 97.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 97.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 97.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 97.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 97.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 97.
+LaTeX Font Info:    Redeclaring math accent \check on input line 97.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 97.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 97.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 97.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 97.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 97.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 98.
+(Font)              `operators' in the math version `normal' on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 98.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 97.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 98.
+(Font)              `operators' in the math version `bold' on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 98.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 98.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 98.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 98.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 98.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 98.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 97.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 98.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 98.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 98.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 97.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 98.
-Package hyperref Info: Link coloring ON on input line 98.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 97.
+Package hyperref Info: Link coloring ON on input line 97.
 
 (d:/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1517,15 +1501,15 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count397
 )
-LaTeX Info: Redefining \ref on input line 98.
-LaTeX Info: Redefining \pageref on input line 98.
-LaTeX Info: Redefining \nameref on input line 98.
+LaTeX Info: Redefining \ref on input line 97.
+LaTeX Info: Redefining \pageref on input line 97.
+LaTeX Info: Redefining \nameref on input line 97.
 
 (./main.out) (./main.out)
 \@outlinefile=\write8
 \openout8 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 98.
+LaTeX Info: Redefining \microtypecontext on input line 97.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -1562,24 +1546,24 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.100 
-      
+l.99 
+     
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10.53937'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 100
-.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 99.
+
 (d:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (d:/texlive/2021/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 100
-.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 99.
+
 
 (d:/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1592,52 +1576,32 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 (RS)
 )
 
-LaTeX Warning: No \author given.
+Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
+(fontspec)                Script "CJK".
 
-(./mycmd.tex
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9
+9.
+(d:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
-! LaTeX Error: Command \tred already defined.
-               Or name \end... illegal, see p.192 of the manual.
+Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
+(fontspec)             'FandolFang-Regular' with options
+(fontspec)             [Script={CJK},Extension={.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.2 \newcommand{\tred}[1]{ {\textcolor{red}{#1}} }
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Command \tbred already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3 ...bred}[1]{ {\textbf{\textcolor{red}{#1}} } }
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-! LaTeX Error: Command \tbc already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4 ...{\tbc}[2]{ {\textbf{\textcolor{#1}{#2}} } }
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-) (./setup/abstract.tex
+ (./mycmd.tex)
+(./setup/abstract.tex
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
 (Font)              using `T1/lmr/bx/n' instead on input line 2.
@@ -1689,32 +1653,6 @@ l.37 \xmybox[HintColor]{xmybox-HintColor}
                                          
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
-
-
-Package fontspec Warning: Font "FandolFang-Regular" does not contain requested
-(fontspec)                Script "CJK".
-
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
-8.
-(d:/texlive/2021/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
-Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
-(fontspec)             'FandolFang-Regular' with options
-(fontspec)             [Script={CJK},Extension={.otf}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"[FandolFang-Regular.otf]/OT:language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-
 
 (d:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -1796,7 +1734,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.89 ...ine {3.0.1}图基本概念}{34}{subsubsection.3.0.1}
+l.89 ...line {2.2.4}词袋模型}{34}{subsubsection.2.2.4}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1809,7 +1747,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.146 ...line {7.1.4}MMD}{47}{subsubsection.7.1.4}
+l.150 ...rline {5.2.1}FM}{48}{subsubsection.5.2.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1822,7 +1760,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.208 ...entsline {section}{参考文献}{61}{section*.96}
+l.195 ...mberline {9.2}参考文献相关}{55}{subsection.9.2}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2312,22 +2250,21 @@ If that doesn't work, type  X <return>  to quit.
 
 [29]) (./body/ML/NLP.tex
 
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1.
-
-
 ! LaTeX Error: \mathcal allowed only in math mode.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.30 \end{itemize}
-                  
+l.21 \subsubsection
+                   {序列标注}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [30]
+File: pics/qa.png Graphic file (type bmp)
+<pics/qa.png>
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2335,8 +2272,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.65 \subsubsection
-                   {命名实体识别}
+l.48 $$
+       
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2348,8 +2285,9 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.98 	\item T
-             F-IDF
+l.88 对
+      于模型的训练问题，需要估计的参数为：$(\boldsymbol{\pi}, \boldsymbol{A}, \boldsymbol{B})$...
+
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -2361,13 +2299,63 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.126 	\item R
-              NN处理seq2seq任务时通常将输入序列转换成一个context向量，再基于context来得到输出的序列。单个向量难以包...
-
+l.121 \end{center}
+                  
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[33]) (./body/ML/graph.tex
+[33]
+File: pics/pre-train.jpg Graphic file (type bmp)
+<pics/pre-train.jpg>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.165 \subsection
+                 {Deep Model for NLP}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[34]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.178 	\item 解
+              码时，会根据所处的时间步，为每一个隐向量计算一个分数，归一化后再分别与隐向量相乘得到当前时间步的context向量
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[35]
+
+LaTeX Warning: Citation `bivaswani2017attentionbid' on page 36 undefined on inp
+ut line 186.
+
+File: pics/Transformer.png Graphic file (type bmp)
+<pics/Transformer.png>
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.206 \subsubsection
+                    {BERT}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[36]) (./body/ML/graph.tex
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 2.
@@ -2384,7 +2372,7 @@ l.19
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[34]
+[37]
 Missing character: There is no ， (U+FF0C) in font [lmroman10-regular]:mapping=t
 ex-text;!
 
@@ -2400,7 +2388,7 @@ l.61 	\item G
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[35]
+[38]
 File: pics/node2vec.png Graphic file (type bmp)
 <pics/node2vec.png>
 
@@ -2416,7 +2404,7 @@ l.88 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[36]
+[39]
 File: pics/node2vec2.png Graphic file (type bmp)
 <pics/node2vec2.png>
 ) (./body/ML/KG.tex
@@ -2440,7 +2428,7 @@ l.3 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[37]) (./body/ML/recsys.tex
+[40]) (./body/ML/recsys.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2454,7 +2442,7 @@ l.14 	\item 2
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[38]
+[41]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2468,7 +2456,7 @@ l.36 		\item 排
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[39]
+[42]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2481,7 +2469,7 @@ l.69 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[40]
+[43]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2494,7 +2482,7 @@ l.116 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[41]
+[44]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2507,7 +2495,7 @@ l.150 	\item 都
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[42]
+[45]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2520,7 +2508,10 @@ l.181
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[43]) (./body/ML/rank.tex
+[46]
+Underfull \vbox (badness 2922) has occurred while \output is active []
+
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2528,40 +2519,48 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10 	\item 查
-             询时，往往排在前面的对象比后面的对象更重要，而Pointwise平等地对待所有带查询对象，损失函数会被占多数的非top K对象所影响
+l.206 但
+       毫无疑问，用户需要惊喜，这会极大提升用户的满意度和使用体验，所以推荐系统对惊喜度的追求只会不断提高，且还需要在不影响预测准确度的前提下来实...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[44]) (./body/Math/chap01.tex
+[47]) (./body/ML/rank.tex
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 	\item 不
+             同的查询可能会有不同大小的带查询对象集合，这种不均衡问题会影响算法的评估与学习
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[48]) (./body/Math/chap01.tex
 File: pics/alias-sample.png Graphic file (type bmp)
 <pics/alias-sample.png>
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 ! LaTeX Error: \mathcal allowed only in math mode.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.24 $$
-       
+l.18     \item \href
+                    {https://www.keithschwarz.com/darts-dice-coins/}{Darts, ...
+
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[45]
+[49]
 File: pics/importance-sample.png Graphic file (type bmp)
 <pics/importance-sample.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 File: pics/accept-reject-sample.png Graphic file (type bmp)
 <pics/accept-reject-sample.png>
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -2577,7 +2576,29 @@ l.60 \subsubsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[46]
+[50]
+File: pics/P-NP-NPC-NP-hard.jpeg Graphic file (type bmp)
+<pics/P-NP-NPC-NP-hard.jpeg>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 95.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 95.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 95.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 95.
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2585,35 +2606,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75 	\item 所
-             有的NP问题都能规约到它
+l.102 \end{equation}
+                    
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[47]
-File: pics/P-NP-NPC-NP-hard.jpeg Graphic file (type bmp)
-<pics/P-NP-NPC-NP-hard.jpeg>
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 95.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 95.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 95.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 95.
-
+[51]
 File: pics/norm optimize.png Graphic file (type bmp)
 <pics/norm optimize.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ! LaTeX Error: \mathcal allowed only in math mode.
@@ -2627,7 +2627,7 @@ l.120 \end{itemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[48]
+[52]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2635,12 +2635,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.144 	\item 总
-              体标准差：$\sigma = \sqrt{\sigma^2}$
+l.159 \textbf{【可以分类（ $=$ 和 $\neq$），但不能排序】}
+                                          
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[49]
+[53]
 
 LaTeX Warning: Command \textgreater invalid in math mode on input line 162.
 
@@ -2662,10 +2662,7 @@ LaTeX Warning: Command \textgreater invalid in math mode on input line 174.
 
 LaTeX Warning: Command \textless invalid in math mode on input line 174.
 
-) (./body/algorithms/search.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
+) (./body/algorithms/basic.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2673,12 +2670,25 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.4 	\item 贪
-            心选择性：指所求问题的整体最优解可以通过一系列局部最优的选择（通过最优度量标准来判断）来到达
+l.18 \paragraph
+               {HOW?}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[50]) (./body/latex.tex
+[54]) (./body/algorithms/search.tex) (./body/latex.tex
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 	\item 编
+            译.bib文件（一般使用bibtex），生成编译后的参考文献
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[55]
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf>
 File: mathfonts.pdf Graphic file (type pdf)
@@ -2700,27 +2710,14 @@ l.14 \includepdf{mathfonts.pdf}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[51]
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.14 \includepdf{mathfonts.pdf}
-                               
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[52]
+[56]
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
- [53]) (./body/coding/cpp.tex
+ [57]) (./body/coding/cpp.tex
 (d:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -2742,7 +2739,7 @@ l.18
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[54]
+[58]
 \openout7 = `main.pyg'.
 
  (./_minted-main/default-pyg-prefix.pygstyle)
@@ -2819,7 +2816,12 @@ l.55
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[55]) (./body/coding/python.tex
+[59]
+\openout7 = `main.pyg'.
+
+
+(./_minted-main/429DE0A6FA3A9982085022442647D901504A7AF0CD3BAA7542030FC560DFCC4
+5.pygtex)
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2827,23 +2829,75 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3 当
-     default\_factory是list时，默认值是[],defaultdict其他常见取值还有：str, set, int, dict。但...
-
+l.98 \subsubsection
+                   {priority\_queue}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[56] (d:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
+[60]
+\openout7 = `main.pyg'.
+
+
+(./_minted-main/3ECB965A73779D503E8B942C5FE196CE504A7AF0CD3BAA7542030FC560DFCC4
+5.pygtex)
+\openout6 = `main.pyg'.
+
+
+(./_minted-main/4CF4B026A26DE695137F225AC6304A2F504A7AF0CD3BAA7542030FC560DFCC4
+5.pygtex)
+\openout7 = `main.pyg'.
+
+
+(./_minted-main/BC89A9DC7890D9AD8904241F3A9AA3D0504A7AF0CD3BAA7542030FC560DFCC4
+5.pygtex)
+\openout7 = `main.pyg'.
+
+
+(./_minted-main/FACDCA2FA68795A4937FD54F654C3F9D504A7AF0CD3BAA7542030FC560DFCC4
+5.pygtex)
+\openout7 = `main.pyg'.
+
+
+(./_minted-main/A16DCB7549915546893A27A6D7927615504A7AF0CD3BAA7542030FC560DFCC4
+5.pygtex)
+\openout6 = `main.pyg'.
+
+
+(./_minted-main/8504FA376AABB5A405EA36886A4F8DA4C570A272A4C3D17C954B8B98AADAF10
+E.pygtex
+
+LaTeX Font Warning: Font shape `U/bbm/m/n' in size <7.52812> not available
+(Font)              size <8> substituted on input line 2.
+
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <7.52812> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 4.
+
+LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/it' undefined
+(Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
+5.
+
+)) (./body/coding/python.tex
+(d:/texlive/2021/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <7.52812> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 7.
-
 
 LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/sl' undefined
 (Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
 9.
 
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 \begin{python}
+                   
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[61]
 Missing character: There is no 、 ("3001) in font ec-lmr10!
 
 Underfull \hbox (badness 1281) in paragraph at lines 44--45
@@ -2851,24 +2905,10 @@ Underfull \hbox (badness 1281) in paragraph at lines 44--45
 um(x, copy=True, nan=0, pos-inf= 1.7976931348623157e+308, neginf=-
  []
 
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.45 
-     
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[57]
 File: pics/markers.png Graphic file (type bmp)
 <pics/markers.png>
 
-Underfull \vbox (badness 1122) has occurred while \output is active []
-
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ! LaTeX Error: \mathcal allowed only in math mode.
@@ -2877,13 +2917,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.75 \tbc{red}{注意}
-                  ：blit参数的使用，当启用了blit时，且要对bar改变时，则会报错：\textit{AttributeError...
-
+l.64 	
+      func: 完成动画动作的回调函数。定义应为：def func(frame, *fargs) -> iterable_of_artists
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[58]
+[62]
 Underfull \hbox (badness 7558) in paragraph at lines 81--82
 []\T1/lmr/m/n/10.53937 plt.subplot_adjust(left=None, bot-tom=None, right=None, 
 top=None, ws-pace=None,
@@ -2892,7 +2931,6 @@ top=None, ws-pace=None,
 Package microtype Info: Character `texttrademark ' is missing
 (microtype)             in font `TS1/lmtt/m/n/7.52812'.
 (microtype)             Ignoring protrusion settings for this character.
-) (./body/coding/tensorflow.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2900,13 +2938,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.33 \paragraph
-               {tf中的RNN}RNN的训练数据与其他神经网络的训练数据有一点不一样。通常的NN中的训练数据，每个样本就是一个向量。但是...
-
+l.88 \end{python}
+                 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[59]
+[63]) (./body/coding/tensorflow.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2914,14 +2951,83 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.68 
-     
+l.38 \paragraph
+               {ImageDataGenerator}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[60]) (./body/coding/lessons.tex)
+[64]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 i
+      nput为输入的张量；axis为可选参数，可以为整数或者整数1-D数组，为None时表示移除所有大小为1的维，否则移除指定的维。
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[65]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.79 \paragraph{tf.expand_dims}给
+                                数据增加维度。\textit{tf.expand\_dims(input, axis, ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\@svsechd ...3}\Sectionformat {tf.expand_dims}{4}}
+                                                  \csname paragraphmark\endc...
+l.79 \paragraph{tf.expand_dims}给
+                                数据增加维度。\textit{tf.expand\_dims(input, axis, ...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.79 \paragraph{tf.expand_dims}给
+                                数据增加维度。\textit{tf.expand\_dims(input, axis, ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.79 \paragraph{tf.expand_dims}给
+                                数据增加维度。\textit{tf.expand\_dims(input, axis, ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (./body/coding/lessons.tex) (./body/others.tex
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 \textbf{快也是慢}
+                  。你没有必要特意去追求找到最好的方向和最合适的步子。你身边当然会有幸运之子，他们每一步都在别人前面。但经验告诉我们，...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[66])
 ! Undefined control sequence.
-l.264 \printbibliography
+l.267 \printbibliography
                         
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2947,12 +3053,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.35 
-     
+l.41 \bibitem{devlin2019bert}
+                             
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[61]
+[67]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2960,12 +3066,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.108 \bibitem{vaswani2017attention}
-                                    
+l.121 
+      
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[62])
+[68])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2973,31 +3079,43 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.270 \end{document}
+l.273 \end{document}
                     
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[63] (./main.aux (./setup/content.aux))
+[69] (./main.aux (./setup/content.aux))
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.41063pt have occurred.
+(Font)              up to 0.47188pt have occurred.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EA29EE13DB241DBCFA84E93DF3C2F549;15628.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 966EFBA7FDEED2C521C41E2780303690;17854
+(rerunfilecheck)             After:  AC0FA504B43E939ADAF84AF653A993FC;17854.
 runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 37875 strings out of 476919
- 820094 string characters out of 5825425
- 1739364 words of memory out of 5000000
- 56982 multiletter control sequences out of 15000+600000
- 468972 words of font info for 131 fonts, out of 8000000 for 9000
+ 38012 strings out of 476919
+ 826055 string characters out of 5825425
+ 1742859 words of memory out of 5000000
+ 57086 multiletter control sequences out of 15000+600000
+ 482335 words of font info for 145 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,17n,111p,592b,1956s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 104i,17n,111p,592b,2044s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (63 pages).
+Output written on main.pdf (69 pages).
