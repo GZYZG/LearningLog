@@ -73,6 +73,13 @@ Xinran He, Junfeng Pan, Ou~Jin, Tianbing Xu, Bo~Liu, Tao Xu, Yanxin Shi,
 \newblock Practical lessons from predicting clicks on ads at facebook.
 \newblock {\em ADKDD@KDD}, pages 1--9, 2014.
 
+\bibitem{junqiu2019nezha}
+Wei Junqiu, Ren Xiaozhe, Li~Xiaoguang, Huang Wenyong, Liao Yi, Wang Yasheng,
+  Lin Jiashu, Jiang Xin, Chen Xiao, and Liu Qun.
+\newblock Nezha: Neural contextualized representation for chinese language
+  understanding.
+\newblock 2019.
+
 \bibitem{kipf2017semi-supervised}
 N.~Thomas Kipf and Max Welling.
 \newblock Semi-supervised classification with graph convolutional networks.

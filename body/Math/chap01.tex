@@ -176,3 +176,124 @@ $\chi^2$检验通常用于检验两个事件的独立性，例如可以用于分
 以上四种变量类型的性质是逐渐继承的。
 
 参考：\href{https://blog.csdn.net/YYIverson/article/details/100068865}{【统计学】区分定类、定序、定距、定比变量！！}。
+
+\subsubsection{拉格朗日对偶性}
+约束最优化中常用的一种方法。利用拉格朗日对偶性（Lagrange duality）将原始问题转换为对偶问题，通过求解对偶问题得到原始问题的解。
+
+\paragraph{原始问题}假设$f(x), g_i(x), h_j(x)$是定义在$\mathbb{R}^n$的连续可微函数。原始最优化问题为：
+\begin{align}
+	\mathop{min}_{x \in \mathbb{R}^n}&\quad f(x) \nonumber \\
+	s.t.&\quad g_i(x) \leqslant 0, i = 1, 2, ..., k \nonumber \\
+		&\quad h_j(x) = 0, j = 1, 2, ..., l \nonumber
+\end{align}
+
+引进广义朗格朗日函数：
+$$
+L(x, \alpha, \beta) = f(x) + \sum_{i=1}^k a_i g_i(x) + \sum_{i=j}^l \beta_j h_j(x)
+$$
+其中，$x \in \mathbb{R}^n$，$\alpha, \beta$是拉格朗日乘子，$\alpha_i \geqslant 0$。将$L$看作$\alpha, \beta$的函数（固定$x$），求其最大值，即：
+$$
+\mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta)
+$$
+注意，$\mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta)$表示固定$x$，$\alpha, \beta$作为变量来使$L$最大化，此时再固定$\alpha, \beta$即可得到一个关于$x$的函数：
+$$
+\theta_P (x) = \mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta)
+$$
+$P$表示原始问题。分析一下$\theta_P$：
+\begin{myitemize}
+	\item 当$x$违反原始约束$g_i(x) \leqslant 0$或$h_j(x) \neq 0$，则可以很容易调整对应的$\alpha_i, \beta_j$使$\theta_P(x)$取得$+\infty$。（\textbf{$\alpha_i \geqslant 0$的原因}）
+	\item 当$x$满足原始约束时，则有：
+	$$
+	\theta_P(x) = \mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta) = f(x)
+	$$
+	考虑$f(x) + \sum_{i=1}^k a_i g_i(x) + \sum_{i=j}^l \beta_j h_j(x)$，对于任意$x$（即固定$x$），显然有$h_j(x) = 0$，且$g_i(x) \leqslant 0$，则$\mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta)$\textbf{肯定有$\alpha_i = 0$}，所以，
+	$$
+	\mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta) = f(x) + \sum_{i=1}^k 0 \cdot g_i(x) + \sum_{i=j}^l \beta_j h_j(x)
+	$$
+	即$\theta_P(x) = \mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta) = f(x)$
+\end{myitemize}
+因此，
+$$
+\theta_P(z)= \begin{cases}f(x), & x\ satisfies\ subjects \\ +\infty, & \text { otherwise }\end{cases}
+$$
+所以$\theta_P(x)$的极小就等价于原始问题的解，即：
+$$
+\mathop{min}_{x} \theta_P(x) = \mathop{min}_{x} \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} L(x, \alpha, \beta)
+$$
+因此，原始不等式约束优化问题转化成了广义\textbf{拉格朗日的极小极大问题}，定义原始问题的最优值：
+$$
+p^* = \mathop{min}_{x} \theta_P(x)
+$$
+
+\paragraph{对偶问题}
+定义关于$\alpha, \beta$的函数，
+$$
+\theta_D(\alpha, \beta) = \mathop{min}_{x} L(x, \alpha, \beta)
+$$
+$D$表示其为对偶问题，其含义可与$\theta_P$类别。考虑$\theta_D$的极大化，即：
+$$
+\mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \theta_D(\alpha, \beta) = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \mathop{min}_{x} L(x, \alpha, \beta)
+$$
+$\mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \mathop{min}_{x} L(x, \alpha, \beta)$称为\textbf{拉格朗日函数的极大极小问题}。将朗格朗日的极大极小问题转化为优化问题：
+\begin{align}
+	\mathop{max}_{\alpha, \beta} \theta_D(\alpha, \beta)&\quad = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \mathop{min}_{x} L(x, \alpha, \beta) \nonumber \\
+	s.t.&\quad \alpha_i \geqslant 0, i = 1, 2, ..., k \nonumber
+\end{align}
+该问题称为原始问题的对偶问题，定义对偶问题的最优值：
+$$
+d^* = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \theta_D(\alpha, \beta)
+$$
+
+\paragraph{原始问题与对偶问题的关系}
+若原始问题和对偶问题都有最优值，那么二者的最优值有如下关系：
+$$
+d^* = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \mathop{min}_{x} L(x, \alpha, \beta) \leqslant \mathop{min}_{x} \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} L(x, \alpha, \beta) = p^*
+$$
+\textbf{证明：}
+\begin{quotation}
+	$$
+	\theta_D(\alpha, \beta) = \mathop{min}_{x} L(x, \alpha, \beta) \leqslant L(x, \alpha, \beta) \leqslant \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} L(x, \alpha, \beta) = \theta_P(x)
+	$$
+	即，
+	$$
+	\theta_D (\alpha, \beta) \leqslant \theta_P (x)
+	$$
+	即，
+	$$
+	\mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} \theta_D (\alpha, \beta) \leqslant \mathop{min}_{x} \theta_P (x)
+	$$
+	得证。
+\end{quotation}
+\textbf{推论：}
+\begin{quotation}
+	若$x^*, (\alpha^*, \beta^*)$分别是原始问题和对偶问题的\textbf{可行解}，若$d^* = p^*$，则$x^*, (\alpha^*, \beta^*)$分别是原始问题和对偶问题的\textbf{最优解}。
+\end{quotation} 
+那什么样的条件才满足$d^* = p^*$呢？
+
+\textbf{Karush-Kuhu-Tucker(KKT) 条件}\label{kkt}
+\begin{quotation}
+	对原始问题和对偶问题，假设$f(x), g_i(x)$是凸函数，$h_j(x)$是仿射函数，并且不等式约束$g_i(x) \leq 0$是\textbf{严格可行的}，即存在$x$，对所有$i$有$g_i(x) < 0$。则$x^*, (\alpha^*, \beta^*)$分别是原始问题和对偶问题的解的充要条件是$x^*, (\alpha^*, \beta^*)$满足以下KKT条件：
+	\begin{align}\nonumber
+		\nabla_x L(x^*, \alpha^*, \beta^*) &= 0 \nonumber \\
+		\alpha_i^* g_i(x^*) &= 0, i = 1, 2, ..., k \nonumber \\
+		g_i(x^*) &\leq 0, i = 1, 2, ..., k \nonumber \\
+		\alpha_i^* &\geq 0, i = 1, 2, ..., k \nonumber \\ 
+		h_j(x^*) &= 0, i = 1, 2, ..., l \nonumber 
+	\end{align}
+	
+\end{quotation}
+
+\subsubsection{Sequence Minimal Optimization(SMO)}\label{smo}
+序列最小最优化算法，SMO是一种启发式算法，通常用于求解凸二次规划问题。
+
+\subsubsection{正定核}\label{pdkf}
+Positive definite kernel function。一个核函数为正定核的冲要条件：
+\begin{quotation}
+	对任意$x_i \in \mathcal{R}, i = 1, 2, ..., m$ ，$\kappa(x_i, x_j)$对应的Gram矩阵 $[\kappa(x_i, x_j)]_{m \times m}$是半正定矩阵。
+\end{quotation}
+
+\paragraph{常用核函数}
+\begin{itemize}
+	\item 多项式核：$\kappa(x, z) = (x \cdot z + 1)^p$
+	\item 高斯核：$\kappa(x, z) = e^{- \frac{||x - z||^2}{2 \sigma^2}}$
+\end{itemize}

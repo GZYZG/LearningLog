@@ -210,13 +210,99 @@ BERT（Bidirectional Encoder Representations from Transformers）\cite{devlin201
 \paragraph{HOW?}
 BERT在大量无标签的文本数据集进行预训练，得到模型的参数后，再添加具体任务相关的神经网络层，微调后即可得到适用于具体任务的模型，即：pre-training + fine-tuning。
 
-\par{\textbf{Pre-training}}BERT使用两个预训练任务。
+\par{\textbf{Pre-training}}\ \ \ \ BERT使用两个预训练任务。
 
 \par{\textbf{Fine-tuning}}
 
-\paragraph{title}
+%\paragraph{title}
+
+\subsubsection{NeZha}
+NeZha\cite{junqiu2019nezha}是华为在预训练模型上的实践总结，它在BERT的基础上加了很多当下有用的优化，比如Functional Relative Positional Encoding、Whole Word Masking策略、混合精度训练和LAMB优化器。实验表明，NeZha在多项具有代表性的中文NLU任务上均取得了不错的成绩。NeZha的模型结构与Bert一致。
+\paragraph{Functional Relative Positional Encoding}有两种对位置进行编码的常用方案：1）functional PE，使用正余弦函数来对位置进行编码；2）Parametric PE，将位置编码作为模型学习的参数。后续又提出了相对位置编码，NeZha中使用了函数式的相对位置编码。常用函数是的位置编码：
+$$
+\begin{equation}\nonumber
+	\left\{\begin{aligned}&\boldsymbol{p}_{k,2i}=\sin\Big(k/10000^{2i/d}\Big)\\ 
+		&\boldsymbol{p}_{k, 2i+1}=\cos\Big(k/10000^{2i/d}\Big) 
+	\end{aligned}\right.
+\end{equation}
+$$
+其中其中$\boldsymbol{p}_{k,2i}, \boldsymbol{p}_{k,2i+1}$分别是位置$k$的编码向量的第$2i, 2i+1$个分量，$d$是位置向量的维度。则计算Attention时：
+$$
+\begin{equation}\nonumber
+	\left\{
+	\begin{aligned} 
+		\boldsymbol{q}_i =&\, (\boldsymbol{x}_i + \boldsymbol{p}_i)\boldsymbol{W}_Q \\ 
+		\boldsymbol{k}_j =&\, (\boldsymbol{x}_j + \boldsymbol{p}_j)\boldsymbol{W}_K \\ 
+		\boldsymbol{v}_j =&\, (\boldsymbol{x}_j + \boldsymbol{p}_j)\boldsymbol{W}_V \\ 
+		a_{ij} =&\, \frac{e^{ij}}{\sum_k e^{ik}}\\ 
+		e_{ij} =& \frac{\boldsymbol{q}_i \boldsymbol{k}_j^T}{\sqrt{d}}\\
+		\boldsymbol{o}_i =&\, \sum_j a_{i,j}\boldsymbol{v}_j 
+	\end{aligned}\right.
+\end{equation}
+$$
+
+引入相对位置编码后，去掉原来的绝对位置编码$\boldsymbol{p}_k$，分别引入相对位置的$key, value$编码$\boldsymbol{R}_{ij}^K, \boldsymbol{R}_{ij}^V$，其中$i, j$分别表示序列中元素的位置。则$\boldsymbol{q}_i$不变，$\boldsymbol{k}_i, \boldsymbol{v}_i$改变，新的公式如下：
+$$
+\begin{equation}\nonumber
+	\left\{
+	\begin{aligned} 
+		\boldsymbol{q}_i =&\, \boldsymbol{x}_i \boldsymbol{W}_Q \\ 
+		\boldsymbol{k}_j =&\, \boldsymbol{x}_j \boldsymbol{W}_K + \boldsymbol{R}_{ij}^K \\ 
+		\boldsymbol{v}_j =&\, \boldsymbol{x}_j \boldsymbol{W}_V + \boldsymbol{R}_{ij}^V \\ 
+		a_{ij} =&\, \frac{e^{ij}}{\sum_k e^{ik}}\\ 
+		e_{ij} =& \frac{\boldsymbol{q}_i \boldsymbol{k}_j^T}{\sqrt{d}}\\
+		\boldsymbol{o}_i =&\, \sum_j a_{i,j}\boldsymbol{v}_j 
+	\end{aligned}\right.
+\end{equation}
+$$
+
+在一些Parametric relative PE中，$\boldsymbol{R}_{ij}^K, \boldsymbol{R}_{ij}^V$是通过学习得到的，NeZha中通过正余弦函数计算得到：
+$$
+\begin{equation}
+	\begin{aligned}
+		\boldsymbol{R}_{ij}[2 k] =& \sin \left((j-i) /\left(10000^{\frac{2 \cdot k}{d_{z}}}\right)\right) \\
+		\boldsymbol{R}_{ij}[2 k+1] =& \cos \left((j-i) /\left(10000^{\frac{2 \cdot k}{d_{z}}}\right)\right)
+	\end{aligned}
+\end{equation}
+$$
+
+NeZha中$\boldsymbol{R}_{ij}^K, \boldsymbol{R}_{ij}^V$是相等的。
+
+\paragraph{Whole Word Masking}
+在BERT中，是对token进行随机mask的，但是在中文预料中，因为通常会进行分词，所以一个词可能分成了多个token，若其中一个token被mask，其他的属于该词的token也应该被mask。mask的概率与BERT一致。
+
+\paragraph{Mixed Precision Training}
+通常模型中的参数和梯度都是保存在32位浮点数。在NeZha中使用了混合的精度。在模型的每一次计算过程中，维护一个32位的权重副本，然后将其舍入为16位，再用舍入后的权重进行前向和反向计算，得到16位的梯度后，将梯度转为32位，再用32位的梯度与32位的权重副本来更新权重。
+
+\paragraph{LAMB Optimizer}
+LAMB优化器为大batch-size的训练而生，batch大小可达30000！！！
 
 \subsection{词嵌入模型}
 \subsubsection{Word2Vec}
 
 \subsubsection{ELOM}
+
+\subsection{Tokenization}
+Tokenizer的目的是：将文本处理为可以被模型处理的数据。通常在文本相关的任务中会将文本处理为更细的粒度，如将篇章处理为句子、句子处理为word、word处理为token，甚至可以将token处理为character。Tokenizer将文本转化为token，并基于token表将token转为数字。常用的tokenization方法：
+\subsubsection{word-based}
+一个直接的方法便是以word为token。通常来说，可以制定一些规则将文本划分为word序列，例如英语语料可用空格分割。但是容易产生以下几个问题：
+\begin{myitemize}
+	\item 最终的词汇表可能会非常大
+	\item 十分相似的词，会得到没有关联的id。如dog和dogs，被在词汇表中表示为两个词，但二者的id没有关联，并不能反映二者真实的语义关系。这种情况也是使得词汇表庞大的原因之一。当然，可以制定规则处理这些情况，但是还有一些情况难以处理，如有相同词根的词
+	\item 有些词可能会因为时态、词缀等的变化而被视作不同的词，这也加大了OOV(out of vocabulary)出现的概率	
+\end{myitemize}
+
+\subsubsection{character-based}
+显然，这种方法是把原始文本用字符来表示。这种方式适用于英文，也适用于中文，不需要进行分词。有两个明显的有点：
+\begin{myitemize}
+	\item 词汇表会小很多
+	\item 出现OOV的概率基本可以消除
+\end{myitemize}
+但也带了一些很明显的问题：
+\begin{myitemize}
+	\item 语义不明显。将文本分散为character后，单个character含有的语义太过零散
+	\item 处理后的文本包含的token过多，不利于输入模型，通常模型的输入是有长度限制的
+\end{myitemize}
+
+\subsubsection{subword}
+Subword，sub-word，比我们平常所用的word更小的word，通常为word的一部分。Subword tokenization的一个原则：频繁出现的word不应该拆分成sub-word，而不频繁出现的word应该被分解为更小的、更频繁出现的sub-words。这种方式可以将较长的word、少见的word分解为常用的sub-words，且sub-word可以被不同的word之间共享。

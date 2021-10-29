@@ -1,5 +1,5 @@
 % 记录一些常见的图的概念
-\subsubsection{图基本概念}
+\subsection{图基本概念}
 \paragraph{Motif} 形式上是一个连通子图，强调这个Motif的拓扑结构。Motif可能是某种经常出现在图中的结构，可以认为时一种反复出现的结构模式。相同结点数的motif可能会有多种结构。
 
 \paragraph{Weisfeiler-Lehman isomorphism test}  图同构测试。对于两个图$G_1, G_2$，WL test能够判断它们是否同构，但是也存在一些特殊的例子，WL test会将非同构的两个图判定为同构的。算法过程如下：
@@ -53,7 +53,7 @@ WL test中是这样做的：\\
 
 若$\forall v_i^1, v_j^1 \in V_1, v_i^2, v_j^2 \in V_2$，$f(v_i^1) = v_i^2, f(v_j^1) = v_i^2$，当$(v_i^1, v_j^1) \in E_1$有$( f(v_i^2), f(v_j^2) ) \in E_2$，则称$\mathcal{G}_1, \mathcal{G}_2$是同构的，存在同构映射$f$。
 
-\subsubsection{结点邻居采样}
+\subsection{结点邻居采样}
 在图机器学习中，生成结点表征可以说是最基本的事儿了。不管是随机游走、矩阵分解还是图神经网络的方式，最终都会得到结点的表征。其中不可绕过的一个就是结点的邻居。
 在随机游走中，会类似于语言模型中词语的上下文环境一样为结点构造上下文，每个结点产生的随机游走路径就是一个上下文。游走的过程可以看作是对结点邻居进行采样的过程。矩阵分解中，通常是构造图的Laplacian矩阵，再进行分解，用特征向量来表示结点表征，对这个不是很了解，就不多说了。到了图神经网络中，节点邻居更是成了主角。从GCN原论文\cite{kipf2017semi-supervised} ==> GraphSage\cite{hamilton2017inductive} ==> FastGCN\cite{chen2018fastgcn} ==> VR-GCN\cite{chen2018stochastic} ==> ... 。GCN中结点的邻居采样方式五花八门。
 
@@ -64,7 +64,7 @@ WL test中是这样做的：\\
 	\item 审稿时发现的根据attention distribution 和 uniform distribution的KL散度选top-k的采样。这种方法可以发现比较重要的结点，而不是均匀地参与到其邻居的结点
 \end{enumerate}
 
-\subsubsection{DeepWalk \& Node2Vec}
+\subsection{DeepWalk \& Node2Vec}
 二者都是学习结点表征的方法，都是通过游走的方式来生成一个节点的context，在通过SkipGram的方式来学习结点表征。二者关键的差别就在生成context的方式，即游走方式上。
 
 \begin{itemize}
@@ -109,3 +109,5 @@ $p, q$就是控制游走的两个参数：
 \end{figure}
 
 论文中将这叫做Biased random walk，通过调整游走的参数$p,q$能够使学习到的表征在同质性（Homophily）和结构相似性（Structure Equivalence）间平衡。BFS能够探索探索homophily，即距离相近的结点，如Fig.\ref{fig:node2vec2}所示，$s_1, s_2, s_3, s_4$是与$u$相邻的结点，它们的表征应该相似；DFS使得探索到更远的地方，能够发现与$u$结构类似地结点，如$s_6$，它俩地表征也应该相似。所以学习到的表征既能体现结点地同质性，也能体现结点地结构相似性。
+
+\subsubsection{Spectral graph convolution}

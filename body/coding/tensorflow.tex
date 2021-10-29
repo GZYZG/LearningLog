@@ -76,4 +76,7 @@ input为输入的张量；axis为可选参数，可以为整数或者整数1-D�
 
 反之则为$unsqueeze$。
 
-\paragraph{tf.expand_dims}给数据增加维度。\textit{tf.expand\_dims(input, axis, name)}，表示在$input$的第$axis$维插入一个维度，维度大小为1。
+\paragraph{tf.expand\_dims}给数据增加维度。\textit{tf.expand\_dims(input, axis, name)}，表示在$input$的第$axis$维插入一个维度，维度大小为1。
+
+\paragraph{nn.Dropout}
+\mintinline{python}{torch.nn.Dropout(p=0.5, inplace=False)}。\mintinline{python}{nn.Dropout}实现了Dropout，可以作为神经网络中的层来使用。对于输入\mintinline{python}{nn.Dropout}的数据，会以参数为$p$的伯努利分布对每个channel的数据进行采样然后置零（每个channel中的每个元素有$p$的概率置零）。\textbf{注意：}在训练时，\mintinline{python}{nn.Dropout}的输出会乘以$\frac{1}{1 - p}$进行缩放，不训练时，则等于恒等映射。不管是否有元素被置零，都会乘以$\frac{1}{1 - p}$，$p$越大，放大的倍数越大。
