@@ -1,7 +1,7 @@
 % 记录阅读文献时遇到的一些数学概念等
-\subsubsection{采样}
+\subsection{采样}
 采样是生成一堆数据的过程，如果最终生成的数据服从某个分布，则可以称这堆数据采样自这个分布。
-\paragraph{alias sampling }
+\subsubsection{alias sampling }
 一种高效的针对\textbf{离散概率分布}采样方法，但是要先经过预处理，预处理的时间为$O(n)$，但是与处理完成后采样的时间时$O(1)$。预处理的大致思路如下：\\
 对于一个给定的离散概率分布：$p(X = x_i) , X = x_1, x_2, ..., x_n$。按照序号构造n个盒子，每个盒子按照顺序一一与$x_1, ..., x_n$对应，每个盒子的高度为$n \cdot p(X = x_i)$。接下来通过取长补短，把高度高于1的盒子切一部分分到其他高度低于1的盒子上，而且每个序号对应处不能有超过两个盒子。所以需要两个数组（Alias，Accept）来记录预处理的结果，一个用来记录每个序号除了原来的盒子还放了哪个盒子，一个用来记录每个序号的外来盒子有多高。\\
 进行采样时，先决定使用哪个序号对应的盒子，再决定使用该序号内的原来的盒子还是外来的盒子。一个简单的例子Fig.\ref{fig:alias-sample}
@@ -19,7 +19,7 @@
     \item \href{https://www.cnblogs.com/dogecheng/p/13198198.html}{【图嵌入】DeepWalk 和 Node2Vec}
 \end{enumerate}
 
-\paragraph{Importance Sampling}
+\subsubsection{Importance Sampling}
 重要性采样，一种近似的抽样方法, 通过一些数学上的变化, 使得可以对一些不好抽样的分布进行抽样和估计。这个会在强化学习中的off-policy的方法中用到, 从一个策略进行抽样, 更新另外一个策略。求函数$f(x)$的积分可以写成求期望的形式：
 $$
 E_{x \sim p(x)}[f(x)] = \int p(x) f(x) d x \approx \frac{1}{n} \sum_{i} f(x_{i})
@@ -42,7 +42,7 @@ $$
 参考：\href{https://www.jianshu.com/p/3d30070932a8}{随机模拟-Monte Carlo积分及采样（详述直接采样、接受-拒绝采样、重要性采样）}。
 
 
-\paragraph{接受-拒绝采样}
+\subsubsection{接受-拒绝采样}
 同样的问题：对于一个难以采样的分布$p(x)$，该怎么采样呢？选择一个易于采样的分布$q(x)$，从中采样，以一定的概率接受或拒绝采样到的样本，使得经过筛选后的样本集是服从$p(x)$的。
 \begin{figure}[h]
 	\centering
@@ -52,19 +52,19 @@ $$
 \end{figure}
 具体该怎么操作呢？如Fig.\ref{fig:accept-reject-sample}所示，选择$q(x)$，乘以$k$得到$kq(x)$使之刚好能够保住$p(x)$。对于$q(x)$中采样到的样本$z_0$，从$[0, 1]$的均匀分布中取一个数$u_0$，如果$u_0 \le \frac{p(z_0)}{q(z_0)}$则接受$z_0$。
 
-\subsubsection{eigen-value \& eigen—vector }
+\subsection{eigen-value \& eigen—vector }
 特征值，特征向量。
 这两者到底有什么意义呢？
 
 
-\subsubsection{Density estimation }
+\subsection{Density estimation }
 
-\subsubsection{MMD}
+\subsection{MMD}
 Maximum mean discrepancy。 用来衡量两个分布的差异。具体的衡量过程是：
 假设有两个分布p, q，那么利用这两个分布分别生成两个样本集ps, qs，再假设有一个函数f，对于$pm = \sum_{i \in ps}f(i), qm = \sum_{j \in qs}f(j) $,
 则分布p, q 在f上的MMD为 $pm$与$qm$的差或某种基于$pm, qm$ 的计算值。
 
-\subsubsection{P, NP, NP-hard}
+\subsection{P, NP, NP-hard}
 P问题：确定性计算机能够在指数级时间解决的问题；
 
 NP问题：非确定性计算机能够在指数级时间解决的问题；
@@ -86,13 +86,13 @@ NP-hard问题：满足NPC问题的第二个条件，但不一定满足第一条�
 
 
 
-\paragraph{傅里叶变换和小波分析}
+\subsection{傅里叶变换和小波分析}
 傅里叶变换：知道一段时间内，信号的各个频率分量分别有多少。
 小波变换：知道一段时间内，信号的各个频率分量分别有多少，以及它们都是什么时候出现的。
 
 参考资料：\href{https://cseweb.ucsd.edu/~baden/Doc/wavelets/polikar_wavelets.pdf}{《The Wavelet Tutorial》}、\href{https://www.zhihu.com/question/22864189/answer/40772083}{如何通俗地讲解傅立叶分析和小波分析间的关系？ - 咚懂咚懂咚的回答}。
 
-\subsubsection{$l_1, l_2$范数对最优化问题的影响}
+\subsection{$l_1, l_2$范数对最优化问题的影响}
 考虑以下优化问题：
 \begin{equation}
 	\begin{aligned}
@@ -128,47 +128,47 @@ NP-hard问题：满足NPC问题的第二个条件，但不一定满足第一条�
 \end{itemize}
 
 
-\subsubsection{Reparametrization}重参数化技术。参考：\href{https://spaces.ac.cn/archives/6705}{漫谈重参数：从正态分布到Gumbel Softmax}
+\subsection{Reparametrization}重参数化技术。参考：\href{https://spaces.ac.cn/archives/6705}{漫谈重参数：从正态分布到Gumbel Softmax}
 
-\subsubsection{常用统计量}
-\paragraph{方差（Variance）} 一组数据的方差，描述的是数据与它们的均值的离散程度，衡量了这组数据的集中程度。方差可以分为样本方差和总体方差：
+\subsection{常用统计量}
+\subsubsection{方差（Variance）} 一组数据的方差，描述的是数据与它们的均值的离散程度，衡量了这组数据的集中程度。方差可以分为样本方差和总体方差：
 \begin{itemize}
 	\item 样本方差：$S^2 = \frac{\sum_{i=1}^N(x_i - \bar{x})^2}{N-1}$，其中$\bar{x}$是\textbf{样本均值}
 	\item 总体方差：$\sigma^2 = \frac{\sum_{i=1}^N(x_i - \mu)^2}{N}$，其中$\mu$是\textbf{总体均值}
 \end{itemize}
 \textbf{为什么不用要平方？}如果使用平均差（$\frac{\sum_{i=1}^N |x_i - \bar{x}|}{N}$）来衡量一组数据的离散程度，可能不能很好的体现数据的分散程度（参考：\href{https://www.shuxuele.com/data/standard-deviation.html#WhySquare}{为什么要求差的平方？}），加上平方后可以放大偏离均值太远的数据的影响。也许这有点像注意力机制，在平均差中，$|x_i - \bar{x}|$的注意力值是$\frac{1}{N}$，在方差中，$|x_i - \bar{x}|$的注意力值是$\frac{|x_i - \bar{x}|}{N}$，这可以体现离均值越远的点对离散程度的贡献越大。
 
-\paragraph{标准差（Standard Deviation）} 标准差的平方就是方差，同理，标准差也可以分为样本std.和总总体std.：
+\subsubsection{标准差（Standard Deviation）} 标准差的平方就是方差，同理，标准差也可以分为样本std.和总总体std.：
 \begin{itemize}
 	\item 样本标准差：$S = \sqrt{S^2}$
 	\item 总体标准差：$\sigma = \sqrt{\sigma^2}$
 \end{itemize}
 
-\paragraph{T-statistic }
+\subsubsection{T-statistic }
 
 
-\paragraph{p-value }
+\subsubsection{p-value }
 
-\paragraph{t test、$\chi^2$检验}
+\subsubsection{t test、$\chi^2$检验}
 $\chi^2$检验通常用于检验两个事件的独立性，例如可以用于分析自变量与因变量之间的独立性。如果$\chi^2$的值越大，则说明二者之间的关联性越大。
 
-\subsubsection{数据的度量}
-\paragraph{定类变量}
+\subsection{数据的度量}
+\subsubsection{定类变量}
 即类别变量，其值域是某个离散的类别。能够对对象进行分类，能够判断对象之间是否同类或异类，如性别。\tbc{red}{不同类别之间没有大小关系}。
 
 \textbf{【可以分类（ $=$ 和 $\neq$），但不能排序】}
 
-\paragraph{定序变量}
+\subsubsection{定序变量}
 定序变量的值不仅能够代表事物的分类，还能代表事物按某种特性的排序，但定序变量的值之间没有确切的间隔距离，\tbc{red}{只能排列出它们的顺序，而不能反映出不同值之间的距离}，即不能反映一个值比另一个值大多少或小多少。如文化水平，其取值可以是文盲、小学、中学、大学等，值之间有顺序关系（如大学 $\textgreater$ 小学），但不能反映不同文化程度之间的距离。
 
 \textbf{【可以分类（ $=$ 和 $\neq$），可以排序（$\textgreater$ 和 $\textless$），但不能（$+$ 和 $-$ ）】}
 
-\paragraph{定距变量}
+\subsubsection{定距变量}
 定距变量的值之间\tbc{red}{可以比较大小，两个值的差有实际意义}。能确切测量值之间的高低、大小次序之间的距离，因而具有加与减的数学特质。但是，\tbc{red}{定距变量没有一个绝对的零点}，不能乘除或倍数的形式来说明它们之间的关系。例如华氏温度：10、20、30，30比20高10，但华氏度30不是10的三倍热（\tbc{red}{0不是没有温度}）。
 
 \textbf{【可以分类（ $=$和 $\neq$ ），可以排序（$\textgreater$ 和 $\textless$），可以（$+$ 和 $-$ ），但不能（$\times$和 $\div$ ）】}
 
-\paragraph{定比变量}
+\subsubsection{定比变量}
 定比变量除了具有定距变量的特性外，还具有一个真正的零点，因而它具有乘与除（×、÷）的数学特质。如A的体重是60kg，而B的体重是30kg，可以算出前者是后者的两倍重，因为其零点是绝对的。
 
 \textbf{【可以分类（ $=$和 $\neq$ ），可以排序（$\textgreater$ 和 $\textless$），可以（$+$ 和 $-$ ），可以（$\times$和 $\div$ ）】}
@@ -177,10 +177,10 @@ $\chi^2$检验通常用于检验两个事件的独立性，例如可以用于分
 
 参考：\href{https://blog.csdn.net/YYIverson/article/details/100068865}{【统计学】区分定类、定序、定距、定比变量！！}。
 
-\subsubsection{拉格朗日对偶性}
+\subsection{拉格朗日对偶性}
 约束最优化中常用的一种方法。利用拉格朗日对偶性（Lagrange duality）将原始问题转换为对偶问题，通过求解对偶问题得到原始问题的解。
 
-\paragraph{原始问题}假设$f(x), g_i(x), h_j(x)$是定义在$\mathbb{R}^n$的连续可微函数。原始最优化问题为：
+\subsubsection{原始问题}假设$f(x), g_i(x), h_j(x)$是定义在$\mathbb{R}^n$的连续可微函数。原始最优化问题为：
 \begin{align}
 	\mathop{min}_{x \in \mathbb{R}^n}&\quad f(x) \nonumber \\
 	s.t.&\quad g_i(x) \leqslant 0, i = 1, 2, ..., k \nonumber \\
@@ -225,7 +225,7 @@ $$
 p^* = \mathop{min}_{x} \theta_P(x)
 $$
 
-\paragraph{对偶问题}
+\subsubsection{对偶问题}
 定义关于$\alpha, \beta$的函数，
 $$
 \theta_D(\alpha, \beta) = \mathop{min}_{x} L(x, \alpha, \beta)
@@ -244,7 +244,7 @@ $$
 d^* = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \theta_D(\alpha, \beta)
 $$
 
-\paragraph{原始问题与对偶问题的关系}
+\subsubsection{原始问题与对偶问题的关系}
 若原始问题和对偶问题都有最优值，那么二者的最优值有如下关系：
 $$
 d^* = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \mathop{min}_{x} L(x, \alpha, \beta) \leqslant \mathop{min}_{x} \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} L(x, \alpha, \beta) = p^*
@@ -283,16 +283,16 @@ $$
 	
 \end{quotation}
 
-\subsubsection{Sequence Minimal Optimization(SMO)}\label{smo}
+\subsection{Sequence Minimal Optimization(SMO)}\label{smo}
 序列最小最优化算法，SMO是一种启发式算法，通常用于求解凸二次规划问题。
 
-\subsubsection{正定核}\label{pdkf}
-Positive definite kernel function。一个核函数为正定核的冲要条件：
+\subsection{正定核}\label{pdkf}
+Positive definite kernel function。一个核函数为正定核的充要条件：
 \begin{quotation}
 	对任意$x_i \in \mathcal{R}, i = 1, 2, ..., m$ ，$\kappa(x_i, x_j)$对应的Gram矩阵 $[\kappa(x_i, x_j)]_{m \times m}$是半正定矩阵。
 \end{quotation}
 
-\paragraph{常用核函数}
+\subsubsection{常用核函数}
 \begin{itemize}
 	\item 多项式核：$\kappa(x, z) = (x \cdot z + 1)^p$
 	\item 高斯核：$\kappa(x, z) = e^{- \frac{||x - z||^2}{2 \sigma^2}}$

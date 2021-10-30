@@ -1,4 +1,4 @@
-\subsubsection{线性回归\&逻辑回归}
+\subsection{线性回归\&逻辑回归}
 \textbf{\checkmark 2020-09-30}\\
 线性回归研究的问题是多个变量中某个变量和其他变量之间存在的线性关系，相当于用多个变量线性表示某个变量，某个变量就称为因变量，其他变量就称为自变量。用数学语言来描述的话就是这样的：
 $$
@@ -84,7 +84,7 @@ $$
 \end{align}
 关于这个假设，可以这样理解：当给定$\boldsymbol{x}, \boldsymbol{w}, \epsilon$时，真实值在$\hat{y}$附近摆动（即均值为$\hat{y}$），同时由于存在噪声，方差与$\epsilon$的方差相同。
 
-\subsubsection{LDA}
+\subsection{LDA}
 \textbf{\checkmark 2020-10-16}\\
 Linear Discriminant Analysis，线性判别分析。一种经典的线性学习方法，因为最早由Fisher提出，故也称为\textit{Fisher 判别分析}。
 
@@ -119,7 +119,7 @@ $$
 \end{itemize}
 
 
-\subsubsection{决策树}
+\subsection{决策树}
 \textbf{\checkmark 2020-10-22}\\
 Decision Tree，是一种基本的分类与回归方法，基于树形结构来进行决策。
 \paragraph{思想}数据的特征构成了一个特征空间，基于训练样本对特征空间进行划分，最终得到若干子空间（即决策树的叶子节点），每个字空间的类别或值由该空间内的样本决定。决策树的学习过程就是决策树的生成过程，当然，这个决策树是指剪枝后的决策树。
@@ -163,7 +163,7 @@ Decision Tree，是一种基本的分类与回归方法，基于树形结构来�
 \end{myenumerate}
 
 
-\subsubsection{t-SNE}
+\subsection{t-SNE}
 t-distributed Stochastic Neighbor Embedding。一种数据降维的方法。
 
 参考资料：
@@ -172,7 +172,7 @@ t-distributed Stochastic Neighbor Embedding。一种数据降维的方法。
 	\item \href{https://www.jianshu.com/p/700f017cd330}{tSNE降维原理}
 \end{enumerate}
 
-\subsubsection{Spectral cluster}
+\subsection{Spectral cluster}
 谱聚类。将每个样本视作某个空间中的点。
 
 参考资料：
@@ -181,7 +181,7 @@ t-distributed Stochastic Neighbor Embedding。一种数据降维的方法。
 \end{enumerate}
 
 
-\subsubsection{变分贝叶斯}
+\subsection{变分贝叶斯}
 用来近似计算复杂积分，在这类模型中一般包含三类变量：观测变量、未知参数、隐变量，其中位置参数和隐变量统称为不可观测变量。变分贝叶斯的目的主要有两个：
 \begin{itemize}
 	\item 近似估计不可观测变量的后验概率，以便通过这些变量做出推断
@@ -205,7 +205,7 @@ $$
 显然只要最小化KL散度即可，因为$\log P(D)$是一个常数，所以只要最小化$\sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)})$即可。将$\sum_{z \in Z} Q(z) \log \frac{Q(z)}{P(z, D)})$记为$\mathcal{L}$，则$\log P(D) = -\mathcal{L} + KL(Q || P)$。显然KL散度一定是非零的，所以$\log P(D)$的下界就是$-\mathcal{L}$。
 
 
-\subsubsection{自编码器/变分自编码器}
+\subsection{自编码器/变分自编码器}
 自动编码器是一种无监督的神经网络，用于学习输入数据的低维表示，并能够根据低维表示重建输入数据，也是一种将为的手段。
 
 变分自动编码（Variational Auto Encoder）器运用了变分贝叶斯的思想，也继承了自动编码器的结构，但是存在一定的差别。在VAE中，默认将输入数据的低维表示（即隐变量）服从某个分布，一般认为服从正态分布。在encoder阶段学习到隐表示的分布 --- 通常是学习到假定分布的参数，得到分布后就从该分布中进行采样得到隐表示；decoder时，则将隐表示输入到decoder中。
@@ -216,7 +216,7 @@ $$
 	\item \href{https://github.com/cdoersch/vae_tutorial}{vae\_tutorial}
 \end{itemize}
 
-\subsubsection{SVM}
+\subsection{SVM}
 一种二分类模型，定义在特征空间上的间隔最大化的线性分类器，通过间隔最大化找到支持向量来完成算法的学习。
 
 给定数据集：$D = \{(x_1, y_1), (x_2, y_2), ..., (x_N, y_N)\}, x_i \in \mathcal{X} = \mathbb{R}^n, y_i \in \mathcal{Y} = \{-1, +1\}, i = 1, 2, ..., N$。目的是找到最优的超平面$w^T x + b = 0$对$D$进行划分。

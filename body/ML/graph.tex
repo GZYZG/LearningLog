@@ -110,4 +110,4 @@ $p, q$就是控制游走的两个参数：
 
 论文中将这叫做Biased random walk，通过调整游走的参数$p,q$能够使学习到的表征在同质性（Homophily）和结构相似性（Structure Equivalence）间平衡。BFS能够探索探索homophily，即距离相近的结点，如Fig.\ref{fig:node2vec2}所示，$s_1, s_2, s_3, s_4$是与$u$相邻的结点，它们的表征应该相似；DFS使得探索到更远的地方，能够发现与$u$结构类似地结点，如$s_6$，它俩地表征也应该相似。所以学习到的表征既能体现结点地同质性，也能体现结点地结构相似性。
 
-\subsubsection{Spectral graph convolution}
+\subsection{Spectral graph convolution}

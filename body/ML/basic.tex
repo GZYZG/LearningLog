@@ -1,38 +1,29 @@
 % 用于记录一些常见的机器学习，深度学习的概念
-\subsubsection{Auto-regressive model---AR}
+\subsection{Auto-regressive model---AR}
 自回归模型，“自”体现为：使用某个变量不同时期的值（如时间序列的值）来预测该变量下一个值。AR从线性回归发展而来，假设该变量的不同步之间的值为线性关系。
 
 
-\subsubsection{L1/2 regularization}
-
-\subsubsection{mini/full-batch gradient descent}
+\subsection{L1/2 regularization}
 
 
-\subsubsection{预训练，使用自编码器进行预训练}
+\subsection{预训练，使用自编码器进行预训练}
 
-\subsubsection{机器学习中常见的数据分布}
+\subsection{机器学习中常见的数据分布}
 
-\subsubsection{early stopping strategy}
+\subsection{early stopping strategy}
 
-\subsubsection{Jacobean Hessian}
+\subsection{Jacobean Hessian}
 
 
-\subsubsection{Automatic differentiation} 
-
-\subsubsection{不同的优化器原理}
+\subsection{不同的优化器原理}
 可参考：\href{https://mp.weixin.qq.com/s/L9jCK5rtyq3fJZEBpLvagg}{从SGD到NadaMax，十种优化算法原理及实现}
 
 
-\subsubsection{Teacher forcing}     
+\subsection{Teacher forcing}     
 RNN训练时使用的一种训练方法。在训练时，使用模型的输出值用来计算误差，但是使用真实的数据作为下一次的输入。
 
-参考资料：
-\begin{enumerate}
-    \item \href{https://blog.csdn.net/aws3217150/article/details/70214422}{自动微分简介}
-\end{enumerate}
 
-
-\subsubsection{熵、相对熵、交叉熵、互信息} 
+\subsection{熵、相对熵、交叉熵、互信息} 
 \textbf{\checkmark 2020-10-08}\\
 这些概念来自信息论\cite{6773024}。简单来说，熵指的是不确定性或者信息量，熵越大不确定越大。相对熵也叫KL(Kullback-Leibler divergence)散度，用来比较两个概率分布之间的差异。不论是熵、相对熵、交叉熵，都可以看作针对某个（或多个）随机变量，对该随机变量的概率分布的一个某种熵（熵、相对熵、交叉熵）的计算。接下来就从数学上来对其进行描述。
 
@@ -44,17 +35,15 @@ RNN训练时使用的一种训练方法。在训练时，使用模型的输出�
 
 机器学习中常使用交叉熵，既然KL散度和交叉熵都可以达到相同的目的，那为什么不使用KL散度呢？在机器学习中，上述的分布$q$常作为数据的真实分布，而$q$作为数据的预测分布，此时$H(P)$则可以视作一个常数（因为给定数据后，其真实分布是确定的），在优化模型的参数时，$H(P)$并不会对参数的优化做出贡献（不会影响优化过程），故使用交叉熵即可。
 
-\subsubsection{metric learning} 
+\subsection{metric learning} 
 度量学习。学习如何衡量两个对象之间的相似度/距离。
 
 
-\subsubsection{xavier innitializatino} 
-Xavier\cite{pmlr-v9-glorot10a}一种参数初始化方法。神经网络模型的参数初始化时很重要的，对模型最终的效果、收敛速度都有很大的影响。
 
-\subsubsection{批训练的过程，原因}
+\subsection{批训练的过程，原因}
 在训练神经网络时，通常训练数据都是很大的，无法一次性加载进内存。可以把数据分为很多个batch，使用每个batch训练模型后再进行参数调整。
 
-\subsubsection{Contrastive loss, Triplet loss} 
+\subsection{Contrastive loss, Triplet loss} 
 都是一种损失函数。
 
 Triplet loss用于训练差异较小的数据，常用于人脸识别中。以这种函数为损失函数时，输入的一个样本是一个三元组(anchor, positive, negative)，anchor是随机选择的一个样本，而positive和negative分别于anchor为同类/异类数据。在学习时，Triplet loss的目的就是让anchor的表征与positive的表征尽量靠近，与negative的表征尽量疏远。那么对于一个样本来说，Triplet loss写成公式： $$\mathcal{L} = max( ||f(a)-f(p)||_2^2 - ||f(a) - f(n)||_2^2 + \alpha )
@@ -67,11 +56,12 @@ $$
 $$
 其中，$d_{ij}$就表示样本i, j之间的距离，这个可以有多种形式的定义，$Y_{ij}$表示样本i, j的标签是否相同，margin是一个阈值，如果$d_{ij}$超过阈值则应该尽量把它们划分开。
 
-\subsubsection{Batch Normalization}
+\subsection{Batch Normalization}
 在神经网络的训练过程中，前一层的输出相当于后一层的输入，当对参数进行更新的时候，前一层的输出会发生变化，可能前一层---后一层的输入的分布就发生了变化，这会降低模型的收敛速度或使得模型难以收敛。为了解决这个问题，BN通过对每一层的输出进行标准化，使其分布尽量稳定下来，加快模型的收敛速度。实际情况在进行BN时，可能是在通过激活函数之间进行BN或者在通过激活函数后再进行BN。通常是在激活函数之前进行BN，因为当输入较大时，通常激活函数的变化都较小，梯度变化不明显，故在激活函数之间就对数据进行BN，使其分布尽量稳定。
 
+\subsection{Layer Normalization}
 
-\subsubsection{判别模型、生成模型}
+\subsection{判别模型、生成模型}
 \begin{itemize}
 	\item 判别模型：直接对判别函数或者条件概率分布函数进行建模，不考虑样本的产生模型，直接研究预测模型
 	\item 生成模型：学习联合概率密度$P(Y, X)$，然后求出条件概率分布$P(Y|X) = \frac{P(X, Y)}{P(X)}$，不仅要求出联合分布，还要求出训练数据的分布$P(X)$（{\color{red}{不一定要计算$p(X)$，因为对于同一个样本，计算它属于不同分类时，其$p(X)$是一样的，对判别没有帮助}}）。生成模型表示了输入$X$产生输出$Y$的生成关系
@@ -94,23 +84,23 @@ $p(x | y) = p(y)p(x | y)$表示的是，从$p(y)$中采样一个$y$，然后根�
 参考资料：\href{https://blog.csdn.net/fishmemory/article/details/51711114}{判别模型(Discriminative model)和生成模型(Generative model)}、\href{https://developers.google.cn/machine-learning/gan/generative?hl=zh-cn}{Background: What is a Generative Model?}。
 
 
-\subsubsection{Koopman分析}
+\subsection{Koopman分析}
 
 
-\subsubsection{Model Collapse}
+\subsection{Model Collapse}
 模型坍塌，很形象啊，就是模型出现了一个漏洞，不管你输入什么东西都会漏进这个洞里。
 
 这个主要出现在GAN的模型中。GAN通过生成器G和判别器D来使G捕捉到真实数据的分布。在训练GAN模型时会出现model collapse的现象，即G只捕捉到了真实数据的部分分布。为什么会这样呢？简单的介绍一下：当G捕捉到了真实数据的部分分布后，被D识破了，于是G就改变，从某个分布跳到了另外的分布，并且抛弃了原来的分布，于是就成了“猫鼠游戏”，D一直追着G跑，G最终并没有完全捕捉到真实数据的分布。参考：\href{https://blog.csdn.net/SPARKKKK/article/details/72598041}{GAN——ModeCollapse}。
 
-\subsubsection{Inductive Bias}
+\subsection{Inductive Bias}
 归纳偏置，使用某个算法解决问题时所基于的假设，类似于贝叶斯中的先验（prior），与先验不同，归纳偏置在学习过程中不会被更新，而先验会不断被更新。机器学习中常见的归纳偏置：奥卡姆剃刀、CNN中的局部性、KNN中假设相似样本在特征空间中也是相邻的、SVM假设好的分类器应该是类别边界距离最大的等。
 
-\subsubsection{Covariate Shift}
+\subsection{Covariate Shift}
 指机器学习中训练集和测试集样本分布不一致的现象。通常在机器学习中假设训练数据和测试数据的分布是一致的，通过训练数据习得的一组最优参数能否使得模型在测试数据上也有很好的表现呢？当训练集和测试集的分布不是那么相似时，covariate shift就出现了。
 
 怎么解决呢？训练集和测试集的分布不一致导致模型的参数不能很好地应用到测试集上，可能是测试集中地某些样本在训练集中被“轻视”或“过度重视”了，因此可以通过附加一个权重来解决该问题。可参考：\href{https://blog.csdn.net/mao_xiao_feng/article/details/54317852}{covariate shift现象的解释}。
 
-\subsubsection{关于交叉熵损失函数的一点理解}
+\subsection{关于交叉熵损失函数的一点理解}
 交叉熵损失函数可以从多个角度进行理解。从概率论的角度，在极大似然概率估计中，希望参数能够使得已有样本出现的概率最大。
 
 在分类任务中，由于不同样本是有标签的，样本出现的概率应该与标签对应，例如p表示1样本出现的概率，则1-p表示0样本出现的概率，那么对于1样本极大化的应该是p，对于0样本极大化的应该是1-p。
@@ -121,7 +111,7 @@ $p(x | y) = p(y)p(x | y)$表示的是，从$p(y)$中采样一个$y$，然后根�
 
 除了从极大似然的角度来理解交叉熵损失函数，当然也可以直接从交叉熵\ref{ce}的角度来理解。
 
-\subsubsection{关于CNN的一点理解}
+\subsection{关于CNN的一点理解}
 于DNN相比，CNN有两个特点：1）局部感知；2）权值共享。
 
 局部感知。在CNN中每个Feature map中的一个值只于上一层的Feature map的一小部分有关。如果将CNN展开成DNN的形式，则一层中的一个神经元的输入只是上一层的某几个神经元。与全连接不同，全连接将上一层的所有信息作为输入，捕捉整体的信息。但局部感知以某个区域内的信息作为输入，捕获上一层数据中存在的局部信息 --- 特定的模式。
@@ -140,20 +130,24 @@ CNN的应用非常广泛，不仅是图像，在Speech、NLP等很多领域都�
 
 在探索CNN到底学习到了什么的时候，可以在训练好模型后，通过不断优化输入的数据，来检验是什么样的输入使得基于CNN的模型中的神经元能够得到最大的激活 --- 什么样的输入使神经元最兴奋。这些主要涉及到对CNN的解释和可视化。
 
-\subsubsection{DL中的不可微操作}
+\subsection{DL中的不可微操作}
 
-\subsubsection{batch normalization、layer normalization}
 
-\subsubsection{Global Max Pooling}
 
-\subsubsection{Attention机制与CNN}
+\subsection{Global Max Pooling}
 
-\subsubsection{学习率衰减与参数正则化}
+\subsection{Attention机制与CNN}
 
-\subsubsection{深度学习中常见的参数初始化方法}
-\paragraph{Glorot initialization}
+\subsection{学习率衰减与参数正则化}
 
-\subsubsection{机器学习中常用的算法指标及其应用场景}
+\subsection{深度学习中常见的参数初始化方法}
+\subsubsection{Glorot initialization}
+
+\subsubsection{xavier innitializatino} 
+Xavier\cite{pmlr-v9-glorot10a}一种参数初始化方法。神经网络模型的参数初始化时很重要的，对模型最终的效果、收敛速度都有很大的影响。
+
+
+\subsection{机器学习中常用的算法指标及其应用场景}
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
@@ -411,7 +405,7 @@ $$
 
 \paragraph{Set Based Measure}
 
-\subsubsection{深度学习模型中特殊的结构}
+\subsection{深度学习模型中特殊的结构}
 \paragraph{Residual learning block}
 跳跃连接，基本的残差块如Fig.\ref{fig:residual}所示（当然残差块不止有这一种形式，可以根据需求定义不同的残差块）。残差学习由何凯明基于以下问题提出：给定一个学习问题后，逐渐加深网络的层的时候，模型的效果应该是逐渐提升的或者不能低于原来模型的效果，但是在实验中发现通常加深后模型的效果反而变差了。按理来说就算不能提升了，额外增加的层也可以学习到一个恒等映射来保持效果不变啊，但是为什么反而下降了呢？这便是\textbf{模型退化问题}。
 
@@ -457,7 +451,7 @@ $1\times 1$卷积很显然，就是卷积核的长宽均为1，用$c_i$ 和$c_o$
 \end{itemize}
 更多解释可参考动手学深度学习：\href{https://zh-v2.d2l.ai/chapter_convolutional-neural-networks/channels.html#times-1}{$1\times 1$  卷积层}
 
-\subsubsection{常用数据增强手段}
+\subsection{常用数据增强手段}
 增强之前，先想一想：真的需要增强数据吗（通常来说是的）？需要增加的多少数据？需要增加什么样的数据（并不是什么样的数据都可以，主要考虑应用场景中一般会出现的数据即可）？
 \paragraph{仿射变换}
 仿射变换（Affine Transformation）是指在二维向量空间中进行一次线性变换(乘以一个矩阵)和一次平移(加上一个向量)，变换到另一个向量空间的过程。
@@ -511,7 +505,7 @@ $$
 \paragraph{GAN}
 
 
-\subsubsection{方差与偏差}
+\subsection{方差与偏差}
 \paragraph{偏差（Bias）}讲模型的方差的时候，通常是指：对于一个模型，它的预测结果与真实值之间的差距。方差度量的是学习到的函数与真实函数的差距的期望，即$E[\hat{f} - f]$。
 
 \paragraph{方差（Variance）}选用一种模型（如KNN，SVM，NN等），使用不同的数据可以得到该种模型的多个实例（即训练好参数的模型）。\textbf{这些模型}对于同一个输入给出的预测值的方差，即$E[(\hat{f} - E[\hat{f}])^2]$。方差是受所使用的训练集影响的，我们使用不同分布的数据集训练出来的模型会导致学出来的模型参数变化，这反映出来的就是针对同样的输入会产生不一样的预测值，这些预测值的方差就反映了模型的方差。
@@ -525,7 +519,7 @@ $$
 
 \textbf{注意：}\textbf{一种模型相当于一个函数空间}，当我们选择一种模型进行训练，得到了该种模型的各个参数，就相当于得到了一个实例化的模型。模型种类相当于类，训练好的模型相当于对象。喂数据训练模型时相当于在某个特定的函数空间中找到一个合适的函数 --- 即我们要的模型。有时候训练后的模型效果不好，可能不是这种模型不行，可能是没有在这个函数空间中找到合适的函数。
 
-\subsubsection{类别不平衡问题}
+\subsection{类别不平衡问题}
 指的是监督学习中，不同类别的样本数目具有较大的差异（样数据分布与均匀分布差异较大）。
 \paragraph{类别不均衡可能造成的问题}
 \begin{itemize}
@@ -565,7 +559,7 @@ $$
 	\item F-score
 \end{itemize}
 
-\subsubsection{交叉验证}
+\subsection{交叉验证}
 在训练模型的时候，通过会把数据集划分为训练集和测试集，测试集的作用用于学习模型参数，测试集是为了检验模型在未见过的数据上的效果。但是只将数据集划分为测试集和训练集有以下问题：
 \begin{itemize}
 	\item 最终模型与参数的选取将极大程度依赖于你对训练集和测试集的划分方法。不同的划分情况，学习出来的参数是不一样的；固定模型参数，模型在不同划分上的表现也是不一样的。这种情况使得我们无法准确对模型的能力进行评估，不利于我们选择最优的模型（指何种模型）以及最优的模型参数（一般是指超参数，而不是模型学习到的参数）；
@@ -593,7 +587,7 @@ $$
 \end{itemize}
 
 
-\subsubsection{归一化 vs 标准化 定量的分析}
+\subsection{归一化 vs 标准化 定量的分析}
 参考：\href{https://mp.weixin.qq.com/s/lO3Li7dWAvtzefVA_M0dJg}{https://mp.weixin.qq.com/s/lO3Li7dWAvtzefVA\_M0dJg}\\
 \textbf{归一化：}将值变换到$[0, 1]$或者$[-1, 1]$之间，使得不同类型的特征之间有了可比性，对利用了样本之间距离的算法很重要。\textbf{标准化：}改变数据的统计特征，如将均值和方差变为0和1。在现实中，一个变量极有可能是服从正态分布的。
 

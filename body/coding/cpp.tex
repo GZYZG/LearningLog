@@ -1,5 +1,5 @@
 参考文档：\href{https://www.cplusplus.com/}{cplusplus.com}
-\subsubsection{C++数据类型转换}
+\subsection{C++数据类型转换}
 \paragraph{数字 <=> 字符串}
 \begin{itemize}
 	\item itoa: 整数转为字符串，可以设置基底
@@ -8,7 +8,7 @@
 	\item to\_string: 可以讲数字转为字符串，包括整数、小数等
 \end{itemize}
 
-\subsubsection{C++集合} 通过$\#include<set>$来引入set。关于集合的一些运算，包含在algorithm库中。在algorithm库中有一个includes函数，可以用来判断两个容器之间是否存在包含关系，但是，要注意\tbc{red}{两个容器都要先从小到大进行排序！！！}
+\subsection{C++集合} 通过$\#include<set>$来引入set。关于集合的一些运算，包含在algorithm库中。在algorithm库中有一个includes函数，可以用来判断两个容器之间是否存在包含关系，但是，要注意\tbc{red}{两个容器都要先从小到大进行排序！！！}
 \begin{cpp}
 	// 省略头文件和库的包含代码
 	int container[] = {5,10,15,20,25,30,35,45,50};
@@ -25,7 +25,7 @@
 \end{cpp}
 
 
-\subsubsection{字符串}
+\subsection{字符串}
 C++中字符串用双引号括起来，字符用单引号括起来。
 \paragraph{字符串比较}
 compare
@@ -38,7 +38,7 @@ compare
 	\item 
 \end{itemize}
 
-\subsubsection{数组}
+\subsection{数组}
 \paragraph{数组初始化}
 \begin{itemize}
 	\item \mintinline{cpp}{type [][depth][depth]...[depth]}声明多维数组时，只能有一维的大小不指定
@@ -46,7 +46,7 @@ compare
 	\item \mintinline{cpp}{int *p = new int[5]}将在堆中分配内存，此时也可以对数组进行初始化：\mintinline{cpp}{int *p = new int[]{1, 2, 3, 4, 5}}、\mintinline{cpp}{int *p = new int[]()}。对于基本类型，如果不进行初始化，局部定义的数组的值是未定义的；对于类类型，会默认调用其默认构造函数。\textbf{堆中分配的数组要用delete删除}
 \end{itemize}
 
-\subsubsection{遍历vector的方式}
+\subsection{遍历vector的方式}
 \begin{cpp}
 	vector<int> nums = {1, 2, 3, 4, 5};
 	// 方法1：下标
@@ -77,7 +77,7 @@ compare
 	
 \end{cpp}
 
-\subsubsection{for\_each}
+\subsection{for\_each}
 for\_each源码如下：
 \begin{cpp}
 	template<class InputIterator, class Function>
@@ -92,10 +92,10 @@ for\_each源码如下：
 \end{cpp}
 其中参数fn是一个一元函数（即只能有一个参数），它的返回值会被忽略。
 
-\subsubsection{deque}
+\subsection{deque}
 \mintinline{cpp}{#include <deque>}。double ended queue，双端队列。\href{https://www.cplusplus.com/reference/deque/deque/?kw=deque}{dequ}e是一种动态容器（通常以动态数组的形式，如链表，来实现），可以在两端增加或者删除元素，随机访问deque中的元素。
 
-\subsubsection{priority\_queue}
+\subsection{priority\_queue}
 \mintinline[bgcolor=yellow]{cpp}{#include <queue>}。
 \begin{minted}{cpp}
 	template <class T, class Container = vector<T>,
