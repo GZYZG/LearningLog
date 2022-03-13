@@ -106,14 +106,14 @@ Linear Discriminant Analysis，线性判别分析。一种经典的线性学习�
 $$
 J(\boldsymbol{w}) = \frac{\boldsymbol{w}^{\mathrm{T}} \mathbf{S}_{b} \boldsymbol{w}}{\boldsymbol{w}^{\mathrm{T}} \mathbf{S}_{w} \boldsymbol{w}}
 $$
-其中，分子分母都是关于$\boldsymbol{w}$的二次项，因此$J(\boldsymbol{w})$的解与$\boldsymbol{w}$的长度无关（\tbc{red}{不是很理解}），故可令$\boldsymbol{w}^{\mathrm{T}} \mathbf{S}_{w} \boldsymbol{w} = 1$，则新的目标为：
+其中，分子分母都是关于$\boldsymbol{w}$的二次项，$J(\boldsymbol{w})$是关于$\boldsymbol{S}_b, \boldsymbol{S}_w, \boldsymbol{w}$的广义瑞利商。因此$J(\boldsymbol{w})$的解与$\boldsymbol{w}$的长度无关（\tbc{red}{参考瑞利商和广义瑞利商}），故可令$\boldsymbol{w}^{\mathrm{T}} \mathbf{S}_{w} \boldsymbol{w} = 1$，则新的目标为：
 \begin{align}
 	& \mathop{min} \limits_{\boldsymbol{w}} -\boldsymbol{w}^T\boldsymbol{S}_b\boldsymbol{w} \nonumber\\
 	& s.t. \boldsymbol{w}^{\mathrm{T}} \mathbf{S}_{w} \boldsymbol{w} = 1 \nonumber
 \end{align}
 通过拉格朗日求解，并对$\boldsymbol{w}$求导并令之等于0可得：$\mathbf{S}_{b} \boldsymbol{w}=\lambda \mathbf{S}_{w} \boldsymbol{w}$。可以从两个角度来求解：
 \begin{itemize}
-	\item 两边左乘$\boldsymbol{S}_w^{-1}$可以得到：$\boldsymbol{S}_w^{-1} \mathbf{S}_{b} \boldsymbol{w}=\lambda  \boldsymbol{w}$，即$\boldsymbol{w}$为$\boldsymbol{S}_w^{-1} \mathbf{S}_{b}$的特征向量。可以解出$\boldsymbol{S}_w^{-1} \mathbf{S}_{b}$最大的$k$个特征值对于的特征向量，组成一个矩阵$\boldsymbol{W}$，来对$\boldsymbol{x}_i$降维：$\boldsymbol{W}^T \boldsymbol{x}_i$
+	\item 两边左乘$\boldsymbol{S}_w^{-1}$可以得到：$\boldsymbol{S}_w^{-1} \mathbf{S}_{b} \boldsymbol{w}=\lambda  \boldsymbol{w}$，即$\boldsymbol{w}$为$\boldsymbol{S}_w^{-1} \mathbf{S}_{b}$的特征向量（广义特征向量）。可以解出$\boldsymbol{S}_w^{-1} \mathbf{S}_{b}$最大的$k$个特征值对于的特征向量，组成一个矩阵$\boldsymbol{W}$，来对$\boldsymbol{x}_i$降维：$\boldsymbol{W}^T \boldsymbol{x}_i$
 	
 	\item 从另一个角度看，$\mathbf{S}_{b} \boldsymbol{w} = (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1) (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)^T \boldsymbol{w}$与$(\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$同向，则令$\mathbf{S}_{b} \boldsymbol{w} = \alpha (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$，则$\boldsymbol{w} = \boldsymbol{S}_w^{-1} (\boldsymbol{\mu}_0 - \boldsymbol{\mu}_1)$。考虑到数值解的稳定性，通常会对$\boldsymbol{S}_w^{-1}$进行奇异值分解。用于分类时，假设各个类别的样本数据符合高斯分布，这样利用LDA进行投影后，可以利用极大似然估计计算各个类别投影数据的均值和方差，进而得到该类别高斯分布的概率密度函数。当一个新的样本到来后，我们可以将它投影，然后将投影后的样本特征分别带入各个类别的高斯分布概率密度函数，计算它属于这个类别的概率，最大的概率对应的类别即为预测类别，参考\href{https://www.cnblogs.com/pinard/p/6244265.html}{这里}
 \end{itemize}
@@ -268,6 +268,27 @@ $\gamma$就是\textbf{\textcolor{red}{间隔}}，间隔最大化的物理意义�
 \end{align}
 优化目标中的约束，就是我们的期望：超平面能够将所有样本正确分类，这也是我们的一个假设，\textcolor{red}{\textbf{数据集$D$是线性可分的！}}。但很不幸，很多情况$D$都不是线性可分的！
 
+\textbf{\checkmark 2021-11-18}\\
+\paragraph{SVM优化目标推导的另一形式}
+给定分离超平面$w^T x + b = 0$，$\forall x_i \in D$，$x_i$与分离平面的距离$d(w, b; x_i) = |w^T x_i + b|$，则$D$与分离超平面的距离为其中的最小者，及$d(w, b; D) = \mathop{min}_{x_i} |w^T x_i +b|$，因为$w, b$按比例变化后分离超平面并不变但会带来距离的变化，故令$d(w, b; D) = \mathop{min}_{x_i} \frac{|w^T x_i + b|}{||w||}$。若分离超平面能对所有样本正确分类，则会有$y_i ( w^T x_i + b ) \geq 0$，且显然$y_i ( w^T x_i + b ) \geq \mathop{min}_{x_i} |w^T x_i + b|$，由于可以改变$w, b$来控制距离，则令$\mathop{min}_{x_i} |w^T x_i + b| = 1$，则得到了$y_i ( w^T x_i + b ) \geq 1,\ d(w, b; D) = \mathop{min}_{x_i} \frac{1}{||w||}$。但是为了让$d(w, b; D)$尽量大（以保证置信度和鲁棒性），因此，优化目标为：
+\begin{align}
+	\mathop{max}_{w, b}&\quad \frac{2}{||w||} \nonumber \\
+	s.t.&\quad y_i(w^T x_i + b) \geqslant 1, i = 1, 2, ..., N \nonumber
+\end{align}
+
+\textbf{\checkmark 2021-11-18}\\
+\paragraph{SVM优化目标推导的再一形式}
+由上述可知，显然有$y_i ( w^T x_i + b ) \geq 1$，则分离超平面与两类样本的距离为：
+\begin{align}
+	d(w, b) &= \mathop{min}_{x_i, y_i=-1} d(w, b; x_i) + \mathop{min}_{x_i, y_i=+1} d(w, b; x_i) \nonumber \\
+			&= 	\mathop{min}_{x_i, y_i=-1} \frac{|w^T x_i + b|}{||w||} + \mathop{min}_{x_i, y_i=+1} \frac{|w^T x_i + b|}{||w||} \nonumber \\
+			&= \frac{1}{||w||} ( \mathop{min}_{x_i, y_i=-1} |w^T x_i + b| + \mathop{min}_{x_i, y_i=+1} |w^T x_i + b|) \nonumber \\
+			&= \frac{2}{||w||}
+\end{align}
+后续就不必多言了。
+
+
+
 \paragraph{线性可分SVM的求解}
 可以应用拉格朗日对偶性来求解，将线性可分得SVM最优化问题看作原始问题，通过求解对偶问题来求解原始问题。则原始问题为：
 \begin{align}
@@ -276,7 +297,7 @@ $\gamma$就是\textbf{\textcolor{red}{间隔}}，间隔最大化的物理意义�
 \end{align}
 转换拉格朗日函数：
 $$
-L(w, b, \alpha) = \frac{1}{||w||^2} + \sum_{i=1}^{N} \alpha_i (1  - y_i(w^T x_i + b))
+L(w, b, \alpha) = \frac{1}{ 2}  ||w||^2 + \sum_{i=1}^{N} \alpha_i (1  - y_i(w^T x_i + b))
 $$
 根据拉格朗日对偶性，原始问题的对偶问题是极大极小问题：
 $$
@@ -474,3 +495,7 @@ $$
 			  &\xi_i \geq 0, \hat{\xi_i} \geq 0, i = 1, 2, ..., N \nonumber
 \end{align}
 后续求解与上述类似。
+
+
+\subsection{metric learning} 
+度量学习。学习如何衡量两个对象之间的相似度/距离。
