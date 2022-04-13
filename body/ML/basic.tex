@@ -25,11 +25,7 @@ $$
 
 参考：\href{https://www.zhihu.com/question/37096933/answer/475278057}{l1 相比于 l2 为什么容易获得稀疏解？ - ser jamie的回答}。
 
-
-
 \subsection{early stopping strategy}
-
-\subsection{Jacobean Hessian}
 
 \subsection{判别模型、生成模型}
 \begin{itemize}
@@ -182,17 +178,6 @@ $p(x | y) = p(y)p(x | y)$表示的是，从$p(y)$中采样一个$y$，然后根�
 	\item 训练集和测试集的分布不一致导致模型的参数泛化性能不佳，可能是测试集中地某些样本在训练集中被“轻视”或“过度重视”了，因此可以通过附加一个权重来解决该问题。可参考：\href{https://blog.csdn.net/mao_xiao_feng/article/details/54317852}{covariate shift现象的解释}；
 	\item 丢弃那些导致偏移的且不重要的特征，参考：\href{https://zhuanlan.zhihu.com/p/205183444}{Covariate Shift}。
 \end{itemize}
-
-\subsection{DL中的不可微操作}
-
-\subsection{Global Max Pooling}
-
-\subsection{Attention机制与CNN}
-
-\subsection{权重衰减与参数正则化}
-
-
-
 
 \subsection{机器学习中常用的算法指标及其应用场景}
 
@@ -447,7 +432,6 @@ $$
 
 \tbc{red}{注意：}MAP和NDCG都可以用于衡量搜索结果的质量，但是MAP只支持两种相关性：\{相关，不相关\}，NDCG可以支持多种相关性得分，如1-5。
 
-\paragraph{Set Based Measure}
 
 \paragraph{GAUC}Group AUC，是 AUC 的一个变体，在推荐系统领域中更准确地衡量模型得性能。以 CTR 估计任务为例，数据集中包含了不同用户得正负样本，模型给出每个样本属于正样本得一个概率值后计课计算一个 AUC。但是很明显，AUC 将不同用户的正负样本混合起来了，即期望任一个用户的正样本的概率大于任一个用户的负样本的概率，但推荐中更关注的是对于一个用户，模型对其正负样本的排序能力。其定义为：
 $$
@@ -576,46 +560,48 @@ $$
 
 参考资料：\href{https://lumingdong.cn/setting-strategy-of-gradient-descent-learning-rate.html}{梯度下降学习率的设定策略}。
 
-\subsection{Batch Size与Learning Rate}
-模型训练过程中，\textbf{Batch Size}和\textbf{Learning Rate}是两个不可不调的参数。
-
-
-\subsection{深度学习的梯度下降优化算法}
-
-
-\subsection{常见损失函数及其特点}
-
-
-\subsection{常见激活函数及其特点}
-\subsubsection{sigmoid}
-这个恐怕是无人不知无人不晓了吧，通常用于将神经元得输出转化成一个概率值：
-$$
-sigmoid(x) = \frac{1}{1 + e^{-x}}
-$$
-
-\subsubsection{relu}
-这个算是与 sigmoid 起名的激活函数了：
-$$
-relu(x) = max(0, x)
-$$
-
-\subsubsection{Dice}
-
-
-
-
 \subsection{特征选择的方法}
+机器学习中，面对成千上万的特征，选择哪些进行保留是一个需要我们主动去抉择的问题。
 
 \subsection{常用聚类算法}
 
-\begin{itemize}
-	\item 基于层次的聚类。试图在不同层次上进行聚类，从而形成树形的聚类结构。数据集的划分可以自底向上也可以自底向下。常见的有：Agglomerative 、Divisive、BIRCH、ROCK、Chameleon。
+\subsubsection{基于层次的聚类}
+试图在不同层次上进行聚类，从而形成树形的聚类结构。数据集的划分可以自底向上也可以自底向下。常见的有：Agglomerative 、Divisive、BIRCH、ROCK、Chameleon。
 
-	\item 基于划分的聚类。首先要确定簇的数量，然后初始化簇的中心点，再然后依据预先定好算法对数据点进行迭代重置（即重置其所属的簇），直到最后到达“类内的点都足够近，类间的点都足够远”的目标效果。常见的有：K-means、K-means++、K-medoidsk-modes、k-medians、kernel k-means。
+\paragraph{优点}可解释性好（如当需要创建一种分类法时）；还有些研究表明这些算法能产生高质量的聚类，也会应用在上面说的先取 K 比较大的 K-means 后的合并阶段；还有对于 K-means 不能解决的非球形族就可以解决了。 
+
+\paragraph{缺点}时间复杂度比较高。
+
+\subsubsection{基于划分的聚类}
+首先要确定簇的数量，然后初始化簇的中心点，再然后依据预先定好算法对数据点进行迭代重置（即重置其所属的簇），直到最后到达“类内的点都足够近，类间的点都足够远”的目标效果。常见的有：K-means、K-means++、K-medoidsk-modes、k-medians、kernel k-means。
+
+\paragraph{特点}能够发现数据集中的球状簇，因为通常是根据样本与中心的距离来划分的，因此簇的表面通常是球面。
+
+\paragraph{优点}算法简单，效率还可以。
+
+\paragraph{缺点}数据集较大时可能容易陷入局部最优（\textcolor{red}{\textbf{为啥}}）；需要预先设定簇的数量（看这些算法以 $k$ 打头就知道啦）；对异常值较敏感；只适用于可计算相似性的样本空间。
 	
-	\item 基于密度的聚类。定一个距离半径，最少有多少个点，然后把可以到达的点都连起来，判断为同类。常见的有：DBSCAN、OPTICS、DENCLUE。
+\subsubsection{基于密度的聚类}
+定一个距离半径，最少有多少个点，然后把可以到达的点都连起来，判断为同类。常见的有：DBSCAN、OPTICS、DENCLUE。
+
+\paragraph{特点}能够对流形的数据进行聚类。
 	
-	\item 基于网格的聚类。数据空间划分为网格单元，将数据对象集映射到网格单元中，并计算每个单元的密度。根据预设的阈值判断每个网格单元是否为高密度单元，密度足够大的网格单元形成簇。常见的有：STING、WaveCluster、CLIQUE。
+\paragraph{优点}能够发现任意形状的簇，对噪声不敏感。
+
+\paragraph{缺点}聚类的结果与参数有很大的关系；当聚类的稀疏程度不同时，相同的判定标准可能会破坏聚类的自然结构，即较稀的聚类会被划分为多个类或密度较大且离得较近的类会被合并成一个聚类。
 	
-	\item 基于模型的聚类。为每簇假定了一个模型，寻找数据对给定模型的最佳拟合，这一类方法主要是指基于概率模型的方法和基于神经网络模型的方法，尤其以基于概率模型的方法居多。这里的概率模型主要指概率生成模型（generative Model），同一”类“的数据属于同一种概率分布，即假设数据是根据潜在的概率分布生成的。常见的有：
-\end{itemize}
+\subsubsection{基于网格的聚类}
+数据空间划分为网格单元，将数据对象集映射到网格单元中，并计算每个单元的密度。根据预设的阈值判断每个网格单元是否为高密度单元，密度足够大的网格单元形成簇。常见的有：STING、WaveCluster、CLIQUE。
+
+\paragraph{优点}速度很快。
+
+\paragraph{缺点}参数敏感、无法处理不规则分布的数据、维数灾难等；这种算法效率的提高是以聚类结果的精确性为代价的。经常与基于密度的算法结合使用。
+	
+\subsubsection{基于模型的聚类}
+为每簇假定了一个模型，寻找数据对给定模型的最佳拟合，这一类方法主要是指基于概率模型的方法和基于神经网络模型的方法，尤其以基于概率模型的方法居多。这里的概率模型主要指概率生成模型（generative Model），同一”类“的数据属于同一种概率分布，即假设数据是根据潜在的概率分布生成的。常见的有：GMM）、SOM（Self Organized Maps）。
+
+\paragraph{优点}对”类“的划分不那么”坚硬“，而是以概率形式表现，每一类的特征也可以用参数来表达。
+
+\paragraph{缺点}执行效率不高，特别是分布数量很多并且数据量很少的时候。
+
+主要参考：\href{https://blog.csdn.net/weixin_45440065/article/details/106358007}{聚类总结：分类、优缺点、适用场景总结}、\href{https://blog.csdn.net/count_on_me/article/details/82193745}{聚类及聚类算法的分类}。
