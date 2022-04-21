@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.10.9)  14 APR 2022 00:01
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/W32TeX) (preloaded format=xelatex 2020.10.9)  21 APR 2022 09:54
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2589,7 +2589,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.29 ...al Optimization(SMO)}{19}{subsection.1.12}
+l.29 ...al Optimization(SMO)}{20}{subsection.1.12}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2626,12 +2626,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.87 ...erline {2.15}学习率调整策略}{40}{subsection.2.15}
+l.87 ...erline {2.15}学习率调整策略}{41}{subsection.2.15}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [3]
+Underfull \vbox (badness 1424) has occurred while \output is active []
+
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2639,7 +2642,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.147 ... {4.6}Model Collapse}{60}{subsection.4.6}
+l.148 ....10}metric learning}{58}{subsection.3.10}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2652,7 +2655,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.182 ...DeepWalk \& Node2Vec}{67}{subsection.6.3}
+l.176 ... {4.16.4}PReLU}{65}{subsubsection.4.16.4}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2665,7 +2668,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.223 ....6.1}word-based}{80}{subsubsection.9.6.1}
+l.215 ...erline {9.1}统计自然语言处理}{75}{subsection.9.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2678,7 +2681,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.267 ...umberline {13.1}大整数}{89}{subsection.13.1}
+l.263 ...ne {11.1}基于人口统计学的推荐}{87}{subsection.11.1}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2691,7 +2694,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.302 ...3}numpy nan的处理}{95}{subsubsection.16.2.3}
+l.300 ...umberline {15.3}字符串}{95}{subsection.15.3}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2704,12 +2707,25 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.330 ...ne {19.3}损失函数值为NaN}{100}{subsection.19.3}
+l.332 ...line {17.5}tf中的RNN}{101}{subsection.17.5}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[9])
+[9]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.362 ...part}{X\hspace {1em}Others}{107}{part.10}
+                                                  %
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[10])
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
@@ -2726,7 +2742,7 @@ l.7 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[10]) (./body/Math/chap01.tex
+[11]) (./body/Math/chap01.tex
 File: pics/alias-sample.png Graphic file (type bmp)
 <pics/alias-sample.png>
 
@@ -2742,7 +2758,7 @@ l.20 \end{enumerate}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[11
+[12
 
 
 
@@ -2767,7 +2783,7 @@ l.60 \subsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[12]
+[13]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmr' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
@@ -2790,7 +2806,7 @@ l.95 \subsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[13]
+[14]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 95.
@@ -2826,7 +2842,7 @@ l.118 	\item 对
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[14]
+[15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 152.
@@ -2855,7 +2871,7 @@ l.155 \subsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[15]
+[16]
 
 LaTeX Warning: Command \textgreater invalid in math mode on input line 162.
 
@@ -2894,7 +2910,7 @@ l.183 \subsubsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[16]
+[17]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2907,7 +2923,7 @@ l.226 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[17]
+[18]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2920,7 +2936,7 @@ l.276 	\begin{align}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[18]
+[19]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2933,7 +2949,7 @@ l.313 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[19]
+[20]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2946,7 +2962,7 @@ l.342
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[20])
+[21])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2959,7 +2975,7 @@ l.146 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[21]
+[22]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 148--149
  [] 
  []
@@ -2982,7 +2998,7 @@ l.40 生
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[22
+[23
 
 ]
 
@@ -2997,7 +3013,7 @@ l.64 \subsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[23]
+[24]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3010,7 +3026,7 @@ l.88
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[24]
+[25]
 File: pics/model.png Graphic file (type bmp)
 <pics/model.png>
 
@@ -3026,7 +3042,7 @@ l.114 \end{figure}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[25]
+[26]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3039,7 +3055,7 @@ l.139 	\item 数
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[26]
+[27]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3052,7 +3068,7 @@ l.169 \subsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[27]
+[28]
 Underfull \hbox (badness 2310) in paragraph at lines 190--191
  []\T1/lmr/bx/n/10.53937 Accuracy, Re-call, Pre-ci-sion, F-score[] $\OML/cmm/m/
 it/10.53937 ACC \OT1/cmr/m/n/10.53937 = [] \OML/cmm/m/it/10.53937 R \OT1/cmr/m/
@@ -3079,7 +3095,7 @@ l.207
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[28]
+[29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -3095,7 +3111,7 @@ l.229 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[29]
+[30]
 ! Misplaced alignment tab character &.
 l.232 Macro-F1 &
                 =2 \frac{ \sum_i F1_i}{N}
@@ -3148,7 +3164,7 @@ l.278 \textbf{为什么要用ROC/AUC呢？}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[30]
+[31]
 File: pics/roc1.png Graphic file (type bmp)
 <pics/roc1.png>
 File: pics/roc2.png Graphic file (type bmp)
@@ -3173,7 +3189,7 @@ l.309 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[31]
+[32]
 File: pics/miou.png Graphic file (type bmp)
 <pics/miou.png>
 
@@ -3192,7 +3208,7 @@ l.326 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[32]
+[33]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3205,7 +3221,7 @@ l.355 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[33]
+[34]
 File: pics/Hausdorff distance.png Graphic file (type bmp)
 <pics/Hausdorff distance.png>
 
@@ -3221,7 +3237,7 @@ l.381 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[34]
+[35]
 File: pics/AP.png Graphic file (type bmp)
 <pics/AP.png>
 
@@ -3237,7 +3253,7 @@ l.407 \tbc{red}{注意：}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[35]
+[36]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3250,10 +3266,18 @@ l.437 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[36]
+[37]
+! Extra }, or forgotten $.
+l.440 其中 $w_{u_i}}
+                  $ 是 $u_i$ 的权重，这个值可以是用户的样本的数量。可以看出，GAUC 是定义在 AUC 上的，即计算模型对每...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
 File: pics/affine.png Graphic file (type bmp)
 <pics/affine.png>
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -3272,8 +3296,8 @@ l.480 	\item 弹
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[37]
-Underfull \vbox (badness 4205) has occurred while \output is active []
+[38]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
@@ -3288,7 +3312,7 @@ l.481 \end{itemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[38]
+[39]
 File: pics/elastic_deform.png Graphic file (type bmp)
 <pics/elastic_deform.png>
 
@@ -3299,12 +3323,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.514 	\end{itemize}
-                    
+l.512 		\item 合
+               成的方法。根据已有数据集生成新的样本，如SMOTE方法及其变体
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[39]
+[40]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3317,23 +3341,10 @@ l.558 \end{myitemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[40]
-Underfull \vbox (badness 1968) has occurred while \output is active []
-
-
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.578 \paragraph
-                {特点}能够发现数据集中的球状簇，因为通常是根据样本与中心的距离来划分的，因此簇的表面通常是球面。
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 [41]
+Underfull \vbox (badness 4132) has occurred while \output is active []
+
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3341,17 +3352,41 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.607 主
-       要参考：\href{https://blog.csdn.net/weixin_45440065/article/details/10635...
-
+l.580 \paragraph
+                {缺点}时间复杂度比较高。
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[42]) (./body/ML/classic.tex
+[42]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.609 
+      
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[43]) (./body/ML/classic.tex
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 
+     
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[44]
 LaTeX Font Info:    Trying to load font information for U+bbm on input line 33.
 
-
-(d:/texlive/2020/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+ (d:/texlive/2020/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 
@@ -3365,12 +3400,15 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.34 $$
-       
+l.49 
+     
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[43]
+[45]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3378,12 +3416,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.76 \end{align}
+l.84 \end{align}
                 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[44]
+[46]
 Package microtype Info: Character `textendash ' is missing
 (microtype)             in font `TU/SimSun(0)/m/it/10.53937'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3437,12 +3475,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.104 \end{align}
-                 
+l.108 $$
+        
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[45]
+[47]
 ! Extra }, or forgotten $.
 l.127 ...{决策树生成}给定数据集$D = \{(x_i, y_i)\_{i=1}^{m}}
                                                   $，其中$x_i \in \mathbb{R}^n$...
@@ -3464,7 +3502,7 @@ l.138 \end{myenumerate}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[46]
+[48]
 
 LaTeX Font Warning: Font shape `U/bbm/m/n' in size <7.52812> not available
 (Font)              size <8> substituted on input line 144.
@@ -3476,27 +3514,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.154 \item \textbf
-                   {后剪枝}。递归地从最后一个内部节点开始评估，评估该节点剪枝前后决策树在验证集上的表现，如果没有提高则不对该内部节...
-
+l.155 \end{itemize}
+                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[47]
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.192 通
-       常不可观测变量的后验概率是很复杂的，难以直接计算之，但我们可以先假设一个分布Q(Z)与P(Z|D)是近似的。对于衡量两个分布的差异，可以使...
-
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[48]
+[49]
 
 ! LaTeX Error: Bad math environment delimiter.
 
@@ -3521,6 +3544,19 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202 \end{equation}
+                    
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[50]
 
 ! LaTeX Error: \begin{document} ended by \end{equation}.
 
@@ -3558,22 +3594,18 @@ The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
 
-Underfull \vbox (badness 1043) has occurred while \output is active []
-
-
-
 ! LaTeX Error: \mathcal allowed only in math mode.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.230 $$
+l.237 $$
         
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[49]
+[51]
 Underfull \hbox (badness 10000) in paragraph at lines 271--272
 
  []
@@ -3585,12 +3617,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.274 \begin{align}
-                   
+l.277 \end{align}
+                 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[50]
+[52]
 Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
@@ -3607,36 +3639,10 @@ l.337 \end{myenumerate}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.346 \paragraph
-                {线性SVM}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[52]
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 \end{align}
-                 
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 [53]
+Underfull \vbox (badness 5622) has occurred while \output is active []
+
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3644,12 +3650,38 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.443 
-      
+l.355 $$
+        
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [54]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.412 \end{align}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[55]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.448 $$
+        
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[56]
 ! Misplaced alignment tab character &.
 l.451 \mathop{min}_{\alpha}\quad &
                                   \frac{1}{2} \sum_{i=1}^N \sum_{j=1}^{N} \a...
@@ -3674,12 +3706,25 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.485 $$
-        
+l.496 \end{align}
+                 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[55])
+[57]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.534 \end{itemize}
+                   
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[58])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3692,7 +3737,7 @@ l.155 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[56]
+[59]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 157--158
  [] 
  []
@@ -3716,7 +3761,7 @@ l.34 T
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[57
+[60
 
 ]
 
@@ -3731,7 +3776,7 @@ l.63 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[58]
+[61]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3745,7 +3790,7 @@ l.99 这
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[59]
+[62]
 File: pics/share_weight.png Graphic file (type bmp)
 <pics/share_weight.png>
 
@@ -3764,7 +3809,7 @@ l.127 \subsubsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[60]
+[63]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -3780,9 +3825,22 @@ l.136
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[61]) (./body/DL/classic.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[64]
 
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.183 \subsubsection
+                    {Leaky ReLU}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[65]) (./body/DL/classic.tex
+File: pics/Residual.png Graphic file (type bmp)
+<pics/Residual.png>
 
 
 ! LaTeX Error: \mathcal allowed only in math mode.
@@ -3791,35 +3849,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3 
-    
+l.13 \end{figure}
+                 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[62]
-File: pics/Residual.png Graphic file (type bmp)
-<pics/Residual.png>
+[66]
 File: pics/dense block.png Graphic file (type bmp)
 <pics/dense block.png>
+File: pics/dilation.jpg Graphic file (type bmp)
+<pics/dilation.jpg>
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-File: pics/dilation.jpg Graphic file (type bmp)
-<pics/dilation.jpg>
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.33 
-     
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[63]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 34.
@@ -3832,7 +3875,23 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 34.
 
-)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.37 由
+      于$1\times 1$卷积的长宽为1，无法关注到周围像素的信息，只能关注到同一位置不同通道上的信息，其作用主要由以下几点：
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[67])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3845,20 +3904,7 @@ l.165 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[64]
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.165 \clearpage
-                
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[65]
+[68]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 167--168
  [] 
  []
@@ -3881,7 +3927,7 @@ l.45
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[66
+[69
 
 ]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
@@ -3898,7 +3944,7 @@ l.72 	\item D
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[67]
+[70]
 File: pics/node2vec.png Graphic file (type bmp)
 <pics/node2vec.png>
 
@@ -3914,7 +3960,7 @@ l.103 \end{itemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[68]
+[71]
 File: pics/node2vec2.png Graphic file (type bmp)
 <pics/node2vec2.png>
 ) (./body/ML/KG.tex
@@ -3930,7 +3976,7 @@ l.3 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[69])
+[72])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -3943,7 +3989,7 @@ l.175 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[70]
+[73]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 177--178
  [] 
  []
@@ -3967,7 +4013,7 @@ l.24 	\item N
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[71
+[74
 
 ]
 File: pics/qa.png Graphic file (type bmp)
@@ -3991,7 +4037,7 @@ l.4 $$
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[72]
+[75]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4005,7 +4051,7 @@ l.22 	\item 当
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[73]
+[76]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4018,7 +4064,7 @@ l.55 \colorbox{red}{注：本节内容主要参考何晗所著《自然语言处
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[74]
+[77]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4031,7 +4077,7 @@ l.92 	\item 词
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[75]
+[78]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4044,9 +4090,9 @@ l.124 \textbf{Transformer}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[76]
+[79]
 
-LaTeX Warning: Citation `bivaswani2017attentionbid' on page 77 undefined on inp
+LaTeX Warning: Citation `bivaswani2017attentionbid' on page 80 undefined on inp
 ut line 127.
 
 File: pics/Transformer.png Graphic file (type bmp)
@@ -4063,7 +4109,7 @@ l.151 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[77]
+[80]
 
 ! LaTeX Error: Bad math environment delimiter.
 
@@ -4228,7 +4274,7 @@ l.197 \end{equation}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[78]
+[81]
 
 ! LaTeX Error: \begin{document} ended by \end{equation}.
 
@@ -4337,7 +4383,7 @@ l.235 \end{myitemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[79])
+[82])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4350,7 +4396,7 @@ l.185 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[80]
+[83]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 187--188
  [] 
  []
@@ -4373,7 +4419,7 @@ l.18 \end{itemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[81
+[84
 
 ]
 
@@ -4389,7 +4435,7 @@ l.45 	\item 推
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[82]
+[85]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4402,7 +4448,7 @@ l.87
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[83]
+[86]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4416,7 +4462,7 @@ l.130 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[84]) (./body/recsys/classic.tex
+[87]) (./body/recsys/classic.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4424,12 +4470,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.17 \paragraph
-               {优点}
+l.12 	\item 以
+             人口统计信息计算相似用户不可靠。特别是“书籍”“音乐”这种涉及到个人喜好的商品，单用这种方法更是难以达到很好的效果
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[85]
+[88]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4437,13 +4483,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.46 	\item 解
-             释性较差，因为计算得到的相似用户可能并不是真的相似，并不能真的反映用户的兴趣。；例如，用户都买了卫生纸、水杯等日常用品并不能表...
+l.45 	\item 新
+             物品上线后一段时间，一旦有用户对物品产生行为，就可以将新物品推荐给和对它产生行为的用户兴趣相似的其他用户，故而解决了“项目冷启...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[86])
+[89])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4456,7 +4502,20 @@ l.195 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[87]
+[90]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 \clearpage
+                
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[91]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 197--198
  [] 
  []
@@ -4479,7 +4538,7 @@ l.202 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[88
+[92
 
 ]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 204--205
@@ -4504,7 +4563,7 @@ l.6 \end{itemize}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[89
+[93
 
 ])
 
@@ -4519,7 +4578,7 @@ l.211 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[90]
+[94]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 213--214
  [] 
  []
@@ -4551,7 +4610,7 @@ l.30 \paragraph
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[91
+[95
 
 ]
 \openout7 = `main.pyg'.
@@ -4629,7 +4688,7 @@ l.65
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[92]
+[96]
 \openout7 = `main.pyg'.
 
 
@@ -4657,7 +4716,7 @@ l.4 \end{Verbatim}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[93])
+[97])
 \openout7 = `main.pyg'.
 
 
@@ -4801,7 +4860,7 @@ l.16 \subsubsection
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[94]
+[98]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4814,7 +4873,7 @@ l.51
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[95]
+[99]
 File: pics/markers.png Graphic file (type bmp)
 <pics/markers.png>
 
@@ -4831,7 +4890,7 @@ l.77
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[96]
+[100]
 Underfull \hbox (badness 7558) in paragraph at lines 88--89
 []\T1/lmr/m/n/10.53937 plt.subplot_adjust(left=None, bot-tom=None, right=None, 
 top=None, ws-pace=None,
@@ -4848,12 +4907,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.21 	
-      # .ckpt.meta文件：包含元图，保存了计算图的结构，没有变量的值
+l.11 \begin{python}
+                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[97]
+[101]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4861,19 +4920,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.54 	\item R
-             ecord顾名思义主要是为了记录数据的。
+l.44 c
+      ondition是一个布尔数组，condition、x、y的维度必须相同。
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[98]
+[102]
 Underfull \hbox (badness 4479) in paragraph at lines 65--66
 []\TU/SimSun(0)/m/n/10.53937 这 是 \T1/lmr/m/n/10.53937 tf \TU/SimSun(0)/m/n/10.5
 3937 种 对 \T1/lmr/m/n/10.53937 ten-sor \TU/SimSun(0)/m/n/10.53937 进 行 填 充 的 函 数。
 | \T1/lmr/m/it/10.53937 tf.pad(tensor, paddings, mode='CONSTANT', con-
  []
 
-) (./body/coding/pytorch.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4881,12 +4939,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.4 \subsection
-               {nn.Dropout}
+l.73 i
+      nput为输入的张量；axis为可选参数，可以为整数或者整数1-D数组，为None时表示移除所有大小为1的维，否则移除指定的维。
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[99]
+[103]) (./body/coding/pytorch.tex
 \openout7 = `main.pyg'.
 
 
@@ -4917,6 +4975,9 @@ LaTeX Font Warning: Font shape `U/bbm/m/n' in size <5.52061> not available
 (Font)              size <6> substituted on input line 2.
 
 )) (./body/coding/lessons.tex) (./body/latex.tex
+Underfull \vbox (badness 3713) has occurred while \output is active []
+
+
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4924,12 +4985,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.7 	\item 编
-            译.bib文件（一般使用bibtex），生成编译后的参考文献
+l.3 \subsection
+               {参考文献相关}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[100]
+[104]
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf>
 File: mathfonts.pdf Graphic file (type pdf)
@@ -4951,14 +5012,14 @@ l.14 \includepdf{mathfonts.pdf}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[101]
+[105]
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
- [102]) (./body/datasets.tex)
+ [106]) (./body/datasets.tex)
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -4966,18 +5027,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.238 \clearpage
+l.239 \clearpage
                 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[103]
-Overfull \hbox (30.5103pt too wide) in paragraph at lines 240--241
+[107]
+Overfull \hbox (30.5103pt too wide) in paragraph at lines 241--242
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
 
  []
 
@@ -4994,11 +5055,11 @@ l.21
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[104
+[108
 
 ])
 ! Undefined control sequence.
-l.315 \printbibliography
+l.316 \printbibliography
                         
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -5029,7 +5090,7 @@ l.69 \bibitem{he2014practical}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[105])
+[109])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -5037,20 +5098,26 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.321 \end{document}
+l.322 \end{document}
                     
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[106]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 321.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 321.
+[110]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 322.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 322.
  (./main.aux (./setup/content.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 321.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 321.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5723D19F7677D09A7DF0993F758FAC04;28532.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 322.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 322.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 150F2B347F544A75A6E43131014B850D;30702
+(rerunfilecheck)             After:  E64A41C347F4E94124CD833266498658;31006.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.47939pt have occurred.
@@ -5061,17 +5128,20 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 runsystem(del main.pyg)...executed.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 321.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
  ) 
 Here is how much of TeX's memory you used:
- 40647 strings out of 479418
- 863749 string characters out of 5888105
- 1612333 words of memory out of 5000000
- 57159 multiletter control sequences out of 15000+600000
+ 40651 strings out of 479418
+ 863818 string characters out of 5888105
+ 1615619 words of memory out of 5000000
+ 57163 multiletter control sequences out of 15000+600000
  628222 words of font info for 194 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,18n,90p,982b,2040s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (106 pages).
+Output written on main.pdf (110 pages).

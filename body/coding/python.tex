@@ -94,8 +94,11 @@ Animation可用于制作动画。初始化函数：
 	plt.rcParams['axes.unicode_minus'] = False  # 步骤二（解决坐标轴负数的负号显示问题）
 \end{python}
 
+\subsection{python中的线程有什么问题？怎么解决？}
+python 中有一个叫 GIL(Global Interpreter Lock，全局解释器锁) 的玩意儿，每个线程想要执行必须先获取到这把锁，不管你 CPU 有几个核心，锁只有一把。所以每次只能有一个线程在执行。
 
-
+\subsection{有序数组中找到一个数字的插入位置}
+ 
 
 
 

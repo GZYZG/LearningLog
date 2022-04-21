@@ -500,6 +500,37 @@ $$
 \subsection{PCA}
 全称 Principal component analysis，即主成分分析。PCA 利用正交变换把由线性相关变量表示的观测数据转换为少数几个线性无关变量表示的数据，少数的线性无关变量就是主成分。如果从基的角度来看，就是将数据在原来的相关的基下的表示，转化为无关的基下的表示。
 
+一个简单的流程：
+\begin{enumerate}
+	\item 给定数据矩阵 $X \in \mathbb{R}^{m \times n}$，其中 $m$ 表示特征数，$n$ 表示样本数；
+	
+	\item 对 $X$ 去中心化后得到 $\hat{X}$；
+	
+	\item 求 $\hat{X} \hat{X}^T$ （相当于 $X$ 的协方差矩阵）的特征向量，取特征指最大的前 $k$ 个特征向量组成矩阵 $P \in \mathbb{R}^{k \times m}$。$P$ 就是用于降维的矩阵；
+	
+	\item 对 $\hat{X}$ 进行降维：$P \hat{X}$；
+\end{enumerate}
+
 
 \subsection{metric learning} 
 度量学习。学习如何衡量两个对象之间的相似度/距离。
+
+\subsection{GBDT 与 XGBoost 的对比}
+首先，两种都是 boosting 方法，加法模型，都是迭代地去拟合目标值与现有预测值的残差。它们之间的区别：
+\begin{itemize}
+	\item xgboost 对损失函数进行了二阶展开，利用了一阶、二阶的信息，以牛顿法求解参数；GBDT 只用到了一阶导信息；
+	
+	\item xgboost 支持自定义代价函数，只需要提高损失函数的一、二阶导即可；
+	
+	\item GBDT 以 CART 作为基分类器，xgboost 除了以树为基分类器，还可以以线性模型作为基分类器；
+	
+	\item xgboost 中加入了正则化项；GBDT中没有；
+	
+	\item xgboost 中引入了列抽样和行采样；
+	
+	\item xgboost 能够自动学习处缺失值的分裂方向；
+	
+	\item xgboost 支持节点级别的并行，并且支持直方图算法；
+\end{itemize}
+
+\subsection{SMOTE}

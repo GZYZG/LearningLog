@@ -162,11 +162,43 @@ CNN的应用非常广泛，不仅是图像，在Speech、NLP等很多领域都�
 $$
 sigmoid(x) = \frac{1}{1 + e^{-x}}
 $$
+优点：梯度平滑、易求导。缺点：
+\begin{itemize}
+	\item 计算复杂，在正向和反向传播过程中都涉及到幂运算和处罚；
+	
+	\item 当输入值处在平缓区域时（即较大或较小），导数接近于零，可能会导致梯度很小/为零，不利于更新参数；
+	
+	\item sigmoid 的输出不是零中心的；
+\end{itemize}
 
-\subsubsection{relu}
-这个算是与 sigmoid 起名的激活函数了：
+
+\subsubsection{ReLU}
+Rectified Linear Unit，整流线性单元，这个算是与 sigmoid 齐名的激活函数了：
 $$
 relu(x) = max(0, x)
 $$
+优点：计算速度很快，而且导数很稳定（在大于 0 的部分为 1），不会因为导数很小使得连乘后梯度很小。缺点：因为当输入小于 0 时输出为 0 且梯度为 0，这其实相当于抛弃了一部分信息，而且由于导数为零，可能某些参数不能得到很好地学习。
+
+
+\subsubsection{Leaky ReLU}
+可以看到在 ReLU 里，当输入为 0 时输出直接为 0，导数也为 0。Leaky ReLU 对输入小于 0 时进行了修改：
+$$
+Leaky-ReLU(x) = max(0, x) + a \cdot min(0, x)
+$$
+可以看到，当 $x$ 大于零 时，输出还是 $x$，当 $x$ 小于 0 时，输出为 $a x$。
+
+优点：计算速度快，且当输入小于 0 时输出不为零，导数不为 0。缺点：多了一个超参数 $a$。
+
+\subsubsection{PReLU}
+Parametric ReLU，即参数化的 ReLU。其形式与 Leaky ReLU 很像，但是其中的 $a$ 成了可训练的参数：
+$$
+PReLU(x) = max(0, x) + a \cdot min(0, x)
+$$
+其中的 $a$ 不再是超参数，而是可训练的了。
 
 \subsubsection{Dice}
+Data Dependent Activation Function，Dice激活函数诞生于 DIN 中，根据 PReLU 改造而来。ReLU 类函数的阶跃变化点在 x=0 处，意味着面对不同的输入这个变化点是不变的，DIN 中改进了这个变化点的位置，让它根据数据的分布（神经元输出的均值和方差，与 BN 类似）来调整：
+$$
+dice(x) = p(x) \cdot x + (1 - p(x)) \cdot \alpha \cdot x
+$$
+其中 $p(x) = sigmoid( BN(x))$，$BN(x) = \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}}$。与 PReLU 相比，其实相当于将 max/min 这种硬的划分改成了软（即以概率 $p(x)$）的划分。

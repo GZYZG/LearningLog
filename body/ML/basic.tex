@@ -435,9 +435,9 @@ $$
 
 \paragraph{GAUC}Group AUC，是 AUC 的一个变体，在推荐系统领域中更准确地衡量模型得性能。以 CTR 估计任务为例，数据集中包含了不同用户得正负样本，模型给出每个样本属于正样本得一个概率值后计课计算一个 AUC。但是很明显，AUC 将不同用户的正负样本混合起来了，即期望任一个用户的正样本的概率大于任一个用户的负样本的概率，但推荐中更关注的是对于一个用户，模型对其正负样本的排序能力。其定义为：
 $$
-GAUC = \frac{\sum_{u_i} w_{u_i} AUC_{u_i}}{\sum_{u_i} w_{u_i}}
+GAUC = \frac{\sum_{u_i} w_{u_i} \cdot AUC_{u_i}}{\sum_{u_i} w_{u_i}}
 $$
-可以看出，GAUC 是定义在 AUC 上的，即计算模型对每个用户的样本的排序能力。其实可用通过这个指标发现模型对哪一类用户有较好的性能，那是不是可以以此为基础进行多个模型的融合呢？
+其中 $w_{u_i}}$ 是 $u_i$ 的权重，这个值可以是用户的样本的数量。可以看出，GAUC 是定义在 AUC 上的，即计算模型对每个用户的样本的排序能力。其实可用通过这个指标发现模型对哪一类用户有较好的性能，那是不是可以以此为基础进行多个模型的融合呢？
 
 \subsection{常用数据增强手段}
 增强之前，先想一想：真的需要增强数据吗（通常来说是的）？需要增加的多少数据？需要增加什么样的数据（并不是什么样的数据都可以，主要考虑应用场景中一般会出现的数据即可）？
@@ -561,7 +561,14 @@ $$
 参考资料：\href{https://lumingdong.cn/setting-strategy-of-gradient-descent-learning-rate.html}{梯度下降学习率的设定策略}。
 
 \subsection{特征选择的方法}
-机器学习中，面对成千上万的特征，选择哪些进行保留是一个需要我们主动去抉择的问题。
+机器学习中，面对成千上万的特征，选择哪些进行保留是一个需要我们主动去抉择的问题。既然是选择，那肯定是要有一个明确的评判标准的。
+
+\subsubsection{过滤法}
+
+
+\subsubsection{包装法}
+
+\subsubsection{嵌入法}
 
 \subsection{常用聚类算法}
 
@@ -605,3 +612,24 @@ $$
 \paragraph{缺点}执行效率不高，特别是分布数量很多并且数据量很少的时候。
 
 主要参考：\href{https://blog.csdn.net/weixin_45440065/article/details/106358007}{聚类总结：分类、优缺点、适用场景总结}、\href{https://blog.csdn.net/count_on_me/article/details/82193745}{聚类及聚类算法的分类}。
+
+\subsection{类别变量的编码方法}
+\subsubsection{one-hot}
+这个就很简单了，将一个类别变量展开成一个向量，向量的长度等于类别变量的基数。
+
+\subsubsection{目标编码}
+
+\subsubsection{贝叶斯目标编码}
+
+\subsubsection{留一编码}
+
+\subsubsection{证据权重}
+
+\subsubsection{非线性 PCA}
+
+\subsubsection{Embedding}
+
+\subsection{为什么分类问题使用交叉熵而不使用 MSE？}
+MSE 作为损失函数是非凸的，不容易求解，容易得到局部最优解；而交叉熵损失函数是凸函数。
+
+MSE 求导后，梯度与 sigmoid 的导数有关，容易落在 sigmoid 的平坦区，导致梯度很小，引发梯度消失问题；交叉熵求导后梯度为残差，误差越大更新越快，误差越小更新越慢。
