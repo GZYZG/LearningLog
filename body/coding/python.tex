@@ -10,7 +10,17 @@
 	li = glob.glob(pattern) # 此时li中就包含了所有符合pattern这个模式的文件名
 \end{python}
 
-\subsubsection{python format用法}
+\subsubsection{Counter}
+Counter 是用于计数可哈希对象的字典子类。它是一个无序的集合，其元素以字典 key 的形式存储，并将其计数存储为字典 value。\textbf{键值为 0 的情况表明该键不存在或其计数为 0}。计数允许为包括零或负计数的任何整数值。其常用的方法：
+\begin{itemize}
+	\item \mintinline{python}{elements()}\ \ 返回一个迭代器，每个键重复的次数与它的计数相同。元素以任意顺序返回（如果键可比较大小的话，貌似是以键的顺序从小打到返回的），如果一个元素的数量少于一个，则忽略它；
+	
+	\item \mintinline{python}{most_common([n])}\ \ 返回一个 \mintinline{pytohn}{list}，按顺序列出 n 个最常见的元素及其数量。 如果省略 n，返回计数器中的所有元素，具有相同计数的元素可以任意排序；
+	
+	\item \mintinline{python}{subtract([iterable-or-mapping])}\ \ 减去当前对象中对应键的计数。如 \mintinline{python}{a.substract(b)} 表示将 \mintinline{python}{a} 中的键的计数减去 \mintinline{python}{b} 中对应键的计数。类似 \mintinline{python}{dict.update()}，但减去计数而不是替换它们，\textbf{计数可以是零或负数}；
+\end{itemize}
+
+\subsubsection{format用法}
 \textbf{对齐}"$\{:\}$" 通常将对齐符号放在$:$后。\^ 、| < | >分别是居中、左对齐、右对齐，在填充符号后面可带宽度，在$:$后可带填充字符，默认为空格。
 
 \subsubsection{数字输出格式}主要包括小数位数（如.2f）、百分号输出（如.2\%）、指数形式输出（如.2e）、带正负符号的输出（如+.2f）、按不同进制的输出（b、d、o、x分别是二进制、十进制、八进制、十六进制，在b|o|x前加\#可以输出进制符号，x的大小写会影响进制符号的大小写。
@@ -20,14 +30,14 @@
 	"{:*>8}".format("右对齐")	# 右对齐显示，宽度为8，默认用空格填充
 	"{:.2f}".format(123)
 	"{:.2%}".format(123)
-		"{:^8.2f}".format(123)		# 八位的显示宽度，保留2位小数
-		"{:b}".format(11)
-		"{:d}".format(11)
-		"{:o}".format(11)
-		"{:x}".format(11)
-		"{:#x}".format(11)
-		"{:#X}".format(11)
-	\end{python}
+	"{:^8.2f}".format(123)		# 八位的显示宽度，保留2位小数
+	"{:b}".format(11)
+	"{:d}".format(11)
+	"{:o}".format(11)
+	"{:x}".format(11)
+	"{:#x}".format(11)
+	"{:#X}".format(11)
+\end{python}
 
 
 \subsection{numpy}
@@ -41,15 +51,17 @@
 \end{python}
 该方法还有更复杂的使用方法，可以根据参数进行调节，$argsort(a, axis=-1, kind=None, order=None)$。
 
-\subsubsection{numpy设置随机数种子} $np.random.seed(seed)$。
+\subsubsection{设置随机数种子}
+\mintinline{python}{np.random.seed(seed)}。
 
 
 
 
 
-\subsubsection{numpy nan的处理}numpy中可以使用np.isnan()来判断数组中的元素是否为NAN，返回的结果与数组形状相同，元素为True/False，该位置的元素为NAN是则为True，否则为False。可以使用 np.nan\_to\_num(x, copy=True, nan=0, posinf= 1.7976931348623157e+308, neginf=-1.7976931348623157e+308) 来进行转换。该函数可以将NAN（包括无穷小、无穷大）转换为数字，可以指定转换后的数字。参数：x是待转换的数据，可以是数组或单个数字；copy表示是否进行原地转换，相当于pandas中的in\_place参数，但取值与in\_place相反；nan表示取代NAN的数字；posinf、neginf表示用什么取代正/负无穷。
+\subsubsection{nan的处理}numpy中可以使用np.isnan()来判断数组中的元素是否为NAN，返回的结果与数组形状相同，元素为True/False，该位置的元素为NAN是则为True，否则为False。可以使用 np.nan\_to\_num(x, copy=True, nan=0, posinf= 1.7976931348623157e+308, neginf=-1.7976931348623157e+308) 来进行转换。该函数可以将NAN（包括无穷小、无穷大）转换为数字，可以指定转换后的数字。参数：x是待转换的数据，可以是数组或单个数字；copy表示是否进行原地转换，相当于pandas中的in\_place参数，但取值与in\_place相反；nan表示取代NAN的数字；posinf、neginf表示用什么取代正/负无穷。
 
-\subsubsection{找到数组中nan指的位置}：np.argwhere(np.isnan(a))。解释：通过np.isnan标记数组中nan值的位置为True，np.argwhere会返回那些True的下标。
+\subsubsection{找到数组中nan指的位置}
+\mintinline{python}{np.argwhere(np.isnan(a))}。解释：通过\mintinline{python}{np.isnan} 标记数组中nan值的位置为True，\mintinline{python}{np.argwhere} 会返回那些 True 的下标。
 
 
 \subsection{matplotlib}
@@ -97,8 +109,64 @@ Animation可用于制作动画。初始化函数：
 \subsection{python中的线程有什么问题？怎么解决？}
 python 中有一个叫 GIL(Global Interpreter Lock，全局解释器锁) 的玩意儿，每个线程想要执行必须先获取到这把锁，不管你 CPU 有几个核心，锁只有一把。所以每次只能有一个线程在执行。
 
-\subsection{有序数组中找到一个数字的插入位置}
  
+\subsection{生成器}
+生成器其实是一种迭代器的一种，实现了 \mintinline{python}{__iter__, __next__} 方法。得到一个生成器一般有两种方法：
+\begin{itemize}
+	\item 生成器函数。即在函数中使用 \mintinline{python}{yield} 关键字；
+	
+	\item 生成器表达式。即将列表推导中的 \mintinline{python}{[]} 换成 \mintinline{python}{()}；
+\end{itemize}
+ 
+\subsection{可迭代对象与迭代器}
+\textbf{可迭代对象}是实现了 \mintinline{python}{__iter__} 方法的类，可以通过 \mintinline{python}{for} 循环迭代读取数据元素。有两类可迭代对象：
+\begin{itemize}
+	\item 集合类型的数据结构，\mintinline{python}{list, tuple, dict, set, str} 等；
+	
+	\item 实现了 \mintinline{python}{__iter__} 方法的类；
+\end{itemize}
+可迭代对象遍历完一般后还可以继续使用。
 
+\textbf{迭代器}实现了 \mintinline{python}{__iter__} 和 \mintinline{python}{__next__}。迭代器遍历完后就空了，一般会抛出 \mintinline{python}{StopIteration} 异常。一般可以通过 \mintinline{python}{next} 函数来获取迭代器的下一个元素。
 
+\subsection{多个装饰器的执行顺序}
+当用多个装饰器装饰一个函数时，装饰器的装饰顺序和执行顺序：
+\begin{itemize}
+	\item 装饰顺序是由下至上的，即解释器执行的顺序（运行时）；
+	
+	\item 调用顺序是自上而下的（调用时）；
+\end{itemize}
+举个例子
+\begin{python}
+	def AA(func):
+		print('AA 1')
+		def func_a(*args, **kwargs):
+			print('AA 2')
+			return func(*args, **kwargs)
+		return func_a
+	
+	def BB(func):
+		print('BB 1')
+		def func_b(*args, **kwargs):
+			print('BB 2')
+			return func(*args, **kwargs)
+		return func_b
+	
+	@BB
+	@AA
+	def f(x):
+		print('F')
+		return x * 10
+	
+	print(f(1))
+	
+	# 最终输出
+	# AA 1
+	# BB 1
+	# BB 2
+	# AA 2
+	# F
+	# 10
+\end{python}
 
+对 \mintinline{python}{f} 装饰后相当于 \mintinline{python}{BB(AA(f))}，即先用 \mintinline{python}{AA} 装饰（因此输出了 \mintinline{python}{AA 1}），再用 \mintinline{python}{BB} 装饰（因此输出了 \mintinline{python}{BB 1}）。调用时，则等价于 \mintinline{python}{BB(AA(f))(1)}，因此会调用 \mintinline{python}{func_b(1)}（因此输出了 \mintinline{python}{BB 2}），再调用 \mintinline{python}{func_a(1)}（因此输出了 \mintinline{python}{AA 2}），最终调用 \mintinline{python}{f(1)}。

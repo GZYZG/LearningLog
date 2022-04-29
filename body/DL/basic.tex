@@ -45,7 +45,7 @@ $$
 
 \subsection{Normalization}
 \subsubsection{Batch Normalization}
-在神经网络中，前一层的输出会成为后一层的输入。当前面层的参数更新后，其输出的分布也会随之改变，经过层层的叠加，越往后的变化越大。为了拟合这些数据，深层的参数需要不断适应变化的数据，导致模型的收敛速度很慢。这里的分布指的是一层里每个神经元的分布。这种分布不一致做 \textbf{Internal Convariate Shift}（内部协变量偏移）。对于一个神经元，其取值分布会逐渐偏移，例如偏移至激活函数的饱和区，即梯度很小。
+在神经网络中，前一层的输出会成为后一层的输入。当前面层的参数更新后，其输出的分布也会随之改变，经过层层的叠加，越往后的变化越大。为了拟合这些数据，深层的参数需要不断适应变化的数据，导致模型的\textbf{收敛速度很慢}。这里的分布指的是一层里每个神经元的分布。这种分布不一致做 \textbf{Internal Convariate Shift}（内部协变量偏移）。对于一个神经元，其取值分布会逐渐偏移，例如偏移至激活函数的饱和区，即梯度很小。
 
 一个比较直观的方式就是对每一层的输出进行标准化。Batch Normalization 在 mini-batch 的基础上对每个神经元进行标准化，即对每个特征进行标准化。具体操作为：每一层的输入维一个 mini-batch，通过这个批次来估算每一维的均值和方差，然后对每一维进行标准化，除此之外，BN 中还对标准化后的特征进行了线性变化。
 $$
@@ -72,6 +72,8 @@ $$
 $$
 \textbf{为什么进行了标准化还要进行线性变换呢？}如果只是进行标准化后，其很有可能落在激活函数的线性区域，例如 sigmoid 激活函数，经过标准化后基本会落在 0 左右，而这一块区域基本是线性的，而达不到激活函数的非线性的功能，因此对齐进行了缩放和偏置，使其能够落在激活函数的非线性区域，由于 $\gamma, \beta$ 是学习得到的，因此也能满足其落在线性区的需求。这样做的一个目的就是：保障每一层的表征能力。
 
+有一些观点认为 BN 有防止过拟合的作用，给出的解释是：BN 将输入拉到了同一个分布，且保证了输入不会都落到激活函数的饱和区，可以使得参数的更新更加平滑，也就达到了防止过拟合的作用。
+
 
 实际情况在进行BN时，可能是在通过激活函数之前进行 BN 或者在通过激活函数后再进行BN。\textbf{通常是在激活函数之前进行 BN}，因为当输入较大时，通常激活函数的变化都较小，梯度变化不明显，故在激活函数之间就对数据进行BN，使其分布尽量稳定。
 
@@ -92,6 +94,9 @@ $$
 其中 $a_i^l$ 就是第 $l$ 层的第 $i$ 个神经元。可以看到，计算的过程中不用考虑 batch 的大小，因此 batch 的大小和选择对 LN 是没有影响的。进行缩放时则与 BN 是一致的，每个神经元都有单独的缩放系数和偏置。因为不受 batch 中其他样本的影响，因此使用 LN 时不需要保存训练过程中各个 batch 的均值和方差，且训练过程和推断过程 LN 的操作是一致的。
 
 \subsection{Dropout}
+Dropout 即丢弃，是神经网络中一种正则化的手段：在神经网络模型做训练时，让网络中某些神经元随机失活——也就是不参与训练。换个角度理解一下这个操作背后的含义：Dropout使得每批训练数据进入神经网络时，神经网络的构型都不同，即每批训练数据训练的网络结构都不同。而做预测Dropout是关闭的状态，代表着\textbf{做预测时是所有训练时结构不同的神经网络一起做的最后的预测，整个过程就是多个不同神经网络最后投票做决定给出预测值}。其实可以看到这和随机森林的 \textbf{bagging} 很像了。
+
+参考 PyTorch 中关于 Dropout 的实现：\ref{nn_dropout}。
 
 \subsection{Model Collapse}
 模型坍塌，很形象啊，就是模型出现了一个漏洞，不管你输入什么东西都会漏进这个洞里。
@@ -151,10 +156,43 @@ CNN的应用非常广泛，不仅是图像，在Speech、NLP等很多领域都�
 
 
 \subsection{深度学习的梯度下降优化算法}
-
+这里按照 PyTorch 里的优化器来进行介绍。
+\subsubsection{SGD}
+stochastic gradient descent。
 
 \subsection{常见损失函数及其特点}
+\subsubsection{交叉熵损失函数}
+常用于分类任务中。最常见的莫过于而分类中的交叉熵损失函数了：
+$$
+l(y, \hat{y}) = -(y \log \hat{y} + (1-y) \log (1-\hat{y}))
+$$
+其中 $y \in \{0, 1\}, \hat{y} \in (0, 1)$，$\hat y$ 表示样本为正样本的概率。交叉熵更一般的形式为：
+$$
+l(\boldsymbol{y}, \hat{\boldsymbol{y}}) = - \sum_{c=1}^K \boldsymbol{y}_c \log \hat{\boldsymbol{y}}_c
+$$
+其中 $\boldsymbol{y} \in \{0,1\}^K$ 表示样本所属的类别的 one-hot 编码，$\hat{\boldsymbol{y}}$ 是样本属于每个类别的概率（已归一化）。由于 $\boldsymbol{y}$ 是 one-hot 编码，若样本的真实类别是 $c$，则上式可简化为：
+$$
+l(\boldsymbol{y}, \hat{\boldsymbol{y}}) = - \log \hat{\boldsymbol{y}}_c
+$$
+如果赋予了每个类别一个权重，那么交叉熵损失可写为：
+$$
+l(\boldsymbol{y}, \hat{\boldsymbol{y}}) = - \boldsymbol{w}_c\log \hat{\boldsymbol{y}}_c
+$$
+$\boldsymbol{w}_c$ 表示类别 $c$ 的权重。
 
+交叉熵损失的特点：
+\begin{itemize}
+	\item 最后一层的权重更新时，梯度与激活函数的导数无关，不会因为输入落在饱和区而影响梯度的更新，MSE 则存在这个问题；
+	
+	\item 从交叉熵的式子中也可以看到，计算损失时只利用到了在正确类别上的信息，而其他类别的信息直接丢弃了。这样可能会导致其他错误类别上的概率基本时一样的，而忽略了其他类别之间的差异。例如猫、虎、汽车的三个类别，如果真实类别是猫，那么直观上来看虎的概率还是应该大于汽车的概率的，但交叉熵是将这些类别等同看待的，忽略了类别见的差异和相关性；	
+\end{itemize}
+
+
+\subsubsection{MSE}
+常用于回归任务中。
+
+\subsubsection{Focal Loss}
+Focal Loss(后续简称为 FL)为解决样本不平衡的问题，更准确地讲，是为解决难分类样本 (Hard Example) 和易分类样本 (Easy Example) 的不平衡问题。对于样本不平衡，其实通过上面的带权重的交叉熵损失便可以一定程度上解决这个问题，但是在实际问题中，以权重来解决样本不平衡问题的效果不够理想。为什么呢？表面上是因为样本不平衡，但实质上导致效果不好的原因也许并不是简单地因为样本不平衡，而是因为样本中存在一些 Hard Example，同时存在许多 Easy Example，Easy Example 虽然容易被分类器分辨，损失较小，但是由于其数量大，它们累积起来依然于大于 Hard Example 的损失值，因此我们需要给 Hard Example 较大的权重，给 Easy Example 较小的权重。
 
 \subsection{常见激活函数及其特点}
 \subsubsection{sigmoid}
@@ -197,8 +235,21 @@ $$
 其中的 $a$ 不再是超参数，而是可训练的了。
 
 \subsubsection{Dice}
-Data Dependent Activation Function，Dice激活函数诞生于 DIN 中，根据 PReLU 改造而来。ReLU 类函数的阶跃变化点在 x=0 处，意味着面对不同的输入这个变化点是不变的，DIN 中改进了这个变化点的位置，让它根据数据的分布（神经元输出的均值和方差，与 BN 类似）来调整：
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{pics/prelu-dice.png}
+	\caption{Rectified Point of PReLU and Dice}
+	\label{fig:prelu_dice}
+\end{figure}
+Data Dependent Activation Function，Dice激活函数诞生于 DIN 中，根据 PReLU 改造而来。ReLU 类函数的阶跃变化点在 x=0 处，意味着面对不同的输入这个变化点是不变的，PReLU 和 Dice 的阶跃点比较如 Fig.\ref{fig:prelu_dice} 所示。DIN 中改进了这个变化点的位置，让它根据数据的分布（神经元输出的均值和方差，与 BN 类似）自适应来调整阶跃点的位置：
 $$
 dice(x) = p(x) \cdot x + (1 - p(x)) \cdot \alpha \cdot x
 $$
-其中 $p(x) = sigmoid( BN(x))$，$BN(x) = \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}}$。与 PReLU 相比，其实相当于将 max/min 这种硬的划分改成了软（即以概率 $p(x)$）的划分。
+其中 $p(x) = sigmoid( BN(x))$，$BN(x) = \frac{x - E(x)}{\sqrt{Var(x) + \epsilon}}$。与 PReLU 相比，其实相当于将 max/min 这种硬的划分改成了软（即以概率 $p(x)$）的划分。从公式和 Fig.\ref{fig:prelu_dice} 中可以看出，均值控制了阶跃点的位置，方差控制了阶跃处的变化速率，即斜率。
+
+\subsubsection{Softplus}
+Softplus 函数可以看作是 ReLU 函数的平滑，即 $x^+ = max(0, x)$ 的平滑，因此叫做 Softplus。形式为：
+$$
+Softplus(x) = log(1+e^x)
+$$
+显然，Softplus 输出的值域是 $(0, +\infty)$。

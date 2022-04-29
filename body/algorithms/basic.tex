@@ -16,3 +16,13 @@
 \paragraph{Motivation}将n个不同的元素分成一组\textbf{不相交}的集合。能够快速地完成两种操作：查找某个元素属于那个集合、合并两个集合。注意：“不相交”可以有不同的定义，如graph中的节点是否相邻、在某种度量下的不相交等。
 
 \paragraph{HOW?}
+
+\subsection{链表}
+链表应该算是使用非常广泛的一种数据结构了。先从最简单的链表说起：单链表。链表中的组成元素是一个个的节点，节点中包含了指向下一个节点的指针 \mintinline{python}{next} 以及所包含的数据。定义一下链表的节点：
+\begin{python}
+	class ListNode:
+	     def __init__(self, val=0, next=None):
+	         self.val = val
+	         self.next = next
+\end{python}
+对于一个链表，是可以包含多个节点的，节点之间通过 \mintinline{python}{next} 指针相连，即可以从一个节点沿着 \mintinline{python}{next} 遍历到下一个节点。
