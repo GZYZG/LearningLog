@@ -355,6 +355,7 @@ $$
 $$
 其中 $n(q_i)$ 是文档集中包含 $q_i$ 的文档的数量. 可以注意到, 这个式子与上一节的 BIM 结尾处举的例子是一样的, 这种情况值得是初始状态我们不知道哪些文档是相关的, 且相关文档的占比通常是极小的. 所以可以认为 BM25 的权重使用的是特殊情况下的 BIM. $W_i$ 有一个问题还需要注意, 当 $n(q_i)$ 超过 $N$ 的一半时, $W_i$ 就变成负的了, 因此实际使用时通常将这种情况下的 $W_i$ 置为 0.
 
+
 \subsubsection{$R(q_i, D)$}
 一些比较朴素的定义: 特征词在文档中的频率. 但是这种方法难以避免文本长度的影响, 即长文本通常会有更高的词频, 类似于推荐中的热门物品. 还有一个问题就是 $R$ 并不应该与词频是线性关系的, 而应该是增长到一定程度就趋于饱和, 这样就不会\textbf{让某个特征词占据支配地位}. 基于以上考虑, BM25 中的 $R$ 定义为:
 $$
@@ -367,7 +368,7 @@ $$
 $$
 R(q_i, D) = \frac{(k_1+1) tf(q_i, D)}{k_1[(1 - b) + b \frac{L_D}{L_{avg}}] + tf(q_i, D)}
 $$
-$k_1$ 起着调节特征词与词频尺度的作用, 很显然, 当 $k_1=0$ 时则 $R$ 成了与词频无关的量, $k_1$ 越大则 $R$ 越接近原始的词频.% $b$ 控制了文本长度对 $R$ 的影响, $b$ 相当于对文档长度的进行惩罚, 越大惩罚力度越大. 
+$k_1$ 起着调节特征词与词频尺度的作用, 很显然, 当 $k_1=0$ 时则 $R$ 成了与词频无关的量, $k_1$ 越大则 $R$ 越接近原始的词频.
 
 \subsubsection{特征词在 \textit{query} 中的重要性}
 此外, 若 \textit{query} 比较长, 且某些特征词在 \textit{query} 中的频率比较高, 则这些特征词的重要性也应该提高, 但应该其重要性的提高也应与特征词在文档中重要性一样, 其\textbf{增长也是会饱和的}. 因此在 $score$ 中加入这一项:
@@ -386,4 +387,4 @@ $$
 
 BM25 的\textbf{缺点}: BM25 将文档当作一个整体来进行词频统计 (计算 $R$), 但是显然一个文档的不同部分对 $R$ 的贡献是不等的. BM25 的一些变体对此进行了改进, 如 BM25F 在计算 $R$ 时将文档分割成不同的区域来进行加权统计
 
-参考资料: \href{https://www.cnblogs.com/geeks-reign/p/Okapi_BM25.html}{Okapi BM25算法}(很详细), \href{https://www.cnblogs.com/bentuwuying/p/6730891.html}{概率检索模型：BIM+BM25+BM25F}, \href{\href{https://www.cnblogs.com/NaughtyBaby/p/9774836.html}{BM25 调参调研}(探讨了 BM25 中的参数的影响).
+参考资料: \href{https://www.cnblogs.com/geeks-reign/p/Okapi_BM25.html}{Okapi BM25算法}(很详细), \href{https://www.cnblogs.com/bentuwuying/p/6730891.html}{概率检索模型：BIM+BM25+BM25F}, \href{https://www.cnblogs.com/NaughtyBaby/p/9774836.html}{BM25 调参调研}(探讨了 BM25 中的参数的影响).
