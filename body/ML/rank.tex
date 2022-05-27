@@ -1,25 +1,25 @@
 \subsection{排序学习算法简介}
-排序学习，Learning to Rank，简言之：给定一个查询$q$，和待查询的数据集合$D$，返回与$q$最相关的top k（有序）的结果或者给出$D$中所有元素与$q$的相关性排序。
+排序学习, Learning to Rank, 简言之：给定一个查询$q$, 和待查询的数据集合$D$, 返回与$q$最相关的top k（有序）的结果或者给出$D$中所有元素与$q$的相关性排序. 
 
 \subsubsection{Pointwise}
-将排序问题转化为分类、回归问题。以一个$q$和一个待查询对象$q$（只有一个待查询对象，这也是Point的原因）之间的相关性作为预测目标，即$Pointwise: q \times d \rightarrow label, q \in Q, d \in D$，以$(q, d)$作为训练样本。
+将排序问题转化为分类、回归问题. 以一个$q$和一个待查询对象$q$（只有一个待查询对象, 这也是Point的原因）之间的相关性作为预测目标, 即$Pointwise: q \times d \rightarrow label, q \in Q, d \in D$, 以$(q, d)$作为训练样本. 
 
 Pointwise缺点：
 \begin{itemize}
-	\item 只考虑了某个查询下，单个待查询对象的相关性，没有考虑该查询下所有待查询对象的排序关系，即带查询对象间的关系
-	\item 查询时，往往排在前面的对象比后面的对象更重要，而Pointwise平等地对待所有带查询对象，损失函数会被占多数的非top K对象所影响
+	\item 只考虑了某个查询下, 单个待查询对象的相关性, 没有考虑该查询下所有待查询对象的排序关系, 即带查询对象间的关系
+	\item 查询时, 往往排在前面的对象比后面的对象更重要, 而Pointwise平等地对待所有带查询对象, 损失函数会被占多数的非top K对象所影响
 \end{itemize}
 
 
 \subsubsection{Pairwise}
-针对一个查询$q$，通过某种方法确定一个大致的待查询对象集合$D_q$，Pairwise将排序问题转化为$D_q$中任意两个对象之间相对关系的分类/回归问题，训练样本为$(d_i, d_j),\: d_i, d_j \in D_q$，预测目标为$d_i, d_j$与$q$的相关性的相对大小，例如1表示$q_i$比$q_j$更相关。
+针对一个查询$q$, 通过某种方法确定一个大致的待查询对象集合$D_q$, Pairwise将排序问题转化为$D_q$中任意两个对象之间相对关系的分类/回归问题, 训练样本为$(d_i, d_j),\: d_i, d_j \in D_q$, 预测目标为$d_i, d_j$与$q$的相关性的相对大小, 例如1表示$q_i$比$q_j$更相关. 
 
 Pairwise缺点：
 \begin{itemize}
-	\item 是在两个带查询对象之间的相关性的基础上学习的，学习的它们的相对顺序，并不是文档在最终的结果列表中的顺序
-	\item 不同的查询可能会有不同大小的带查询对象集合，这种不均衡问题会影响算法的评估与学习
+	\item 是在两个带查询对象之间的相关性的基础上学习的, 学习的它们的相对顺序, 并不是文档在最终的结果列表中的顺序
+	\item 不同的查询可能会有不同大小的带查询对象集合, 这种不均衡问题会影响算法的评估与学习
 \end{itemize}
 
 
 \subsubsection{Listwise}
-Listwise将一个query对应的所有相关待查询对象看作一个整体，作为单个训练样本，直接优化MAP、NDCG（Normalized Discounted Cumulative Gain）这样的指标，从而学习到最佳排序结果。
+Listwise将一个query对应的所有相关待查询对象看作一个整体, 作为单个训练样本, 直接优化MAP、NDCG（Normalized Discounted Cumulative Gain）这样的指标, 从而学习到最佳排序结果. 

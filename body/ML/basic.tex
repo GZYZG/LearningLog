@@ -23,7 +23,24 @@ $$
 
 当然，除了从梯度的角度解释，还可以从优化的角度和概率的角度。$L1$ 假设参数服从 Laplace 分布，而 $L2$ 假设参数服从 Gaussian 分布，从这两个分布（标准的 Laplace 分布和标准的 Gaussian 分布）的形状也可以看出 $L1$ 正则化下的参数有更大的概率接近或等于 0。
 
-参考：\href{https://www.zhihu.com/question/37096933/answer/475278057}{l1 相比于 l2 为什么容易获得稀疏解？ - ser jamie的回答}。
+\subsubsection{L1/2 的先验分布}
+机器学习通常是在给定观察到的数据后对模型的参数进行估计，相当于求后验概率：
+$$
+MAP = \log P(y | X, w) P(w) = \log P(y | X, w) + \log P(w)
+$$
+即后验概率为似然函数加上参数的先验。若假设 $w$ 的先验服从 0 均值的正态分布，则：
+$$
+\log P(w) = \log \prod_{j} P(w_j) = \log \prod_{j} \frac{1}{\sqrt{2 \pi } \sigma} e ^ {-\frac{w_j^2}{2 \sigma^2}} =-\frac{1}{2 \sigma^2} \sum_j w_j^2 + C
+$$
+可以看到，在高斯分布下 $\log P(w)$ 的效果等价于在代价函数中增加了 L2 正则项。若 $w$ 服从均值为 0，参数为 $a$ 的拉普拉斯分布，则：
+$$
+\log P(w) = \log \prod_{j} P(w_j) = \log \prod_{j} \frac{1}{\sqrt{2 a} \sigma} e^{-\frac{|w_j|}{a}} = -\frac{1}{2a} \sum_j |w_j| + C
+$$
+可以看到，在拉普拉斯分布下 $\log P(w)$ 等价于在代价函数中增加了 L1 正则项。
+
+\begin{flushright}
+	
+\end{flushright}参考：\href{https://www.zhihu.com/question/37096933/answer/475278057}{l1 相比于 l2 为什么容易获得稀疏解？ - ser jamie的回答}。
 
 \subsection{early stopping strategy}
 

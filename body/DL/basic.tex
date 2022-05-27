@@ -1,6 +1,3 @@
-\subsection{不同的优化器原理}
-可参考：\href{https://mp.weixin.qq.com/s/L9jCK5rtyq3fJZEBpLvagg}{从SGD到NadaMax，十种优化算法原理及实现}
-
 \subsection{BGD, SGD, MBGD}
 神经网络的训练过程，可以看作目标函数的优化过程，在优化过程中对模型的参数进行更新，使目标函数逐步收敛到一个最优的状态。参数优化有多种方法，目前主要是基于迭代的过程，如梯度下降、牛顿法等。其中梯度下降已经霸榜多年。目前主要有以下三种梯度下降方法：
 \begin{myitemize}
@@ -27,21 +24,6 @@
 	缺点：需要考虑学习率的衰减，以及选择合适的batch size，且与BGD相比存在一定程度的振荡。
 \end{myitemize}
 参考资料：\href{https://lumingdong.cn/summary-of-gradient-descent-algorithm.html#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95%E7%9A%84%E4%B8%89%E4%B8%AA%E5%8F%98%E7%A7%8D}{梯度下降算法的三个变种}。
-	
-\subsection{Contrastive loss, Triplet loss} 
-都是一种损失函数。
-
-Triplet loss用于训练差异较小的数据，常用于人脸识别中。以这种函数为损失函数时，输入的一个样本是一个三元组(anchor, positive, negative)，anchor是随机选择的一个样本，而positive和negative分别于anchor为同类/异类数据。在学习时，Triplet loss的目的就是让anchor的表征与positive的表征尽量靠近，与negative的表征尽量疏远。那么对于一个样本来说，Triplet loss写成公式： 
-$$
-\mathcal{L} = max( ||f(a)-f(p)||_2^2 - ||f(a) - f(n)||_2^2 + \alpha )
-$$
-公式的含义也很明显，尽量使类内数据相近，类间数据相离。
-
-Contrastive loss是对比损失，也叫zero-one损失，主要用来处理孪生网络中的paired data的关系。通常Contrastive loss的输入是两个样本，且各自都有一个标签，Contrastive loss的目标就是：如果两个样本同类，则loss更小，否则loss更大。写成公式：
-$$
-\mathcal{L} = d_{ij}^2 \cdot Y_{ij} + (1 - Y_{ij} )max(margin - d_{ij}, 0)^2
-$$
-其中，$d_{ij}$就表示样本i, j之间的距离，这个可以有多种形式的定义，$Y_{ij}$表示样本i, j的标签是否相同，margin是一个阈值，如果$d_{ij}$超过阈值则应该尽量把它们划分开。
 
 \subsection{Normalization}
 \subsubsection{Batch Normalization}
@@ -142,14 +124,11 @@ CNN的应用非常广泛，不仅是图像，在Speech、NLP等很多领域都�
 关于推导的一些参考：\href{https://intoli.com/blog/neural-network-initialization/}{UNDERSTANDING NEURAL NETWORK WEIGHT INITIALIZATION}、\href{https://mnsgrg.com/2017/12/21/xavier-initialization/}{Xavier Initialization}（不同激活函数下的 Glorot 初始化推导）。
 
 
-
 \subsection{DL中的不可微操作}
 
 \subsection{Global Max Pooling}
 
 \subsection{Attention机制与CNN}
-
-\subsection{权重衰减与参数正则化}
 
 \subsection{Batch Size与Learning Rate}
 模型训练过程中，\textbf{Batch Size}和\textbf{Learning Rate}是两个不可不调的参数。
@@ -158,9 +137,73 @@ CNN的应用非常广泛，不仅是图像，在Speech、NLP等很多领域都�
 \subsection{深度学习的梯度下降优化算法}
 这里按照 PyTorch 里的优化器来进行介绍。
 \subsubsection{SGD}
-stochastic gradient descent。
+\href{https://pytorch.org/docs/stable/generated/torch.optim.SGD.html#torch.optim.SGD}{SGD}(stochastic gradient descent)，就是常说的随机梯度下降，当然在 PyTorch 的实现中，可以加入一些额外的操作，如：权重衰减、动量（上一步的梯度呈指数加权来影响当前梯度）。SGD 的计算过程如 Fig.\ref{fig:sgd} 所示。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{pics/sgd.png}
+	\caption{SGD 计算过程(\href{https://pytorch.org/docs/stable/generated/torch.optim.SGD.html#torch.optim.SGD}{来源})}
+	\label{fig:sgd}
+\end{figure}
+
+SGD 的特点：
+\begin{itemize}
+	\item 朴素的 SGD 最大的缺点是下降速度慢，而且可能会在沟壑的两边持续震荡，停留在一个局部最优点；
+	
+	\item 为了解决朴素 SGD 中的振荡现象，可以加入动量；
+\end{itemize}
+
+\subsubsection{AdaGrad}
+
+\subsubsection{RMSProp}
+
+\subsubsection{AdaDelta}
+
+\subsubsection{Adam}
+Adam\cite{kingma2015adam} 结合 AdaGrad 和 RMSProp 两种优化算法的优点，对梯度的一阶矩估计（First Moment  Estimation，即梯度的均值）和二阶矩估计（Second Moment Estimation，即梯度的未中心化的方差）进行综合考虑，计算出更新步长。Adam 的计算过程如 Fig.\ref{fig:adam} 所示。
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.0\textwidth]{pics/adam.png}
+	\caption{Adam 计算过程}
+	\label{fig:adam}
+\end{figure}
+
+网上找到一张梯度的一阶估计随时间步的变化（即 Fig.\ref{fig:adam} 中的 $m_t$），如 Fig.\ref{fig:adam-gradient} 所示。可以看到，前面时间步的梯度在衰减。
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.85\textwidth]{pics/adam-gradient-weight-distribution.png}
+	\caption{Adam 梯度一阶估计随时间步的变化(\href{https://www.jianshu.com/p/aebcaf8af76e}{来源})}
+	\label{fig:adam-gradient}
+\end{figure}
+
+Adam 的特点：
+\begin{itemize}
+	\item 可能不会收敛；
+	
+	\item 可能会错过最优解；
+\end{itemize}
+
+参考资料：
+\begin{itemize}
+	\item \href{https://mp.weixin.qq.com/s/L9jCK5rtyq3fJZEBpLvagg}{从SGD到NadaMax，十种优化算法原理及实现}；
+	
+	\item 一篇讨论各种优化算法的论文： \href{https://arxiv.org/pdf/1612.04010.pdf}{An empirical analysis of the optimization of deep network loss surfaces}；
+\end{itemize}
 
 \subsection{常见损失函数及其特点}
+\subsubsection{MSE}
+MSE(mean squared error，均方误差)，常用于回归任务中。其形式较为简单：
+$$
+l(y, \hat{y}) = (y - \hat{y})^2
+$$
+其中 $y, \hat{y}$ 分别为样本的真实值与预测值。MSE 的特点：
+\begin{itemize}
+	\item 当 $|y - \hat{y}|$ 大于 1 时，MSE 会放大误差，所以 MSE 容易受到异常点的影响；
+	
+	\item MSE 的梯度与误差的大小成正比；
+\end{itemize}
+
 \subsubsection{交叉熵损失函数}
 常用于分类任务中。最常见的莫过于而分类中的交叉熵损失函数了：
 $$
@@ -187,19 +230,54 @@ $\boldsymbol{w}_c$ 表示类别 $c$ 的权重。
 	\item 从交叉熵的式子中也可以看到，计算损失时只利用到了在正确类别上的信息，而其他类别的信息直接丢弃了。这样可能会导致其他错误类别上的概率基本时一样的，而忽略了其他类别之间的差异。例如猫、虎、汽车的三个类别，如果真实类别是猫，那么直观上来看虎的概率还是应该大于汽车的概率的，但交叉熵是将这些类别等同看待的，忽略了类别见的差异和相关性；	
 \end{itemize}
 
-
-\subsubsection{MSE}
-常用于回归任务中。
-
 \subsubsection{Focal Loss}
-Focal Loss(后续简称为 FL)为解决样本不平衡的问题，更准确地讲，是为解决难分类样本 (Hard Example) 和易分类样本 (Easy Example) 的不平衡问题。对于样本不平衡，其实通过上面的带权重的交叉熵损失便可以一定程度上解决这个问题，但是在实际问题中，以权重来解决样本不平衡问题的效果不够理想。为什么呢？表面上是因为样本不平衡，但实质上导致效果不好的原因也许并不是简单地因为样本不平衡，而是因为样本中存在一些 Hard Example，同时存在许多 Easy Example，Easy Example 虽然容易被分类器分辨，损失较小，但是由于其数量大，它们累积起来依然于大于 Hard Example 的损失值，因此我们需要给 Hard Example 较大的权重，给 Easy Example 较小的权重。
+Focal Loss(后续简称为 FL)为解决样本不平衡的问题，更准确地讲，是为解决难分类样本 (Hard Example) 和易分类样本 (Easy Example) 的不平衡问题。对于样本不平衡，其实通过上面的带权重的交叉熵损失便可以一定程度上解决这个问题，但是在实际问题中，以权重来解决样本不平衡问题的效果不够理想。为什么呢？表面上是因为样本不平衡，但实质上导致效果不好的原因也许并不是简单地因为样本不平衡，而是因为样本中存在一些 Hard Example，同时存在许多 Easy Example，Easy Example 虽然容易被分类器分辨，损失较小，但是由于其数量大，它们累积起来依然于大于 Hard Example 的损失值，因此我们需要给 Hard Example 较大的权重，给 Easy Example 较小的权重。FL 是基于交叉熵损失的，其定义为：
+$$
+FL(\boldsymbol{y}, \hat{\boldsymbol{y}}) = -(1-\hat{\boldsymbol{y}}_c) \log \hat{\boldsymbol{y}}_c
+$$
+可以看到，与交叉熵相比，FL 多了一个 $(1-\hat{\boldsymbol{y}}_c)$，显然，当模型对该样本分类的置信度越高，则样本的损失越小（相比交叉熵更小），$(1-\hat{\boldsymbol{y}}_c)$ 可以起到样本权重的作用，该值越小说明样本越容易被分类，即为 Easy Example。为了更好控制该权重，改写 FL 为：
+$$
+FL(\boldsymbol{y}, \hat{\boldsymbol{y}}) = -(1-\hat{\boldsymbol{y}}_c)^\gamma \log \hat{\boldsymbol{y}}_c
+$$
+其中 $\gamma$ 为超参数，$\gamma=0$ 则为交叉熵损失，一般取 2，$\gamma$ 越大 Easy Example 带来的损失就越小，对 Easy Example 起到的抑制就越大。如果再要处理样本不均衡的问题，可以再加上类别权重，则 FL 改写为：
+$$
+FL(\boldsymbol{y}, \hat{\boldsymbol{y}}) = - \alpha_c (1-\hat{\boldsymbol{y}}_c)^\gamma \log \hat{\boldsymbol{y}}_c
+$$
+其中 $\alpha_c$ 为类别 $c$ 的权重。
+
+\subsubsection{Sampled Softmax}
+
+\subsubsection{Contrastive loss, Triplet loss} 
+都是一种损失函数。
+
+Triplet loss用于训练差异较小的数据，常用于人脸识别中。以这种函数为损失函数时，输入的一个样本是一个三元组(anchor, positive, negative)，anchor是随机选择的一个样本，而positive和negative分别于anchor为同类/异类数据。在学习时，Triplet loss的目的就是让anchor的表征与positive的表征尽量靠近，与negative的表征尽量疏远。那么对于一个样本来说，Triplet loss写成公式： 
+$$
+\mathcal{L} = max( ||f(a)-f(p)||_2^2 - ||f(a) - f(n)||_2^2 + \alpha )
+$$
+公式的含义也很明显，尽量使类内数据相近，类间数据相离。
+
+Contrastive loss是对比损失，也叫zero-one损失，主要用来处理孪生网络中的paired data的关系。通常Contrastive loss的输入是两个样本，且各自都有一个标签，Contrastive loss的目标就是：如果两个样本同类，则loss更小，否则loss更大。写成公式：
+$$
+\mathcal{L} = d_{ij}^2 \cdot Y_{ij} + (1 - Y_{ij} )max(margin - d_{ij}, 0)^2
+$$
+其中，$d_{ij}$就表示样本i, j之间的距离，这个可以有多种形式的定义，$Y_{ij}$表示样本i, j的标签是否相同，margin是一个阈值，如果$d_{ij}$超过阈值则应该尽量把它们划分开。
 
 \subsection{常见激活函数及其特点}
 \subsubsection{sigmoid}
-这个恐怕是无人不知无人不晓了吧，通常用于将神经元得输出转化成一个概率值：
-$$
-sigmoid(x) = \frac{1}{1 + e^{-x}}
-$$
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			legend pos=outer north east,
+			xlabel = $x$,
+			ylabel = {$f(x)$},
+			]
+			\addplot[color=red] {1/(1+exp(-x))};
+			\addlegendentry{$f(x) = \frac{1}{1+e^{-x}}$}
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+这个恐怕是无人不知无人不晓了吧，通常用于将神经元得输出转化成一个概率值。
+
 优点：梯度平滑、易求导。缺点：
 \begin{itemize}
 	\item 计算复杂，在正向和反向传播过程中都涉及到幂运算和处罚；
@@ -217,6 +295,7 @@ relu(x) = max(0, x)
 $$
 优点：计算速度很快，而且导数很稳定（在大于 0 的部分为 1），不会因为导数很小使得连乘后梯度很小。缺点：因为当输入小于 0 时输出为 0 且梯度为 0，这其实相当于抛弃了一部分信息，而且由于导数为零，可能某些参数不能得到很好地学习。
 
+显然，Focal Loss 能够针对 Hard/Easy 样本给出不同的权重。
 
 \subsubsection{Leaky ReLU}
 可以看到在 ReLU 里，当输入为 0 时输出直接为 0，导数也为 0。Leaky ReLU 对输入小于 0 时进行了修改：

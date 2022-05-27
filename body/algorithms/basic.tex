@@ -1,3 +1,27 @@
+\subsection{常见排序算法复杂度}
+% Please add the following required packages to your document preamble:
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[http]
+	\begin{tabular}{cccccc}
+		\cline{1-4}
+		\rowcolor[HTML]{4371C3} 
+		\multicolumn{1}{|c|}{\cellcolor[HTML]{4371C3}{\color[HTML]{FFFFFF} \textbf{算法}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{4371C3}{\color[HTML]{FFFFFF} \textbf{时间复杂度(平均)}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{4371C3}{\color[HTML]{FFFFFF} \textbf{时间复杂度(最坏)}}} & \multicolumn{1}{c|}{\cellcolor[HTML]{4371C3}{\color[HTML]{FFFFFF} \textbf{时间复杂度(最好)}}} & {\color[HTML]{FFFFFF} 空间复杂度} & {\color[HTML]{FFFFFF} 稳定性} \\ \cline{1-4}
+		
+		\textbf{直接插入排序} & $O(n^2)$ & $O(n^2)$ & $O(n)$ & $O(1)$ & 稳定 \\ \hline
+		\textbf{希尔排序} & $O(n^{1.3})$ & $O(n^2)$ & $O(n)$ & $O(1)$ & 不稳定 \\ \hline
+		\textbf{直接选择} & $O(n^2)$ & $O(n^2)$ & $O(n^2)$ & $O(1)$ & 不稳定 \\ \hline
+		\textbf{堆排序} & $O(n \log_2 n)$ & $O(n \log_2 n)$ & $O(n \log_2 n)$ & $O(1)$ & 不稳定 \\ \hline
+		\textbf{冒泡排序} & $O(n^2)$ & $O(n^2)$ & $O(n)$ & $O(1)$ & 稳定 \\ \hline
+		\textbf{快速排序} & $O(n \log_2 n)$ & $O(n^2)$ & $O(n \log_2 n)$ & $O(\log_2 n)$ & 不稳定 \\ \hline
+		\textbf{归并排序} & $O(n \log_2 n)$ & $O(n \log_2 n)$ & $O(n \log_2 n)$ & $O(n)$ & 稳定 \\ \hline
+		\textbf{基数排序} & $O(d(n+r))$ & $O(d(n+r))$ & $O(d(n+r))$ & $O(r)$ & 稳定 \\ \hline
+		\textbf{计数排序} & $O(n+k)$ & $O(n+k)$ & $O(n+k)$ & $O(n+k)$ & 稳定 \\ \hline
+	\end{tabular}
+\end{table}
+
+注意，基数排序中的 $d, r$ 分别表示位数和基数；\href{https://blog.csdn.net/alzzw/article/details/98245871}{计数排序}中 $k$ 是整数的范围。
+
 \subsection{大整数}
 \paragraph{Motivation}在C、C++等一些语言中，支持的整数类型所能保存的范围是有效的，相对Java、Python等一些语言中支持的范围是要小的。
 

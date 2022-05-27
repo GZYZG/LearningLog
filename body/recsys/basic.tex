@@ -37,6 +37,22 @@
 	\item 推荐结果集：推荐结果，或推荐结果的有序排列
 \end{itemize}
 
+\subsection{会话推荐}
+会话推荐 (session-based recommendation) 是预测用户在一条交互序列中可能会喜欢的下一个商品. 基于深度学习的会话推荐方法试图从用户的历史交互序列中学习和理解用户的行为, 建模用户的偏好. Session-based Recommender System (SBRS) 是指在用户未登录状态下, 仅仅依赖匿名会话进行用户下一个行为预测的一种算法, 在许多领域(如电商、短视频、直播等)有着重要的作用. SBRS 从用户与系统交互过程中的会话来学习用户的偏好. 每一个会话由一段连续的时间内用户与物品的若干个交互组成，例如在一次网购中所购买的商品.
+
+近期 SBRS 的 SOTA 结果都是基于神经网络模型取得的. 
+\begin{myitemize}
+	\item 2016年提出的 GRU4Rec 是该系列中经典的一篇, 首次利用RNN对session序列建模, 相比传统的 KNN 和矩阵分解，效果有明显的提升. GRU4Rec 的核心思想是在一个 session 中，用户点击一系列 item 的行为看做一个序列，用来训练 RNN 模型。预测阶段，给定已知的点击序列作为输入，预测下一个可能点击的 item.;
+	
+	\item 在 GRU4Rec 的基础上, NARM 将注意力机制应用于对 session 的顺序行为及主要意图进行分别建模. 和以往方法不同的是显示地对用户在 session 目的进行建模;
+	
+	\item 与 NARM 相似, STAMP 利用简单的多层感知机和注意力网络对 session 内长短期兴趣分别表征. STAMP 设计了不同结构分别对 session 内长期兴趣和短期兴趣建模, 取序列中最后一个交互的item表征短期兴趣;
+	
+	\item 之前序列模型都仅对连续交互相邻 item 之间的序列过渡关系进行挖掘, 而忽略了不相邻 item 之间复杂地转变, SR-GNN 通过引入 GNN 来对 session graph 进行建模, 以此发掘序列内 item 之间复杂的过渡模式;
+	
+	\item 之前的方法通常忽略了 session 间的关系, GCE-GNN 提出了一种全局上下文增强(global-context enhanced)的 GNN 网络. 能够从两种层次来学习物品的表征，包括 global-level: 从所有 session 构成的图上进行全局的表征；以及 session-level: 从单个 session 局部 item 转移图上进行局部的表征. 最后融合二者, 并通过注意力机制形成最终的序列表征, 用于序列推荐任务.
+\end{myitemize}
+
 \subsection{共现矩阵}
 显然，共现矩阵是一种矩阵，\textbf{关键是它描述了一种什么事实}？$M, N(|M| = m, |N| = 2)$表示两个相同或者不同的集合，共现矩阵可以用于表达两个集合笛卡尔乘积的元素对的某种关系，$(m_i, n_j)$间的这种关系可以用共现矩阵的元素$CM_{ij}$表示。
 
