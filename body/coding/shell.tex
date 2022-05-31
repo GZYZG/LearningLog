@@ -1,0 +1,79 @@
+\subsection{变量}
+\paragraph{基本概念}
+定义 shell 变量时不需要加 \$ 符号, 如 \mintinline{shell}{var=444}, 切记定义变量是等号之间不能有空格, 因为 shell 中将空格看作参数的分隔符, 则会把变量名当作函数名, 把剩下的部分当作参数传进去!
+
+要使用一个定义过的变量时, 只要在变量名前加美元符号即可: \mintinline{shell}{$var}, 或者 \mintinline{shell}{${var}}. 变量名为的花括号是可选的, 加花括号是为了帮助 shell 解释器识别变量的边界, 例如 \mintinline{shell}{"This is ${var}-laboratory!"}
+
+已经定义过的变量是可以重新定义的, 注意定义的时候是不加美元符号的!
+
+\paragraph{只读变量}
+使用 \mintinline{shell}{readonly} 命令可以将变量定义为只读变量: \mintinline{shell}{readonly var}.
+
+\subsection{字符串}
+\subsubsection{\#*, \#\#*, \%*, \%\%* 的含义及用法}
+通过一个示例来解释, 定义一个变量: \mintinline{shell}{file=/dir1/dir2/dir3/my.file.txt}.
+
+\begin{myitemize}
+	\item \mintinline{shell}{${file#*/}} : 删除\textbf{第一个} \mintinline{shell}{/} 及其左边的字符串, 故该命令的值为 \mintinline{shell}{dir1/dir2/dir3/my.file.txt};
+	
+	\item \mintinline{shell}{${file##*/}} : 删除\textbf{最后一个} \mintinline{shell}{/} 及其左边的字符串, 故该命令的值为 \mintinline{shell}{my.file.txt};
+	
+	\item \mintinline{shell}{${file%/*}} : 删除\textbf{最后一个}(即\textbf{从右往左的第一个}) \mintinline{shell}{/} 及其右边的字符串, 故该命令的值为 \mintinline{shell}{/dir1/dir2/dir3};
+			
+	\item \mintinline{shell}{${file%%/*}} : 删除\textbf{第一个}(即\textbf{从右往左的最后一个}) \mintinline{shell}{/} 及其右边的字符串, 故该命令的值为 \mintinline{shell}{}(空值);
+	
+\end{myitemize}
+注意, 上述的 \mintinline{shell}{/} 可以是其他字符. 显然, \mintinline{shell}{#} 是删除左边, \mintinline{shell}{%} 是删除右边. 单一符号是最小匹配, 两个符号是最大匹配.
+补充:
+\begin{myitemize}
+	\item \mintinline{shell}{*} : 表示通配符, 用于匹配字符串将其删除;
+	
+	\item \mintinline{shell}{.} : 表示字符串中的分隔符, 可以为任意一个或多个字符;
+	
+	\item \mintinline{shell}{%} 表示从右向左匹配, \mintinline{shell}{#} 表示从左向右匹配, 都是非贪婪匹配, 即匹配到符合条件的最短结果. \mintinline{shell}{##}, \mintinline{shell}{%%} 则属于贪婪匹配, 即匹配符合条件的最长结果.
+\end{myitemize}
+
+\subsubsection{截取字符串}
+定义一个字符串: \mintinline{shell}{var=12345678}.
+
+\begin{myitemize}
+	\item \mintinline{shell}{${var:OFFSET}}, 从 OFFSET 开始截取字符串. 如 \mintinline{shell}{${var:2}}, 即从下标 2 开始截取字符串 (shell 中下标也是从 0 开始), 结果为 \mintinline{shell}{345678};
+	
+	\item \mintinline{shell}{${var:OFFSET:LENGTH}}, 从 OFFSET 开始截取长度为 LENGTH 的子串. 如 \mintinline{shell}{${var:2:2}}, 即从下标 2 开始截取长度为 2 的串, 结果为 \mintinline{shell}{34};
+	
+	\item \mintinline{shell}{${var:0-OFFSET}}, 从导数第 OFFSET 个字符串开始截取串, 类似于 python 中的负的索引. 如 \mintinline{shell}{${var:0-2}}, 即从倒数第 2 个开始截取字符串, 结果为 \mintinline{shell}{78}。 那能不能不写 0 呢? 当然可以, 把 0 换成空格即可, 如 \mintinline{shell}{${var: -OFFSET}}; 或者这样 \mintinline{shell}{${var:(-OFFSET)}};
+	
+	\item \mintinline{shell}{${var:0-OFFSET:LENGTH}}, 从导数第 OFFSET 个字符串开始截取长度为 LENGTH 的子串. 如 \mintinline{shell}{${var:0-2:1}}, 即从倒数第 2 个字符开始截取长度为 1 的子串. 结果为 \mintinline{shell}{7};
+\end{myitemize}
+
+\subsubsection{判断和读取字符串的值}
+\begin{myitemize}
+	\item \mintinline{shell}{${var}} : 读取变量的值, 与 \mintinline{shell}{$var} 相同;
+	
+	\item \mintinline{shell}{${var:-DEFAULT}} : 若 \mintinline{shell}{var} 没有定义或为空时, 则返回 \mintinline{shell}{DEFAULT}, 否则返回变量的值;
+
+	\item \mintinline{shell}{${var:=DEFAULT}} : 若 \mintinline{shell}{var} 没有定义或为空时, 则返回 \mintinline{shell}{DEFAULT}, 并将 \mintinline{shell}{var} 的值设置为 \mintinline{shell}{DEFAULT}, 否则返回变量的值;
+	
+	\item \mintinline{shell}{${var:+DEFAULT}} : 若变量已经赋值, 其值才会被替换为 \mintinline{shell}{DEFAULT}, 否则不进行任何替换;
+	
+	%\item \mintinline{shell}{var:?MESSAGE} : 
+	
+\end{myitemize}
+	
+\subsubsection{字符串替换}
+\begin{myitemize}
+	\item \mintinline{shell}{${var/SUBSTR/REPSTR}} : 使用 \mintinline{shell}{REPSTR} 来替换\textbf{第一个}匹配到的 \mintinline{shell}{SUBSTR};
+	
+	\item \mintinline{shell}{${var//SUBSTR/REPSTR}} : 使用 \mintinline{shell}{REPSTR} 来替换\textbf{所有}匹配到的 \mintinline{shell}{SUBSTR};
+	
+	\item \mintinline{shell}{${var/#SUBSTR/REPSTR}} : 如果 \mintinline{shell}{var} 的前缀匹配 \mintinline{shell}{SUBSTR}, 则用 \mintinline{shell}{REPSTR} 替换\textbf{匹配到的前缀} \mintinline{shell}{SUBSTR};
+	
+	\item \mintinline{shell}{${var/%SUBSTR/REPSTR}} : 如果 \mintinline{shell}{var} 的后缀匹配 \mintinline{shell}{SUBSTR}, 则用 \mintinline{shell}{REPSTR} 来替换\textbf{匹配到的后缀} \mintinline{shell}{SUBSTR}; 
+			
+\end{myitemize}
+
+参考: \href{https://blog.csdn.net/qq_51470638/article/details/125035162}{SHELL字符串处理技巧}, \href{https://www.cnblogs.com/gaochsh/p/6901809.html}{linux shell 字符串操作详解}.
+	
+\subsection{不知道如何分类}
+这里就暂时放一些我不知道该如何分类的知识点吧.
+

@@ -1,0 +1,48 @@
+什么是用户兴趣建模呢？在很多场景中, 例如推荐、搜索、电商、广告等, 系统能够获得的数据一般是用户与系统进行交互的数据, 当然也有用户本身的一些信息, 如用户的人口特征、属性等. 我们希望对用户的兴趣/意图进行建模, 利用用户兴趣模型构建推荐/搜索系统等. 
+
+对用户兴趣的建模也有其发展过程: 早期大多是离线计算好用户的兴趣, 大多是基于统计挖掘用户兴趣, 而后随着深度学习的发展, Deep 模型开始成为主流: 
+\begin{itemize}
+	\item DIN, KDD'2018; 
+	\item DIEN, AAAI'2019; 
+	\item MIND, CIKM'2019;
+	\item MIMN, KDD'2019;
+	\item SIM, CIKM'2020;
+	\item ETA, 2021.
+\end{itemize}
+
+
+\subsection{基于统计的用户兴趣建模}
+既然是用户的兴趣, 通常是基于用户交互过的物品来构建一些统计特征, 例如用户近期点击了哪些物品、不同类别的物品的点击次数、不同类型物品的点击率等, 或者围绕物品的一些属性进行统计, 如物品为电影时, 统计用户观看的电影中演员的分布、导演的分布等. 
+
+\subsection{DIN}
+DIN, Deep Interest Network, 诞生于阿里巴巴于 2018 年在 KDD 上发表的论文 "Deep Interest Network for Click-Through Rate Prediction". 
+
+\subsubsection{Motivation}
+在此之前的大部分深度 CTR 预估模型基本上遵循这样范式: 先将稀疏的输入特征 (大多是类别特征) 映射成低维的稠密向量, 然后将每个特征对应的向量聚合成定长的向量, 再将所有特征的向量进行拼接, 最后送入 MLP 中进行 CTR 的预估. 文中将这种方式描述为 Embedding\&MLP. 当以这种方式处理用户的历史行为序列时, 这类模型将用户的兴趣压缩成一个定长的向量, 不能反映出用户兴趣的多样性 --- 对于同一个用户, 其表征都是一样的. 在推荐中, 并没有必要将用户所有的兴趣压缩进一个向量, 推荐的物品只与用户的部分兴趣 (历史行为) 相关 --- 只有部分历史行为会影响当前物品的 CTR 预估. 
+
+\subsubsection{DIN 做了什么}
+DIN 的主要创新体现在对用户多样化兴趣的建模上, 而这一步又是通过引入一个 Local Activation Unit 来做到的. 当然, 除此之外工程上的技术: mini-batch aware regularization、data adaptive activation function、GAUC. 其中关于用户兴趣的就是 Local Activation Unit. 
+
+对于一个用户来说, 我们可以拿到 Ta 的行为序列, 在向其推荐物品时, 我们会有一个目标物品, 怎么利用行为序列来帮助预测呢？DIN 中利用目标物品与行为序列中物品的相关性来对用户兴趣进行建模, 即针对一个目标物品, 用户的表征/兴趣向量是其行为序列的加权求和, 权为行为序列与目标物品的相关性. 因此, 向同一个用户推荐不同的物品时, 其表征是不一样的. 相关性的计算就是通过 Local Activation Unit(LAU) 来计算的. LAU 的输入是行为序列中的物品的表征、目标物品的表征及二者的差 (论文中是 Product, 其实我感觉不重要, 只不过是前面两个的一个显式操作而已) , 三者拼接后进入前馈神经网络, 最后输出一个权重. 注意: \textbf{DIN 中并没有对这些权重进行归一化}, 论文中给出的原因是: 归一化后会弱化兴趣的强度. 
+
+\textbf{为什么 DIN 中没有用 LSTM 来建模历史行为呢？} 论文中给出的答案是: 进行了尝试但是没有提升, 原因可能是用户行为序列与文本的不同. 文本序列是受语法约束的, 而用户的行为序列则不然, 可能同时包含多个兴趣, 可能在多个兴趣之间跳转. 
+
+\subsubsection{不足}
+\begin{myitemize}
+	\item 没有考虑行为序列的序列信息, 即没有考虑物品的先后顺序. 这种情况下得到用户兴趣向量不能体现出用户的行为趋势, 而是基于整个序列进行推荐, 不是针对“下一次购买”进行推荐; 
+	
+	\item 只要推荐的物品与行为序列中的物品相似就会产生相似的用户向量, 即如果候选物品集都与行为序列有较高的相关性怎么办？这样产生的用户向量质量还好吗？
+\end{myitemize}
+
+\subsection{DIEN}
+DIEN, Deep Interest Evolution Network, 诞生于阿里于 2019 年在 AAAI 上发表的论文 "Deep Interest Evolution Network for Click-Through Rate Prediction". 
+
+\subsubsection{Motivation}
+
+
+参考资料
+\begin{myitemize}
+	\item \href{https://mp.weixin.qq.com/s?__biz=MzU0MDA1MzI0Mw==&mid=2247488129&idx=1&sn=ed882611a06b75e8e819b519010e9e81&chksm=fb3e4915cc49c003cb4505d0b09f06fa1c4e92409270b49f5509f1902774234382ba05b400d8&scene=21#wechat_redirect}{浅谈行为序列建模};
+	
+	\item \href{https://mp.weixin.qq.com/s?__biz=MzI5NTU2ODQzMg==&mid=2247484150&idx=1&sn=3bdb017a542bc2e2b94404f46ec9eb4f&chksm=ec50d7a9db275ebfdc009e6be3ea6a0ee8209477dafc99bc8a6a212fa0456a14bf4453b826dd&scene=21#wechat_redirect}{刀工: 谈推荐系统特征工程中的几个高级技巧};
+\end{myitemize}

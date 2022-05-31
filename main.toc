@@ -1,390 +1,429 @@
-\contentsline {part}{I\hspace {1em}Mathematics}{13}{part.1}%
-\contentsline {section}{\numberline {1}chap01}{13}{section.1}%
-\contentsline {subsection}{\numberline {1.1}采样}{13}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}alias sampling }{13}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Importance Sampling}{14}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}接受-拒绝采样}{14}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}eigen-value \& eigen—vector }{15}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Density estimation }{15}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}MMD}{15}{subsection.1.4}%
-\contentsline {subsection}{\numberline {1.5}P, NP, NP-hard}{15}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}傅里叶变换和小波分析}{15}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}$l_1, l_2$范数对最优化问题的影响}{16}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Reparametrization}{17}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}常用统计量}{17}{subsection.1.9}%
-\contentsline {subsubsection}{\numberline {1.9.1}方差（Variance）}{17}{subsubsection.1.9.1}%
-\contentsline {subsubsection}{\numberline {1.9.2}标准差（Standard Deviation）}{17}{subsubsection.1.9.2}%
-\contentsline {subsubsection}{\numberline {1.9.3}T-statistic }{18}{subsubsection.1.9.3}%
-\contentsline {subsubsection}{\numberline {1.9.4}p-value }{18}{subsubsection.1.9.4}%
-\contentsline {subsubsection}{\numberline {1.9.5}t test、$\chi ^2$检验}{18}{subsubsection.1.9.5}%
-\contentsline {subsection}{\numberline {1.10}数据的度量}{18}{subsection.1.10}%
-\contentsline {subsubsection}{\numberline {1.10.1}定类变量}{18}{subsubsection.1.10.1}%
-\contentsline {subsubsection}{\numberline {1.10.2}定序变量}{18}{subsubsection.1.10.2}%
-\contentsline {subsubsection}{\numberline {1.10.3}定距变量}{18}{subsubsection.1.10.3}%
-\contentsline {subsubsection}{\numberline {1.10.4}定比变量}{18}{subsubsection.1.10.4}%
-\contentsline {subsection}{\numberline {1.11}拉格朗日对偶性}{19}{subsection.1.11}%
-\contentsline {subsubsection}{\numberline {1.11.1}原始问题}{19}{subsubsection.1.11.1}%
-\contentsline {subsubsection}{\numberline {1.11.2}对偶问题}{20}{subsubsection.1.11.2}%
-\contentsline {subsubsection}{\numberline {1.11.3}原始问题与对偶问题的关系}{20}{subsubsection.1.11.3}%
-\contentsline {subsection}{\numberline {1.12}Sequence Minimal Optimization(SMO)}{21}{subsection.1.12}%
-\contentsline {subsection}{\numberline {1.13}正定核}{21}{subsection.1.13}%
-\contentsline {subsubsection}{\numberline {1.13.1}常用核函数}{21}{subsubsection.1.13.1}%
-\contentsline {subsection}{\numberline {1.14}机器学习中常见的数据分布}{21}{subsection.1.14}%
-\contentsline {subsubsection}{\numberline {1.14.1}Gaussian}{21}{subsubsection.1.14.1}%
-\contentsline {subsubsection}{\numberline {1.14.2}Laplace}{22}{subsubsection.1.14.2}%
-\contentsline {subsection}{\numberline {1.15}变量之间的相关性检验}{22}{subsection.1.15}%
-\contentsline {subsubsection}{\numberline {1.15.1}Person 相关系数}{22}{subsubsection.1.15.1}%
-\contentsline {subsubsection}{\numberline {1.15.2}Spearman 秩相关系数}{23}{subsubsection.1.15.2}%
-\contentsline {subsection}{\numberline {1.16}Jacobean Hessian}{23}{subsection.1.16}%
-\contentsline {subsection}{\numberline {1.17}指数移动平均}{23}{subsection.1.17}%
-\contentsline {part}{II\hspace {1em}Machine Learning}{24}{part.2}%
-\contentsline {section}{\numberline {2}Basics}{24}{section.2}%
-\contentsline {subsection}{\numberline {2.1}L1/2 regularization}{24}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}L1/2 的先验分布}{24}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}early stopping strategy}{25}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}判别模型、生成模型}{25}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}熵、相对熵、交叉熵、互信息}{25}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}关于交叉熵损失函数的一点理解}{26}{subsection.2.5}%
-\contentsline {paragraph}{二分类}{26}{section*.2}%
-\contentsline {paragraph}{多分类}{26}{section*.3}%
-\contentsline {subsection}{\numberline {2.6}方差与偏差}{27}{subsection.2.6}%
-\contentsline {paragraph}{偏差（Bias）}{27}{section*.4}%
-\contentsline {paragraph}{方差（Variance）}{27}{section*.5}%
-\contentsline {subsection}{\numberline {2.7}交叉验证}{27}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}归一化 vs 标准化 定量的分析}{28}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}数据探索}{29}{subsection.2.9}%
-\contentsline {paragraph}{What?}{29}{section*.6}%
-\contentsline {paragraph}{How?}{29}{section*.7}%
-\contentsline {subparagraph}{数据初探}{29}{section*.8}%
-\contentsline {subparagraph}{变量分析}{29}{section*.9}%
-\contentsline {subparagraph}{模型分析}{30}{section*.10}%
-\contentsline {subsection}{\numberline {2.10}Inductive Bias}{30}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}Covariate Shift}{30}{subsection.2.11}%
-\contentsline {subsubsection}{\numberline {2.11.1}怎么发现 Covariate Shift？}{30}{subsubsection.2.11.1}%
-\contentsline {subsubsection}{\numberline {2.11.2}怎么解决？}{30}{subsubsection.2.11.2}%
-\contentsline {subsection}{\numberline {2.12}机器学习中常用的算法指标及其应用场景}{31}{subsection.2.12}%
-\contentsline {paragraph}{Accuracy, Recall, Precision, F-score}{31}{section*.11}%
-\contentsline {paragraph}{Micro-F1 \& Macro-F1}{31}{section*.13}%
-\contentsline {paragraph}{ROC、AUC}{32}{section*.14}%
-\contentsline {paragraph}{mIoU}{35}{section*.15}%
-\contentsline {paragraph}{Dice}{35}{section*.16}%
-\contentsline {paragraph}{Rand Error}{36}{section*.17}%
-\contentsline {paragraph}{Hausdorff 距离}{36}{section*.18}%
-\contentsline {paragraph}{MRR}{36}{section*.19}%
-\contentsline {paragraph}{AP}{36}{section*.20}%
-\contentsline {paragraph}{MAP}{37}{section*.21}%
-\contentsline {paragraph}{DCG、NDCG}{38}{section*.22}%
-\contentsline {paragraph}{GAUC}{39}{section*.23}%
-\contentsline {subsection}{\numberline {2.13}常用数据增强手段}{39}{subsection.2.13}%
-\contentsline {paragraph}{仿射变换}{39}{section*.24}%
-\contentsline {paragraph}{弹性形变\cite {simard2003best}}{39}{section*.25}%
-\contentsline {paragraph}{增加噪声}{41}{section*.26}%
-\contentsline {paragraph}{GAN}{41}{section*.27}%
-\contentsline {subsection}{\numberline {2.14}类别不平衡问题}{41}{subsection.2.14}%
-\contentsline {paragraph}{类别不均衡可能造成的问题}{41}{section*.28}%
-\contentsline {paragraph}{决解办法}{42}{section*.29}%
-\contentsline {subparagraph}{数据角度}{42}{section*.30}%
-\contentsline {subparagraph}{算法角度}{42}{section*.31}%
-\contentsline {subparagraph}{评价指标角度}{42}{section*.32}%
-\contentsline {subsection}{\numberline {2.15}学习率调整策略}{43}{subsection.2.15}%
-\contentsline {paragraph}{WHY?}{43}{section*.33}%
-\contentsline {paragraph}{哪些策略}{43}{section*.34}%
-\contentsline {subsection}{\numberline {2.16}特征选择的方法}{43}{subsection.2.16}%
-\contentsline {subsubsection}{\numberline {2.16.1}过滤法}{44}{subsubsection.2.16.1}%
-\contentsline {subsubsection}{\numberline {2.16.2}包装法}{44}{subsubsection.2.16.2}%
-\contentsline {subsubsection}{\numberline {2.16.3}嵌入法}{44}{subsubsection.2.16.3}%
-\contentsline {subsection}{\numberline {2.17}常用聚类算法}{44}{subsection.2.17}%
-\contentsline {subsubsection}{\numberline {2.17.1}基于层次的聚类}{44}{subsubsection.2.17.1}%
-\contentsline {paragraph}{优点}{44}{section*.35}%
-\contentsline {paragraph}{缺点}{44}{section*.36}%
-\contentsline {subsubsection}{\numberline {2.17.2}基于划分的聚类}{44}{subsubsection.2.17.2}%
-\contentsline {paragraph}{特点}{44}{section*.37}%
-\contentsline {paragraph}{优点}{44}{section*.38}%
-\contentsline {paragraph}{缺点}{44}{section*.39}%
-\contentsline {subsubsection}{\numberline {2.17.3}基于密度的聚类}{44}{subsubsection.2.17.3}%
-\contentsline {paragraph}{特点}{44}{section*.40}%
-\contentsline {paragraph}{优点}{44}{section*.41}%
-\contentsline {paragraph}{缺点}{44}{section*.42}%
-\contentsline {subsubsection}{\numberline {2.17.4}基于网格的聚类}{45}{subsubsection.2.17.4}%
-\contentsline {paragraph}{优点}{45}{section*.43}%
-\contentsline {paragraph}{缺点}{45}{section*.44}%
-\contentsline {subsubsection}{\numberline {2.17.5}基于模型的聚类}{45}{subsubsection.2.17.5}%
-\contentsline {paragraph}{优点}{45}{section*.45}%
-\contentsline {paragraph}{缺点}{45}{section*.46}%
-\contentsline {subsection}{\numberline {2.18}类别变量的编码方法}{45}{subsection.2.18}%
-\contentsline {subsubsection}{\numberline {2.18.1}one-hot}{45}{subsubsection.2.18.1}%
-\contentsline {subsubsection}{\numberline {2.18.2}目标编码}{45}{subsubsection.2.18.2}%
-\contentsline {subsubsection}{\numberline {2.18.3}贝叶斯目标编码}{46}{subsubsection.2.18.3}%
-\contentsline {subsubsection}{\numberline {2.18.4}留一编码}{46}{subsubsection.2.18.4}%
-\contentsline {subsubsection}{\numberline {2.18.5}证据权重}{46}{subsubsection.2.18.5}%
-\contentsline {subsubsection}{\numberline {2.18.6}非线性 PCA}{46}{subsubsection.2.18.6}%
-\contentsline {subsubsection}{\numberline {2.18.7}Embedding}{46}{subsubsection.2.18.7}%
-\contentsline {subsection}{\numberline {2.19}为什么分类问题使用交叉熵而不使用 MSE？}{46}{subsection.2.19}%
-\contentsline {subsection}{\numberline {2.20}为什么要将连续特征离散化后输入到线性模型中？}{46}{subsection.2.20}%
-\contentsline {section}{\numberline {3}经典算法}{46}{section.3}%
-\contentsline {subsection}{\numberline {3.1}线性回归\&逻辑回归}{46}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}LDA}{49}{subsection.3.2}%
-\contentsline {paragraph}{思想}{49}{section*.47}%
-\contentsline {paragraph}{两个类别的LDA}{49}{section*.48}%
-\contentsline {subsection}{\numberline {3.3}决策树}{50}{subsection.3.3}%
-\contentsline {paragraph}{思想}{50}{section*.49}%
-\contentsline {paragraph}{决策树生成}{50}{section*.50}%
-\contentsline {subparagraph}{分类决策树}{50}{Item.18}%
-\contentsline {subparagraph}{回归决策树}{52}{section*.52}%
-\contentsline {subparagraph}{常见问题}{52}{Item.20}%
-\contentsline {subsection}{\numberline {3.4}t-SNE}{52}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Spectral cluster}{52}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}变分贝叶斯}{52}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}自编码器/变分自编码器}{53}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}SVM}{53}{subsection.3.8}%
-\contentsline {paragraph}{间隔最大化}{53}{section*.54}%
-\contentsline {paragraph}{间隔最大化的最优化目标}{54}{section*.55}%
-\contentsline {paragraph}{SVM优化目标推导的另一形式}{54}{section*.56}%
-\contentsline {paragraph}{SVM优化目标推导的再一形式}{55}{section*.57}%
-\contentsline {paragraph}{线性可分SVM的求解}{55}{section*.58}%
-\contentsline {paragraph}{线性SVM}{56}{section*.59}%
-\contentsline {subparagraph}{合页损失函数}{58}{section*.60}%
-\contentsline {paragraph}{非线性SVM}{58}{section*.61}%
-\contentsline {subparagraph}{核技巧}{59}{section*.62}%
-\contentsline {subparagraph}{求解非线性SVM}{59}{section*.63}%
-\contentsline {paragraph}{支持向量回归}{59}{section*.64}%
-\contentsline {subsection}{\numberline {3.9}PCA}{60}{subsection.3.9}%
-\contentsline {subsection}{\numberline {3.10}metric learning}{60}{subsection.3.10}%
-\contentsline {subsection}{\numberline {3.11}GBDT 与 XGBoost 的对比}{60}{subsection.3.11}%
-\contentsline {subsection}{\numberline {3.12}SMOTE}{61}{subsection.3.12}%
-\contentsline {part}{III\hspace {1em}Deep Learning}{62}{part.3}%
-\contentsline {section}{\numberline {4}Basics}{62}{section.4}%
-\contentsline {subsection}{\numberline {4.1}BGD, SGD, MBGD}{62}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Normalization}{63}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Batch Normalization}{63}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Layer Normalization}{64}{subsubsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Dropout}{64}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Model Collapse}{64}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}关于CNN的一点理解}{65}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}深度学习中常见的参数初始化方法}{66}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}从正态分布中采样}{66}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Glorot initialization}{66}{subsubsection.4.6.2}%
-\contentsline {subsubsection}{\numberline {4.6.3}He 初始化}{66}{subsubsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.7}DL中的不可微操作}{67}{subsection.4.7}%
-\contentsline {subsection}{\numberline {4.8}Global Max Pooling}{67}{subsection.4.8}%
-\contentsline {subsection}{\numberline {4.9}Attention机制与CNN}{67}{subsection.4.9}%
-\contentsline {subsection}{\numberline {4.10}Batch Size与Learning Rate}{67}{subsection.4.10}%
-\contentsline {subsection}{\numberline {4.11}深度学习的梯度下降优化算法}{67}{subsection.4.11}%
-\contentsline {subsubsection}{\numberline {4.11.1}SGD}{67}{subsubsection.4.11.1}%
-\contentsline {subsubsection}{\numberline {4.11.2}AdaGrad}{67}{subsubsection.4.11.2}%
-\contentsline {subsubsection}{\numberline {4.11.3}RMSProp}{67}{subsubsection.4.11.3}%
-\contentsline {subsubsection}{\numberline {4.11.4}AdaDelta}{67}{subsubsection.4.11.4}%
-\contentsline {subsubsection}{\numberline {4.11.5}Adam}{67}{subsubsection.4.11.5}%
-\contentsline {subsection}{\numberline {4.12}常见损失函数及其特点}{68}{subsection.4.12}%
-\contentsline {subsubsection}{\numberline {4.12.1}MSE}{68}{subsubsection.4.12.1}%
-\contentsline {subsubsection}{\numberline {4.12.2}交叉熵损失函数}{69}{subsubsection.4.12.2}%
-\contentsline {subsubsection}{\numberline {4.12.3}Focal Loss}{70}{subsubsection.4.12.3}%
-\contentsline {subsubsection}{\numberline {4.12.4}Sampled Softmax}{71}{subsubsection.4.12.4}%
-\contentsline {subsubsection}{\numberline {4.12.5}Contrastive loss, Triplet loss}{71}{subsubsection.4.12.5}%
-\contentsline {subsection}{\numberline {4.13}常见激活函数及其特点}{72}{subsection.4.13}%
-\contentsline {subsubsection}{\numberline {4.13.1}sigmoid}{72}{subsubsection.4.13.1}%
-\contentsline {subsubsection}{\numberline {4.13.2}ReLU}{72}{subsubsection.4.13.2}%
-\contentsline {subsubsection}{\numberline {4.13.3}Leaky ReLU}{72}{subsubsection.4.13.3}%
-\contentsline {subsubsection}{\numberline {4.13.4}PReLU}{73}{subsubsection.4.13.4}%
-\contentsline {subsubsection}{\numberline {4.13.5}Dice}{73}{subsubsection.4.13.5}%
-\contentsline {subsubsection}{\numberline {4.13.6}Softplus}{73}{subsubsection.4.13.6}%
-\contentsline {section}{\numberline {5}经典}{73}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Residual learning block}{73}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Dense Connection}{74}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Dilated Convolution}{75}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}1 $\times $ 1 Conv}{75}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}LSTM}{75}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}GRU}{75}{subsection.5.6}%
-\contentsline {part}{IV\hspace {1em}Graphs}{76}{part.4}%
-\contentsline {section}{\numberline {6}Graphs}{76}{section.6}%
-\contentsline {subsection}{\numberline {6.1}图基本概念}{76}{subsection.6.1}%
-\contentsline {paragraph}{Motif}{76}{section*.65}%
-\contentsline {paragraph}{Weisfeiler-Lehman isomorphism test}{76}{section*.66}%
-\contentsline {paragraph}{图算法（GNN）中常用的benchmar以及数据集}{76}{section*.67}%
-\contentsline {paragraph}{Heterogeneous graph, Attributed graph}{77}{section*.68}%
-\contentsline {paragraph}{Graph Kernel}{77}{section*.69}%
-\contentsline {paragraph}{Dynamic graph, Streaming graph}{77}{section*.70}%
-\contentsline {paragraph}{图的同构}{77}{section*.71}%
-\contentsline {subsection}{\numberline {6.2}结点邻居采样}{77}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}DeepWalk \& Node2Vec}{77}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Spectral graph convolution}{79}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Knowledge Graph}{80}{section.7}%
-\contentsline {subsection}{\numberline {7.1}KG中的文本信息抽取}{80}{subsection.7.1}%
-\contentsline {paragraph}{实体识别}{80}{section*.72}%
-\contentsline {paragraph}{实体消歧}{80}{section*.73}%
-\contentsline {paragraph}{关系抽取}{80}{section*.74}%
-\contentsline {paragraph}{事件抽取}{80}{section*.75}%
-\contentsline {part}{V\hspace {1em}Natrual Language Process}{81}{part.5}%
-\contentsline {section}{\numberline {8}基础}{81}{section.8}%
-\contentsline {subsection}{\numberline {8.1}常见NLP任务}{81}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}命名实体识别}{81}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}语法分析}{81}{subsubsection.8.1.2}%
-\contentsline {paragraph}{短语结构树}{81}{section*.76}%
-\contentsline {paragraph}{依存句法树}{81}{section*.77}%
-\contentsline {subsubsection}{\numberline {8.1.3}序列标注}{82}{subsubsection.8.1.3}%
-\contentsline {subsubsection}{\numberline {8.1.4}问答系统}{82}{subsubsection.8.1.4}%
-\contentsline {subsection}{\numberline {8.2}预训练}{82}{subsection.8.2}%
-\contentsline {section}{\numberline {9}经典算法}{83}{section.9}%
-\contentsline {subsection}{\numberline {9.1}统计自然语言处理}{83}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}概率图模型}{83}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}词袋模型}{83}{subsubsection.9.1.2}%
-\contentsline {subsection}{\numberline {9.2}使用朴素贝叶斯分类器进行文本分类}{84}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}马尔科夫链/隐马尔科夫链}{84}{subsection.9.3}%
-\contentsline {paragraph}{应用}{85}{section*.78}%
-\contentsline {subsection}{\numberline {9.4}TF-IDF}{86}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Transformer}{86}{subsection.9.5}%
-\contentsline {subsubsection}{\numberline {9.5.1}一些关于Transformer的问题}{87}{subsubsection.9.5.1}%
-\contentsline {paragraph}{1.}{87}{section*.79}%
-\contentsline {subsection}{\numberline {9.6}BERT}{88}{subsection.9.6}%
-\contentsline {paragraph}{Motivation}{88}{section*.80}%
-\contentsline {paragraph}{HOW?}{88}{section*.81}%
-\contentsline {subsection}{\numberline {9.7}NeZha}{89}{subsection.9.7}%
-\contentsline {paragraph}{Functional Relative Positional Encoding}{89}{section*.82}%
-\contentsline {paragraph}{Whole Word Masking}{90}{section*.83}%
-\contentsline {paragraph}{Mixed Precision Training}{91}{section*.84}%
-\contentsline {paragraph}{LAMB Optimizer}{91}{section*.85}%
-\contentsline {subsection}{\numberline {9.8}词嵌入模型}{91}{subsection.9.8}%
-\contentsline {subsubsection}{\numberline {9.8.1}Word2Vec}{91}{subsubsection.9.8.1}%
-\contentsline {subsubsection}{\numberline {9.8.2}ELOM}{91}{subsubsection.9.8.2}%
-\contentsline {subsection}{\numberline {9.9}Tokenization}{91}{subsection.9.9}%
-\contentsline {subsubsection}{\numberline {9.9.1}word-based}{91}{subsubsection.9.9.1}%
-\contentsline {subsubsection}{\numberline {9.9.2}character-based}{91}{subsubsection.9.9.2}%
-\contentsline {subsubsection}{\numberline {9.9.3}subword}{92}{subsubsection.9.9.3}%
-\contentsline {subsection}{\numberline {9.10}BIM}{92}{subsection.9.10}%
-\contentsline {subsubsection}{\numberline {9.10.1}概率检索模型}{92}{subsubsection.9.10.1}%
-\contentsline {subsubsection}{\numberline {9.10.2}BIM 的推导}{92}{subsubsection.9.10.2}%
-\contentsline {subsection}{\numberline {9.11}BM25}{94}{subsection.9.11}%
-\contentsline {subsubsection}{\numberline {9.11.1}$W_i$}{94}{subsubsection.9.11.1}%
-\contentsline {subsubsection}{\numberline {9.11.2}$R(q_i, D)$}{94}{subsubsection.9.11.2}%
-\contentsline {subsubsection}{\numberline {9.11.3}特征词在 \textit {query} 中的重要性}{94}{subsubsection.9.11.3}%
-\contentsline {part}{VI\hspace {1em}Recommender Systems}{96}{part.6}%
-\contentsline {section}{\numberline {10}基本概念}{96}{section.10}%
-\contentsline {subsection}{\numberline {10.1}历史背景}{96}{subsection.10.1}%
-\contentsline {paragraph}{Motivation}{96}{section*.86}%
-\contentsline {paragraph}{发展过程}{96}{section*.87}%
-\contentsline {paragraph}{推荐系统主要元素}{97}{section*.88}%
-\contentsline {subsection}{\numberline {10.2}会话推荐}{97}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}共现矩阵}{98}{subsection.10.3}%
-\contentsline {subsection}{\numberline {10.4}召回方法分类}{99}{subsection.10.4}%
-\contentsline {subsection}{\numberline {10.5}常用相似度计算方法}{99}{subsection.10.5}%
-\contentsline {paragraph}{同现相似度}{99}{section*.89}%
-\contentsline {paragraph}{欧几里得距离}{99}{section*.90}%
-\contentsline {paragraph}{皮尔逊相关系数}{99}{section*.91}%
-\contentsline {paragraph}{余弦相似度}{100}{section*.92}%
-\contentsline {paragraph}{Jaccard系数}{100}{section*.93}%
-\contentsline {subsection}{\numberline {10.6}推荐中要注意的点}{100}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}常用指标}{100}{subsection.10.7}%
-\contentsline {paragraph}{覆盖率}{100}{section*.94}%
-\contentsline {paragraph}{多样性}{100}{section*.95}%
-\contentsline {paragraph}{新颖性}{101}{section*.96}%
-\contentsline {paragraph}{惊喜度}{101}{section*.97}%
-\contentsline {subsection}{\numberline {10.8}用户画像}{101}{subsection.10.8}%
-\contentsline {subsection}{\numberline {10.9}电商推荐}{101}{subsection.10.9}%
-\contentsline {section}{\numberline {11}经典算法}{101}{section.11}%
-\contentsline {subsection}{\numberline {11.1}基于人口统计学的推荐}{101}{subsection.11.1}%
-\contentsline {paragraph}{优点}{101}{section*.98}%
-\contentsline {paragraph}{缺点}{101}{section*.99}%
-\contentsline {subsection}{\numberline {11.2}基于内容的推荐}{102}{subsection.11.2}%
-\contentsline {paragraph}{优点}{102}{section*.100}%
-\contentsline {paragraph}{缺点}{102}{section*.101}%
-\contentsline {subsection}{\numberline {11.3}基于协同过滤的推荐}{102}{subsection.11.3}%
-\contentsline {paragraph}{基于用户的协同过滤}{102}{section*.102}%
-\contentsline {paragraph}{基于物品的协同过滤}{103}{section*.103}%
-\contentsline {paragraph}{基于模型的协同过滤}{103}{section*.104}%
-\contentsline {subsection}{\numberline {11.4}FM}{103}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}FFM}{104}{subsection.11.5}%
-\contentsline {part}{VII\hspace {1em}Information Retrieval}{105}{part.7}%
-\contentsline {section}{\numberline {12}Learning to Rank}{105}{section.12}%
-\contentsline {subsection}{\numberline {12.1}排序学习算法简介}{105}{subsection.12.1}%
-\contentsline {subsubsection}{\numberline {12.1.1}Pointwise}{105}{subsubsection.12.1.1}%
-\contentsline {subsubsection}{\numberline {12.1.2}Pairwise}{105}{subsubsection.12.1.2}%
-\contentsline {subsubsection}{\numberline {12.1.3}Listwise}{105}{subsubsection.12.1.3}%
-\contentsline {part}{VIII\hspace {1em}Algorithms}{106}{part.8}%
-\contentsline {section}{\numberline {13}Basic}{106}{section.13}%
-\contentsline {subsection}{\numberline {13.1}常见排序算法复杂度}{106}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}大整数}{106}{subsection.13.2}%
-\contentsline {paragraph}{Motivation}{106}{section*.105}%
-\contentsline {paragraph}{HOW?}{106}{section*.106}%
-\contentsline {subsection}{\numberline {13.3}前缀和与差分}{107}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}并查集}{107}{subsection.13.4}%
-\contentsline {paragraph}{Motivation}{107}{section*.107}%
-\contentsline {paragraph}{HOW?}{107}{section*.108}%
-\contentsline {subsection}{\numberline {13.5}链表}{107}{subsection.13.5}%
-\contentsline {section}{\numberline {14}Search}{107}{section.14}%
-\contentsline {subsection}{\numberline {14.1}贪心算法}{107}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Beam Search}{107}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}图}{108}{subsection.14.3}%
-\contentsline {subsection}{\numberline {14.4}二分}{108}{subsection.14.4}%
-\contentsline {part}{IX\hspace {1em}Coding Practice}{109}{part.9}%
-\contentsline {section}{\numberline {15}C++}{109}{section.15}%
-\contentsline {subsection}{\numberline {15.1}C++数据类型转换}{109}{subsection.15.1}%
-\contentsline {paragraph}{数字 <=> 字符串}{109}{section*.109}%
-\contentsline {subsection}{\numberline {15.2}C++集合}{109}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}字符串}{110}{subsection.15.3}%
-\contentsline {paragraph}{字符串比较}{110}{section*.110}%
-\contentsline {paragraph}{常用方法}{110}{section*.111}%
-\contentsline {subsection}{\numberline {15.4}数组}{110}{subsection.15.4}%
-\contentsline {paragraph}{数组初始化}{110}{section*.112}%
-\contentsline {subsection}{\numberline {15.5}遍历vector的方式}{110}{subsection.15.5}%
-\contentsline {subsection}{\numberline {15.6}for\_each}{111}{subsection.15.6}%
-\contentsline {subsection}{\numberline {15.7}deque}{111}{subsection.15.7}%
-\contentsline {subsection}{\numberline {15.8}priority\_queue}{111}{subsection.15.8}%
-\contentsline {section}{\numberline {16}Python}{112}{section.16}%
-\contentsline {subsection}{\numberline {16.1}basics}{112}{subsection.16.1}%
-\contentsline {subsubsection}{\numberline {16.1.1}defaultdict}{112}{subsubsection.16.1.1}%
-\contentsline {subsubsection}{\numberline {16.1.2}glob}{112}{subsubsection.16.1.2}%
-\contentsline {subsubsection}{\numberline {16.1.3}Counter}{113}{subsubsection.16.1.3}%
-\contentsline {subsubsection}{\numberline {16.1.4}format用法}{113}{subsubsection.16.1.4}%
-\contentsline {subsubsection}{\numberline {16.1.5}数字输出格式}{113}{subsubsection.16.1.5}%
-\contentsline {subsection}{\numberline {16.2}numpy}{113}{subsection.16.2}%
-\contentsline {subsubsection}{\numberline {16.2.1}np.argsort}{113}{subsubsection.16.2.1}%
-\contentsline {subsubsection}{\numberline {16.2.2}设置随机数种子}{114}{subsubsection.16.2.2}%
-\contentsline {subsubsection}{\numberline {16.2.3}nan的处理}{114}{subsubsection.16.2.3}%
-\contentsline {subsubsection}{\numberline {16.2.4}找到数组中nan指的位置}{114}{subsubsection.16.2.4}%
-\contentsline {subsection}{\numberline {16.3}matplotlib}{114}{subsection.16.3}%
-\contentsline {subsubsection}{\numberline {16.3.1}matplotlib中的marker}{114}{subsubsection.16.3.1}%
-\contentsline {subsubsection}{\numberline {16.3.2}Animation}{114}{subsubsection.16.3.2}%
-\contentsline {subsubsection}{\numberline {16.3.3}调整子图间距}{115}{subsubsection.16.3.3}%
-\contentsline {subsubsection}{\numberline {16.3.4}显示中文}{115}{subsubsection.16.3.4}%
-\contentsline {subsection}{\numberline {16.4}python中的线程有什么问题？怎么解决？}{115}{subsection.16.4}%
-\contentsline {subsection}{\numberline {16.5}生成器}{116}{subsection.16.5}%
-\contentsline {subsection}{\numberline {16.6}可迭代对象与迭代器}{116}{subsection.16.6}%
-\contentsline {subsection}{\numberline {16.7}多个装饰器的执行顺序}{116}{subsection.16.7}%
-\contentsline {section}{\numberline {17}Tensorflow}{117}{section.17}%
-\contentsline {subsection}{\numberline {17.1}tf.variable\_scope \& tf.name\_scope}{117}{subsection.17.1}%
-\contentsline {subsection}{\numberline {17.2}tf.sparse\_tensor}{117}{subsection.17.2}%
-\contentsline {subsection}{\numberline {17.3}tf.train.Saver}{117}{subsection.17.3}%
-\contentsline {subsection}{\numberline {17.4}tf.Session}{118}{subsection.17.4}%
-\contentsline {subsection}{\numberline {17.5}tf中的RNN}{118}{subsection.17.5}%
-\contentsline {subsection}{\numberline {17.6}ImageDataGenerator}{118}{subsection.17.6}%
-\contentsline {subsection}{\numberline {17.7}tf.where}{118}{subsection.17.7}%
-\contentsline {subsection}{\numberline {17.8}TFRecord}{118}{subsection.17.8}%
-\contentsline {subsection}{\numberline {17.9}tf.Graph}{119}{subsection.17.9}%
-\contentsline {subsection}{\numberline {17.10}tf.pad}{119}{subsection.17.10}%
-\contentsline {subsection}{\numberline {17.11}tf.tile}{119}{subsection.17.11}%
-\contentsline {subsection}{\numberline {17.12}tf.squeeze}{119}{subsection.17.12}%
-\contentsline {subsection}{\numberline {17.13}tf.expand\_dims}{119}{subsection.17.13}%
-\contentsline {section}{\numberline {18}Pytorch}{119}{section.18}%
-\contentsline {subsection}{\numberline {18.1}pytorch tensor.view}{119}{subsection.18.1}%
-\contentsline {subsection}{\numberline {18.2}nn.Dropout}{120}{subsection.18.2}%
-\contentsline {subsection}{\numberline {18.3}torch.nn.CrossEntropyLoss}{120}{subsection.18.3}%
-\contentsline {section}{\numberline {19}ML/DL错误集锦}{120}{section.19}%
-\contentsline {subsection}{\numberline {19.1}batch\_size对训练的影响}{120}{subsection.19.1}%
-\contentsline {subsection}{\numberline {19.2}某个iteration成为训练效果的短板}{120}{subsection.19.2}%
-\contentsline {subsection}{\numberline {19.3}损失函数值为NaN}{120}{subsection.19.3}%
-\contentsline {subsection}{\numberline {19.4}数据的格式问题}{120}{subsection.19.4}%
-\contentsline {section}{\numberline {20}\LaTeX }{120}{section.20}%
-\contentsline {subsection}{\numberline {20.1}在pdf中嵌入代码}{120}{subsection.20.1}%
-\contentsline {subsection}{\numberline {20.2}参考文献相关}{120}{subsection.20.2}%
-\contentsline {paragraph}{引入参考文件}{120}{section*.113}%
-\contentsline {subsection}{\numberline {20.3}数学符号}{121}{subsection.20.3}%
-\contentsline {paragraph}{数学字体}{121}{section*.114}%
-\contentsline {subsection}{\numberline {20.4}\LaTeX 中的颜色}{123}{subsection.20.4}%
-\contentsline {subsection}{\numberline {20.5}注脚}{123}{subsection.20.5}%
-\contentsline {subsection}{\numberline {20.6}章节编号}{123}{subsection.20.6}%
-\contentsline {subsection}{\numberline {20.7}常用符号}{123}{subsection.20.7}%
-\contentsline {section}{\numberline {21}Datasets}{123}{section.21}%
-\contentsline {subsection}{\numberline {21.1}MovieLens 100K}{123}{subsection.21.1}%
-\contentsline {part}{X\hspace {1em}Others}{124}{part.10}%
-\contentsline {section}{\numberline {22}Others}{124}{section.22}%
-\contentsline {subsection}{\numberline {22.1}李沐 --- 用随机梯度下降来优化人生}{124}{subsection.22.1}%
+\contentsline {part}{I\hspace {1em}Mathematics}{14}{part.1}%
+\contentsline {section}{\numberline {1}chap01}{14}{section.1}%
+\contentsline {subsection}{\numberline {1.1}采样}{14}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}alias sampling }{14}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Importance Sampling}{15}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}接受-拒绝采样}{15}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}eigen-value \& eigen—vector }{16}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Density estimation }{16}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}MMD}{16}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}P, NP, NP-hard}{16}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}傅里叶变换和小波分析}{16}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}$l_1, l_2$范数对最优化问题的影响}{17}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Reparametrization}{18}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}常用统计量}{18}{subsection.1.9}%
+\contentsline {subsubsection}{\numberline {1.9.1}方差（Variance）}{18}{subsubsection.1.9.1}%
+\contentsline {subsubsection}{\numberline {1.9.2}标准差（Standard Deviation）}{18}{subsubsection.1.9.2}%
+\contentsline {subsubsection}{\numberline {1.9.3}T-statistic }{19}{subsubsection.1.9.3}%
+\contentsline {subsubsection}{\numberline {1.9.4}p-value }{19}{subsubsection.1.9.4}%
+\contentsline {subsubsection}{\numberline {1.9.5}t test、$\chi ^2$检验}{19}{subsubsection.1.9.5}%
+\contentsline {subsection}{\numberline {1.10}数据的度量}{19}{subsection.1.10}%
+\contentsline {subsubsection}{\numberline {1.10.1}定类变量}{19}{subsubsection.1.10.1}%
+\contentsline {subsubsection}{\numberline {1.10.2}定序变量}{19}{subsubsection.1.10.2}%
+\contentsline {subsubsection}{\numberline {1.10.3}定距变量}{19}{subsubsection.1.10.3}%
+\contentsline {subsubsection}{\numberline {1.10.4}定比变量}{19}{subsubsection.1.10.4}%
+\contentsline {subsection}{\numberline {1.11}拉格朗日对偶性}{20}{subsection.1.11}%
+\contentsline {subsubsection}{\numberline {1.11.1}原始问题}{20}{subsubsection.1.11.1}%
+\contentsline {subsubsection}{\numberline {1.11.2}对偶问题}{21}{subsubsection.1.11.2}%
+\contentsline {subsubsection}{\numberline {1.11.3}原始问题与对偶问题的关系}{21}{subsubsection.1.11.3}%
+\contentsline {subsection}{\numberline {1.12}Sequence Minimal Optimization(SMO)}{22}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}正定核}{22}{subsection.1.13}%
+\contentsline {subsubsection}{\numberline {1.13.1}常用核函数}{22}{subsubsection.1.13.1}%
+\contentsline {subsection}{\numberline {1.14}机器学习中常见的数据分布}{22}{subsection.1.14}%
+\contentsline {subsubsection}{\numberline {1.14.1}Gaussian}{22}{subsubsection.1.14.1}%
+\contentsline {subsubsection}{\numberline {1.14.2}Laplace}{23}{subsubsection.1.14.2}%
+\contentsline {subsection}{\numberline {1.15}变量之间的相关性检验}{23}{subsection.1.15}%
+\contentsline {subsubsection}{\numberline {1.15.1}Person 相关系数}{23}{subsubsection.1.15.1}%
+\contentsline {subsubsection}{\numberline {1.15.2}Spearman 秩相关系数}{24}{subsubsection.1.15.2}%
+\contentsline {subsection}{\numberline {1.16}Jacobean Hessian}{24}{subsection.1.16}%
+\contentsline {subsection}{\numberline {1.17}指数移动平均}{24}{subsection.1.17}%
+\contentsline {part}{II\hspace {1em}Machine Learning}{25}{part.2}%
+\contentsline {section}{\numberline {2}Basics}{25}{section.2}%
+\contentsline {subsection}{\numberline {2.1}L1/2 regularization}{25}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}L1/2 的先验分布}{25}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}early stopping strategy}{26}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}判别模型、生成模型}{26}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}熵、相对熵、交叉熵、互信息}{26}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}关于交叉熵损失函数的一点理解}{27}{subsection.2.5}%
+\contentsline {paragraph}{二分类}{27}{section*.2}%
+\contentsline {paragraph}{多分类}{27}{section*.3}%
+\contentsline {subsection}{\numberline {2.6}方差与偏差}{28}{subsection.2.6}%
+\contentsline {paragraph}{偏差 (Bias) }{28}{section*.4}%
+\contentsline {paragraph}{方差 (Variance) }{28}{section*.5}%
+\contentsline {subsection}{\numberline {2.7}交叉验证}{28}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}归一化 vs 标准化 定量的分析}{29}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}数据探索}{30}{subsection.2.9}%
+\contentsline {paragraph}{What?}{30}{section*.6}%
+\contentsline {paragraph}{How?}{30}{section*.7}%
+\contentsline {subparagraph}{数据初探}{30}{section*.8}%
+\contentsline {subparagraph}{变量分析}{30}{section*.9}%
+\contentsline {subparagraph}{模型分析}{31}{section*.10}%
+\contentsline {subsection}{\numberline {2.10}Inductive Bias}{31}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Covariate Shift}{31}{subsection.2.11}%
+\contentsline {subsubsection}{\numberline {2.11.1}怎么发现 Covariate Shift？}{31}{subsubsection.2.11.1}%
+\contentsline {subsubsection}{\numberline {2.11.2}怎么解决？}{31}{subsubsection.2.11.2}%
+\contentsline {subsection}{\numberline {2.12}机器学习中常用的算法指标及其应用场景}{32}{subsection.2.12}%
+\contentsline {paragraph}{Accuracy, Recall, Precision, F-score}{32}{section*.11}%
+\contentsline {paragraph}{Micro-F1 \& Macro-F1}{32}{section*.13}%
+\contentsline {paragraph}{ROC、AUC}{33}{section*.14}%
+\contentsline {paragraph}{mIoU}{36}{section*.15}%
+\contentsline {paragraph}{Dice}{36}{section*.16}%
+\contentsline {paragraph}{Rand Error}{37}{section*.17}%
+\contentsline {paragraph}{Hausdorff 距离}{37}{section*.18}%
+\contentsline {paragraph}{MRR}{37}{section*.19}%
+\contentsline {paragraph}{AP}{37}{section*.20}%
+\contentsline {paragraph}{MAP}{38}{section*.21}%
+\contentsline {paragraph}{DCG、NDCG}{39}{section*.22}%
+\contentsline {paragraph}{GAUC}{40}{section*.23}%
+\contentsline {subsection}{\numberline {2.13}常用数据增强手段}{40}{subsection.2.13}%
+\contentsline {paragraph}{仿射变换}{40}{section*.24}%
+\contentsline {paragraph}{弹性形变\cite {simard2003best}}{40}{section*.25}%
+\contentsline {paragraph}{增加噪声}{42}{section*.26}%
+\contentsline {paragraph}{GAN}{42}{section*.27}%
+\contentsline {subsection}{\numberline {2.14}类别不平衡问题}{42}{subsection.2.14}%
+\contentsline {paragraph}{类别不均衡可能造成的问题}{42}{section*.28}%
+\contentsline {paragraph}{决解办法}{43}{section*.29}%
+\contentsline {subparagraph}{数据角度}{43}{section*.30}%
+\contentsline {subparagraph}{算法角度}{43}{section*.31}%
+\contentsline {subparagraph}{评价指标角度}{43}{section*.32}%
+\contentsline {subsection}{\numberline {2.15}学习率调整策略}{44}{subsection.2.15}%
+\contentsline {paragraph}{WHY?}{44}{section*.33}%
+\contentsline {paragraph}{哪些策略}{44}{section*.34}%
+\contentsline {subsection}{\numberline {2.16}特征选择的方法}{44}{subsection.2.16}%
+\contentsline {subsubsection}{\numberline {2.16.1}过滤法}{45}{subsubsection.2.16.1}%
+\contentsline {subsubsection}{\numberline {2.16.2}包装法}{45}{subsubsection.2.16.2}%
+\contentsline {subsubsection}{\numberline {2.16.3}嵌入法}{45}{subsubsection.2.16.3}%
+\contentsline {subsection}{\numberline {2.17}常用聚类算法}{45}{subsection.2.17}%
+\contentsline {subsubsection}{\numberline {2.17.1}基于层次的聚类}{45}{subsubsection.2.17.1}%
+\contentsline {paragraph}{优点}{45}{section*.35}%
+\contentsline {paragraph}{缺点}{45}{section*.36}%
+\contentsline {subsubsection}{\numberline {2.17.2}基于划分的聚类}{45}{subsubsection.2.17.2}%
+\contentsline {paragraph}{特点}{45}{section*.37}%
+\contentsline {paragraph}{优点}{45}{section*.38}%
+\contentsline {paragraph}{缺点}{45}{section*.39}%
+\contentsline {subsubsection}{\numberline {2.17.3}基于密度的聚类}{45}{subsubsection.2.17.3}%
+\contentsline {paragraph}{特点}{45}{section*.40}%
+\contentsline {paragraph}{优点}{45}{section*.41}%
+\contentsline {paragraph}{缺点}{45}{section*.42}%
+\contentsline {subsubsection}{\numberline {2.17.4}基于网格的聚类}{46}{subsubsection.2.17.4}%
+\contentsline {paragraph}{优点}{46}{section*.43}%
+\contentsline {paragraph}{缺点}{46}{section*.44}%
+\contentsline {subsubsection}{\numberline {2.17.5}基于模型的聚类}{46}{subsubsection.2.17.5}%
+\contentsline {paragraph}{优点}{46}{section*.45}%
+\contentsline {paragraph}{缺点}{46}{section*.46}%
+\contentsline {subsection}{\numberline {2.18}类别变量的编码方法}{46}{subsection.2.18}%
+\contentsline {subsubsection}{\numberline {2.18.1}one-hot}{46}{subsubsection.2.18.1}%
+\contentsline {subsubsection}{\numberline {2.18.2}目标编码}{46}{subsubsection.2.18.2}%
+\contentsline {subsubsection}{\numberline {2.18.3}贝叶斯目标编码}{47}{subsubsection.2.18.3}%
+\contentsline {subsubsection}{\numberline {2.18.4}留一编码}{47}{subsubsection.2.18.4}%
+\contentsline {subsubsection}{\numberline {2.18.5}证据权重}{47}{subsubsection.2.18.5}%
+\contentsline {subsubsection}{\numberline {2.18.6}非线性 PCA}{47}{subsubsection.2.18.6}%
+\contentsline {subsubsection}{\numberline {2.18.7}Embedding}{47}{subsubsection.2.18.7}%
+\contentsline {subsection}{\numberline {2.19}为什么分类问题使用交叉熵而不使用 MSE？}{47}{subsection.2.19}%
+\contentsline {subsection}{\numberline {2.20}为什么要将连续特征离散化后输入到线性模型中？}{47}{subsection.2.20}%
+\contentsline {subsection}{\numberline {2.21}分类模型与排序模型在推荐系统中的异同分析}{47}{subsection.2.21}%
+\contentsline {subsubsection}{\numberline {2.21.1}建模角度}{48}{subsubsection.2.21.1}%
+\contentsline {subsubsection}{\numberline {2.21.2}事件之间的相互独立性假设}{48}{subsubsection.2.21.2}%
+\contentsline {subsubsection}{\numberline {2.21.3}参数更新方式}{48}{subsubsection.2.21.3}%
+\contentsline {section}{\numberline {3}经典算法}{49}{section.3}%
+\contentsline {subsection}{\numberline {3.1}线性回归\&逻辑回归}{49}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}LDA}{51}{subsection.3.2}%
+\contentsline {paragraph}{思想}{51}{section*.47}%
+\contentsline {paragraph}{两个类别的LDA}{51}{section*.48}%
+\contentsline {subsection}{\numberline {3.3}决策树}{52}{subsection.3.3}%
+\contentsline {paragraph}{思想}{52}{section*.49}%
+\contentsline {paragraph}{决策树生成}{52}{section*.50}%
+\contentsline {subparagraph}{分类决策树}{52}{Item.18}%
+\contentsline {subparagraph}{回归决策树}{54}{section*.52}%
+\contentsline {subparagraph}{常见问题}{54}{Item.20}%
+\contentsline {subsection}{\numberline {3.4}决策树之我见}{54}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}停止准则}{55}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}确定叶子结点的值}{55}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}候选属性}{55}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}划分}{55}{subsubsection.3.4.4}%
+\contentsline {paragraph}{选择哪个属性?}{55}{section*.54}%
+\contentsline {subparagraph}{分类任务}{55}{section*.55}%
+\contentsline {subparagraph}{回归任务}{56}{section*.56}%
+\contentsline {paragraph}{对数据集划分}{56}{section*.57}%
+\contentsline {paragraph}{题外话}{56}{section*.58}%
+\contentsline {subsection}{\numberline {3.5}t-SNE}{56}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Spectral cluster}{56}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}变分贝叶斯}{57}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}自编码器/变分自编码器}{57}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}SVM}{58}{subsection.3.9}%
+\contentsline {paragraph}{间隔最大化}{58}{section*.59}%
+\contentsline {paragraph}{间隔最大化的最优化目标}{58}{section*.60}%
+\contentsline {paragraph}{SVM优化目标推导的另一形式}{59}{section*.61}%
+\contentsline {paragraph}{SVM优化目标推导的再一形式}{59}{section*.62}%
+\contentsline {paragraph}{线性可分SVM的求解}{59}{section*.63}%
+\contentsline {paragraph}{线性SVM}{61}{section*.64}%
+\contentsline {subparagraph}{合页损失函数}{62}{section*.65}%
+\contentsline {paragraph}{非线性SVM}{63}{section*.66}%
+\contentsline {subparagraph}{核技巧}{63}{section*.67}%
+\contentsline {subparagraph}{求解非线性SVM}{63}{section*.68}%
+\contentsline {paragraph}{支持向量回归}{63}{section*.69}%
+\contentsline {subsection}{\numberline {3.10}PCA}{64}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}metric learning}{64}{subsection.3.11}%
+\contentsline {subsection}{\numberline {3.12}GBDT 与 XGBoost 的对比}{64}{subsection.3.12}%
+\contentsline {subsection}{\numberline {3.13}SMOTE}{65}{subsection.3.13}%
+\contentsline {subsection}{\numberline {3.14}LightGBM}{65}{subsection.3.14}%
+\contentsline {subsubsection}{\numberline {3.14.1}Core Parameters}{65}{subsubsection.3.14.1}%
+\contentsline {paragraph}{任务相关的参数}{65}{section*.70}%
+\contentsline {paragraph}{基学习器的参数}{66}{section*.71}%
+\contentsline {paragraph}{学习过程中的参数}{66}{section*.72}%
+\contentsline {paragraph}{Dataset 相关的参数}{66}{section*.73}%
+\contentsline {subsubsection}{\numberline {3.14.2}调参}{67}{subsubsection.3.14.2}%
+\contentsline {part}{III\hspace {1em}Deep Learning}{68}{part.3}%
+\contentsline {section}{\numberline {4}Basics}{68}{section.4}%
+\contentsline {subsection}{\numberline {4.1}BGD, SGD, MBGD}{68}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Normalization}{69}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Batch Normalization}{69}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Layer Normalization}{70}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Dropout}{70}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Model Collapse}{70}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}关于CNN的一点理解}{71}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}深度学习中常见的参数初始化方法}{72}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}从正态分布中采样}{72}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Glorot initialization}{72}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}He 初始化}{72}{subsubsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.7}DL中的不可微操作}{73}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Global Max Pooling}{73}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Attention机制与CNN}{73}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}Batch Size与Learning Rate}{73}{subsection.4.10}%
+\contentsline {subsection}{\numberline {4.11}深度学习的梯度下降优化算法}{73}{subsection.4.11}%
+\contentsline {subsubsection}{\numberline {4.11.1}SGD}{73}{subsubsection.4.11.1}%
+\contentsline {subsubsection}{\numberline {4.11.2}AdaGrad}{73}{subsubsection.4.11.2}%
+\contentsline {subsubsection}{\numberline {4.11.3}RMSProp}{73}{subsubsection.4.11.3}%
+\contentsline {subsubsection}{\numberline {4.11.4}AdaDelta}{73}{subsubsection.4.11.4}%
+\contentsline {subsubsection}{\numberline {4.11.5}Adam}{73}{subsubsection.4.11.5}%
+\contentsline {subsection}{\numberline {4.12}常见损失函数及其特点}{74}{subsection.4.12}%
+\contentsline {subsubsection}{\numberline {4.12.1}MSE}{74}{subsubsection.4.12.1}%
+\contentsline {subsubsection}{\numberline {4.12.2}交叉熵损失函数}{75}{subsubsection.4.12.2}%
+\contentsline {subsubsection}{\numberline {4.12.3}Focal Loss}{76}{subsubsection.4.12.3}%
+\contentsline {subsubsection}{\numberline {4.12.4}Sampled Softmax}{77}{subsubsection.4.12.4}%
+\contentsline {subsubsection}{\numberline {4.12.5}Contrastive loss, Triplet loss}{77}{subsubsection.4.12.5}%
+\contentsline {subsection}{\numberline {4.13}常见激活函数及其特点}{78}{subsection.4.13}%
+\contentsline {subsubsection}{\numberline {4.13.1}sigmoid}{78}{subsubsection.4.13.1}%
+\contentsline {subsubsection}{\numberline {4.13.2}ReLU}{78}{subsubsection.4.13.2}%
+\contentsline {subsubsection}{\numberline {4.13.3}Leaky ReLU}{78}{subsubsection.4.13.3}%
+\contentsline {subsubsection}{\numberline {4.13.4}PReLU}{79}{subsubsection.4.13.4}%
+\contentsline {subsubsection}{\numberline {4.13.5}Dice}{79}{subsubsection.4.13.5}%
+\contentsline {subsubsection}{\numberline {4.13.6}Softplus}{79}{subsubsection.4.13.6}%
+\contentsline {section}{\numberline {5}经典}{79}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Residual learning block}{79}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Dense Connection}{80}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Dilated Convolution}{81}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}1 $\times $ 1 Conv}{81}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}LSTM}{81}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}GRU}{81}{subsection.5.6}%
+\contentsline {part}{IV\hspace {1em}Graphs}{82}{part.4}%
+\contentsline {section}{\numberline {6}Graphs}{82}{section.6}%
+\contentsline {subsection}{\numberline {6.1}图基本概念}{82}{subsection.6.1}%
+\contentsline {paragraph}{Motif}{82}{section*.74}%
+\contentsline {paragraph}{Weisfeiler-Lehman isomorphism test}{82}{section*.75}%
+\contentsline {paragraph}{图算法（GNN）中常用的benchmar以及数据集}{82}{section*.76}%
+\contentsline {paragraph}{Heterogeneous graph, Attributed graph}{83}{section*.77}%
+\contentsline {paragraph}{Graph Kernel}{83}{section*.78}%
+\contentsline {paragraph}{Dynamic graph, Streaming graph}{83}{section*.79}%
+\contentsline {paragraph}{图的同构}{83}{section*.80}%
+\contentsline {subsection}{\numberline {6.2}结点邻居采样}{83}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}DeepWalk \& Node2Vec}{83}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Spectral graph convolution}{85}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Knowledge Graph}{86}{section.7}%
+\contentsline {subsection}{\numberline {7.1}KG中的文本信息抽取}{86}{subsection.7.1}%
+\contentsline {paragraph}{实体识别}{86}{section*.81}%
+\contentsline {paragraph}{实体消歧}{86}{section*.82}%
+\contentsline {paragraph}{关系抽取}{86}{section*.83}%
+\contentsline {paragraph}{事件抽取}{86}{section*.84}%
+\contentsline {part}{V\hspace {1em}Natrual Language Process}{87}{part.5}%
+\contentsline {section}{\numberline {8}基础}{87}{section.8}%
+\contentsline {subsection}{\numberline {8.1}常见NLP任务}{87}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}命名实体识别}{87}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}语法分析}{87}{subsubsection.8.1.2}%
+\contentsline {paragraph}{短语结构树}{87}{section*.85}%
+\contentsline {paragraph}{依存句法树}{87}{section*.86}%
+\contentsline {subsubsection}{\numberline {8.1.3}序列标注}{88}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.4}问答系统}{88}{subsubsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.2}预训练}{88}{subsection.8.2}%
+\contentsline {section}{\numberline {9}经典算法}{89}{section.9}%
+\contentsline {subsection}{\numberline {9.1}统计自然语言处理}{89}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}概率图模型}{89}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}词袋模型}{89}{subsubsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.2}使用朴素贝叶斯分类器进行文本分类}{90}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}马尔科夫链/隐马尔科夫链}{90}{subsection.9.3}%
+\contentsline {paragraph}{应用}{91}{section*.87}%
+\contentsline {subsection}{\numberline {9.4}TF-IDF}{92}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Transformer}{92}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}一些关于Transformer的问题}{93}{subsubsection.9.5.1}%
+\contentsline {paragraph}{1.}{93}{section*.88}%
+\contentsline {subsection}{\numberline {9.6}BERT}{94}{subsection.9.6}%
+\contentsline {paragraph}{Motivation}{94}{section*.89}%
+\contentsline {paragraph}{HOW?}{94}{section*.90}%
+\contentsline {subsection}{\numberline {9.7}NeZha}{95}{subsection.9.7}%
+\contentsline {paragraph}{Functional Relative Positional Encoding}{95}{section*.91}%
+\contentsline {paragraph}{Whole Word Masking}{96}{section*.92}%
+\contentsline {paragraph}{Mixed Precision Training}{97}{section*.93}%
+\contentsline {paragraph}{LAMB Optimizer}{97}{section*.94}%
+\contentsline {subsection}{\numberline {9.8}词嵌入模型}{97}{subsection.9.8}%
+\contentsline {subsubsection}{\numberline {9.8.1}Word2Vec}{97}{subsubsection.9.8.1}%
+\contentsline {subsubsection}{\numberline {9.8.2}ELOM}{97}{subsubsection.9.8.2}%
+\contentsline {subsection}{\numberline {9.9}Tokenization}{97}{subsection.9.9}%
+\contentsline {subsubsection}{\numberline {9.9.1}word-based}{97}{subsubsection.9.9.1}%
+\contentsline {subsubsection}{\numberline {9.9.2}character-based}{97}{subsubsection.9.9.2}%
+\contentsline {subsubsection}{\numberline {9.9.3}subword}{98}{subsubsection.9.9.3}%
+\contentsline {subsection}{\numberline {9.10}BIM}{98}{subsection.9.10}%
+\contentsline {subsubsection}{\numberline {9.10.1}概率检索模型}{98}{subsubsection.9.10.1}%
+\contentsline {subsubsection}{\numberline {9.10.2}BIM 的推导}{98}{subsubsection.9.10.2}%
+\contentsline {subsection}{\numberline {9.11}BM25}{100}{subsection.9.11}%
+\contentsline {subsubsection}{\numberline {9.11.1}$W_i$}{100}{subsubsection.9.11.1}%
+\contentsline {subsubsection}{\numberline {9.11.2}$R(q_i, D)$}{100}{subsubsection.9.11.2}%
+\contentsline {subsubsection}{\numberline {9.11.3}特征词在 \textit {query} 中的重要性}{100}{subsubsection.9.11.3}%
+\contentsline {part}{VI\hspace {1em}Recommender Systems}{102}{part.6}%
+\contentsline {section}{\numberline {10}基本概念}{102}{section.10}%
+\contentsline {subsection}{\numberline {10.1}历史背景}{102}{subsection.10.1}%
+\contentsline {paragraph}{Motivation}{102}{section*.95}%
+\contentsline {paragraph}{发展过程}{102}{section*.96}%
+\contentsline {paragraph}{推荐系统主要元素}{103}{section*.97}%
+\contentsline {subsection}{\numberline {10.2}会话推荐}{103}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}共现矩阵}{104}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}召回方法分类}{105}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}常用相似度计算方法}{105}{subsection.10.5}%
+\contentsline {paragraph}{同现相似度}{105}{section*.98}%
+\contentsline {paragraph}{欧几里得距离}{105}{section*.99}%
+\contentsline {paragraph}{皮尔逊相关系数}{105}{section*.100}%
+\contentsline {paragraph}{余弦相似度}{106}{section*.101}%
+\contentsline {paragraph}{Jaccard系数}{106}{section*.102}%
+\contentsline {subsection}{\numberline {10.6}推荐中要注意的点}{106}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}常用指标}{106}{subsection.10.7}%
+\contentsline {paragraph}{覆盖率}{106}{section*.103}%
+\contentsline {paragraph}{多样性}{106}{section*.104}%
+\contentsline {paragraph}{新颖性}{107}{section*.105}%
+\contentsline {paragraph}{惊喜度}{107}{section*.106}%
+\contentsline {subsection}{\numberline {10.8}用户画像}{107}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}电商推荐}{107}{subsection.10.9}%
+\contentsline {section}{\numberline {11}经典算法}{107}{section.11}%
+\contentsline {subsection}{\numberline {11.1}基于人口统计学的推荐}{107}{subsection.11.1}%
+\contentsline {paragraph}{优点}{107}{section*.107}%
+\contentsline {paragraph}{缺点}{107}{section*.108}%
+\contentsline {subsection}{\numberline {11.2}基于内容的推荐}{108}{subsection.11.2}%
+\contentsline {paragraph}{优点}{108}{section*.109}%
+\contentsline {paragraph}{缺点}{108}{section*.110}%
+\contentsline {subsection}{\numberline {11.3}基于协同过滤的推荐}{108}{subsection.11.3}%
+\contentsline {paragraph}{基于用户的协同过滤}{108}{section*.111}%
+\contentsline {paragraph}{基于物品的协同过滤}{109}{section*.112}%
+\contentsline {paragraph}{基于模型的协同过滤}{109}{section*.113}%
+\contentsline {subsection}{\numberline {11.4}FM}{109}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}FFM}{110}{subsection.11.5}%
+\contentsline {section}{\numberline {12}用户兴趣建模}{110}{section.12}%
+\contentsline {subsection}{\numberline {12.1}基于统计的用户兴趣建模}{110}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}DIN}{110}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Motivation}{110}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}DIN 做了什么}{111}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}不足}{111}{subsubsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.3}DIEN}{111}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Motivation}{111}{subsubsection.12.3.1}%
+\contentsline {part}{VII\hspace {1em}Information Retrieval}{112}{part.7}%
+\contentsline {section}{\numberline {13}Learning to Rank}{112}{section.13}%
+\contentsline {subsection}{\numberline {13.1}排序学习算法简介}{112}{subsection.13.1}%
+\contentsline {subsubsection}{\numberline {13.1.1}Pointwise}{112}{subsubsection.13.1.1}%
+\contentsline {subsubsection}{\numberline {13.1.2}Pairwise}{112}{subsubsection.13.1.2}%
+\contentsline {subsubsection}{\numberline {13.1.3}Listwise}{112}{subsubsection.13.1.3}%
+\contentsline {part}{VIII\hspace {1em}Algorithms}{113}{part.8}%
+\contentsline {section}{\numberline {14}Basic}{113}{section.14}%
+\contentsline {subsection}{\numberline {14.1}常见排序算法复杂度}{113}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}大整数}{113}{subsection.14.2}%
+\contentsline {paragraph}{Motivation}{113}{section*.114}%
+\contentsline {paragraph}{HOW?}{113}{section*.115}%
+\contentsline {subsection}{\numberline {14.3}前缀和与差分}{114}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}并查集}{114}{subsection.14.4}%
+\contentsline {paragraph}{Motivation}{114}{section*.116}%
+\contentsline {paragraph}{HOW?}{114}{section*.117}%
+\contentsline {subsection}{\numberline {14.5}链表}{114}{subsection.14.5}%
+\contentsline {section}{\numberline {15}Search}{114}{section.15}%
+\contentsline {subsection}{\numberline {15.1}贪心算法}{114}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Beam Search}{114}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}图}{115}{subsection.15.3}%
+\contentsline {subsection}{\numberline {15.4}二分}{115}{subsection.15.4}%
+\contentsline {part}{IX\hspace {1em}Coding Practice}{116}{part.9}%
+\contentsline {section}{\numberline {16}C++}{116}{section.16}%
+\contentsline {subsection}{\numberline {16.1}C++数据类型转换}{116}{subsection.16.1}%
+\contentsline {paragraph}{数字 <=> 字符串}{116}{section*.118}%
+\contentsline {subsection}{\numberline {16.2}C++集合}{116}{subsection.16.2}%
+\contentsline {subsection}{\numberline {16.3}字符串}{117}{subsection.16.3}%
+\contentsline {paragraph}{字符串比较}{117}{section*.119}%
+\contentsline {paragraph}{常用方法}{117}{section*.120}%
+\contentsline {subsection}{\numberline {16.4}数组}{117}{subsection.16.4}%
+\contentsline {paragraph}{数组初始化}{117}{section*.121}%
+\contentsline {subsection}{\numberline {16.5}遍历vector的方式}{117}{subsection.16.5}%
+\contentsline {subsection}{\numberline {16.6}for\_each}{118}{subsection.16.6}%
+\contentsline {subsection}{\numberline {16.7}deque}{118}{subsection.16.7}%
+\contentsline {subsection}{\numberline {16.8}priority\_queue}{118}{subsection.16.8}%
+\contentsline {section}{\numberline {17}Python}{119}{section.17}%
+\contentsline {subsection}{\numberline {17.1}basics}{119}{subsection.17.1}%
+\contentsline {subsubsection}{\numberline {17.1.1}defaultdict}{119}{subsubsection.17.1.1}%
+\contentsline {subsubsection}{\numberline {17.1.2}glob}{119}{subsubsection.17.1.2}%
+\contentsline {subsubsection}{\numberline {17.1.3}Counter}{120}{subsubsection.17.1.3}%
+\contentsline {subsubsection}{\numberline {17.1.4}format用法}{120}{subsubsection.17.1.4}%
+\contentsline {subsubsection}{\numberline {17.1.5}数字输出格式}{120}{subsubsection.17.1.5}%
+\contentsline {subsection}{\numberline {17.2}numpy}{120}{subsection.17.2}%
+\contentsline {subsubsection}{\numberline {17.2.1}np.argsort}{120}{subsubsection.17.2.1}%
+\contentsline {subsubsection}{\numberline {17.2.2}设置随机数种子}{121}{subsubsection.17.2.2}%
+\contentsline {subsubsection}{\numberline {17.2.3}nan的处理}{121}{subsubsection.17.2.3}%
+\contentsline {subsubsection}{\numberline {17.2.4}找到数组中nan指的位置}{121}{subsubsection.17.2.4}%
+\contentsline {subsection}{\numberline {17.3}matplotlib}{121}{subsection.17.3}%
+\contentsline {subsubsection}{\numberline {17.3.1}matplotlib中的marker}{121}{subsubsection.17.3.1}%
+\contentsline {subsubsection}{\numberline {17.3.2}Animation}{121}{subsubsection.17.3.2}%
+\contentsline {subsubsection}{\numberline {17.3.3}调整子图间距}{122}{subsubsection.17.3.3}%
+\contentsline {subsubsection}{\numberline {17.3.4}显示中文}{122}{subsubsection.17.3.4}%
+\contentsline {subsection}{\numberline {17.4}python中的线程有什么问题？怎么解决？}{122}{subsection.17.4}%
+\contentsline {subsection}{\numberline {17.5}生成器}{123}{subsection.17.5}%
+\contentsline {subsection}{\numberline {17.6}可迭代对象与迭代器}{123}{subsection.17.6}%
+\contentsline {subsection}{\numberline {17.7}多个装饰器的执行顺序}{123}{subsection.17.7}%
+\contentsline {section}{\numberline {18}Tensorflow}{124}{section.18}%
+\contentsline {subsection}{\numberline {18.1}tf.variable\_scope \& tf.name\_scope}{124}{subsection.18.1}%
+\contentsline {subsection}{\numberline {18.2}tf.sparse\_tensor}{124}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.3}tf.train.Saver}{124}{subsection.18.3}%
+\contentsline {subsection}{\numberline {18.4}tf.Session}{125}{subsection.18.4}%
+\contentsline {subsection}{\numberline {18.5}tf中的RNN}{125}{subsection.18.5}%
+\contentsline {subsection}{\numberline {18.6}ImageDataGenerator}{125}{subsection.18.6}%
+\contentsline {subsection}{\numberline {18.7}tf.where}{125}{subsection.18.7}%
+\contentsline {subsection}{\numberline {18.8}TFRecord}{125}{subsection.18.8}%
+\contentsline {subsection}{\numberline {18.9}tf.Graph}{126}{subsection.18.9}%
+\contentsline {subsection}{\numberline {18.10}tf.pad}{126}{subsection.18.10}%
+\contentsline {subsection}{\numberline {18.11}tf.tile}{126}{subsection.18.11}%
+\contentsline {subsection}{\numberline {18.12}tf.squeeze}{126}{subsection.18.12}%
+\contentsline {subsection}{\numberline {18.13}tf.expand\_dims}{126}{subsection.18.13}%
+\contentsline {section}{\numberline {19}Pytorch}{126}{section.19}%
+\contentsline {subsection}{\numberline {19.1}pytorch tensor.view}{126}{subsection.19.1}%
+\contentsline {subsection}{\numberline {19.2}nn.Dropout}{127}{subsection.19.2}%
+\contentsline {subsection}{\numberline {19.3}torch.nn.CrossEntropyLoss}{127}{subsection.19.3}%
+\contentsline {section}{\numberline {20}Shell}{127}{section.20}%
+\contentsline {subsection}{\numberline {20.1}变量}{127}{subsection.20.1}%
+\contentsline {paragraph}{基本概念}{127}{section*.122}%
+\contentsline {paragraph}{只读变量}{127}{section*.123}%
+\contentsline {subsection}{\numberline {20.2}字符串}{127}{subsection.20.2}%
+\contentsline {subsubsection}{\numberline {20.2.1}\#*, \#\#*, \%*, \%\%* 的含义及用法}{127}{subsubsection.20.2.1}%
+\contentsline {subsubsection}{\numberline {20.2.2}截取字符串}{128}{subsubsection.20.2.2}%
+\contentsline {subsubsection}{\numberline {20.2.3}判断和读取字符串的值}{128}{subsubsection.20.2.3}%
+\contentsline {subsubsection}{\numberline {20.2.4}字符串替换}{128}{subsubsection.20.2.4}%
+\contentsline {subsection}{\numberline {20.3}不知道如何分类}{129}{subsection.20.3}%
+\contentsline {section}{\numberline {21}ML/DL错误集锦}{129}{section.21}%
+\contentsline {subsection}{\numberline {21.1}batch\_size对训练的影响}{129}{subsection.21.1}%
+\contentsline {subsection}{\numberline {21.2}某个iteration成为训练效果的短板}{129}{subsection.21.2}%
+\contentsline {subsection}{\numberline {21.3}损失函数值为NaN}{129}{subsection.21.3}%
+\contentsline {subsection}{\numberline {21.4}数据的格式问题}{129}{subsection.21.4}%
+\contentsline {section}{\numberline {22}\LaTeX }{129}{section.22}%
+\contentsline {subsection}{\numberline {22.1}在pdf中嵌入代码}{129}{subsection.22.1}%
+\contentsline {subsection}{\numberline {22.2}参考文献相关}{129}{subsection.22.2}%
+\contentsline {paragraph}{引入参考文件}{129}{section*.124}%
+\contentsline {subsection}{\numberline {22.3}数学符号}{129}{subsection.22.3}%
+\contentsline {paragraph}{数学字体}{129}{section*.125}%
+\contentsline {subsection}{\numberline {22.4}\LaTeX 中的颜色}{131}{subsection.22.4}%
+\contentsline {subsection}{\numberline {22.5}注脚}{131}{subsection.22.5}%
+\contentsline {subsection}{\numberline {22.6}章节编号}{131}{subsection.22.6}%
+\contentsline {subsection}{\numberline {22.7}常用符号}{131}{subsection.22.7}%
+\contentsline {section}{\numberline {23}Datasets}{131}{section.23}%
+\contentsline {subsection}{\numberline {23.1}MovieLens 100K}{131}{subsection.23.1}%
+\contentsline {part}{X\hspace {1em}Others}{132}{part.10}%
+\contentsline {section}{\numberline {24}Others}{132}{section.24}%
+\contentsline {subsection}{\numberline {24.1}李沐 --- 用随机梯度下降来优化人生}{132}{subsection.24.1}%
