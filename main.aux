@@ -233,322 +233,378 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.10}PCA}{64}{subsection.3.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.11}metric learning}{64}{subsection.3.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.12}GBDT 与 XGBoost 的对比}{64}{subsection.3.12}\protected@file@percent }
+\citation{guo_nips_2017}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.13}SMOTE}{65}{subsection.3.13}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.14}LightGBM}{65}{subsection.3.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.1}Core Parameters}{65}{subsubsection.3.14.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{任务相关的参数}{65}{section*.70}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{基学习器的参数}{66}{section*.71}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{学习过程中的参数}{66}{section*.72}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Dataset 相关的参数}{66}{section*.73}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2}调参}{67}{subsubsection.3.14.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {part}{III\hspace  {1em}Deep Learning}{68}{part.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Basics}{68}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}BGD, SGD, MBGD}{68}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Normalization}{69}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Batch Normalization}{69}{subsubsection.4.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Layer Normalization}{70}{subsubsection.4.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Dropout}{70}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Model Collapse}{70}{subsection.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}关于CNN的一点理解}{71}{subsection.4.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces CNN的权值共享}}{71}{figure.15}\protected@file@percent }
-\newlabel{fig:share_weight}{{15}{71}{CNN的权值共享}{figure.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}深度学习中常见的参数初始化方法}{72}{subsection.4.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}从正态分布中采样}{72}{subsubsection.4.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}Glorot initialization}{72}{subsubsection.4.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}He 初始化}{72}{subsubsection.4.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.1}原理}{65}{subsubsection.3.14.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{GOSS}{65}{figure.15}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Histogram-based Algorithm 和 Gradient-based One-Side Sampling}}{66}{figure.15}\protected@file@percent }
+\newlabel{fig:goss}{{15}{66}{Histogram-based Algorithm 和 Gradient-based One-Side Sampling}{figure.15}{}}
+\@writefile{toc}{\contentsline {paragraph}{EFB}{66}{section*.71}\protected@file@percent }
+\@writefile{toc}{\contentsline {subparagraph}{Greedy Bundling}{66}{section*.72}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces EFB 中的两个算法: 构建 \textit  {bundle} 和 组合 \textit  {bundle} 中的特征}}{67}{figure.16}\protected@file@percent }
+\newlabel{fig:efb}{{16}{67}{EFB 中的两个算法: 构建 \textit {bundle} 和 组合 \textit {bundle} 中的特征}{figure.16}{}}
+\@writefile{toc}{\contentsline {subparagraph}{Merge Exclusive Features}{67}{section*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2}Core Parameters}{67}{subsubsection.3.14.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{任务相关的参数}{67}{section*.74}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{基学习器的参数}{68}{section*.75}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{学习过程中的参数}{68}{section*.76}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dataset 相关的参数}{68}{section*.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.3}调参}{69}{subsubsection.3.14.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{III\hspace  {1em}Deep Learning}{70}{part.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Basics}{70}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}BGD, SGD, MBGD}{70}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Normalization}{71}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Batch Normalization}{71}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Layer Normalization}{72}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Dropout}{72}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Model Collapse}{72}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}关于CNN的一点理解}{73}{subsection.4.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces CNN的权值共享}}{73}{figure.17}\protected@file@percent }
+\newlabel{fig:share_weight}{{17}{73}{CNN的权值共享}{figure.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}深度学习中常见的参数初始化方法}{74}{subsection.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}从正态分布中采样}{74}{subsubsection.4.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}Glorot initialization}{74}{subsubsection.4.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.3}He 初始化}{74}{subsubsection.4.6.3}\protected@file@percent }
 \citation{kingma2015adam}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}DL中的不可微操作}{73}{subsection.4.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Global Max Pooling}{73}{subsection.4.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Attention机制与CNN}{73}{subsection.4.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Batch Size与Learning Rate}{73}{subsection.4.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.11}深度学习的梯度下降优化算法}{73}{subsection.4.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.1}SGD}{73}{subsubsection.4.11.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.2}AdaGrad}{73}{subsubsection.4.11.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.3}RMSProp}{73}{subsubsection.4.11.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.4}AdaDelta}{73}{subsubsection.4.11.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.5}Adam}{73}{subsubsection.4.11.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces SGD 计算过程(\href  {https://pytorch.org/docs/stable/generated/torch.optim.SGD.html##torch.optim.SGD}{来源})}}{74}{figure.16}\protected@file@percent }
-\newlabel{fig:sgd}{{16}{74}{SGD 计算过程(\href {https://pytorch.org/docs/stable/generated/torch.optim.SGD.html##torch.optim.SGD}{来源})}{figure.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.12}常见损失函数及其特点}{74}{subsection.4.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.1}MSE}{74}{subsubsection.4.12.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Adam 计算过程}}{75}{figure.17}\protected@file@percent }
-\newlabel{fig:adam}{{17}{75}{Adam 计算过程}{figure.17}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.2}交叉熵损失函数}{75}{subsubsection.4.12.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Adam 梯度一阶估计随时间步的变化(\href  {https://www.jianshu.com/p/aebcaf8af76e}{来源})}}{76}{figure.18}\protected@file@percent }
-\newlabel{fig:adam-gradient}{{18}{76}{Adam 梯度一阶估计随时间步的变化(\href {https://www.jianshu.com/p/aebcaf8af76e}{来源})}{figure.18}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.3}Focal Loss}{76}{subsubsection.4.12.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.4}Sampled Softmax}{77}{subsubsection.4.12.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.5}Contrastive loss, Triplet loss}{77}{subsubsection.4.12.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.13}常见激活函数及其特点}{78}{subsection.4.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.1}sigmoid}{78}{subsubsection.4.13.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.2}ReLU}{78}{subsubsection.4.13.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.3}Leaky ReLU}{78}{subsubsection.4.13.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.4}PReLU}{79}{subsubsection.4.13.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.5}Dice}{79}{subsubsection.4.13.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Rectified Point of PReLU and Dice}}{79}{figure.19}\protected@file@percent }
-\newlabel{fig:prelu_dice}{{19}{79}{Rectified Point of PReLU and Dice}{figure.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.6}Softplus}{79}{subsubsection.4.13.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}经典}{79}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Residual learning block}{79}{subsection.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Residual}}{80}{figure.20}\protected@file@percent }
-\newlabel{fig:residual}{{20}{80}{Residual}{figure.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Dense Connection}{80}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Dense Block}}{80}{figure.21}\protected@file@percent }
-\newlabel{fig:dense block}{{21}{80}{Dense Block}{figure.21}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Dilated Convolution}{81}{subsection.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Dilation Convolution}}{81}{figure.22}\protected@file@percent }
-\newlabel{fig:dilation}{{22}{81}{Dilation Convolution}{figure.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}1 $\times $ 1 Conv}{81}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}LSTM}{81}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}GRU}{81}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}DL中的不可微操作}{75}{subsection.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8}Global Max Pooling}{75}{subsection.4.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Attention机制与CNN}{75}{subsection.4.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Batch Size与Learning Rate}{75}{subsection.4.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.11}深度学习的梯度下降优化算法}{75}{subsection.4.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.1}SGD}{75}{subsubsection.4.11.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.2}AdaGrad}{75}{subsubsection.4.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.3}RMSProp}{75}{subsubsection.4.11.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.4}AdaDelta}{75}{subsubsection.4.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.11.5}Adam}{75}{subsubsection.4.11.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces SGD 计算过程(\href  {https://pytorch.org/docs/stable/generated/torch.optim.SGD.html##torch.optim.SGD}{来源})}}{76}{figure.18}\protected@file@percent }
+\newlabel{fig:sgd}{{18}{76}{SGD 计算过程(\href {https://pytorch.org/docs/stable/generated/torch.optim.SGD.html##torch.optim.SGD}{来源})}{figure.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.12}常见损失函数及其特点}{76}{subsection.4.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.1}MSE}{76}{subsubsection.4.12.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Adam 计算过程}}{77}{figure.19}\protected@file@percent }
+\newlabel{fig:adam}{{19}{77}{Adam 计算过程}{figure.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.2}交叉熵损失函数}{77}{subsubsection.4.12.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Adam 梯度一阶估计随时间步的变化(\href  {https://www.jianshu.com/p/aebcaf8af76e}{来源})}}{78}{figure.20}\protected@file@percent }
+\newlabel{fig:adam-gradient}{{20}{78}{Adam 梯度一阶估计随时间步的变化(\href {https://www.jianshu.com/p/aebcaf8af76e}{来源})}{figure.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.3}Focal Loss}{78}{subsubsection.4.12.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.4}Sampled Softmax}{79}{subsubsection.4.12.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.12.5}Contrastive loss, Triplet loss}{79}{subsubsection.4.12.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.13}常见激活函数及其特点}{80}{subsection.4.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.1}sigmoid}{80}{subsubsection.4.13.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.2}ReLU}{80}{subsubsection.4.13.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.3}Leaky ReLU}{80}{subsubsection.4.13.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.4}PReLU}{81}{subsubsection.4.13.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.5}Dice}{81}{subsubsection.4.13.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Rectified Point of PReLU and Dice}}{81}{figure.21}\protected@file@percent }
+\newlabel{fig:prelu_dice}{{21}{81}{Rectified Point of PReLU and Dice}{figure.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.13.6}Softplus}{81}{subsubsection.4.13.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}经典}{81}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Residual learning block}{81}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Residual}}{82}{figure.22}\protected@file@percent }
+\newlabel{fig:residual}{{22}{82}{Residual}{figure.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Dense Connection}{82}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Dense Block}}{82}{figure.23}\protected@file@percent }
+\newlabel{fig:dense block}{{23}{82}{Dense Block}{figure.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Dilated Convolution}{83}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Dilation Convolution}}{83}{figure.24}\protected@file@percent }
+\newlabel{fig:dilation}{{24}{83}{Dilation Convolution}{figure.24}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}1 $\times $ 1 Conv}{83}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}LSTM}{83}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}GRU}{83}{subsection.5.6}\protected@file@percent }
 \citation{shervashidze2011weisfeiler}
-\@writefile{toc}{\contentsline {part}{IV\hspace  {1em}Graphs}{82}{part.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Graphs}{82}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}图基本概念}{82}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Motif}{82}{section*.74}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Weisfeiler-Lehman isomorphism test}{82}{section*.75}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{图算法（GNN）中常用的benchmar以及数据集}{82}{section*.76}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{IV\hspace  {1em}Graphs}{84}{part.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Graphs}{84}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}图基本概念}{84}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Motif}{84}{section*.78}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weisfeiler-Lehman isomorphism test}{84}{section*.79}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{图算法（GNN）中常用的benchmar以及数据集}{84}{section*.80}\protected@file@percent }
 \citation{kipf2017semi-supervised}
 \citation{hamilton2017inductive}
 \citation{chen2018fastgcn}
 \citation{chen2018stochastic}
-\@writefile{toc}{\contentsline {paragraph}{Heterogeneous graph, Attributed graph}{83}{section*.77}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Graph Kernel}{83}{section*.78}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Dynamic graph, Streaming graph}{83}{section*.79}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{图的同构}{83}{section*.80}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}结点邻居采样}{83}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}DeepWalk \& Node2Vec}{83}{subsection.6.3}\protected@file@percent }
-\newlabel{fig:node2vec}{{6.3}{84}{DeepWalk \& Node2Vec}{subsection.6.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Node2Vec中的随机游走}}{84}{figure.23}\protected@file@percent }
-\newlabel{fig:node2vec2}{{6.3}{85}{DeepWalk \& Node2Vec}{figure.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Homophily与Structure Equivalence}}{85}{figure.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Spectral graph convolution}{85}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Knowledge Graph}{86}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}KG中的文本信息抽取}{86}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{实体识别}{86}{section*.81}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{实体消歧}{86}{section*.82}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{关系抽取}{86}{section*.83}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{事件抽取}{86}{section*.84}\protected@file@percent }
-\@writefile{toc}{\contentsline {part}{V\hspace  {1em}Natrual Language Process}{87}{part.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}基础}{87}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}常见NLP任务}{87}{subsection.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}命名实体识别}{87}{subsubsection.8.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}语法分析}{87}{subsubsection.8.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{短语结构树}{87}{section*.85}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{依存句法树}{87}{section*.86}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.3}序列标注}{88}{subsubsection.8.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.4}问答系统}{88}{subsubsection.8.1.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces 问答系统分类，源图\href  {https://blog.csdn.net/sinat_33231573/article/details/83473741}{出处}}}{88}{figure.25}\protected@file@percent }
-\newlabel{fig:qa}{{25}{88}{问答系统分类，源图\href {https://blog.csdn.net/sinat_33231573/article/details/83473741}{出处}}{figure.25}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}预训练}{88}{subsection.8.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces 预训练模型（\href  {https://www.zhihu.com/question/327642286/answer/1215812016}{出处}）}}{89}{figure.26}\protected@file@percent }
-\newlabel{fig:pre-train}{{26}{89}{预训练模型（\href {https://www.zhihu.com/question/327642286/answer/1215812016}{出处}）}{figure.26}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}经典算法}{89}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}统计自然语言处理}{89}{subsection.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.1}概率图模型}{89}{subsubsection.9.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.2}词袋模型}{89}{subsubsection.9.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}使用朴素贝叶斯分类器进行文本分类}{90}{subsection.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}马尔科夫链/隐马尔科夫链}{90}{subsection.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{应用}{91}{section*.87}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Heterogeneous graph, Attributed graph}{85}{section*.81}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Graph Kernel}{85}{section*.82}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Dynamic graph, Streaming graph}{85}{section*.83}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{图的同构}{85}{section*.84}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}结点邻居采样}{85}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}DeepWalk \& Node2Vec}{85}{subsection.6.3}\protected@file@percent }
+\newlabel{fig:node2vec}{{6.3}{86}{DeepWalk \& Node2Vec}{subsection.6.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Node2Vec中的随机游走}}{86}{figure.25}\protected@file@percent }
+\newlabel{fig:node2vec2}{{6.3}{87}{DeepWalk \& Node2Vec}{figure.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Homophily与Structure Equivalence}}{87}{figure.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Spectral graph convolution}{87}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Knowledge Graph}{88}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}KG中的文本信息抽取}{88}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{实体识别}{88}{section*.85}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{实体消歧}{88}{section*.86}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{关系抽取}{88}{section*.87}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{事件抽取}{88}{section*.88}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{V\hspace  {1em}Natrual Language Process}{89}{part.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}基础}{89}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}常见NLP任务}{89}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}命名实体识别}{89}{subsubsection.8.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}语法分析}{89}{subsubsection.8.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{短语结构树}{89}{section*.89}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{依存句法树}{89}{section*.90}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.3}序列标注}{90}{subsubsection.8.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.4}问答系统}{90}{subsubsection.8.1.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces 问答系统分类，源图\href  {https://blog.csdn.net/sinat_33231573/article/details/83473741}{出处}}}{90}{figure.27}\protected@file@percent }
+\newlabel{fig:qa}{{27}{90}{问答系统分类，源图\href {https://blog.csdn.net/sinat_33231573/article/details/83473741}{出处}}{figure.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}预训练}{90}{subsection.8.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces 预训练模型（\href  {https://www.zhihu.com/question/327642286/answer/1215812016}{出处}）}}{91}{figure.28}\protected@file@percent }
+\newlabel{fig:pre-train}{{28}{91}{预训练模型（\href {https://www.zhihu.com/question/327642286/answer/1215812016}{出处}）}{figure.28}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}经典算法}{91}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}统计自然语言处理}{91}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.1}概率图模型}{91}{subsubsection.9.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.2}词袋模型}{91}{subsubsection.9.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}使用朴素贝叶斯分类器进行文本分类}{92}{subsection.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}马尔科夫链/隐马尔科夫链}{92}{subsection.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{应用}{93}{section*.91}\protected@file@percent }
 \citation{sutskever2014sequence}
 \citation{cho2014learning}
 \citation{bahdanau2016neural}
 \citation{luong2015effective}
 \citation{vaswani2017attention}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}TF-IDF}{92}{subsection.9.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Transformer}{92}{subsection.9.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}TF-IDF}{94}{subsection.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Transformer}{94}{subsection.9.5}\protected@file@percent }
 \citation{bivaswani2017attentionbid}
 \citation{devlin2019bert}
-\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Architecture of Transformer}}{93}{figure.27}\protected@file@percent }
-\newlabel{fig:transformer}{{27}{93}{Architecture of Transformer}{figure.27}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.1}一些关于Transformer的问题}{93}{subsubsection.9.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{1.}{93}{section*.88}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Overall pre-training and fine-tuning procedures for BERT}}{94}{figure.28}\protected@file@percent }
-\newlabel{fig:bert-pf}{{28}{94}{Overall pre-training and fine-tuning procedures for BERT}{figure.28}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}BERT}{94}{subsection.9.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Motivation}{94}{section*.89}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{HOW?}{94}{section*.90}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Architecture of Transformer}}{95}{figure.29}\protected@file@percent }
+\newlabel{fig:transformer}{{29}{95}{Architecture of Transformer}{figure.29}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.1}一些关于Transformer的问题}{95}{subsubsection.9.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{1.}{95}{section*.92}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Overall pre-training and fine-tuning procedures for BERT}}{96}{figure.30}\protected@file@percent }
+\newlabel{fig:bert-pf}{{30}{96}{Overall pre-training and fine-tuning procedures for BERT}{figure.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}BERT}{96}{subsection.9.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Motivation}{96}{section*.93}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{HOW?}{96}{section*.94}\protected@file@percent }
 \citation{junqiu2019nezha}
-\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces BERT 知识点总结(\href  {https://zhuanlan.zhihu.com/p/46652512}{来源})}}{95}{figure.29}\protected@file@percent }
-\newlabel{fig:bert-roadmap}{{29}{95}{BERT 知识点总结(\href {https://zhuanlan.zhihu.com/p/46652512}{来源})}{figure.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}NeZha}{95}{subsection.9.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Functional Relative Positional Encoding}{95}{section*.91}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Whole Word Masking}{96}{section*.92}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Mixed Precision Training}{97}{section*.93}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{LAMB Optimizer}{97}{section*.94}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.8}词嵌入模型}{97}{subsection.9.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.1}Word2Vec}{97}{subsubsection.9.8.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.2}ELOM}{97}{subsubsection.9.8.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.9}Tokenization}{97}{subsection.9.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.9.1}word-based}{97}{subsubsection.9.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.9.2}character-based}{97}{subsubsection.9.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.9.3}subword}{98}{subsubsection.9.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.10}BIM}{98}{subsection.9.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.10.1}概率检索模型}{98}{subsubsection.9.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.10.2}BIM 的推导}{98}{subsubsection.9.10.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.11}BM25}{100}{subsection.9.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.11.1}$W_i$}{100}{subsubsection.9.11.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.11.2}$R(q_i, D)$}{100}{subsubsection.9.11.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.11.3}特征词在 \textit  {query} 中的重要性}{100}{subsubsection.9.11.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {31}{\ignorespaces BERT 知识点总结(\href  {https://zhuanlan.zhihu.com/p/46652512}{来源})}}{97}{figure.31}\protected@file@percent }
+\newlabel{fig:bert-roadmap}{{31}{97}{BERT 知识点总结(\href {https://zhuanlan.zhihu.com/p/46652512}{来源})}{figure.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}NeZha}{97}{subsection.9.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Functional Relative Positional Encoding}{97}{section*.95}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Whole Word Masking}{98}{section*.96}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Mixed Precision Training}{99}{section*.97}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{LAMB Optimizer}{99}{section*.98}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.8}词嵌入模型}{99}{subsection.9.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.1}Word2Vec}{99}{subsubsection.9.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.2}ELOM}{99}{subsubsection.9.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.9}Tokenization}{99}{subsection.9.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.9.1}word-based}{99}{subsubsection.9.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.9.2}character-based}{99}{subsubsection.9.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.9.3}subword}{100}{subsubsection.9.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.10}BIM}{100}{subsection.9.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.10.1}概率检索模型}{100}{subsubsection.9.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.10.2}BIM 的推导}{100}{subsubsection.9.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.11}BM25}{102}{subsection.9.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.11.1}$W_i$}{102}{subsubsection.9.11.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.11.2}$R(q_i, D)$}{102}{subsubsection.9.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.11.3}特征词在 \textit  {query} 中的重要性}{102}{subsubsection.9.11.3}\protected@file@percent }
 \citation{linden2003amazon.com}
 \citation{he2014practical}
 \citation{covington2016deep}
 \citation{cheng2016wide}
-\@writefile{toc}{\contentsline {part}{VI\hspace  {1em}Recommender Systems}{102}{part.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}基本概念}{102}{section.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}历史背景}{102}{subsection.10.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Motivation}{102}{section*.95}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{发展过程}{102}{section*.96}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{推荐系统主要元素}{103}{section*.97}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}会话推荐}{103}{subsection.10.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}共现矩阵}{104}{subsection.10.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}召回方法分类}{105}{subsection.10.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}常用相似度计算方法}{105}{subsection.10.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{同现相似度}{105}{section*.98}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{欧几里得距离}{105}{section*.99}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{皮尔逊相关系数}{105}{section*.100}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{VI\hspace  {1em}Recommender Systems}{104}{part.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}基本概念}{104}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}历史背景}{104}{subsection.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Motivation}{104}{section*.99}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{发展过程}{104}{section*.100}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{推荐系统主要元素}{105}{section*.101}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}会话推荐}{105}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}共现矩阵}{106}{subsection.10.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}召回方法分类}{107}{subsection.10.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}常用相似度计算方法}{107}{subsection.10.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{同现相似度}{107}{section*.102}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{欧几里得距离}{107}{section*.103}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{皮尔逊相关系数}{107}{section*.104}\protected@file@percent }
 \citation{he2018nais}
-\@writefile{toc}{\contentsline {paragraph}{余弦相似度}{106}{section*.101}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Jaccard系数}{106}{section*.102}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}推荐中要注意的点}{106}{subsection.10.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}常用指标}{106}{subsection.10.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{覆盖率}{106}{section*.103}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{多样性}{106}{section*.104}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{新颖性}{107}{section*.105}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{惊喜度}{107}{section*.106}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}用户画像}{107}{subsection.10.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}电商推荐}{107}{subsection.10.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}经典算法}{107}{section.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}基于人口统计学的推荐}{107}{subsection.11.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{优点}{107}{section*.107}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{缺点}{107}{section*.108}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}基于内容的推荐}{108}{subsection.11.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{优点}{108}{section*.109}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{缺点}{108}{section*.110}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}基于协同过滤的推荐}{108}{subsection.11.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{基于用户的协同过滤}{108}{section*.111}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{基于物品的协同过滤}{109}{section*.112}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{基于模型的协同过滤}{109}{section*.113}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}FM}{109}{subsection.11.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {11.5}FFM}{110}{subsection.11.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12}用户兴趣建模}{110}{section.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}基于统计的用户兴趣建模}{110}{subsection.12.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}DIN}{110}{subsection.12.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.1}Motivation}{110}{subsubsection.12.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.2}DIN 做了什么}{111}{subsubsection.12.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.3}不足}{111}{subsubsection.12.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}DIEN}{111}{subsection.12.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.3.1}Motivation}{111}{subsubsection.12.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {part}{VII\hspace  {1em}Information Retrieval}{112}{part.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {13}Learning to Rank}{112}{section.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {13.1}排序学习算法简介}{112}{subsection.13.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.1.1}Pointwise}{112}{subsubsection.13.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.1.2}Pairwise}{112}{subsubsection.13.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.1.3}Listwise}{112}{subsubsection.13.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {part}{VIII\hspace  {1em}Algorithms}{113}{part.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {14}Basic}{113}{section.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.1}常见排序算法复杂度}{113}{subsection.14.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.2}大整数}{113}{subsection.14.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Motivation}{113}{section*.114}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{HOW?}{113}{section*.115}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.3}前缀和与差分}{114}{subsection.14.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.4}并查集}{114}{subsection.14.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Motivation}{114}{section*.116}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{HOW?}{114}{section*.117}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.5}链表}{114}{subsection.14.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {15}Search}{114}{section.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {15.1}贪心算法}{114}{subsection.15.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {15.2}Beam Search}{114}{subsection.15.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {15.3}图}{115}{subsection.15.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {15.4}二分}{115}{subsection.15.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {part}{IX\hspace  {1em}Coding Practice}{116}{part.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {16}C++}{116}{section.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.1}C++数据类型转换}{116}{subsection.16.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{数字 <=> 字符串}{116}{section*.118}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.2}C++集合}{116}{subsection.16.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.3}字符串}{117}{subsection.16.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{字符串比较}{117}{section*.119}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{常用方法}{117}{section*.120}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.4}数组}{117}{subsection.16.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{数组初始化}{117}{section*.121}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.5}遍历vector的方式}{117}{subsection.16.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.6}for\_each}{118}{subsection.16.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.7}deque}{118}{subsection.16.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {16.8}priority\_queue}{118}{subsection.16.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {17}Python}{119}{section.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.1}basics}{119}{subsection.17.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.1.1}defaultdict}{119}{subsubsection.17.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.1.2}glob}{119}{subsubsection.17.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.1.3}Counter}{120}{subsubsection.17.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.1.4}format用法}{120}{subsubsection.17.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.1.5}数字输出格式}{120}{subsubsection.17.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.2}numpy}{120}{subsection.17.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.2.1}np.argsort}{120}{subsubsection.17.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.2.2}设置随机数种子}{121}{subsubsection.17.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.2.3}nan的处理}{121}{subsubsection.17.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.2.4}找到数组中nan指的位置}{121}{subsubsection.17.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.3}matplotlib}{121}{subsection.17.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.3.1}matplotlib中的marker}{121}{subsubsection.17.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.3.2}Animation}{121}{subsubsection.17.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Matplotlib中的markers}}{122}{figure.30}\protected@file@percent }
-\newlabel{fig:matplotlib-markers}{{30}{122}{Matplotlib中的markers}{figure.30}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.3.3}调整子图间距}{122}{subsubsection.17.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {17.3.4}显示中文}{122}{subsubsection.17.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.4}python中的线程有什么问题？怎么解决？}{122}{subsection.17.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.5}生成器}{123}{subsection.17.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.6}可迭代对象与迭代器}{123}{subsection.17.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {17.7}多个装饰器的执行顺序}{123}{subsection.17.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {18}Tensorflow}{124}{section.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.1}tf.variable\_scope \& tf.name\_scope}{124}{subsection.18.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.2}tf.sparse\_tensor}{124}{subsection.18.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.3}tf.train.Saver}{124}{subsection.18.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.4}tf.Session}{125}{subsection.18.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.5}tf中的RNN}{125}{subsection.18.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.6}ImageDataGenerator}{125}{subsection.18.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.7}tf.where}{125}{subsection.18.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.8}TFRecord}{125}{subsection.18.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.9}tf.Graph}{126}{subsection.18.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.10}tf.pad}{126}{subsection.18.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.11}tf.tile}{126}{subsection.18.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.12}tf.squeeze}{126}{subsection.18.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {18.13}tf.expand\_dims}{126}{subsection.18.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {19}Pytorch}{126}{section.19}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {19.1}pytorch tensor.view}{126}{subsection.19.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {19.2}nn.Dropout}{127}{subsection.19.2}\protected@file@percent }
-\newlabel{nn_dropout}{{19.2}{127}{nn.Dropout}{subsection.19.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {19.3}torch.nn.CrossEntropyLoss}{127}{subsection.19.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {20}Shell}{127}{section.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {20.1}变量}{127}{subsection.20.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{基本概念}{127}{section*.122}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{只读变量}{127}{section*.123}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {20.2}字符串}{127}{subsection.20.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {20.2.1}\#*, \#\#*, \%*, \%\%* 的含义及用法}{127}{subsubsection.20.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {20.2.2}截取字符串}{128}{subsubsection.20.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {20.2.3}判断和读取字符串的值}{128}{subsubsection.20.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {20.2.4}字符串替换}{128}{subsubsection.20.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {20.3}不知道如何分类}{129}{subsection.20.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {21}ML/DL错误集锦}{129}{section.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {21.1}batch\_size对训练的影响}{129}{subsection.21.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {21.2}某个iteration成为训练效果的短板}{129}{subsection.21.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {21.3}损失函数值为NaN}{129}{subsection.21.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {21.4}数据的格式问题}{129}{subsection.21.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {22}\LaTeX  }{129}{section.22}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.1}在pdf中嵌入代码}{129}{subsection.22.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.2}参考文献相关}{129}{subsection.22.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{引入参考文件}{129}{section*.124}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.3}数学符号}{129}{subsection.22.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{数学字体}{129}{section*.125}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.4}\LaTeX  中的颜色}{131}{subsection.22.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.5}注脚}{131}{subsection.22.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.6}章节编号}{131}{subsection.22.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {22.7}常用符号}{131}{subsection.22.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {23}Datasets}{131}{section.23}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {23.1}MovieLens 100K}{131}{subsection.23.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {part}{X\hspace  {1em}Others}{132}{part.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {24}Others}{132}{section.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {24.1}李沐 --- 用随机梯度下降来优化人生}{132}{subsection.24.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{余弦相似度}{108}{section*.105}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Jaccard系数}{108}{section*.106}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}推荐中要注意的点}{108}{subsection.10.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}常用指标}{108}{subsection.10.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{覆盖率}{108}{section*.107}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{多样性}{108}{section*.108}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{新颖性}{109}{section*.109}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{惊喜度}{109}{section*.110}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}用户画像}{109}{subsection.10.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}电商推荐}{109}{subsection.10.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.10}用户冷启动的解决办法}{109}{subsection.10.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}经典算法}{109}{section.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.1}基于人口统计学的推荐}{109}{subsection.11.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{优点}{109}{section*.111}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{缺点}{109}{section*.112}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.2}基于内容的推荐}{110}{subsection.11.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{优点}{110}{section*.113}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{缺点}{110}{section*.114}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.3}基于协同过滤的推荐}{110}{subsection.11.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{基于用户的协同过滤}{110}{section*.115}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{基于物品的协同过滤}{111}{section*.116}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{基于模型的协同过滤}{111}{section*.117}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.4}FM}{111}{subsection.11.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {11.5}FFM}{112}{subsection.11.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}用户兴趣建模}{112}{section.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}基于统计的用户兴趣建模}{112}{subsection.12.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}DIN}{112}{subsection.12.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.1}Motivation}{112}{subsubsection.12.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.2}DIN 做了什么}{113}{subsubsection.12.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {32}{\ignorespaces Deep Interest Network}}{113}{figure.32}\protected@file@percent }
+\newlabel{fig:din}{{32}{113}{Deep Interest Network}{figure.32}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.2.3}不足}{114}{subsubsection.12.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}DIEN}{114}{subsection.12.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.3.1}Motivation}{114}{subsubsection.12.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.3.2}DIEN 怎么做的}{114}{subsubsection.12.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {33}{\ignorespaces The structure of DIEN}}{114}{figure.33}\protected@file@percent }
+\newlabel{fig:dien}{{33}{114}{The structure of DIEN}{figure.33}{}}
+\@writefile{toc}{\contentsline {paragraph}{Interest Extractor Layer}{115}{section*.118}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Interest Evolving Layer}{115}{section*.119}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {12.3.3}不足}{115}{subsubsection.12.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {13}多任务学习}{116}{section.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.1}Introduction}{116}{subsection.13.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.2}多目标任务的技巧}{117}{subsection.13.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.2.1}样本加权}{117}{subsubsection.13.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {13.2.2}模型融合}{117}{subsubsection.13.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.3}Shared-Bottom}{117}{subsection.13.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.4}MMOE}{117}{subsection.13.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {13.5}ESMM}{117}{subsection.13.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{VII\hspace  {1em}Information Retrieval}{118}{part.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {14}Learning to Rank}{118}{section.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.1}排序学习算法简介}{118}{subsection.14.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.1}Pointwise}{118}{subsubsection.14.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.2}Pairwise}{118}{subsubsection.14.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {14.1.3}Listwise}{118}{subsubsection.14.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.2}LambdaMart}{119}{subsection.14.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{VIII\hspace  {1em}Algorithms}{120}{part.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {15}Basic}{120}{section.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.1}常见排序算法复杂度}{120}{subsection.15.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.2}大整数}{120}{subsection.15.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Motivation}{120}{section*.120}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{HOW?}{120}{section*.121}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.3}前缀和与差分}{121}{subsection.15.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.4}并查集}{121}{subsection.15.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Motivation}{121}{section*.122}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{HOW?}{121}{section*.123}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {15.5}链表}{121}{subsection.15.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {16}Search}{121}{section.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.1}贪心算法}{121}{subsection.16.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.2}Beam Search}{121}{subsection.16.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.3}图}{122}{subsection.16.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.4}二分}{122}{subsection.16.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{IX\hspace  {1em}Coding Practice}{123}{part.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {17}C++}{123}{section.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.1}C++数据类型转换}{123}{subsection.17.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{数字 <=> 字符串}{123}{section*.124}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.2}C++集合}{123}{subsection.17.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.3}字符串}{124}{subsection.17.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{字符串比较}{124}{section*.125}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{常用方法}{124}{section*.126}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.4}数组}{124}{subsection.17.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{数组初始化}{124}{section*.127}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.5}遍历vector的方式}{124}{subsection.17.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.6}for\_each}{125}{subsection.17.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.7}deque}{125}{subsection.17.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.8}priority\_queue}{125}{subsection.17.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {18}Python}{126}{section.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.1}basics}{126}{subsection.18.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.1.1}defaultdict}{126}{subsubsection.18.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.1.2}glob}{126}{subsubsection.18.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.1.3}Counter}{127}{subsubsection.18.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.1.4}format用法}{127}{subsubsection.18.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.1.5}数字输出格式}{127}{subsubsection.18.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.2}numpy}{127}{subsection.18.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.2.1}np.argsort}{127}{subsubsection.18.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.2.2}设置随机数种子}{128}{subsubsection.18.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.2.3}nan的处理}{128}{subsubsection.18.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.2.4}找到数组中nan指的位置}{128}{subsubsection.18.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.3}matplotlib}{128}{subsection.18.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.3.1}matplotlib中的marker}{128}{subsubsection.18.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.3.2}Animation}{128}{subsubsection.18.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {34}{\ignorespaces Matplotlib中的markers}}{129}{figure.34}\protected@file@percent }
+\newlabel{fig:matplotlib-markers}{{34}{129}{Matplotlib中的markers}{figure.34}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.3.3}调整子图间距}{129}{subsubsection.18.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {18.3.4}显示中文}{129}{subsubsection.18.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.4}python中的线程有什么问题？怎么解决？}{129}{subsection.18.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.5}生成器}{130}{subsection.18.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.6}可迭代对象与迭代器}{130}{subsection.18.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.7}多个装饰器的执行顺序}{130}{subsection.18.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {19}Tensorflow}{131}{section.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.1}tf.variable\_scope \& tf.name\_scope}{131}{subsection.19.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.2}tf.sparse\_tensor}{131}{subsection.19.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.3}tf.train.Saver}{131}{subsection.19.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.4}tf.Session}{132}{subsection.19.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.5}tf中的RNN}{132}{subsection.19.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.6}ImageDataGenerator}{132}{subsection.19.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.7}tf.where}{132}{subsection.19.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.8}TFRecord}{132}{subsection.19.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.9}tf.Graph}{133}{subsection.19.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.10}tf.pad}{133}{subsection.19.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.11}tf.tile}{133}{subsection.19.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.12}tf.squeeze}{133}{subsection.19.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {19.13}tf.expand\_dims}{133}{subsection.19.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {20}Pytorch}{133}{section.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {20.1}pytorch tensor.view}{133}{subsection.20.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {20.2}nn.Dropout}{134}{subsection.20.2}\protected@file@percent }
+\newlabel{nn_dropout}{{20.2}{134}{nn.Dropout}{subsection.20.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {20.3}torch.nn.CrossEntropyLoss}{134}{subsection.20.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {21}Shell}{134}{section.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {21.1}变量}{134}{subsection.21.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{基本概念}{134}{section*.128}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{变量类型}{134}{section*.129}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{只读变量}{134}{section*.130}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {21.2}数组}{135}{subsection.21.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{数组定义}{135}{section*.131}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{读取数组}{135}{section*.132}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {21.3}注释}{135}{subsection.21.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {21.4}字符串}{135}{subsection.21.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {21.4.1}引号}{135}{subsubsection.21.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {21.4.2}\#*, \#\#*, \%*, \%\%* 的含义及用法}{136}{subsubsection.21.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {21.4.3}截取字符串}{136}{subsubsection.21.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {21.4.4}判断和读取字符串的值}{137}{subsubsection.21.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {21.4.5}字符串替换}{137}{subsubsection.21.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {21.5}不知道如何分类}{137}{subsection.21.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {22}ML/DL错误集锦}{137}{section.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {22.1}batch\_size对训练的影响}{137}{subsection.22.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {22.2}某个iteration成为训练效果的短板}{137}{subsection.22.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {22.3}损失函数值为NaN}{137}{subsection.22.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {22.4}数据的格式问题}{137}{subsection.22.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {23}\LaTeX  }{137}{section.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.1}在pdf中嵌入代码}{137}{subsection.23.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.2}参考文献相关}{138}{subsection.23.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{引入参考文件}{138}{section*.133}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.3}数学符号}{138}{subsection.23.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{数学字体}{138}{section*.134}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.4}\LaTeX  中的颜色}{140}{subsection.23.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.5}注脚}{140}{subsection.23.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.6}章节编号}{140}{subsection.23.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {23.7}常用符号}{140}{subsection.23.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {24}Datasets}{140}{section.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {24.1}MovieLens 100K}{140}{subsection.24.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {part}{X\hspace  {1em}Others}{141}{part.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {25}Others}{141}{section.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {25.1}李沐 --- 用随机梯度下降来优化人生}{141}{subsection.25.1}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{references}
+\bibcite{bahdanau2016neural}{1}
+\bibcite{chen2018stochastic}{2}
+\bibcite{chen2018fastgcn}{3}
+\bibcite{cheng2016wide}{4}
+\bibcite{cho2014learning}{5}
+\bibcite{covington2016deep}{6}
+\bibcite{devlin2019bert}{7}
+\bibcite{hamilton2017inductive}{8}
+\bibcite{he2018nais}{9}
+\bibcite{he2014practical}{10}
+\@writefile{toc}{\contentsline {section}{参考文献}{142}{section*.135}\protected@file@percent }
+\bibcite{junqiu2019nezha}{11}
+\bibcite{guo_nips_2017}{12}
+\bibcite{kingma2015adam}{13}
+\bibcite{kipf2017semi-supervised}{14}
+\bibcite{linden2003amazon.com}{15}
+\bibcite{luong2015effective}{16}
+\bibcite{6773024}{17}
+\bibcite{shervashidze2011weisfeiler}{18}
+\bibcite{simard2003best}{19}
+\bibcite{sutskever2014sequence}{20}
+\bibcite{vaswani2017attention}{21}
 \gdef\minted@oldcachelist{,
   default-pyg-prefix.pygstyle,
   algol.pygstyle,
@@ -651,8 +707,21 @@
   7756D3A929194AFCADFBE28C6BD6D6B5A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   FCB2527A915E010816957D30716E9724A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   2C8CF32A38A0A64BC165BB8B9240B1C1A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  18BECE08C34F05E642D6A96C4030D556A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   09093F4E6B33DDD700FFAE27263BB8A2A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   9C3EC1071BCBA382A056AF11BBA5C125A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  F961376881AE70C6CBD19BF59DBC9AD0A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  algol.pygstyle,
+  437BC96C8C5CBF4326DD063CAB3A8B484D4744B58BF88510F6455747E62A4DBC.pygtex,
+  472A6AA9E9FBA88C70FF4893521DEDABA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  9CCE5EA8A7D8D2432DD99392C1E26DFDA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  9CCE5EA8A7D8D2432DD99392C1E26DFDA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  53301A6E760ABF8C4A4199957A8B49E2A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  552DACB15F2019C8F3F74C55BEFA242CA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  21A092868A4A74C03E47827FAFCF60654D4744B58BF88510F6455747E62A4DBC.pygtex,
+  A128B681C63638C115D954CC533F01D5A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  44A5D2344001D7EE993AD30D11441808A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
+  C69DA4B9806260593E069C6B68EEB072A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   81DA85750D4B11AD6FBD4E3AB40125B3A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   BEC2FF8BD7B8E4D73D66442A177808BAA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   A55822426A5330C04625A41D264C190BA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
@@ -718,4 +787,4 @@
   604193655023D6200B8AF58BC58368A6A00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   B1423BADF3AC4FFEC8FE82048A1332DFA00B3CB6151DE675178D03E4C68EDF9A.pygtex,
   604193655023D6200B8AF58BC58368A6A00B3CB6151DE675178D03E4C68EDF9A.pygtex}
-\gdef \@abspage@last{133}
+\gdef \@abspage@last{143}

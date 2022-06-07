@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+:\PYG{l+s}{\PYGZlt{}\PYGZlt{}EOF}
+\PYG{l+s}{第一行注释}
+\PYG{l+s}{第二行注释}
+\PYG{l+s}{第三行注释}
+\PYG{l+s}{EOF}
+\end{Verbatim}

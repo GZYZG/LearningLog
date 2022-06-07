@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} 写成一行}
+\PYG{n+nv}{arr}\PYG{o}{=(}e1 e2 e3 e4 e5\PYG{o}{)}
+\PYG{c+c1}{\PYGZsh{} 一行一个元素}
+\PYG{n+nv}{arr}\PYG{o}{=(}
+e1
+e2
+e3
+e4
+e5
+\PYG{o}{)}
+\PYG{c+c1}{\PYGZsh{} 或者直接单独定义数组的各个元素}
+arr\PYG{o}{[}\PYG{l+m}{0}\PYG{o}{]=}e1
+arr\PYG{o}{[}\PYG{l+m}{1}\PYG{o}{]=}e2
+arr\PYG{o}{[}n\PYG{o}{]=}en
+\end{Verbatim}

@@ -1,15 +1,82 @@
 \subsection{变量}
 \paragraph{基本概念}
-定义 shell 变量时不需要加 \$ 符号, 如 \mintinline{shell}{var=444}, 切记定义变量是等号之间不能有空格, 因为 shell 中将空格看作参数的分隔符, 则会把变量名当作函数名, 把剩下的部分当作参数传进去!
+定义 shell 变量时不需要加 \$ 符号, 如 \mintinline{shell}{var=444}, 切记定义变量是\textbf{等号之间不能有空格}, 因为 shell 中将空格看作参数的分隔符, 则会把变量名当作函数名, 把剩下的部分当作参数传进去!
 
 要使用一个定义过的变量时, 只要在变量名前加美元符号即可: \mintinline{shell}{$var}, 或者 \mintinline{shell}{${var}}. 变量名为的花括号是可选的, 加花括号是为了帮助 shell 解释器识别变量的边界, 例如 \mintinline{shell}{"This is ${var}-laboratory!"}
 
 已经定义过的变量是可以重新定义的, 注意定义的时候是不加美元符号的!
 
+删除变量: \mintinline{shell}{unset var}.
+
+\paragraph{变量类型}
+\begin{myitemize}
+	\item 局部变量. 局部变量在脚本或命令中定义, 仅在当前shell实例中有效, 其他shell启动的程序不能访问局部变量;
+	\item 环境变量. 所有的程序, 包括shell启动的程序, 都能访问环境变量, 有些程序需要环境变量来保证其正常运行. 必要的时候shell脚本也可以定义环境变量;
+	\item shell变量. shell变量是由shell程序设置的特殊变量. shell变量中有一部分是环境变量, 有一部分是局部变量, 这些变量保证了shell的正常运行.
+\end{myitemize}
+
 \paragraph{只读变量}
 使用 \mintinline{shell}{readonly} 命令可以将变量定义为只读变量: \mintinline{shell}{readonly var}.
 
+\subsection{数组}
+\paragraph{数组定义}
+shell 中, 用括号表示数组, 元素之间用空格分开, 如: \mintinline{shell}{arr=(e1 e2 e3 e4 e5)}, 也可以每行写一个元素:
+
+\begin{tcblisting}{listing engine=minted,minted style=trac,minted language=shell,listing only}
+	# 写成一行
+	arr=(e1 e2 e3 e4 e5)
+	# 一行一个元素
+	arr=(
+	e1
+	e2
+	e3
+	e4
+	e5
+	)
+	# 或者直接单独定义数组的各个元素
+	arr[0]=e1
+	arr[1]=e2
+	arr[n]=en
+\end{tcblisting}
+
+注意, 直接定义数组的各个元素时, 可以不定义某些索引处的值. 
+
+\paragraph{读取数组}
+一般的格式:  \mintinline{shell}{${var[i]}}, 或者取所有元素: \mintinline{shell}{${var[@]}}.
+
+获取数组的长度: \mintinline{shell}{${var[@]}}, 或者 \mintinline{shell}{${var[*]}}. 注意, 计算长度时会忽略那些没有定义值的下标.
+
+
+\subsection{注释}
+单行注释: \mintinline{shell}{#}.
+多行注释: 
+\begin{tcblisting}{listing engine=minted,minted style=trac,minted language=shell,listing only}
+	:<<EOF
+	第一行注释
+	第二行注释
+	第三行注释
+	EOF
+\end{tcblisting}
+
 \subsection{字符串}
+\subsubsection{引号}
+字符串可以用单引号, 可以用双引号, 也可以不用引号. 但是单引号和双引号还是有些差别的. 单引号的限制:
+\begin{myitemize}
+	\item 单引号里的任何字符都会原样输出, 里面的变量是无效的;
+	
+	\item 单引号中不能出现单独一个的单引号, 对单引号进行转义也不行, 但可以成对出现, 此时起着拼接字符串的功能.
+\end{myitemize}
+
+双引号的特点:
+\begin{myitemize}
+	\item 双引号离可以有变量;
+	
+	\item 双引号里可以出现转义字符.
+\end{myitemize}
+
+还有一种特殊的引号, 反引号: \mintinline{shell}{`}. 用反引号括起来的字符串会被 shell 当作命令. 在执行时, shell 首先会执行该命令, 并以它的标准输出结果替换整个反引号部分. 例如: \mintinline{shell}{echo "current working directory is `pwd`"}, 将输出: \mintinline{shell}{current working directory is /home/gzy}. 
+
+
 \subsubsection{\#*, \#\#*, \%*, \%\%* 的含义及用法}
 通过一个示例来解释, 定义一个变量: \mintinline{shell}{file=/dir1/dir2/dir3/my.file.txt}.
 
@@ -32,6 +99,8 @@
 	
 	\item \mintinline{shell}{%} 表示从右向左匹配, \mintinline{shell}{#} 表示从左向右匹配, 都是非贪婪匹配, 即匹配到符合条件的最短结果. \mintinline{shell}{##}, \mintinline{shell}{%%} 则属于贪婪匹配, 即匹配符合条件的最长结果.
 \end{myitemize}
+
+
 
 \subsubsection{截取字符串}
 定义一个字符串: \mintinline{shell}{var=12345678}.

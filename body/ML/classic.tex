@@ -185,7 +185,7 @@ Decision Tree, 是一种基本的分类与回归方法, 基于树形结构来进
 \subsubsection{停止准则}
 这个比较好理解, 也就是我们确定一个结点是否继续分裂的依据, 当然也决定了整棵决策树是否继续生长. 
 
-对于一个结点来说：1) 如果其划分后的收益过小 (小于阈值) , 我们可以不对其进行划分; 2) 如果改结点内的样本的目标值方差 (连续值) 很小或者纯度很高 (类别) , 也没必要继续划分了; 3) 如果结点上的样本数太少了也没必要划分了; 4) 其他要求. 
+!!对于一个结点来说：1) 如果其划分后的收益过小 (小于阈值) , 我们可以不对其进行划分; 2) 如果改结点内的样本的目标值方差 (连续值) 很小或者纯度很高 (类别) , 也没必要继续划分了; 3) 如果结点上的样本数太少了也没必要划分了; 4) 其他要求. 
 
 对于一棵树来说：1) 如果树的高度超过了阈值就不划分了; 2) 叶子结点超过一定数量就不划分了; 3) 其他要求.
 
@@ -608,6 +608,58 @@ SMOTE(Synthetic Minority Over-Sampling Technique) 是一种综合采样人工合
 SMOTE 以每个样本点的 k 个最近邻样本点为依据, 随机的选择 N 个邻近点, 样本点与邻近点进行差值再乘上一个 [0,1] 范围的阈值, 从而达到合成数据的目的. 这种算法的核心是：特征空间上邻近的点其特征都是相似的. 它并不是在数据空间上进行采样, 而是在特征空间中进行采样, 所以它的准确率会高于传统的采样方式. 这也是为什么到目前为止 SMOTE 以及其派生的算法仍然是较为主流的采样技术的原因. 
 
 \subsection{LightGBM}
+\subsubsection{原理}
+LightGBM\cite{guo_nips_2017} 诞生于 NIPS'17. 针对现有 GBDT 实现的一些缺点做了改进, 改进的方向主要是: \textit{efficiency} 和 \textit{scalability}. 现有的实现在分裂结点时, 需要扫所有特征在所有样本上的取值来选择分裂特征和分裂点, 这无疑是非常耗时的. 为了解决这个问题, lgb 中提出了两项技术: \textit{Gradient-based One-Side Sampling} (GOSS) 和 \textit{Exclusive Feature Bundling} (EFB). 前者用于减少参与计算的样本, 后者用于减少参与计算的特征.
+
+\paragraph{GOSS}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{pics/goss.jpg}
+	\caption{Histogram-based Algorithm 和 Gradient-based One-Side Sampling}
+	\label{fig:goss}
+\end{figure}
+
+基于梯度的单边采样, 在尽量保证效果的基础上过滤掉一部分梯度较小的样本. 因此重点是基于什么来对样本进行过滤? 如果有样本权重, 那么根据权重来采样是可以的, 但很多场景下是没有的. 从 GOSS 的名字也可以看出, lgb 中是\textbf{基于梯度来采样}的. 为什么可以这样呢? lgb 作为 GBDT 的一种实现, 本身也是基于梯度的. 因此如果样本的梯度较小则说明其以及可以被很好分类了, 那么其就是个 \textit{easy sample}, 对于哪些梯度大的则是 \textit{hard sample}. 所以, lgb 中以样本梯度的绝对值作为采样的依据. 但是采样后可能会改变数据的分布, 因此, GOSS 在采样后还有一个缩放的操作. 具体的采样过程其是很简单:
+\begin{myitemize}	
+	\item 基于已有的模型 (即前面已经训练好的树) 计算每个样本的梯度;
+	
+	\item 按照梯度绝对值大小对样本进行排序;
+	
+	\item 取前 $a (\in (0, 1))$ 的数据作为大梯度的样本, 保留下来;
+	
+	\item 在剩下的 $1-a$ 的样本中随机选择 $b (\in (0, 1))$ 的样本保留下来, 并对这些样本的梯度进行缩放, 乘以 $\frac{1 - a}{b}$;
+	
+	\item 上两步保留的样本作为这一轮的训练数据;
+\end{myitemize}
+
+注意, 根据采样比例计算采样样本数时, 都是相对总样本而言(从 Fig.\ref{fig:goss} 中的 \textit{Gradient-based One-Side Sampling} 可以看出)! 为什么要对小梯度中采样到的样本的梯度进行 $\frac{1 - a}{b}$ 的缩放呢? 
+
+假设小梯度的样本的平均梯度是 $\mu$, 则采样前梯度的总量是 $(1-a) \cdot \mu$, 那么采样后的梯度总量是 $(1-a) \cdot b \cdot \mu$. 为了保持梯度总量不变, 即 $(1-a) \cdot \mu = (1-a) \cdot b \cdot \mu \cdot x$, 显然 $x = \frac{1 - a}{b}$, $x$ 就是缩放系数.
+
+\paragraph{EFB}
+互斥特征绑定. 高维的特征大多是很稀疏的, 如果能在牺牲一点点效果的条件下降低特征的维数就可以大大提高性能. 在稀疏的数据中, 存在一些\textbf{互斥的特征}: 这些特征基本上不会同时取非零值. EFB 将这些互斥的特征进行组合作为一个单一的特征, 一次来减少特征的数量. 如何做到呢? EFB 分成两步走: 1) 哪些特征应该被划分到一个 \textit{bundle}; 2) 如何组合 \textit{bundle} 中的特征.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{pics/efb.jpg}
+	\caption{EFB 中的两个算法: 构建 \textit{bundle} 和 组合 \textit{bundle} 中的特征}
+	\label{fig:efb}
+\end{figure}
+
+\subparagraph{Greedy Bundling}
+直接对特征进行组合的话将会是一个 NP-hard 的问题, 因此 lgb 将该问题转化为 graph coloring 问题: 将每一个特征视作一个结点, 如果两个特征(结点)不满足互斥的条件则存在边. 再采用贪心的算法来对构建的图进行染色, 最终得到原特征集合的划分, 如 Fig.\ref{fig:efb} 中的 \textit{Greedy Bundling} 所示. 每个 \textit{bundle} 中就是互斥的特征集合. EFB 中并不是严格的互斥, 从算法的伪代码中也可以看到, 冲突次数小于等于 $K$ 是视为互斥的. lgb 中还给出了冲突率和 \textit{accuracy} 的影响的证明. 
+
+\subparagraph{Merge Exclusive Features}
+如何把一个 \textit{bundle} 的特征合并为一个特征呢? 一个关键: \textbf{可以从合并后的特征识别处原始特征的值}, 即尽可能降低信息的损失. lgb 中是引入了 \textit{offset} 来帮助区分该值是来源于 \textit{bundle} 中的哪个特征. 例如一个 \textit{bundle} 中的两个特征 $A, B$. 其中 $A$ 的取值范围是 $[0, 10)$, $B$ 的取值范围是 $[0, 20)$. 可以对 $B$ 的取值加上一个值为 10 的 \textit{offset}, 则合并后的特征的取值范围是 $[0, 30)$. 
+
+
+当然, 除了以上两点, lgb 中还有一些其他改变, 比如改用 \textit{leaf-wise} 的生长策略, 而不是 \textit{level-wise}. 
+
+\textcolor{red}{\textbf{注意}}: 其实关于 lgb 还有一些疑惑, lgb 是否用到了损失函数的二阶导; EFB 之后是怎么进行分裂的.
+
+一些参考资料: \href{https://mp.weixin.qq.com/s/XxFHmxV4_iDq8ksFuZM02w}{LightGBM源码阅读+理论分析（处理特征类别，缺省值的实现细节）}.
+
 \subsubsection{Core Parameters}
 主要参考\href{https://lightgbm.readthedocs.io/en/latest/Parameters.html#}{这里}.
 \paragraph{任务相关的参数}
