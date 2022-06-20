@@ -91,6 +91,44 @@ $$
 \end{myitemize}
 
 
+\subsection{ETA}
+ETA, End-to-end Target Attention method , 阿里妈妈于 2021 年在 arxiv 上挂的论文 "End-to-End User Behavior Retrieval in Click-Through Rate Prediction Model". 主要做的是用户超长行为序列的建模和减小两阶段方法的信息差. 其结构如 Fig. \ref{fig:eta} 所示.
+
+\subsubsection{Motivation}
+ETA 并不是第一个做超长行为序列建模的, 现有的很多工作都是 two-satge 的:  
+\begin{itemize}
+	\item Stage \uppercase\expandafter{\romannumeral1}: 从行为序列中抽取 top-$k$ 个相似的物品; 
+	
+	\item Stage \uppercase\expandafter{\romannumeral2}: \textit{target item} 与抽取的物品之间做 \textit{target attention} 得到用户兴趣向量, 最后进行后续的 CTR 预测.
+\end{itemize}
+
+虽然已有一些工作, 但超长序列建模的方案并不是很好, 例如第一阶段一般会比较耗时, 因此通常线上时是利用离线计算好的表征来做 top-$k$ 的抽取, 而 CTR 通常是在线学习的, 这也就造成了一个信息差. ETA 的主要贡献就是: 利用 \textit{SimHash} \textcolor{red}{降低了第一阶段的耗时使得能够在线上利用最新的表征做 top-$k$ 抽取}, 再有一个不同的就是利用 \textit{multi-head target attention} 了, 这个个人认为不是那么独特了.
+
+\subsubsection{ETA 怎么做的}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{pics/ETA.png}
+	\caption{The structure of ETA}
+	\label{fig:eta}
+\end{figure}
+
+从模型结构图上就可以看出, 虽然标题是 Ent-to-End, 但本质上还是 two-stage: 在 top-$k$ 抽取阶段引入了 \textcolor{red}{\textit{SimHash}} 来计算物品之间的相似性, 用 \textcolor{red}{\textit{Multi-head Target Attention}} 来生成兴趣向量. 与以往不同的是, 线上模型可以在最新的物品表征的基础上进行直接实时 top-$k$ 物品抽取. 
+
+$\text{SimHash}: e \longmapsto h$. 将物品表征映射成一个二元串 (\textit{fingerprint}). 在 top-$K$ 抽取阶段, 通过计算 \textit{target item} 与 $\mathcal{H}_{lu}$ 中物品 \textit{fingerprint} 的汉明距离来选择物品. \textbf{\textcolor{red}{降低时间复杂度, O(L * B * d) $\rightarrow$ O(L * B)}}, 将向量间的内积降为二元串的乘积. SimHash 是满足 \textit{Locality-sensitive}性质的: 输入相似则输出相似. 这个呢其实可以这样理解: 每一个哈希函数生成一个二进制位, 表征向量可以看作空间中的一个点, 一个哈希函数相当于对这个点做了一个旋转操作. 因此对于空间中邻近的点, 旋转后也会邻近. 
+
+关于 \textit{multi-head target attention} 其实没有什么可讲的, \textit{target attention} 早已经遍地开花了, 这个只不过是加了一个多头注意力. 注意到图中还用到了短期行为序列. 长短期的处理其实是一样的, 共享一套表征, 除了长期的行为序列有一个 top-$k$ 的抽取过程, 二者没有其他差别. 在文中, 是将完整的行为序列按找时间, 将最近的一小部分作为短期, 其余的作为长期. 忘了在哪看到, \textbf{对长, 短期的行为序列应该有不同的建模方式, 例如使用不同的表征}. 
+
+\subsubsection{不足}
+\begin{itemize}
+	\item 用 \textit{SimHash} 代替第一阶段的内积来得到 top-$k$, 降低了时间消耗, 使得线上模型能够利用最新的表征计算 top-$k$, 而不需要离线存储好 top-$k$, 降低了 information gap;
+	\vskip5pt
+	
+	\item 个人感觉除了 \textit{SimHash}, 其他方面和已有工作没有很大的不同, 引入 \textit{Multi-head Target Attention} 增大模型容量(得到的提升有限);
+	\vskip5pt 
+	
+	\item 模型中提到了短期行为序列, 实际只是按照序列的顺序做了一个简单的划分, 处理方式与长期序列一模一样, \textcolor{red}{短期序列这一部分略显多余}.
+\end{itemize}
+
 参考资料
 \begin{myitemize}
 	\item \href{https://mp.weixin.qq.com/s?__biz=MzU0MDA1MzI0Mw==&mid=2247488129&idx=1&sn=ed882611a06b75e8e819b519010e9e81&chksm=fb3e4915cc49c003cb4505d0b09f06fa1c4e92409270b49f5509f1902774234382ba05b400d8&scene=21#wechat_redirect}{浅谈行为序列建模};

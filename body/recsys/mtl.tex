@@ -17,8 +17,9 @@
 \begin{myitemize}
 	\item Shared-Bottom;
 	\item One-gate MOE(Mixture-of-Experts);
-	\item MMOE, KDD'2018;
 	\item ESMM, SIGIR'2018;
+	\item MMoE, KDD'2018;
+	
 	\item SNR(Subnetwork Routing), AAAI'2019;
 	\item PLE, RecSys'2020;
 \end{myitemize}
@@ -42,16 +43,84 @@ MTL 通常受到数据分布以及任务之间相关性的影响 (\textbf{如何
 \subsubsection{模型融合}
 多目标模型融合, 通过将一个模型同时训练多个目标 (label 的构造) . 该方法的优点是各个任务之间能够共享信息, 同意迭代方便, 节省资源. 缺点: 目标越多模型越复杂, 各个任务之间相互影响, 迭代速度慢. 
 
-\subsection{Shared-Bottom}
-简称为 SB, 即多个任务之间有一个共享的底座. 
-
-\subsection{MMOE}
-gating network 可以用来学习任务之间的关系. 
 
 \subsection{ESMM}
+ESSM, Entire Space Multi-task Model, 诞生于阿里于 2018 年在 SIGIR 上发表的论文 "Entire Space Multi-Task Model: An Efficient Approach for Estimating Post-Click Conversion Rate". 该论文针对 CVR 估计中的样本选择偏差 (Sample Selection Bias, SSB) 和 数据稀疏 (Data Sparsity, DS) 问题, 提出了一个多任务学习的模型, 模型结构如 Fig.\ref{fig:esmm} 所示.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{pics/esmm.jpg}
+	\caption{The structure of ESMM}
+	\label{fig:esmm}
+\end{figure}
+
+\subsubsection{Motivation}
 转化率预估(CVR)目前主要存在两个难点: 
-- SSB(sample selection bias). CVR 预估模型是在点击的样本上进行训练的, 但是被用于在整个样本空间上进行推断. 这样做实际上存在一个很严重的问题, 因为模型用于训练的数据全是点击数据, 而上线预测则是用于全部的数据, 训练和预测的数据分布完全不一样；
-- Data Sparsity. 实际上CTR预估的数据就已经非常稀疏了, 再考虑到从点击到转化, 实际转化率一般也不超过百分之几, 这样实际上用户看到一件商品, 到最后购买, 这个几率可能就只有万分之几, 一般的方法是很难去处理如此稀疏的数据的；
+\begin{itemize}
+	\item SSB. 从 CVR 模型使用的角度来看, 其训练过程是\textcolor{red}{有偏}的. CVR 预估模型是\textbf{在点击的样本上进行训练的}, 但是被用于\textcolor{red}{在整个样本空间上进行推断}. 这样做实际上存在一个问题, 训练和预测的数据分布的不一致会损害模型的泛化能力;
+	
+	\item DS. 实际上CTR预估的数据就已经非常稀疏了, 点击后再转化的数据则更少了;
+\end{itemize}
 
-ESMM(Entire Space Multi-Task Model) 的创新点主要是用到了一个 multi-task learning 的方法,  并没有直接去预估CVR, 而是采用两个辅助的任务, 通过预测 CTR 和 CTCVR 来间接的预测 CVR, 因为 $CTCVR=CTR * CVR$, 这样由于 CTR 和 CTCVR 预估都是在全样本空间进行预估的, 从而避免了上面说的两个问题,  注意, 实际处理时, CVR 不是通过 CTCVR/CTR 来进行计算的, 实际上我们在模型处理是, 这三个变量都有预测, 但是只计算了 CTR 和 CVCTR 的 loss. 
+ESMM(Entire Space Multi-Task Model) 并没有直接在整个样本空间上去预估CVR, 而是采用两个辅助的任务: CTR 和 CTCVR 来间接的预测 CVR, 而不是直接通过在点击数据上训练 CVR 模型, 因为这些数据是有偏的, 如果直接用其余样本作为负样本, \textbf{并不知道这些没被转化是因为没被点击还是因为其他原因}.
 
+\subsubsection{HOW}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{pics/ssb.jpg}
+	\caption{Illustration of sample selection bias problem in conventional CVR modeling. Training space is composed of samples with clicked impressions. It is only part of the inference space which is composed of all impressions.}
+	\label{fig:ssb}
+\end{figure}
+
+结合 Fig.\ref{fig:esmm} 来看, \textit{Main Task} 是 pCVR, 两个辅助任务是 pCTR, pCTCVR, 被估计的样本是 $x$. 先看看各个任务的\textbf{训练样本}是什么:
+\begin{itemize}
+	\item pCTR: 曝光样本空间, 即 Fig.\ref{fig:ssb} 中的 impression, 曝光中点击的 ($y=1$) 作为正样本, 未点击的作为负样本;
+	
+	\item pCVR: 点击空间, 即 Fig.\ref{fig:ssb} 中的click, 转化的 ($z=1$) 作为正样本, 未转化的作为负样本;
+	
+	\item pCTCVR: 曝光空间, 点击且转化的 ($y=1\&z=1$) 作为正样本;
+\end{itemize}
+要注意: \textbf{\textcolor{red}{pCVR 是在整个曝光空间上推断时}} --- SSB 问题的来源. 那能不能在整个曝光空间上来训练 pCVR 呢? 回顾一下 ESMM 的名字 "\textbf{Entire Space} Multi-Task Model", 重点在于这个 Entire Space, 这个空间指的就是 Fig.\ref{fig:ssb} 中的 impression. 其实这也回答了刚刚的问题, 可以在整个曝光空间上训练 pCVR. 那就来看看 ESMM 怎么做的.
+
+ESMM 中并不直接去估计 pCVR, 而是去估计 pCTR 和 pCTCVR. 这两个辅助任务的训练空间都是曝光空间. 这两个辅助任务与主任务之间的关系:
+$$
+\underbrace{p(y=1, z=1 \mid x)}_{p C T C V R}=\underbrace{p(y=1 \mid x)}_{p C T R} \times \underbrace{p(z=1 \mid y=1, x)}_{p C V R}
+$$
+
+如 Fig.\ref{fig:esmm} 所示, ESMM 由两个子网络组成, 左边的估计 pCVR, 右边的估计 pCTR, 二者相乘得到 pCTCVR, 实际训练时只针对 pCTR 和 pCTCVR 计算损失:
+$$
+\begin{aligned}
+	L\left(\theta_{c v r}, \theta_{c t r}\right) &=\sum_{i=1}^{N} l\left(y_{i}, f\left(x_{i} ; \theta_{c t r}\right)\right) \\
+	&+\sum_{i=1}^{N} l\left(y_{i} \& z_{i}, f\left(x_{i} ; \theta_{c t r}\right) \times f\left(x_{i} ; \theta_{c v r}\right)\right)
+\end{aligned}
+$$
+ESMM 的目的是训练一个能够在全样本空间上进行 CVR 估计的模型, 但是并没有直接去训练这个模型的参数, 而是通过 pCTR, pCTCVR 与 pCVR 之间的约束关系 $pCTCVR = pCTR * pCVR$ 来学习 pCVR 模型的参数. 其实, 也可以分别单独估计 pCTR 和 pCTCVR 再来求 pCVR, 但是这样会有两个问题: 1) CTR, CTCVR 都是很小的数, 做除法会有数值上的不稳定, 而且 2)单独估计时二者之间不存在约束关系, 做除法时可能会得到大于 1 的 CVR.
+
+\subsubsection{总结}
+\begin{itemize}
+	\item ESMM 通过多任务学习来解决 CVR 样本空间在训练和推理时不一致的问题, 利用了 CVR, CTR 这两个目标之间的依赖关系;
+	
+	\item ESMM 这种形式可以推广到目标\textbf{具有依赖关系}的场景中, \textcolor{red}{对于关系比较模糊的场景该怎么办呢?}
+	
+	\item 真实场景中, 可以直接使用 CVR 的模型来进行打分作为排序的依据;
+\end{itemize}
+
+\subsection{Shared-Bottom}
+简称为 SB, 即多个任务之间有一个共享的底座. SB 是由 Rich Caruana 与 1997 年在其博士论文中提出来的. SB 有一个被多个任务共享的模块 (shared-bottom network), 该模块的输出作为各个任务的输入, 每个任务有一个单独的网络来学习.
+
+\subsection{MMoE}
+MMoE, Multi-gate Mixture-of-Experts, 诞生于 Google 于 2018 年八月在 KDD 上发表的论文 "Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts". 基于 NN 的多任务学习模型一般对任务之间的关系比较敏感, 即在相关性强的任务上效果好, 相关性弱的效果差. 该论文提出了 MMoE 来克服任务间关系敏感的问题.
+
+\subsubsection{Motivation}
+在很多场景中, 通常是要同时考虑多个目标的, 一开始大家都是未每个任务建一个模型, 但是随着数据量和业务规模的扩大和复杂化, 一个任务一个模型的成本越来越高, 效果也不太稳定. 那么能不能同时对所有任务一起建模, 一起学习和优化呢? 当然是可以的, 这方面的尝试也早就开始了 --- multi-task learning. 但有时多任务学习的效果并不如单个模型独立学习, 这里面是有很多原因造成的, 例如任务之间的相关性, 差异性. 其中一个主要的原因就是\textcolor{red}{\textbf{任务间的关系 / 差异}}, 这也是大家研究的较多的一个方向. 为什么任务间差异大效果就不好呢? 由于任务间差异大, 可能各个任务的最优解是相距很远的, 甚至是互斥的. 以往的工作为了弥补任务间的差异, 会引入更多的参数, 这样做会增加学习的计算量, 而且在真实的场景中有些参数是不可获得的.
+
+\subsubsection{HOW}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.85\textwidth]{pics/mmoe.jpg}
+	\caption{(a) Shared-Bottom model. (b) One-gate MoE model. (c) Multi-gate MoE model.}
+	\label{fig:mmoe}
+\end{figure}
+
+MMoE 的模型结构如 Fig. \ref{fig:mmoe} (c) 所示. 可以看到, 这三个模型是有明显的递进关系的, 从 SB 的单个 shared-bottom 到 MoE 的多个 shared-bottom, 从 MoE 的单门控到 MMoE 的多门控. 
