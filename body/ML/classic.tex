@@ -742,3 +742,15 @@ LightGBM 本身也是一种集成学习的方式, 因此关于基学习器也有
 	\item 可以选择重复上述过程.
 \end{myenumerate}
 其实, 调参并不能带来大幅的提升, 主要还是看特征工程、模型集成等.
+
+\subsubsection{类别特征的处理}
+LightGBM 中引入了对 类别特征的支持, 对于基数较大的类别特征而言, 如果将其展开为 one-hot, 是会有一些坏处的, 例如: 1) 大大增加特征的维数, 空间效率降低; 2) one-hot 展开后, 每个类别上的样本数可能会很少, 分列时是按照 ovr 的形式分裂的, 因为样本过少可能会存在估计不准的情况. lgb 中并不需要将类别特征展开为 one-hot, 可以直接对类别特征进行划分, 按照 many-vs-many 的形式进行划分. 那怎么将一个类别特征的取值划分成两部分呢?
+
+这一过程分成两步:
+\begin{enumerate}
+	\item 离散特征建立直方图. 众所周知, lgb 中使用了直方图算法来对特征进行分桶, 在这些桶中寻找分裂点. 显然, 也会为离散特征建立直方图, 直方图的每个 \textit{bin} 中保存的是样本的一阶和二阶导数. 当然并不是为每个离散值建立一个 \textit{bin}, 对于那些出现次数过少的离散值则会被过滤掉 (多少算少呢? 这个是可以通过参数 \mintinline{python}{min_data_in_bin} 来指定的);
+	
+	\item 计算分裂的阈值. 先检查这个时候该特征下 \textit{bin} 的数量, 若其小于一定的数量 (由参数 \mintinline{python}{max_cat_to_onehot} 指定) 时则按照 one-hot 的形式对待, 即 ovr 的形式. 当 \textit{bin} 较多时, 则会根据每个 \textit{bin} 的 \mintinline{python}{sum(gradient) / sum(hessian) + reg} 值来对该特征下的 \textit{bins} 进行排序, 然后遍历每个桶找到最优的切分点.
+\end{enumerate}
+
+参考: \href{https://lightgbm.readthedocs.io/en/latest/Features.html#optimal-split-for-categorical-features}{Optimal Split for Categorical Features}.

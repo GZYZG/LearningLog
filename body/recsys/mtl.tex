@@ -15,13 +15,13 @@
 
 多目标任务的常用模型: 
 \begin{myitemize}
-	\item Shared-Bottom;
-	\item One-gate MOE(Mixture-of-Experts);
+	\item MOE(Mixture-of-Experts), \textcolor{red}{1991};
+	\item Shared-Bottom, \textcolor{red}{1997};
 	\item ESMM, SIGIR'2018;
 	\item MMoE, KDD'2018;
-	
 	\item SNR(Subnetwork Routing), AAAI'2019;
 	\item PLE, RecSys'2020;
+	\item AITM, KDD'21;
 \end{myitemize}
 
 多任务学习通常通过 Hard 或 Soft 参数共享来完成: 
@@ -106,7 +106,7 @@ ESMM 的目的是训练一个能够在全样本空间上进行 CVR 估计的模�
 \end{itemize}
 
 \subsection{Shared-Bottom}
-简称为 SB, 即多个任务之间有一个共享的底座. SB 是由 Rich Caruana 与 1997 年在其博士论文中提出来的. SB 有一个被多个任务共享的模块 (shared-bottom network), 该模块的输出作为各个任务的输入, 每个任务有一个单独的网络来学习.
+简称为 SB, 即多个任务之间有一个共享的底座. SB 是由 Rich Caruana 与 1997 年在其博士论文中提出来的. SB 有一个被多个任务共享的模块 (shared-bottom network), 该模块的输出作为各个任务的输入, 每个任务有一个单独的网络来学习. SB 对任务相关性高的多任务学习效果较好, 也能加速训练进程的收敛, 但是当任务的目标不相关甚至相反时, 可能会影响各个任务的学习效果.
 
 \subsection{MMoE}
 MMoE, Multi-gate Mixture-of-Experts, 诞生于 Google 于 2018 年八月在 KDD 上发表的论文 "Modeling Task Relationships in Multi-task Learning with Multi-gate Mixture-of-Experts". 基于 NN 的多任务学习模型一般对任务之间的关系比较敏感, 即在相关性强的任务上效果好, 相关性弱的效果差. 该论文提出了 MMoE 来克服任务间关系敏感的问题.
@@ -123,4 +123,21 @@ MMoE, Multi-gate Mixture-of-Experts, 诞生于 Google 于 2018 年八月在 KDD 
 	\label{fig:mmoe}
 \end{figure}
 
-MMoE 的模型结构如 Fig. \ref{fig:mmoe} (c) 所示. 可以看到, 这三个模型是有明显的递进关系的, 从 SB 的单个 shared-bottom 到 MoE 的多个 shared-bottom, 从 MoE 的单门控到 MMoE 的多门控. 
+MMoE 的模型结构如 Fig. \ref{fig:mmoe} (c) 所示. 可以看到, 这三个模型是有明显的递进关系的, 从 SB 的单个 shared-bottom 到 MoE 的多个 shared-bottom, 从 MoE 的单门控到 MMoE 的多门控. 从 SB, MoE 可以看出, 人物之间的差异出要体现在 Task-specific 的那部分参数. 虽然 MoE 中引入了一个 gating network, 但是对不不同的 Task-specific 模块来说, 输入依然是一样的 (有点残差的意思). 再看 MMoE, 除了 Task-specific 的输出模块, 还有 Task-specific 的 gating network. 形式化地定义一下 MMoE 中每个任务的输出:
+$$
+\begin{aligned}
+	y_k &= h^k (f^k (x)) \\ 
+	f^k (x) &= \sum_{i=1}^n g^k (x)_i f_i(x)  \\
+	g^k (x) &= softmax(W_{gk} x)
+\end{aligned}
+$$
+其中 $k$ 表示第 $k$ 个任务, $n$ 是 Experts 的数量. $g^k \in \mathbb{R}^n$ 表示针对 $k$ 的 gating network, $f_i$ 是 MoE 中第 $i$ 个 Expert 的输出, \textbf{是一个向量}, $h^k$ 则是 $k$ 的输出模块, $f^k$ 是 $k$ 的输出模块的输入. 很显然, MMoE 在 MoE 的基础上, 为每个任务引入了一个 gating network.
+
+\textcolor{red}{为什么为每个任务加一个 gating network 有效呢?} 首先看看门控的作用. 每一个门控相当于对专家网络的选择 / 开关, 对于不同的 $x$ 就像打开了不同的开关. 而不同门控之间的关系则隐含了不同任务之间的关系.
+
+\subsubsection{总结}
+\begin{itemize}
+	\item 通过 Multi-gate 隐式地建模了不同任务之间的关系, 且对任务之间的关系鲁棒;
+	
+	\item 不同的 Expert 学习不同的信息, 不同的 gating network 学习任务特定的信息以将 Expert 学到的信息进行组合;
+\end{itemize}
