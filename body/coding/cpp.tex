@@ -1,14 +1,14 @@
-参考文档：\href{https://www.cplusplus.com/}{cplusplus.com}
+参考文档: \href{https://www.cplusplus.com/}{cplusplus.com}
 \subsection{C++数据类型转换}
 \paragraph{数字 <=> 字符串}
 \begin{itemize}
-	\item itoa: 整数转为字符串，可以设置基底
-	\item stoi: 字符串转为整数 ，可以设置基底
-	\item atoi、atol、atoll: 将字符串转为int/long/long long，可以设置基底
-	\item to\_string: 可以讲数字转为字符串，包括整数、小数等
+	\item itoa: 整数转为字符串, 可以设置基底
+	\item stoi: 字符串转为整数 , 可以设置基底
+	\item atoi、atol、atoll: 将字符串转为int/long/long long, 可以设置基底
+	\item to\_string: 可以讲数字转为字符串, 包括整数、小数等
 \end{itemize}
 
-\subsection{C++集合} 通过$\#include<set>$来引入set。关于集合的一些运算，包含在algorithm库中。在algorithm库中有一个includes函数，可以用来判断两个容器之间是否存在包含关系，但是，要注意\tbc{red}{两个容器都要先从小到大进行排序！！！}
+\subsection{C++集合} 通过$\#include<set>$来引入set. 关于集合的一些运算, 包含在algorithm库中. 在algorithm库中有一个includes函数, 可以用来判断两个容器之间是否存在包含关系, 但是, 要注意\tbc{red}{两个容器都要先从小到大进行排序！！！}
 \begin{cpp}
 	// 省略头文件和库的包含代码
 	int container[] = {5,10,15,20,25,30,35,45,50};
@@ -26,50 +26,50 @@
 
 
 \subsection{字符串}
-C++中字符串用双引号括起来，字符用单引号括起来。
+C++中字符串用双引号括起来, 字符用单引号括起来. 
 \paragraph{字符串比较}
 compare
 
 \paragraph{常用方法}
 \begin{itemize}
-	\item 初始化：\mintinline{cpp}{string s(n, 'c');}
-	\item 插入字符串：\mintinline{cpp}{s.insert(pos, len, "insert");}
-	\item 删除子串：\mintinline{cpp}{s.erase(pos, len, "erase");}
+	\item 初始化: \mintinline{cpp}{string s(n, 'c');}
+	\item 插入字符串: \mintinline{cpp}{s.insert(pos, len, "insert");}
+	\item 删除子串: \mintinline{cpp}{s.erase(pos, len, "erase");}
 	\item 
 \end{itemize}
 
 \subsection{数组}
 \paragraph{数组初始化}
 \begin{itemize}
-	\item \mintinline{cpp}{type [][depth][depth]...[depth]}声明多维数组时，只能有一维的大小不指定
-	\item \mintinline{cpp}{int arr[5] = {1, 2, 3, 4, 5}}声明数组时可以给数组赋值（初始化列表），如果指定的数组大小则$\{\}$中的值的数量应该小于等于数组大小，如果数量小于数组大小，则数组中后续位置将会被填充默认值（对于基础类型，则为0）。因此，当$\{\}$未空时，数组将会被填充为默认值
-	\item \mintinline{cpp}{int *p = new int[5]}将在堆中分配内存，此时也可以对数组进行初始化：\mintinline{cpp}{int *p = new int[]{1, 2, 3, 4, 5}}、\mintinline{cpp}{int *p = new int[]()}。对于基本类型，如果不进行初始化，局部定义的数组的值是未定义的；对于类类型，会默认调用其默认构造函数。\textbf{堆中分配的数组要用delete删除}
+	\item \mintinline{cpp}{type [][depth][depth]...[depth]}声明多维数组时, 只能有一维的大小不指定
+	\item \mintinline{cpp}{int arr[5] = {1, 2, 3, 4, 5}}声明数组时可以给数组赋值（初始化列表）, 如果指定的数组大小则$\{\}$中的值的数量应该小于等于数组大小, 如果数量小于数组大小, 则数组中后续位置将会被填充默认值（对于基础类型, 则为0）. 因此, 当$\{\}$未空时, 数组将会被填充为默认值
+	\item \mintinline{cpp}{int *p = new int[5]}将在堆中分配内存, 此时也可以对数组进行初始化: \mintinline{cpp}{int *p = new int[]{1, 2, 3, 4, 5}}、\mintinline{cpp}{int *p = new int[]()}. 对于基本类型, 如果不进行初始化, 局部定义的数组的值是未定义的；对于类类型, 会默认调用其默认构造函数. \textbf{堆中分配的数组要用delete删除}
 \end{itemize}
 
 \subsection{遍历vector的方式}
 \begin{cpp}
 	vector<int> nums = {1, 2, 3, 4, 5};
-	// 方法1：下标
+	// 方法1: 下标
 	for(int i = 0; i < nums.size(); i++){
 		// do something
 	}
 	
-	// 方法2：迭代器
+	// 方法2: 迭代器
 	for(vector<int>::iterator it = nums.begin(); it != nums.end(); it++){
 		// do something
 	}
 
-	// 方法3：auto，以引用的形式遍历，可以修改值
+	// 方法3: auto, 以引用的形式遍历, 可以修改值
 	for(auto &it: nums){
 		// do something 
 	}
 
-	// 方法4：auto，以值的形式遍历，不可以修改值
+	// 方法4: auto, 以值的形式遍历, 不可以修改值
 	for(auto it: nums){
 		// do something
 	}
 	
-	// 方法5：for_each
+	// 方法5: for_each
 	foreach(nums.begin(), nums.end(),
 			[](const auto &val) -> void { 
 				// do something
@@ -78,7 +78,7 @@ compare
 \end{cpp}
 
 \subsection{for\_each}
-for\_each源码如下：
+for\_each源码如下: 
 \begin{cpp}
 	template<class InputIterator, class Function>
 	Function for_each(InputIterator first, InputIterator last, Function fn)
@@ -90,24 +90,24 @@ for\_each源码如下：
 		return fn;      // or, since C++11: return move(fn);
 	}
 \end{cpp}
-其中参数fn是一个一元函数（即只能有一个参数），它的返回值会被忽略。
+其中参数fn是一个一元函数（即只能有一个参数）, 它的返回值会被忽略. 
 
 \subsection{deque}
-\mintinline{cpp}{#include <deque>}。double ended queue，双端队列。\href{https://www.cplusplus.com/reference/deque/deque/?kw=deque}{dequ}e是一种动态容器（通常以动态数组的形式，如链表，来实现），可以在两端增加或者删除元素，随机访问deque中的元素。
+\mintinline{cpp}{#include <deque>}. double ended queue, 双端队列. \href{https://www.cplusplus.com/reference/deque/deque/?kw=deque}{dequ}e是一种动态容器（通常以动态数组的形式, 如链表, 来实现）, 可以在两端增加或者删除元素, 随机访问deque中的元素. 
 
 \subsection{priority\_queue}
-\mintinline[bgcolor=yellow]{cpp}{#include <queue>}。
+\mintinline[bgcolor=yellow]{cpp}{#include <queue>}. 
 \begin{minted}{cpp}
 	template <class T, class Container = vector<T>,
 	class Compare = less<typename Container::value_type> > class priority_queue;
 \end{minted}
-\href{https://www.cplusplus.com/reference/queue/priority_queue/?kw=priority_queue}{priority\_queue}，优先队列。priority\_queue是一种容器适配器（container adaptor），它使用某种容器（可以是queue、vector等，默认是vector）作为其数据的容器，并提供了一些接口来访问容器内的元素，重点就在这些接口上（\mintinline{cpp}{push, pop, top}）！priority\_queue的特点：
+\href{https://www.cplusplus.com/reference/queue/priority_queue/?kw=priority_queue}{priority\_queue}, 优先队列. priority\_queue是一种容器适配器（container adaptor）, 它使用某种容器（可以是queue、vector等, 默认是vector）作为其数据的容器, 并提供了一些接口来访问容器内的元素, 重点就在这些接口上（\mintinline{cpp}{push, pop, top}）！priority\_queue的特点: 
 \begin{myitemize}
 	\item 第一个元素是优先级最大/小的元素（大/小根堆）
-	\item \mintinline{cpp}{top} ：返回顶部的元素，即优先级最大/最小的元素
-	\item \mintinline{cpp}{pop} ：删除顶部的元素
+	\item \mintinline{cpp}{top} : 返回顶部的元素, 即优先级最大/最小的元素
+	\item \mintinline{cpp}{pop} : 删除顶部的元素
 \end{myitemize}
-例子：
+例子: 
 \begin{minted}[linenos, breakafter=true,autogobble=true,frame=leftline]{cpp}
 	#incldue <queue>
 	

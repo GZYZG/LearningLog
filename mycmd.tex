@@ -74,7 +74,7 @@
 	%every listing line={\textcolor{red}{\small\ttfamily\bfseries \$> }}
 }
 
-% 给环境传入参数。[1]表示有1个参数
+% 给环境传入参数. [1]表示有1个参数
 \newtcblisting{xml}[1]{colback=yellow!5,colframe=yellow!50!black,listing only, title=#1, fonttitle=\bfseries,listing engine=minted,minted language=xml, breakable}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usemintedstyle{algol} %%全局设置
@@ -82,7 +82,7 @@
 \usemintedstyle[perl]{algol}
 \newmintinline{perl}{showspaces} %% 行内代码样式, showspaces 代表将空格先显式的打印出来
 
-% command 和 command* 是有区别的，command* 有命令行提示符
+% command 和 command* 是有区别的, command* 有命令行提示符
 % 命令行示例
 %\commandbox*{cd "My Documents"} changes to directory \commandbox{My Documents}.
 %\commandbox*{dir /A} lists the directory content.

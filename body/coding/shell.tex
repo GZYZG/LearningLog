@@ -110,7 +110,7 @@ shell 中, 用括号表示数组, 元素之间用空格分开, 如: \mintinline{
 	
 	\item \mintinline{shell}{${var:OFFSET:LENGTH}}, 从 OFFSET 开始截取长度为 LENGTH 的子串. 如 \mintinline{shell}{${var:2:2}}, 即从下标 2 开始截取长度为 2 的串, 结果为 \mintinline{shell}{34};
 	
-	\item \mintinline{shell}{${var:0-OFFSET}}, 从导数第 OFFSET 个字符串开始截取串, 类似于 python 中的负的索引. 如 \mintinline{shell}{${var:0-2}}, 即从倒数第 2 个开始截取字符串, 结果为 \mintinline{shell}{78}。 那能不能不写 0 呢? 当然可以, 把 0 换成空格即可, 如 \mintinline{shell}{${var: -OFFSET}}; 或者这样 \mintinline{shell}{${var:(-OFFSET)}};
+	\item \mintinline{shell}{${var:0-OFFSET}}, 从导数第 OFFSET 个字符串开始截取串, 类似于 python 中的负的索引. 如 \mintinline{shell}{${var:0-2}}, 即从倒数第 2 个开始截取字符串, 结果为 \mintinline{shell}{78}.  那能不能不写 0 呢? 当然可以, 把 0 换成空格即可, 如 \mintinline{shell}{${var: -OFFSET}}; 或者这样 \mintinline{shell}{${var:(-OFFSET)}};
 	
 	\item \mintinline{shell}{${var:0-OFFSET:LENGTH}}, 从导数第 OFFSET 个字符串开始截取长度为 LENGTH 的子串. 如 \mintinline{shell}{${var:0-2:1}}, 即从倒数第 2 个字符开始截取长度为 1 的子串. 结果为 \mintinline{shell}{7};
 \end{myitemize}
