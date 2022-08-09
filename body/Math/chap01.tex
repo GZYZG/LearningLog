@@ -201,7 +201,7 @@ $$
 $$
 $P$表示原始问题. 分析一下$\theta_P$: 
 \begin{myitemize}
-	\item 当$x$违反原始约束$g_i(x) > 0$或$h_j(x) \neq 0$, 则可以很容易调整对应的$\alpha_i, \beta_j$使$\theta_P(x)$取得$+\infty$. （\textbf{$\alpha_i \geqslant 0$的原因}）
+	\item 当$x$违反原始约束, 即 $g_i(x) > 0$或$h_j(x) \neq 0$, 则可以很容易调整对应的$\alpha_i, \beta_j$使$\theta_P(x)$取得$+\infty$. （\textbf{$\alpha_i \geqslant 0$的原因}）
 	\item 当$x$满足原始约束时, 则有: 
 	$$
 	\theta_P(x) = \mathop{max}_{\alpha, \beta:\alpha_i \geqslant 0} L(x, \alpha, \beta) = f(x)
@@ -230,7 +230,7 @@ $$
 $$
 \theta_D(\alpha, \beta) = \mathop{min}_{x} L(x, \alpha, \beta)
 $$
-$D$表示其为对偶问题, 其含义可与$\theta_P$类别. 考虑$\theta_D$的极大化, 即: 
+$D$表示其为对偶问题, 其含义可与$\theta_P$类比. 考虑$\theta_D$的极大化, 即: 
 $$
 \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \theta_D(\alpha, \beta) = \mathop{max}_{\alpha, \beta: \alpha_i \geqslant 0} \mathop{min}_{x} L(x, \alpha, \beta)
 $$
@@ -406,3 +406,5 @@ $$
 其中 $g_k$ 是 $f$ 的一阶导在 $x_k$ 的取值, $H_k$ 是 $f$ 的海森矩阵在 $x_k$ 的取值.
 
 牛顿法的\textbf{特点}: 1) 收敛速度快; 2) 对起始迭代点敏感, 如果初始点离最优点很远, 可能会不收敛; 3) 需要计算海森矩阵的逆, 但可能该矩阵是不可逆的且求逆的计算量很大 (拟牛顿法就是针对这个问题提出来的); 
+
+\subsection{最小二乘法}
