@@ -50,7 +50,38 @@ $$
 	\label{fig:accept-reject-sample}
 	\caption{接受-拒绝采样}
 \end{figure}
-具体该怎么操作呢？如Fig.\ref{fig:accept-reject-sample}所示, 选择$q(x)$, 乘以$k$得到$kq(x)$使之刚好能够保住$p(x)$. 对于$q(x)$中采样到的样本$z_0$, 从$[0, 1]$的均匀分布中取一个数$u_0$, 如果$u_0 \le \frac{p(z_0)}{q(z_0)}$则接受$z_0$. 
+具体该怎么操作呢？如Fig.\ref{fig:accept-reject-sample}所示, 选择$q(x)$, 乘以$k$得到$kq(x)$使之刚好能够包住$p(x)$. 对于$q(x)$中采样到的样本$z_0$, 从$[0, 1]$的均匀分布中取一个数$u_0$, 如果$u_0 \le \frac{p(z_0)}{q(z_0)}$则接受$z_0$. 
+
+\subsubsection{蓄水池抽样}
+主要解决的问题: \textbf{给定一个数据流, 数据流长度 $N$ 很大, 且在数据处理完之前 $N$ 都是未可知的, 请问如何在只遍历一遍数据的情况下, 随机选出 $k$ 个数据, 使每个元素被抽到的概率相等}.
+
+\textbf{抽样过程}:
+\begin{enumerate}
+	\item 构建一个可容纳 $k$ 个元素的数组 (即蓄水池) $nums$;
+	
+	\item 读取数据流的第 $i$ (从 1 开始) 个元素, 若 $i \leq k$ 则将其直接放入数组;
+	
+	\item 当 $i > k$ 时, 在 $[0, i-1]$ 内选去随机数 $d$, 若 d 小于 $k$ 则用第 $i$ 个数据替换 $nums[d]$. \textcolor{red}{第 $i$ 个元素进入蓄水池的概率是 $\frac{k}{i}$};
+	
+	\item 遍历完所有元素后得到最终的抽样结果.
+\end{enumerate}
+
+\textbf{证明}：由于要求每个元素被抽到的概率是相等的，那么每个数据最后保留下来的概率应该等于 $\frac{k}{N}$ --- 这就是证明的目标. 
+
+对于数据流中前 $k$ 个数据, 首先会被保留在蓄水池中, 当读取第 $k+1$ 个元素时, 我们来计算蓄水池中第 $i$ 个元素被替换的概率. 被第 $k+1$ 个元素替换的概率 = 第 $k+1$ 个元素被选中的概率 * $i$ 被选中的概率, 即 $\frac{k}{k+1} \times \frac{1}{k}$. 那么 $nums[i]$ 不被第 $k+1$ 个元素替换的概率未 $1 - \frac{1}{k+1}$. 依此类推, 则\textcolor{red}{运行至第 $N$ 步时, $nums[i]$ 还没被替换的概率}未:
+
+$$
+1 \times \frac{k}{k+1} \times \frac{k+1}{k+2} \times \frac{k+2}{k+3} \times \dots \times \frac{N-1}{N} = \frac{k}{N}
+$$
+
+对于数据流中的第 $j$ ($j > k$) 个数. 其在第 $j$ 步被选中的概率为 $\frac{k}{j}$, 不在第 $j+1$ 步被替换的概率为 $1 - \frac{k}{j+1} \times \frac{1}{k} = \frac{j}{j+1}$. 依此类推, 则 \textcolor{red}{运行至第 $N$ 步时, 保留下来的概率为}:
+
+$$
+\frac{k}{j} \times \frac{j}{j+1} \times \frac{j+1}{j+2} \times \dots \times \frac{N-1}{N} = \frac{k}{N}
+$$
+
+综上所述, 对于数据流中的 $N$ 个元素, 每个元素被保留下来的概率为 $\frac{k}{N}$.
+
 
 \subsection{eigen-value \& eigen—vector }
 特征值, 特征向量. 
@@ -408,3 +439,74 @@ $$
 牛顿法的\textbf{特点}: 1) 收敛速度快; 2) 对起始迭代点敏感, 如果初始点离最优点很远, 可能会不收敛; 3) 需要计算海森矩阵的逆, 但可能该矩阵是不可逆的且求逆的计算量很大 (拟牛顿法就是针对这个问题提出来的); 
 
 \subsection{最小二乘法}
+Least Square Method, 也叫最小平方法. 见名知意, 基本思想就是: 找到一组参数, 使模型的预测值与目标值的\textbf{误差的平方和最小}, 即:
+$$
+L = \sum_{i=1}^n (y_i - f(x_i))^2
+$$
+
+其中, $f(x) = w \cdot x + b$. 最小二乘法的求解, 即求解 $w$ 可以通过矩阵解法也可以通过梯度下降法, 这里就不再赘述了. 注意, 最小二乘法中有一个假设: \textcolor{red}{误差的分布是正态分布}.
+
+\subsection{rand5 和 rand7 的转换}
+之前听到这种随机数生成的问题以为还是挺简单的, 直到最近看到一个关于 rand5 和 rand7 之间转换的问题, 才发现自己之前想的太简单了. 进行正确的转换, 有两个条件要满足: 1) 取值范围要正确; 2) \textbf{转换后, 生成每个值是等概率的}. 其中第二条是我以前忽视的, 现在一想, 这个问题还是有点意思的. 先定义一下 randa: 随机整数数生成函数, 可以等概率地随机生成 $[1, a]$ 中的值. 
+
+\textbf{先看一下如何用 rand7 生成rand5}. 
+
+\begin{python}
+	def rand5():
+		x = 1<<31
+		while x > 5:
+			x = rand7()
+		
+		return x
+\end{python}
+
+首先, 这肯定是能够生成 $[1, 5]$ 范围内地数的, 但是是等概率的吗? 算一算生成 1 的概率:
+$$
+\begin{aligned}
+	P(x=1) &= \frac{1}{7} + \frac{2}{7} \times \frac{1}{7 } + (\frac{2}{7})^2 \times \frac{1}{7} + \dots + (\frac{2}{7})^n \times \frac{1}{7} \\
+		   &= \frac{1}{5}
+\end{aligned}
+$$
+
+上式分别表示第一次就生成 1 的该率, 第二次, ... 第 n 次生成 1 的概率. 所以这个方法是可行的. 所以, 如果有两个随机数生成器 randa 和 randb. 如果用 randa 生成 randb 且 $a > b$, 那么直接按照上述的方法做就可以了.
+
+\textbf{那怎么用 rand5 生成 rand7 呢?}
+如果我用 rand5 + rand3 - 1 生成 rand7, 这样貌似生成了 $[1, 7]$ 之间的数, 但是这是等概率的吗? 并不是! 生成 1 只有一种情况, 而生成 2 则有 2 中, 生成 4 则更大. 我们利用上一步的方法, 先用 rand5 生成一个更大的随机数生成器, 例如 rand25 = 5 * (rand5 - 1) + rand5. 检查一下是否满足那俩条件. 首先 5 * (rand5 - 1) 可以等概率地生成 0, 5, 10, 15, 20. 加上 rand5 后可以生成 $[1, 25]$ 且每个数只有一种情况. 因此我们成过得到了一个 rand25. 还愣着干嘛, 直接套用上述地方法生成 rand7 啊!
+
+\begin{python}
+	def rand7():
+		x = 1<<31
+		while x > 7:
+			x = 5 * (rand5() - 1) + rand5()
+	
+	return x
+\end{python}
+
+问题看似解决了, 但是 7 和 25 之间还有很长一段距离, 生成地很多数据都会被抛弃掉, 浪费时间. 那怎么优化呢? 为了让抛弃地数尽量少, 即让上述代码里地 \mintinline{python}{while} 循环尽快的跳出, 可以生成 randc, c 是最接近 25 的 7 的倍数, 即 21, 再根据 rand21 生成 rand7, 此时只要对 7 取余再加 1 就行了, 显然这是满足条件的:
+
+\begin{python}
+	def rand7():
+		x = 1<<31
+		while x > 21:
+			x = 5 * (rand5() - 1) + rand5()
+	
+	return x % 7 + 1
+\end{python}
+
+\textbf{对上述问题进行一个泛化}. 用 randa 生成 randb 且 $a < b$ 怎么办?
+\begin{enumerate}
+	\item 构造 rand$a^2$ = a * (randa - 1) + randa, 生成 $[1, a^2]$ 的数, 如果 $a^2 < b$, 则继续构造 rand$a^3$, 直至得到 rand$a^k$ 使 $a^k > k$, 记为 randA;
+	
+	\item 用 randA 来构造 randb, 构造代码如下:
+	  \begin{python}
+	  	def randb():
+		  	x = 1<<31
+		  	while x > b * A // b:
+		  		x = randA()
+	  	
+	  	return x % 7 + 1
+	  \end{python}
+  	注意 \mintinline{python}{while} 的判断条件 $b * A // b$, 即找到小于 A 的最大的 b 的倍数.
+\end{enumerate}
+
+感谢博客: \href{https://blog.csdn.net/u010025211/article/details/49668017}{使用rand5()生成rand7()}.

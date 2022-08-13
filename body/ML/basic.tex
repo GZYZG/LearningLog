@@ -42,7 +42,6 @@ $$
 	
 \end{flushright}参考: \href{https://www.zhihu.com/question/37096933/answer/475278057}{l1 相比于 l2 为什么容易获得稀疏解？ - ser jamie的回答}. 
 
-\subsection{early stopping strategy}
 
 \subsection{判别模型、生成模型}
 \begin{itemize}
@@ -550,33 +549,6 @@ $$
 	\item F-score
 \end{itemize}
 
-\subsection{学习率调整策略}
-\paragraph{WHY?}学习率 (Learning Rate, LR) 是基于梯度下降的优化算法中不可或缺的一部分, 目前的深度学习模型无一不使用梯度来优化模型参数, 设置学习率是不可避免的. 在训练过程中, 学习率是否应该变化, 应该如何变化对模型的收敛效果有很大的影响. 看看LR对学习过程的影响: 
-\begin{myitemize}
-	\item 学习率设置太小, 需要花费过多的时间来收敛
-	\item 学习率设置较大, 在最小值附近震荡却无法收敛到最小值
-	\item 进入局部极值点
-	\item 停在鞍点处, 不能够在另一维度继续下降
-\end{myitemize}
-
-\paragraph{哪些策略}总体来说, LR可以是固定的, 即整个训练过程中不变; 也可以是动态的, 即在训练时变化, 当让根据不同的变化方式动态策略又有多种. 
-\begin{myitemize}
-	\item 固定LR, 整个训练过程中LR保持不变. 固定LR适用于优化目标为凸函数的情况, 当为非凸时可能会收敛到局部极值点然后开始振荡. 且LR的大小选择很重要, 为了保证收敛一般会设置的比较小. 
-	\item LR衰减 (LR Decay) , 即LR随着训练进程而减小. 在训练初期大步长向目标前进, 后期小碎步靠近最优点. 常见的衰减策略: 
-	\begin{myitemize}
-		\item 固定步长衰减, 即每隔一定步数/epoch数, 就对LR衰减一次
-		\item 指数形式衰减, 即以指数形式衰减, 通常是$LR = LR \times \gamma^{n}$, 其中$\gamma$由用户指定, $n$可以是\textit{step}或\textit{epoch}
-		\item 多步长衰减, 即在不同的区间使用不同的LR. 通常是设置一系列的epoch锚点, 达到锚点后LR就衰减一次, 因此也要设置$\gamma$
-	\end{myitemize}
-	\item 基于Armijo准则步长搜索算法, 遵循两个准则搜索步长: 1) 目标函数值下降幅度要大于一定阈值; 2) 搜索的步长不应该太小. 这种步长调整策略较为耗时
-	\item 循环学习率, 即LR的变化呈现周期性, 当然也可以每过一个周期LR就衰减一次
-	\item 自适应学习率, 即自定义一些规则来决定学习率的如何改变
-	\item 不同的网络层使用不同的LR
-\end{myitemize}
-以上这些LR调整策略只是简单介绍了调整策略的思想, 在实践中, 深度学习框架一般会提供一些LR调整策略的接口, 也可以自定义调整策略. 
-
-参考资料: \href{https://lumingdong.cn/setting-strategy-of-gradient-descent-learning-rate.html}{梯度下降学习率的设定策略}. 
-
 \subsection{特征选择的方法}
 机器学习中, 面对成千上万的特征, 选择哪些进行保留是一个需要我们主动去抉择的问题. 既然是选择, 那肯定是要有一个明确的评判标准的. 
 
@@ -662,6 +634,8 @@ MSE 作为损失函数是非凸的, 不容易求解, 容易得到局部最优解
 
 MSE 求导后, 梯度与 sigmoid 的导数有关, 容易落在 sigmoid 的平坦区, 导致梯度很小, 引发梯度消失问题; 交叉熵求导后梯度为残差, 误差越大更新越快, 误差越小更新越慢. 
 
+交叉熵衡量的是预测的分布与真实分布的距离, 更符合分类问题的预测目标.
+
 \subsection{为什么要将连续特征离散化后输入到线性模型中？}
 连续值经常离散化或者分离成 “箱子” 进行分析, 为什么要做数据分桶呢？
 \begin{itemize}
@@ -679,7 +653,7 @@ MSE 求导后, 梯度与 sigmoid 的导数有关, 容易落在 sigmoid 的平坦
 \end{itemize}
 
 
-\subsection{分类模型与排序模型在推荐系统中的异同分析}
+\subsection{分类模型与排序模型的异同分析}
 \textbf{注意}: 这一节内容主要参考\href{https://zhuanlan.zhihu.com/p/502638808?utm_source=wechat_session&utm_medium=social&utm_oi=797192809567354880&utm_campaign=shareopn}{这里}.
 
 在初入推荐系统这个坑时就思考过推荐和搜索的差异与异同, 那时我肯定想不到现在就在做搜索相关的实习. 缘分呐, 搜索!

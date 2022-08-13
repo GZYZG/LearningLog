@@ -362,3 +362,30 @@ $$
 Softplus(x) = log(1+e^x)
 $$
 显然, Softplus 输出的值域是 $(0, +\infty)$. 
+
+\subsection{学习率调整策略}
+\paragraph{WHY?}学习率 (Learning Rate, LR) 是基于梯度下降的优化算法中不可或缺的一部分, 目前的深度学习模型无一不使用梯度来优化模型参数, 设置学习率是不可避免的. 在训练过程中, 学习率是否应该变化, 应该如何变化对模型的收敛效果有很大的影响. 看看LR对学习过程的影响: 
+\begin{myitemize}
+	\item 学习率设置太小, 需要花费过多的时间来收敛
+	\item 学习率设置较大, 在最小值附近震荡却无法收敛到最小值
+	\item 进入局部极值点
+	\item 停在鞍点处, 不能够在另一维度继续下降
+\end{myitemize}
+
+\paragraph{哪些策略}总体来说, LR可以是固定的, 即整个训练过程中不变; 也可以是动态的, 即在训练时变化, 当让根据不同的变化方式动态策略又有多种. 
+\begin{myitemize}
+	\item 固定LR, 整个训练过程中LR保持不变. 固定LR适用于优化目标为凸函数的情况, 当为非凸时可能会收敛到局部极值点然后开始振荡. 且LR的大小选择很重要, 为了保证收敛一般会设置的比较小. 
+	\item LR衰减 (LR Decay) , 即LR随着训练进程而减小. 在训练初期大步长向目标前进, 后期小碎步靠近最优点. 常见的衰减策略: 
+	\begin{myitemize}
+		\item 固定步长衰减, 即每隔一定步数/epoch数, 就对LR衰减一次
+		\item 指数形式衰减, 即以指数形式衰减, 通常是$LR = LR \times \gamma^{n}$, 其中$\gamma$由用户指定, $n$可以是\textit{step}或\textit{epoch}
+		\item 多步长衰减, 即在不同的区间使用不同的LR. 通常是设置一系列的epoch锚点, 达到锚点后LR就衰减一次, 因此也要设置$\gamma$
+	\end{myitemize}
+	\item 基于Armijo准则步长搜索算法, 遵循两个准则搜索步长: 1) 目标函数值下降幅度要大于一定阈值; 2) 搜索的步长不应该太小. 这种步长调整策略较为耗时
+	\item 循环学习率, 即LR的变化呈现周期性, 当然也可以每过一个周期LR就衰减一次
+	\item 自适应学习率, 即自定义一些规则来决定学习率的如何改变
+	\item 不同的网络层使用不同的LR
+\end{myitemize}
+以上这些LR调整策略只是简单介绍了调整策略的思想, 在实践中, 深度学习框架一般会提供一些LR调整策略的接口, 也可以自定义调整策略. 
+
+参考资料: \href{https://lumingdong.cn/setting-strategy-of-gradient-descent-learning-rate.html}{梯度下降学习率的设定策略}. 
