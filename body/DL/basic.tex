@@ -317,6 +317,7 @@ $$
 	\item sigmoid 的输出不是零中心的；
 \end{itemize}
 
+\textbf{怎么解决 sigmoid 的梯度饱和的问题呢?} 1) 在 sigmod 之前引入 BN 层. 通过 BN 层对输入数据的分布进行规范化, 使其能够落在 sigmoid 的梯度较大的区域. 2) 替换激活函数. 建议非输出层的激活函数选用 ReLU; 3) 在模型重加入残差模块; 4) 采用 pre-training+fine-tuning 的方式训练模型, 即一层一层地训练隐层, 最后再进行微调; 5) 增加门控机制, 类似于 LSTM 和 GRU 中的门控单元.
 
 \subsubsection{ReLU}
 Rectified Linear Unit, 整流线性单元, 这个算是与 sigmoid 齐名的激活函数了: 
