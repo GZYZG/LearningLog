@@ -122,3 +122,28 @@ $p, q$就是控制游走的两个参数:
 	\item 对新的特征矩阵进行行归一化；
 	\item 在新的特征矩阵的基础上进行聚类. 
 \end{enumerate}
+
+\section{GraphSage}
+GraphSage 是一种归纳式 (inductive) 的图结点表征学习方式. 与 GCN 相比, 二者都是对邻居结点的表征进行聚合, 计算后再得到当前节点的表征. 差别主要体现在:
+\begin{itemize}
+	\item 聚合邻居结点的方式不一样. GCN 中是通过相加的方式, 而 GraphSage 中聚合的方式比较多, 如 Mean/Max, LSTM, Pooling (以前以为就是简单的 Mean/Max pooling, 其实不然. 这里的 Pooling 是先对邻居结点的表征做一个变换再进行 Max pooling);
+	
+	\item 图的结构变化后, GCN 需要重新训练, GraphSage 不需要. 为什么呢? 从 GCN 的计算公式可以看出, 结点的表征计算过程是依赖于图的结构的 --- 需要用到拉普拉斯矩阵. 而 GraphSage 只需要得到结点的邻居节点集合再配合聚合函数就可以得到结点表征了;
+\end{itemize}
+
+GraphSage 中还提到了 mini-batch 形式的训练方式:
+\begin{itemize}
+	\item 给定一个 batch, 这个 batch 中包含的就是需要计算表征的结点;
+	
+	\item 计算每一层每一层需要用到的结点. 注意: \textcolor{red}{从输出层往输入层计算}. 因为我们知道要计算哪些结点的表征 (目标结点), 但是在每层的计算中需要用到其邻居节点, 因此要反向计算, 将每个目标结点的邻居包含进去;
+	
+	\item 前向计算时. 利用上一步得到的每一层会用到的结点来更新结点表征, 逐层计算, 最后得到目标结点的表征. 注意: \textcolor{red}{每次更新会对结点的表征做 l2 归一化}.
+\end{itemize}
+
+GraphSage 中的无监督学习目标: 以每个结点为起点进行随机游走, 共现的结点作为正样本, 随机采样结点作为负样本. 如下所示:
+
+$$
+J_{\mathcal{G}}\left(\mathbf{z}_u\right)=-\log \left(\sigma\left(\mathbf{z}_u^{\top} \mathbf{z}_v\right)\right)-Q \cdot \mathbb{E}_{v_n \sim P_n(v)} \log \left(\sigma\left(-\mathbf{z}_u^{\top} \mathbf{z}_{v_n}\right)\right)
+$$
+
+其中 $v$ 是出现在 $u$ 的游走序列中的结点, $v_n$ 是对 $u$ 进行负采样得到的.
