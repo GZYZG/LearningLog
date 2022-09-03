@@ -74,22 +74,22 @@
 \contentsline {paragraph}{Rand Error}{42}{section*.17}%
 \contentsline {paragraph}{Hausdorff 距离}{42}{section*.18}%
 \contentsline {paragraph}{MRR}{42}{section*.19}%
-\contentsline {paragraph}{AP}{42}{section*.20}%
+\contentsline {paragraph}{AP}{43}{section*.20}%
 \contentsline {paragraph}{MAP}{43}{section*.21}%
 \contentsline {paragraph}{DCG、NDCG}{44}{section*.22}%
 \contentsline {paragraph}{GAUC}{45}{section*.23}%
 \contentsline {subsection}{\numberline {2.12}常用数据增强手段}{45}{subsection.2.12}%
 \contentsline {paragraph}{仿射变换}{45}{section*.24}%
-\contentsline {paragraph}{弹性形变\cite {simard2003best}}{45}{section*.25}%
+\contentsline {paragraph}{弹性形变\cite {simard2003best}}{46}{section*.25}%
 \contentsline {paragraph}{增加噪声}{47}{section*.26}%
 \contentsline {paragraph}{GAN}{47}{section*.27}%
 \contentsline {subsection}{\numberline {2.13}类别不平衡问题}{47}{subsection.2.13}%
-\contentsline {paragraph}{类别不均衡可能造成的问题}{47}{section*.28}%
+\contentsline {paragraph}{类别不均衡可能造成的问题}{48}{section*.28}%
 \contentsline {paragraph}{决解办法}{48}{section*.29}%
 \contentsline {subparagraph}{数据角度}{48}{section*.30}%
 \contentsline {subparagraph}{算法角度}{48}{section*.31}%
-\contentsline {subparagraph}{评价指标角度}{48}{section*.32}%
-\contentsline {subsection}{\numberline {2.14}特征选择的方法}{48}{subsection.2.14}%
+\contentsline {subparagraph}{评价指标角度}{49}{section*.32}%
+\contentsline {subsection}{\numberline {2.14}特征选择的方法}{49}{subsection.2.14}%
 \contentsline {subsubsection}{\numberline {2.14.1}过滤法}{49}{subsubsection.2.14.1}%
 \contentsline {subsubsection}{\numberline {2.14.2}包装法}{49}{subsubsection.2.14.2}%
 \contentsline {subsubsection}{\numberline {2.14.3}嵌入法}{49}{subsubsection.2.14.3}%
@@ -101,10 +101,10 @@
 \contentsline {paragraph}{特点}{49}{section*.35}%
 \contentsline {paragraph}{优点}{49}{section*.36}%
 \contentsline {paragraph}{缺点}{49}{section*.37}%
-\contentsline {subsubsection}{\numberline {2.15.3}基于密度的聚类}{49}{subsubsection.2.15.3}%
-\contentsline {paragraph}{特点}{49}{section*.38}%
-\contentsline {paragraph}{优点}{49}{section*.39}%
-\contentsline {paragraph}{缺点}{49}{section*.40}%
+\contentsline {subsubsection}{\numberline {2.15.3}基于密度的聚类}{50}{subsubsection.2.15.3}%
+\contentsline {paragraph}{特点}{50}{section*.38}%
+\contentsline {paragraph}{优点}{50}{section*.39}%
+\contentsline {paragraph}{缺点}{50}{section*.40}%
 \contentsline {subsubsection}{\numberline {2.15.4}基于网格的聚类}{50}{subsubsection.2.15.4}%
 \contentsline {paragraph}{优点}{50}{section*.41}%
 \contentsline {paragraph}{缺点}{50}{section*.42}%
@@ -113,7 +113,7 @@
 \contentsline {paragraph}{缺点}{50}{section*.44}%
 \contentsline {subsection}{\numberline {2.16}类别变量的编码方法}{50}{subsection.2.16}%
 \contentsline {subsubsection}{\numberline {2.16.1}one-hot}{50}{subsubsection.2.16.1}%
-\contentsline {subsubsection}{\numberline {2.16.2}目标编码}{50}{subsubsection.2.16.2}%
+\contentsline {subsubsection}{\numberline {2.16.2}目标编码}{51}{subsubsection.2.16.2}%
 \contentsline {subsubsection}{\numberline {2.16.3}贝叶斯目标编码}{51}{subsubsection.2.16.3}%
 \contentsline {subsubsection}{\numberline {2.16.4}留一编码}{51}{subsubsection.2.16.4}%
 \contentsline {subsubsection}{\numberline {2.16.5}证据权重}{51}{subsubsection.2.16.5}%
@@ -121,19 +121,19 @@
 \contentsline {subsubsection}{\numberline {2.16.7}Embedding}{51}{subsubsection.2.16.7}%
 \contentsline {subsection}{\numberline {2.17}为什么分类问题使用交叉熵而不使用 MSE？}{51}{subsection.2.17}%
 \contentsline {subsection}{\numberline {2.18}为什么要将连续特征离散化后输入到线性模型中？}{51}{subsection.2.18}%
-\contentsline {subsection}{\numberline {2.19}分类模型与排序模型的异同分析}{51}{subsection.2.19}%
+\contentsline {subsection}{\numberline {2.19}分类模型与排序模型的异同分析}{52}{subsection.2.19}%
 \contentsline {subsubsection}{\numberline {2.19.1}建模角度}{52}{subsubsection.2.19.1}%
 \contentsline {subsubsection}{\numberline {2.19.2}事件之间的相互独立性假设}{52}{subsubsection.2.19.2}%
-\contentsline {subsubsection}{\numberline {2.19.3}参数更新方式}{52}{subsubsection.2.19.3}%
+\contentsline {subsubsection}{\numberline {2.19.3}参数更新方式}{53}{subsubsection.2.19.3}%
 \contentsline {subsection}{\numberline {2.20}WOE, IV}{53}{subsection.2.20}%
 \contentsline {section}{\numberline {3}经典算法}{54}{section.3}%
 \contentsline {subsection}{\numberline {3.1}线性回归\&逻辑回归}{54}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}感知机}{56}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}LDA}{56}{subsection.3.3}%
 \contentsline {paragraph}{思想}{56}{section*.45}%
-\contentsline {paragraph}{两个类别的LDA}{56}{section*.46}%
+\contentsline {paragraph}{两个类别的LDA}{57}{section*.46}%
 \contentsline {subsection}{\numberline {3.4}决策树}{57}{subsection.3.4}%
-\contentsline {paragraph}{思想}{57}{section*.47}%
+\contentsline {paragraph}{思想}{58}{section*.47}%
 \contentsline {paragraph}{决策树生成}{58}{section*.48}%
 \contentsline {subparagraph}{分类决策树}{58}{Item.24}%
 \contentsline {subparagraph}{回归决策树}{59}{section*.50}%
@@ -142,7 +142,7 @@
 \contentsline {subsubsection}{\numberline {3.5.1}停止准则}{60}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}确定叶子结点的值}{60}{subsubsection.3.5.2}%
 \contentsline {subsubsection}{\numberline {3.5.3}候选属性}{60}{subsubsection.3.5.3}%
-\contentsline {subsubsection}{\numberline {3.5.4}划分}{60}{subsubsection.3.5.4}%
+\contentsline {subsubsection}{\numberline {3.5.4}划分}{61}{subsubsection.3.5.4}%
 \contentsline {paragraph}{选择哪个属性?}{61}{section*.52}%
 \contentsline {subparagraph}{分类任务}{61}{section*.53}%
 \contentsline {subparagraph}{回归任务}{61}{section*.54}%
@@ -150,7 +150,7 @@
 \contentsline {paragraph}{题外话}{61}{section*.56}%
 \contentsline {subsection}{\numberline {3.6}GBDT}{61}{subsection.3.6}%
 \contentsline {subsection}{\numberline {3.7}GMM}{61}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Kmeans}{61}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.8}Kmeans}{62}{subsection.3.8}%
 \contentsline {subsection}{\numberline {3.9}Spectral cluster}{63}{subsection.3.9}%
 \contentsline {subsection}{\numberline {3.10}t-SNE}{63}{subsection.3.10}%
 \contentsline {subsection}{\numberline {3.11}变分贝叶斯}{63}{subsection.3.11}%
@@ -159,28 +159,28 @@
 \contentsline {paragraph}{间隔最大化}{64}{section*.57}%
 \contentsline {paragraph}{间隔最大化的最优化目标}{65}{section*.58}%
 \contentsline {paragraph}{SVM优化目标推导的另一形式}{65}{section*.59}%
-\contentsline {paragraph}{SVM优化目标推导的再一形式}{65}{section*.60}%
+\contentsline {paragraph}{SVM优化目标推导的再一形式}{66}{section*.60}%
 \contentsline {paragraph}{线性可分SVM的求解}{66}{section*.61}%
 \contentsline {paragraph}{线性SVM}{67}{section*.62}%
 \contentsline {subparagraph}{合页损失函数}{69}{section*.63}%
 \contentsline {paragraph}{非线性SVM}{69}{section*.64}%
-\contentsline {subparagraph}{核技巧}{69}{section*.65}%
+\contentsline {subparagraph}{核技巧}{70}{section*.65}%
 \contentsline {subparagraph}{求解非线性SVM}{70}{section*.66}%
 \contentsline {paragraph}{支持向量回归}{70}{section*.67}%
 \contentsline {subsection}{\numberline {3.14}PCA}{71}{subsection.3.14}%
 \contentsline {subsection}{\numberline {3.15}metric learning}{71}{subsection.3.15}%
 \contentsline {subsection}{\numberline {3.16}GBDT 与 XGBoost 的对比}{71}{subsection.3.16}%
-\contentsline {subsection}{\numberline {3.17}SMOTE}{71}{subsection.3.17}%
+\contentsline {subsection}{\numberline {3.17}SMOTE}{72}{subsection.3.17}%
 \contentsline {subsection}{\numberline {3.18}LightGBM}{72}{subsection.3.18}%
 \contentsline {subsubsection}{\numberline {3.18.1}原理}{72}{subsubsection.3.18.1}%
-\contentsline {paragraph}{GOSS}{72}{figure.15}%
+\contentsline {paragraph}{GOSS}{73}{figure.15}%
 \contentsline {paragraph}{EFB}{73}{section*.69}%
 \contentsline {subparagraph}{Greedy Bundling}{73}{section*.70}%
-\contentsline {subparagraph}{Merge Exclusive Features}{74}{section*.71}%
+\contentsline {subparagraph}{Merge Exclusive Features}{73}{section*.71}%
 \contentsline {subsubsection}{\numberline {3.18.2}Core Parameters}{74}{subsubsection.3.18.2}%
 \contentsline {paragraph}{任务相关的参数}{74}{section*.72}%
 \contentsline {paragraph}{基学习器的参数}{74}{section*.73}%
-\contentsline {paragraph}{学习过程中的参数}{74}{section*.74}%
+\contentsline {paragraph}{学习过程中的参数}{75}{section*.74}%
 \contentsline {paragraph}{Dataset 相关的参数}{75}{section*.75}%
 \contentsline {subsubsection}{\numberline {3.18.3}调参}{75}{subsubsection.3.18.3}%
 \contentsline {subsubsection}{\numberline {3.18.4}类别特征的处理}{76}{subsubsection.3.18.4}%
@@ -341,35 +341,36 @@
 \contentsline {subsection}{\numberline {12.4}FM}{122}{subsection.12.4}%
 \contentsline {subsection}{\numberline {12.5}FFM}{122}{subsection.12.5}%
 \contentsline {subsection}{\numberline {12.6}EGES}{122}{subsection.12.6}%
+\contentsline {subsection}{\numberline {12.7}Swing}{123}{subsection.12.7}%
 \contentsline {section}{\numberline {13}用户兴趣建模}{123}{section.13}%
 \contentsline {subsection}{\numberline {13.1}基于统计的用户兴趣建模}{123}{subsection.13.1}%
 \contentsline {subsection}{\numberline {13.2}DIN}{123}{subsection.13.2}%
 \contentsline {subsubsection}{\numberline {13.2.1}Motivation}{123}{subsubsection.13.2.1}%
-\contentsline {subsubsection}{\numberline {13.2.2}DIN 做了什么}{123}{subsubsection.13.2.2}%
-\contentsline {subsubsection}{\numberline {13.2.3}不足}{124}{subsubsection.13.2.3}%
+\contentsline {subsubsection}{\numberline {13.2.2}DIN 做了什么}{124}{subsubsection.13.2.2}%
+\contentsline {subsubsection}{\numberline {13.2.3}不足}{125}{subsubsection.13.2.3}%
 \contentsline {subsection}{\numberline {13.3}DIEN}{125}{subsection.13.3}%
 \contentsline {subsubsection}{\numberline {13.3.1}Motivation}{125}{subsubsection.13.3.1}%
 \contentsline {subsubsection}{\numberline {13.3.2}DIEN 怎么做的}{125}{subsubsection.13.3.2}%
-\contentsline {paragraph}{Interest Extractor Layer}{125}{section*.118}%
+\contentsline {paragraph}{Interest Extractor Layer}{126}{section*.118}%
 \contentsline {paragraph}{Interest Evolving Layer}{126}{section*.119}%
 \contentsline {subsubsection}{\numberline {13.3.3}不足}{126}{subsubsection.13.3.3}%
-\contentsline {subsection}{\numberline {13.4}ETA}{126}{subsection.13.4}%
-\contentsline {subsubsection}{\numberline {13.4.1}Motivation}{126}{subsubsection.13.4.1}%
+\contentsline {subsection}{\numberline {13.4}ETA}{127}{subsection.13.4}%
+\contentsline {subsubsection}{\numberline {13.4.1}Motivation}{127}{subsubsection.13.4.1}%
 \contentsline {subsubsection}{\numberline {13.4.2}ETA 怎么做的}{127}{subsubsection.13.4.2}%
 \contentsline {subsubsection}{\numberline {13.4.3}不足}{128}{subsubsection.13.4.3}%
 \contentsline {section}{\numberline {14}多任务学习}{128}{section.14}%
 \contentsline {subsection}{\numberline {14.1}Introduction}{128}{subsection.14.1}%
 \contentsline {subsection}{\numberline {14.2}多目标任务的技巧}{129}{subsection.14.2}%
 \contentsline {subsubsection}{\numberline {14.2.1}样本加权}{129}{subsubsection.14.2.1}%
-\contentsline {subsubsection}{\numberline {14.2.2}模型融合}{129}{subsubsection.14.2.2}%
-\contentsline {subsection}{\numberline {14.3}ESMM}{129}{subsection.14.3}%
+\contentsline {subsubsection}{\numberline {14.2.2}模型融合}{130}{subsubsection.14.2.2}%
+\contentsline {subsection}{\numberline {14.3}ESMM}{130}{subsection.14.3}%
 \contentsline {subsubsection}{\numberline {14.3.1}Motivation}{130}{subsubsection.14.3.1}%
 \contentsline {subsubsection}{\numberline {14.3.2}HOW}{131}{subsubsection.14.3.2}%
 \contentsline {subsubsection}{\numberline {14.3.3}总结}{132}{subsubsection.14.3.3}%
 \contentsline {subsection}{\numberline {14.4}Shared-Bottom}{132}{subsection.14.4}%
 \contentsline {subsection}{\numberline {14.5}MMoE}{132}{subsection.14.5}%
 \contentsline {subsubsection}{\numberline {14.5.1}Motivation}{132}{subsubsection.14.5.1}%
-\contentsline {subsubsection}{\numberline {14.5.2}HOW}{132}{subsubsection.14.5.2}%
+\contentsline {subsubsection}{\numberline {14.5.2}HOW}{133}{subsubsection.14.5.2}%
 \contentsline {subsubsection}{\numberline {14.5.3}总结}{133}{subsubsection.14.5.3}%
 \contentsline {part}{VII\hspace {1em}Information Retrieval}{134}{part.7}%
 \contentsline {section}{\numberline {15}Basic}{134}{section.15}%
