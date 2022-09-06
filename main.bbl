@@ -65,6 +65,13 @@ Xinran He, Junfeng Pan, Ou~Jin, Tianbing Xu, Bo~Liu, Tao Xu, Yanxin Shi,
 \newblock Practical lessons from predicting clicks on ads at facebook.
 \newblock {\em ADKDD@KDD}, pages 1--9, 2014.
 
+\bibitem{juan_ffm_2016_recsys}
+Yuchin Juan, Yong Zhuang, Wei-Sheng Chin, and Chih-Jen Lin.
+\newblock Field-aware factorization machines for ctr prediction.
+\newblock In {\em Proceedings of the 10th ACM Conference on Recommender
+  Systems}, RecSys '16, page 43–50, New York, NY, USA, 2016. Association for
+  Computing Machinery.
+
 \bibitem{junqiu2019nezha}
 Wei Junqiu, Ren Xiaozhe, Li~Xiaoguang, Huang Wenyong, Liao Yi, Wang Yasheng,
   Lin Jiashu, Jiang Xin, Chen Xiao, and Liu Qun.
@@ -99,6 +106,17 @@ Thang Luong, Hieu Pham, and D.~Christopher Manning.
 \newblock Effective approaches to attention-based neural machine translation.
 \newblock {\em Conference on Empirical Methods in Natural Language Processing},
   2015.
+
+\bibitem{hb_ftrl_2010_colt}
+H.~B. McMahan and Matthew~J. Streeter.
+\newblock Adaptive bound optimization for online convex optimization.
+\newblock In {\em COLT}, 2010.
+
+\bibitem{rendle_fm_2010_icdm}
+Steffen Rendle.
+\newblock Factorization machines.
+\newblock In {\em Proceedings of the 2010 IEEE International Conference on Data
+  Mining}, ICDM '10, page 995–1000, USA, 2010. IEEE Computer Society.
 
 \bibitem{6773024}
 C.~E. {Shannon}.
