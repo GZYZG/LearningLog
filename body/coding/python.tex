@@ -139,9 +139,9 @@ python 中有一个叫 GIL(Global Interpreter Lock, 全局解释器锁) 的玩�
 举个例子
 \begin{python}
 	def AA(func):
-		print('AA 1')
+		print('AA 1')  # 只会在装饰时执行
 		def func_a(*args, **kwargs):
-			print('AA 2')
+			print('AA 2')  # 每次调用都会执行
 			return func(*args, **kwargs)
 		return func_a
 	
@@ -161,7 +161,7 @@ python 中有一个叫 GIL(Global Interpreter Lock, 全局解释器锁) 的玩�
 	print(f(1))
 	
 	# 最终输出
-	# AA 1
+ 	# AA 1
 	# BB 1
 	# BB 2
 	# AA 2
@@ -169,4 +169,16 @@ python 中有一个叫 GIL(Global Interpreter Lock, 全局解释器锁) 的玩�
 	# 10
 \end{python}
 
-对 \mintinline{python}{f} 装饰后相当于 \mintinline{python}{BB(AA(f))}, 即先用 \mintinline{python}{AA} 装饰（因此输出了 \mintinline{python}{AA 1}）, 再用 \mintinline{python}{BB} 装饰（因此输出了 \mintinline{python}{BB 1}）. 调用时, 则等价于 \mintinline{python}{BB(AA(f))(1)}, 因此会调用 \mintinline{python}{func_b(1)}（因此输出了 \mintinline{python}{BB 2}）, 再调用 \mintinline{python}{func_a(1)}（因此输出了 \mintinline{python}{AA 2}）, 最终调用 \mintinline{python}{f(1)}. 
+对 \mintinline{python}{f} 装饰后相当于\textbf{先进行装饰}, 即 \mintinline{python}{BB(AA(f))}, 即先用 \mintinline{python}{AA} 装饰（因此输出了 \mintinline{python}{AA 1}）, 再用 \mintinline{python}{BB} 装饰（因此输出了 \mintinline{python}{BB 1}）. \textbf{调用时}, 则等价于 \mintinline{python}{BB(AA(f))(1)}, 因此会调用 \mintinline{python}{func_b(1)}（因此输出了 \mintinline{python}{BB 2}）, 再调用 \mintinline{python}{func_a(1)}（因此输出了 \mintinline{python}{AA 2}）, 最终调用 \mintinline{python}{f(1)}. 
+
+
+\subsection{GIL}
+Global Interpreter Lock, 全局解释器锁, 是 CPython 解释器的特性. 在一个进程中, 每个线程想要运行都需要先获得 GIL. 因此, 在一个进程内, 一个时刻只能有一个线程在运行, 即使有多个 CPU. 由于 python 的内存管理不是线程安全的, 为了保证多线程之间数据的一致性, GIL 可以防止在同一时刻有多个线程执行字节码. 
+
+一般来说, 一个线程执行了一定数量的字节码, 一定时间或者遇到 IO 任务后会自动释放 GIL, 从而出发线程调度. 
+
+既然一次只能执行一个线程, 那么 python 里的多线程还有必要吗? 虽然有点鸡肋, 但还是有用的. 在 IO 密集型的应用中, 比如线程一直在等待网络响应, 读写磁盘, 等待用户输入等, 这个时候多线程还是能节省时间的.
+
+既然已经有了 GIL, 那就一定线程安全了吗? 并不是. GIL 保证的是每一条字节码在执行过程中的独占性, 即每一条字节码的执行都是原子性的. 但在多个字节码之间, GIL 可能被释放, 则可能会产生多个线程修改临界区的问题. 因此 python 的 \mintinline{python}{multithreading} 模块中还有一个线程锁, 用来对临界区进行加锁.
+
+参考资料: \href{http://cenalulu.github.io/python/gil-in-python/#:~:text=GIL%E5%85%A8%E7%A7%B0Global%20Interpreter%20Lock%E4%B8%BA%E4%BA%86%E9%81%BF%E5%85%8D%E8%AF%AF%E5%AF%BC%EF%BC%8C%E6%88%91%E4%BB%AC%E8%BF%98%E6%98%AF%E6%9D%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E5%AE%98%E6%96%B9%E7%BB%99%E5%87%BA%E7%9A%84%E8%A7%A3%E9%87%8A%EF%BC%9A%20In%20CPython%2C%20the%20global%20interpreter,mainly%20because%20CPython%E2%80%99s%20memory%20management%20is%20not%20thread-safe.}{Python的GIL是什么鬼，多线程性能究竟如何}.

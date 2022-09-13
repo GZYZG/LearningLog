@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.1)  11 SEP 2022 17:09
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.1)  12 SEP 2022 22:55
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1996,15 +1996,12 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.467 ...umberline {23.1}变量}{155}{subsection.23.1}
+l.467 ...}{\numberline {23}Shell}{156}{section.23}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [13]
-Underfull \vbox (badness 5681) has occurred while \output is active []
-
-
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -2012,7 +2009,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.502 ...6.1}MovieLens 100K}{161}{subsection.26.1}
+l.502 ...numberline {26}Datasets}{162}{section.26}
                                                   %
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -5188,8 +5185,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.164 	
-       # AA 1
+l.164  	
+        # AA 1
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -5253,6 +5250,15 @@ If that doesn't work, type  X <return>  to quit.
 
 
 (./_minted-main/90B61B65767013FCB7AA7EB6A410C5EE4FBEEAFC55D0059826E664B9BBCF372
+1.pygtex)
+\openout7 = `main.pyg'.
+
+runsystem(pygmentize -l python -f latex -P commandprefix=PYG -F tokenmerge -o _
+minted-main/0F742678F7FAF396705A4CEF03329A774FBEEAFC55D0059826E664B9BBCF3721.py
+gtex main.pyg)...executed.
+
+
+(./_minted-main/0F742678F7FAF396705A4CEF03329A774FBEEAFC55D0059826E664B9BBCF372
 1.pygtex)) (./body/coding/tensorflow.tex
 
 ! LaTeX Error: \mathcal allowed only in math mode.
@@ -5261,9 +5267,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.33 \subsection
-                {tf中的RNN}RNN的训练数据与其他神经网络的训练数据有一点不一样. 通常的NN中的训练数据, 每个样本就是一个向量...
-
+l.11 \begin{python}
+                   
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -5275,8 +5280,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.58 \end{itemize}
-                  
+l.44 c
+      ondition是一个布尔数组, condition、x、y的维度必须相同.
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -5288,7 +5293,19 @@ gular(0)/m/n/10.53937 进 行 填 充 的 函 数\T1/lmr/m/n/10.53937 . \T1/lmr/
  tf.pad(tensor, paddings, mode='CONSTANT', con-
  []
 
-) (./body/coding/pytorch.tex
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 i
+      nput为输入的张量；axis为可选参数, 可以为整数或者整数1-D数组, 为None时表示移除所有大小为1的维, 否则移除指定的维.
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[154]) (./body/coding/pytorch.tex
 \openout7 = `main.pyg'.
 
 
@@ -5309,19 +5326,6 @@ gular(0)/m/n/10.53937 进 行 填 充 的 函 数\T1/lmr/m/n/10.53937 . \T1/lmr/
 
 (./_minted-main/0E0CF0EFE0C91C89A72B3A837318585A4FBEEAFC55D0059826E664B9BBCF372
 1.pygtex)
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.6 
-    
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[154]
 \openout6 = `main.pyg'.
 
 
@@ -5337,6 +5341,23 @@ LaTeX Font Warning: Font shape `U/bbm/m/n' in size <5.52061> not available
 
 (./_minted-main/5DDBF5A904F264CA1342AE6670F9983DA00B3CB6151DE675178D03E4C68EDF9
 A.pygtex)
+Underfull \vbox (badness 7151) has occurred while \output is active []
+
+
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 要
+     使用一个定义过的变量时, 只要在变量名前加美元符号即可: \mintinline{shell}{$var}, 或者 \mintinline{s...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[155]
 \openout7 = `main.pyg'.
 
 
@@ -5380,19 +5401,6 @@ C.pygtex
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <9.03374> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 3.
 )
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41 
-     
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[155]
 \openout7 = `main.pyg'.
 
 
@@ -5403,6 +5411,20 @@ A.pygtex)
 
 (./_minted-main/9CCE5EA8A7D8D2432DD99392C1E26DFDA00B3CB6151DE675178D03E4C68EDF9
 A.pygtex)
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 获
+      取数组的长度: \mintinline{shell}{${var[@]}}, 或者 \mintinline{shell}{${var[*]}...
+
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[156]
 \openout7 = `main.pyg'.
 
 
@@ -5460,19 +5482,6 @@ ndolSong-Regular(0)/m/n/10.53937 例 如\T1/lmr/m/n/10.53937 : [], \TU/FandolSon
 egular(0)/m/n/10.53937 将 输 出\T1/lmr/m/n/10.53937 :
  []
 
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.78 
-     
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[156]
 \openout7 = `main.pyg'.
 
 
@@ -5590,6 +5599,19 @@ A.pygtex)
 
 (./_minted-main/FB4B126D0399D497942FAB1EFB39B578A00B3CB6151DE675178D03E4C68EDF9
 A.pygtex)
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.101 \end{myitemize}
+                     
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[157]
 \openout7 = `main.pyg'.
 
 
@@ -5725,22 +5747,6 @@ A.pygtex)
 
 (./_minted-main/1D678750144B505BAB7845DBB47E9E6AA00B3CB6151DE675178D03E4C68EDF9
 A.pygtex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-! LaTeX Error: \mathcal allowed only in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \end{myitemize}
-                     
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[157]
 \openout7 = `main.pyg'.
 
 
@@ -5831,12 +5837,7 @@ A.pygtex)
 
 (./_minted-main/FB24B940B974EEF0B50972874345BB23A00B3CB6151DE675178D03E4C68EDF9
 A.pygtex)
-\openout7 = `main.pyg'.
-
-
-(./_minted-main/F21E02B3BDC1281ADDF2A73BDE17F8FAA00B3CB6151DE675178D03E4C68EDF9
-A.pygtex)) (./body/coding/lessons.tex) (./body/latex.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2384) has occurred while \output is active []
 
 
 
@@ -5846,12 +5847,17 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.3 \subsection
-               {参考文献相关}
+l.149 \subsubsection
+                    {awk 简介}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [158]
+\openout7 = `main.pyg'.
+
+
+(./_minted-main/F21E02B3BDC1281ADDF2A73BDE17F8FAA00B3CB6151DE675178D03E4C68EDF9
+A.pygtex)) (./body/coding/lessons.tex) (./body/latex.tex
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf>
 File: mathfonts.pdf Graphic file (type pdf)
@@ -5874,13 +5880,26 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 [159]
+
+! LaTeX Error: \mathcal allowed only in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.14 \includepdf{mathfonts.pdf}
+                               
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[160]
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
 File: mathfonts.pdf Graphic file (type pdf)
 <use mathfonts.pdf, page 1>
- [160]) (./body/datasets.tex)
+ [161]) (./body/datasets.tex)
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -5893,7 +5912,7 @@ l.252 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[161]
+[162]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 254--255
  [] 
  []
@@ -5917,7 +5936,7 @@ l.266 \clearpage
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[162
+[163
 
 ]
 Overfull \hbox (30.5103pt too wide) in paragraph at lines 268--269
@@ -5942,7 +5961,7 @@ l.21
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[163
+[164
 
 ])
 ! Undefined control sequence.
@@ -5977,7 +5996,7 @@ l.68 \bibitem{juan_ffm_2016_recsys}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[164]
+[165]
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -5990,7 +6009,7 @@ l.150
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[165])
+[166])
 
 ! LaTeX Error: \mathcal allowed only in math mode.
 
@@ -6003,7 +6022,7 @@ l.349 \end{document}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[166] (./main.aux (./setup/content.aux))
+[167] (./main.aux (./setup/content.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.47939pt have occurred.
@@ -6015,17 +6034,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 93D1CD9595B33D396FD5FEAEF406F27E;43521.
+(rerunfilecheck)             Checksum: 932E5573A3168656E69A456528B33B39;43597.
 runsystem(del main.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 50975 strings out of 476919
- 1249132 string characters out of 5825425
- 2208779 words of memory out of 5000000
- 69343 multiletter control sequences out of 15000+600000
+ 50980 strings out of 476919
+ 1249535 string characters out of 5825425
+ 2209864 words of memory out of 5000000
+ 69345 multiletter control sequences out of 15000+600000
  510409 words of font info for 201 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  104i,17n,111p,788b,2083s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (166 pages).
+Output written on main.pdf (167 pages).

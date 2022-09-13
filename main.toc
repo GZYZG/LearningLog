@@ -445,44 +445,45 @@
 \contentsline {subsection}{\numberline {20.5}生成器}{151}{subsection.20.5}%
 \contentsline {subsection}{\numberline {20.6}可迭代对象与迭代器}{151}{subsection.20.6}%
 \contentsline {subsection}{\numberline {20.7}多个装饰器的执行顺序}{151}{subsection.20.7}%
+\contentsline {subsection}{\numberline {20.8}GIL}{152}{subsection.20.8}%
 \contentsline {section}{\numberline {21}Tensorflow}{152}{section.21}%
 \contentsline {subsection}{\numberline {21.1}tf.variable\_scope \& tf.name\_scope}{152}{subsection.21.1}%
 \contentsline {subsection}{\numberline {21.2}tf.sparse\_tensor}{152}{subsection.21.2}%
-\contentsline {subsection}{\numberline {21.3}tf.train.Saver}{152}{subsection.21.3}%
+\contentsline {subsection}{\numberline {21.3}tf.train.Saver}{153}{subsection.21.3}%
 \contentsline {subsection}{\numberline {21.4}tf.Session}{153}{subsection.21.4}%
 \contentsline {subsection}{\numberline {21.5}tf中的RNN}{153}{subsection.21.5}%
 \contentsline {subsection}{\numberline {21.6}ImageDataGenerator}{153}{subsection.21.6}%
-\contentsline {subsection}{\numberline {21.7}tf.where}{153}{subsection.21.7}%
-\contentsline {subsection}{\numberline {21.8}TFRecord}{153}{subsection.21.8}%
+\contentsline {subsection}{\numberline {21.7}tf.where}{154}{subsection.21.7}%
+\contentsline {subsection}{\numberline {21.8}TFRecord}{154}{subsection.21.8}%
 \contentsline {subsection}{\numberline {21.9}tf.Graph}{154}{subsection.21.9}%
 \contentsline {subsection}{\numberline {21.10}tf.pad}{154}{subsection.21.10}%
 \contentsline {subsection}{\numberline {21.11}tf.tile}{154}{subsection.21.11}%
-\contentsline {subsection}{\numberline {21.12}tf.squeeze}{154}{subsection.21.12}%
-\contentsline {subsection}{\numberline {21.13}tf.expand\_dims}{154}{subsection.21.13}%
-\contentsline {section}{\numberline {22}Pytorch}{154}{section.22}%
-\contentsline {subsection}{\numberline {22.1}pytorch tensor.view}{154}{subsection.22.1}%
+\contentsline {subsection}{\numberline {21.12}tf.squeeze}{155}{subsection.21.12}%
+\contentsline {subsection}{\numberline {21.13}tf.expand\_dims}{155}{subsection.21.13}%
+\contentsline {section}{\numberline {22}Pytorch}{155}{section.22}%
+\contentsline {subsection}{\numberline {22.1}pytorch tensor.view}{155}{subsection.22.1}%
 \contentsline {subsection}{\numberline {22.2}nn.Dropout}{155}{subsection.22.2}%
 \contentsline {subsection}{\numberline {22.3}torch.nn.CrossEntropyLoss}{155}{subsection.22.3}%
-\contentsline {section}{\numberline {23}Shell}{155}{section.23}%
-\contentsline {subsection}{\numberline {23.1}变量}{155}{subsection.23.1}%
-\contentsline {paragraph}{基本概念}{155}{section*.133}%
-\contentsline {paragraph}{变量类型}{155}{section*.134}%
-\contentsline {paragraph}{只读变量}{155}{section*.135}%
-\contentsline {subsection}{\numberline {23.2}数组}{155}{subsection.23.2}%
-\contentsline {paragraph}{数组定义}{155}{section*.136}%
-\contentsline {paragraph}{读取数组}{156}{section*.137}%
-\contentsline {subsection}{\numberline {23.3}注释}{156}{subsection.23.3}%
-\contentsline {subsection}{\numberline {23.4}字符串}{156}{subsection.23.4}%
-\contentsline {subsubsection}{\numberline {23.4.1}引号}{156}{subsubsection.23.4.1}%
+\contentsline {section}{\numberline {23}Shell}{156}{section.23}%
+\contentsline {subsection}{\numberline {23.1}变量}{156}{subsection.23.1}%
+\contentsline {paragraph}{基本概念}{156}{section*.133}%
+\contentsline {paragraph}{变量类型}{156}{section*.134}%
+\contentsline {paragraph}{只读变量}{156}{section*.135}%
+\contentsline {subsection}{\numberline {23.2}数组}{156}{subsection.23.2}%
+\contentsline {paragraph}{数组定义}{156}{section*.136}%
+\contentsline {paragraph}{读取数组}{157}{section*.137}%
+\contentsline {subsection}{\numberline {23.3}注释}{157}{subsection.23.3}%
+\contentsline {subsection}{\numberline {23.4}字符串}{157}{subsection.23.4}%
+\contentsline {subsubsection}{\numberline {23.4.1}引号}{157}{subsubsection.23.4.1}%
 \contentsline {subsubsection}{\numberline {23.4.2}\#*, \#\#*, \%*, \%\%* 的含义及用法}{157}{subsubsection.23.4.2}%
-\contentsline {subsubsection}{\numberline {23.4.3}截取字符串}{157}{subsubsection.23.4.3}%
+\contentsline {subsubsection}{\numberline {23.4.3}截取字符串}{158}{subsubsection.23.4.3}%
 \contentsline {subsubsection}{\numberline {23.4.4}判断和读取字符串的值}{158}{subsubsection.23.4.4}%
 \contentsline {subsubsection}{\numberline {23.4.5}字符串替换}{158}{subsubsection.23.4.5}%
-\contentsline {subsection}{\numberline {23.5}awk}{158}{subsection.23.5}%
-\contentsline {subsubsection}{\numberline {23.5.1}awk 简介}{158}{subsubsection.23.5.1}%
-\contentsline {subsection}{\numberline {23.6}vim}{158}{subsection.23.6}%
-\contentsline {subsubsection}{\numberline {23.6.1}常用操作}{158}{subsubsection.23.6.1}%
-\contentsline {subsection}{\numberline {23.7}不知道如何分类}{158}{subsection.23.7}%
+\contentsline {subsection}{\numberline {23.5}awk}{159}{subsection.23.5}%
+\contentsline {subsubsection}{\numberline {23.5.1}awk 简介}{159}{subsubsection.23.5.1}%
+\contentsline {subsection}{\numberline {23.6}vim}{159}{subsection.23.6}%
+\contentsline {subsubsection}{\numberline {23.6.1}常用操作}{159}{subsubsection.23.6.1}%
+\contentsline {subsection}{\numberline {23.7}不知道如何分类}{159}{subsection.23.7}%
 \contentsline {section}{\numberline {24}ML/DL错误集锦}{159}{section.24}%
 \contentsline {subsection}{\numberline {24.1}batch\_size对训练的影响}{159}{subsection.24.1}%
 \contentsline {subsection}{\numberline {24.2}某个iteration成为训练效果的短板}{159}{subsection.24.2}%
@@ -492,19 +493,19 @@
 \contentsline {subsection}{\numberline {25.1}在pdf中嵌入代码}{159}{subsection.25.1}%
 \contentsline {subsection}{\numberline {25.2}参考文献相关}{159}{subsection.25.2}%
 \contentsline {paragraph}{引入参考文件}{159}{section*.138}%
-\contentsline {subsection}{\numberline {25.3}数学符号}{159}{subsection.25.3}%
-\contentsline {paragraph}{数学字体}{159}{section*.139}%
-\contentsline {subsection}{\numberline {25.4}\LaTeX 中的颜色}{161}{subsection.25.4}%
-\contentsline {subsection}{\numberline {25.5}注脚}{161}{subsection.25.5}%
-\contentsline {subsection}{\numberline {25.6}章节编号}{161}{subsection.25.6}%
-\contentsline {subsection}{\numberline {25.7}常用符号}{161}{subsection.25.7}%
-\contentsline {section}{\numberline {26}Datasets}{161}{section.26}%
-\contentsline {subsection}{\numberline {26.1}MovieLens 100K}{161}{subsection.26.1}%
-\contentsline {part}{X\hspace {1em}BigData}{162}{part.10}%
-\contentsline {section}{\numberline {27}HDFS}{162}{section.27}%
-\contentsline {section}{\numberline {28}MapReduce}{162}{section.28}%
-\contentsline {section}{\numberline {29}Spark}{162}{section.29}%
-\contentsline {part}{XI\hspace {1em}Others}{163}{part.11}%
-\contentsline {section}{\numberline {30}Others}{163}{section.30}%
-\contentsline {subsection}{\numberline {30.1}李沐 --- 用随机梯度下降来优化人生}{163}{subsection.30.1}%
-\contentsline {section}{参考文献}{164}{section*.140}%
+\contentsline {subsection}{\numberline {25.3}数学符号}{160}{subsection.25.3}%
+\contentsline {paragraph}{数学字体}{160}{section*.139}%
+\contentsline {subsection}{\numberline {25.4}\LaTeX 中的颜色}{162}{subsection.25.4}%
+\contentsline {subsection}{\numberline {25.5}注脚}{162}{subsection.25.5}%
+\contentsline {subsection}{\numberline {25.6}章节编号}{162}{subsection.25.6}%
+\contentsline {subsection}{\numberline {25.7}常用符号}{162}{subsection.25.7}%
+\contentsline {section}{\numberline {26}Datasets}{162}{section.26}%
+\contentsline {subsection}{\numberline {26.1}MovieLens 100K}{162}{subsection.26.1}%
+\contentsline {part}{X\hspace {1em}BigData}{163}{part.10}%
+\contentsline {section}{\numberline {27}HDFS}{163}{section.27}%
+\contentsline {section}{\numberline {28}MapReduce}{163}{section.28}%
+\contentsline {section}{\numberline {29}Spark}{163}{section.29}%
+\contentsline {part}{XI\hspace {1em}Others}{164}{part.11}%
+\contentsline {section}{\numberline {30}Others}{164}{section.30}%
+\contentsline {subsection}{\numberline {30.1}李沐 --- 用随机梯度下降来优化人生}{164}{subsection.30.1}%
+\contentsline {section}{参考文献}{165}{section*.140}%
