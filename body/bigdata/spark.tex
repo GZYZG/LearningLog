@@ -1,0 +1,10 @@
+老早就久仰 Spark 的大名, 自己也在服务器上用 docker 搭过 Spark 集群, 做了一点简单的尝试, 但总是差点感觉, 处于盲人摸象的阶段, 对 Spark 的认识还是一团浆糊. 有幸接触到了 《大数据处理框架 Apache Spark 设计与实现》\footnote{许利杰, 方亚芬著, 电子工业出版社}, 解答了我不少困惑. 
+
+众所周知, Spark 是一个分布式计算框架, 于 2012 年由 UC Berkeley 的 AMPLab 研发并开源. 其核心思想包括两方面: 
+\begin{itemize}
+	\item 对大数据处理框架的输入/输出, 中间数据进行建模, 将这些数据抽象为统一的数据结构 (RDD, 最新版的 Spark 增加了 Dataset, DataFram 等高层 API), 并在此数据结构的基础上构建了一系列通用的数据操作;
+	
+	\item 采用基于内存的数据聚合, 数据缓存机制加速应用的执行.
+\end{itemize}
+
+多年的发展, Spark 也发展出了自己的生态, 以 Spark 处理框架为核心, 在上层构建了面向 SQL 的 Spark SQL 框架, 面向大规模图计算的 GraphX 框架, 面向大规模机器学习的 MLlib 框架及算法库, 以及面向流处理的 Spark Streaming 框架; 在下层,  也推出了相关的存储系统, 如基于分布式文件系统的 Alluxio, 支持 ACID 事务的数据湖系统 Delta Lake 等. 

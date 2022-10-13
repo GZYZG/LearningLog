@@ -1,8 +1,8 @@
 \subsection{排序学习算法简介}
-排序学习, Learning to Rank, 简言之: 给定一个查询$q$, 和待查询的数据集合$D$, 返回与$q$最相关的top k（有序）的结果或者给出$D$中所有元素与$q$的相关性排序. 
+排序学习, Learning to Rank, 简言之: 给定一个查询$q$, 和待查询的数据集合$D$, 返回与$q$最相关的top k`有序)的结果或者给出$D$中所有元素与$q$的相关性排序. 
 
 \subsubsection{Pointwise}
-将排序问题转化为分类、回归问题. 以一个$q$和一个待查询对象$q$（只有一个待查询对象, 这也是Point的原因）之间的相关性作为预测目标, 即$Pointwise: q \times d \rightarrow label, q \in Q, d \in D$, 以$(q, d)$作为训练样本. 
+将排序问题转化为分类、回归问题. 以一个$q$和一个待查询对象$q$ (只有一个待查询对象, 这也是Point的原因)之间的相关性作为预测目标, 即$Pointwise: q \times d \rightarrow label, q \in Q, d \in D$, 以$ (q, d)$作为训练样本. 
 
 Pointwise缺点: 
 \begin{itemize}
@@ -12,7 +12,7 @@ Pointwise缺点:
 
 
 \subsubsection{Pairwise}
-针对一个查询$q$, 通过某种方法确定一个大致的待查询对象集合$D_q$, Pairwise将排序问题转化为$D_q$中任意两个对象之间相对关系的分类/回归问题, 训练样本为$(d_i, d_j),\: d_i, d_j \in D_q$, 预测目标为$d_i, d_j$与$q$的相关性的相对大小, 例如1表示$q_i$比$q_j$更相关. 
+针对一个查询$q$, 通过某种方法确定一个大致的待查询对象集合$D_q$, Pairwise将排序问题转化为$D_q$中任意两个对象之间相对关系的分类/回归问题, 训练样本为$ (d_i, d_j),\: d_i, d_j \in D_q$, 预测目标为$d_i, d_j$与$q$的相关性的相对大小, 例如1表示$q_i$比$q_j$更相关. 
 
 Pairwise缺点: 
 \begin{itemize}
@@ -22,7 +22,22 @@ Pairwise缺点:
 
 
 \subsubsection{Listwise}
-Listwise将一个query对应的所有相关待查询对象看作一个整体, 作为单个训练样本, 直接优化MAP、NDCG（Normalized Discounted Cumulative Gain）这样的指标, 从而学习到最佳排序结果. 
+Listwise将一个query对应的所有相关待查询对象看作一个整体, 作为单个训练样本, 直接优化MAP、NDCG (Normalized Discounted Cumulative Gain)这样的指标, 从而学习到最佳排序结果. 
 
 
 \subsection{LambdaMart}
+
+
+\subsection{为什么推荐中多是 Pointwise, 搜索中多是 Pairwise?}
+其实之前也想过这个问题, 但没有深挖想出来个所以然. 知道一次面试中被问到这个问题, 无语凝噎. 感觉是搜索中用户意图更明确, 更看重结果的相关性. 但是还不够深入, 以下答案整理自 \href{pairwise 的排序算法用于推荐系统的排序任务中为什么效果差于pointwise的ctr？ - 忆丶昔的回答 - 知乎
+	https://www.zhihu.com/question/338044033/answer/815202813}{pairwise 的排序算法用于推荐系统的排序任务中为什么效果差于pointwise的ctr？}.
+
+\begin{itemize}
+	\item 搜索是带 query 的, 有意识的被动推荐. 对于搜索而言, 相关性是及其重要的. query 限制了你召回商品相关性, 比如 "ONLY 连衣裙", 召回一批相似性极高的连衣裙, 同时用户心智也决定了他将\textbf{高度关注商品之间的细微差别}, 比如价格, 款式等. 因此这些商品才有必要比个高下;
+	
+	\item 推荐是发散的, 无意识的主动推荐, 相比搜索而言, 准确性不再是第一要务 (想象下因为你点过一些女装给你出一整屏的连衣裙的感觉). 多样性是一个必要的指标, 这导致了推荐结果极其发散. 用户对推荐结果多样性的心智使得他不关注两个商品之间的比较, 对于算法而言不再关注商品之间两两的比较, 只要每个物品能够匹配用户的一部分偏好即可. 而且多样性也导致了推荐场景没有像搜索一样适合做 pairwise 的样本;
+	
+	\item pointwise 模型预测出来的分数具有实际的物理意义, 代表了 target user 点击 target item 的预测概率. 因此可以在全局或下游里做一些策略, 比如截断之类的; pairwise or listwise 模型很难这么利用.
+\end{itemize}
+
+在搜索中, 如果以 pointwise 来训练, 那么则需要区分正负样本, 在多档相关性下怎么划分以及在模型中考虑不同相关性等级的文档是一个需要注意的问题. 

@@ -6,6 +6,11 @@ Dzmitry Bahdanau, Kyunghyun Cho, and Yoshua Bengio.
   translate.
 \newblock {\em international conference on learning representations}, 2016.
 
+\bibitem{piotr_fasttext_2017}
+Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov.
+\newblock Enriching word vectors with subword information.
+\newblock 5:135--146, 2017.
+
 \bibitem{chen2018stochastic}
 Jianfei Chen, Jun Zhu, and Le~Song.
 \newblock Stochastic training of graph convolutional networks with variance
@@ -58,12 +63,32 @@ Xiangnan He, Zhankui He, Jingkuan Song, Zhenguang Liu, Yu-Gang Jiang, and
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering}, pages
   2354--2366, 2018.
 
+\bibitem{he_gbdtlr_2014}
+Xinran He, Junfeng Pan, Ou~Jin, Tianbing Xu, Bo~Liu, Tao Xu, Yanxin Shi,
+  Antoine Atallah, Ralf Herbrich, Stuart Bowers, and Joaquin Qui\~{n}onero
+  Candela.
+\newblock Practical lessons from predicting clicks on ads at facebook.
+\newblock In {\em Proceedings of the Eighth International Workshop on Data
+  Mining for Online Advertising}, ADKDD'14, page 1–9, New York, NY, USA,
+  2014. Association for Computing Machinery.
+
 \bibitem{he2014practical}
 Xinran He, Junfeng Pan, Ou~Jin, Tianbing Xu, Bo~Liu, Tao Xu, Yanxin Shi,
   Antoine Atallah, Ralf Herbrich, Stuart Bowers, and Quiñonero~Joaquin
   Candela.
 \newblock Practical lessons from predicting clicks on ads at facebook.
 \newblock {\em ADKDD@KDD}, pages 1--9, 2014.
+
+\bibitem{armand_fasttext_2016}
+Armand Joulin, Edouard Grave, Piotr Bojanowski, and Tomas Mikolov.
+\newblock Bag of tricks for efficient text classification.
+\newblock abs/1607.01759, 2017.
+
+\bibitem{juan_ffm_2016}
+Yuchin Juan, Yong Zhuang, Wei-Sheng Chin, and Chih-Jen Lin.
+\newblock Field-aware factorization machines for ctr prediction.
+\newblock RecSys '16, page 43–50, New York, NY, USA, 2016. Association for
+  Computing Machinery.
 
 \bibitem{juan_ffm_2016_recsys}
 Yuchin Juan, Yong Zhuang, Wei-Sheng Chin, and Chih-Jen Lin.
@@ -96,6 +121,14 @@ N.~Thomas Kipf and Max Welling.
 \newblock Semi-supervised classification with graph convolutional networks.
 \newblock {\em international conference on learning representations}, 2017.
 
+\bibitem{jianxun_xdeepfm_2018}
+Jianxun Lian, Xiaohuan Zhou, Fuzheng Zhang, Zhongxia Chen, Xing Xie, and
+  Guangzhong Sun.
+\newblock xdeepfm: Combining explicit and implicit feature interactions for
+  recommender systems.
+\newblock In {\em ACM Knowledge Discovery and Data Mining}, volume
+  abs/1803.05170, pages 1754--1763, 2018.
+
 \bibitem{linden2003amazon.com}
 Greg Linden, Brent Smith, and Jeremy York.
 \newblock Amazon.com recommendations: Item-to-item collaborative filtering.
@@ -118,6 +151,12 @@ Steffen Rendle.
 \newblock In {\em Proceedings of the 2010 IEEE International Conference on Data
   Mining}, ICDM '10, page 995–1000, USA, 2010. IEEE Computer Society.
 
+\bibitem{steffen_fm_2011}
+Steffen Rendle, Zeno Gantner, Christoph Freudenthaler, and Lars Schmidt-Thieme.
+\newblock Fast context-aware recommendations with factorization machines.
+\newblock {\em International Conference on Research an Development in
+  Information Retrieval}, pages 635--644, 2011.
+
 \bibitem{6773024}
 C.~E. {Shannon}.
 \newblock A mathematical theory of communication.
@@ -135,6 +174,15 @@ Y.~Patrice Simard, Dave Steinkraus, and John~Platt C.
   document analysis.
 \newblock {\em ICDAR-1}, pages 958--963, 2003.
 
+\bibitem{song_autoint_2019}
+Weiping Song, Chence Shi, Zhiping Xiao, Zhijian Duan, Yewen Xu, Ming Zhang, and
+  Jian Tang.
+\newblock Autoint: Automatic feature interaction learning via self-attentive
+  neural networks.
+\newblock In {\em Proceedings of the 28th ACM International Conference on
+  Information and Knowledge Management}, CIKM '19, page 1161–1170, New York,
+  NY, USA, 2019. Association for Computing Machinery.
+
 \bibitem{sutskever2014sequence}
 Ilya Sutskever, Oriol Vinyals, and V.~Quoc Le.
 \newblock Sequence to sequence learning with neural networks.
@@ -147,5 +195,19 @@ Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
 \newblock Attention is all you need.
 \newblock {\em ADVANCES IN NEURAL INFORMATION PROCESSING SYSTEMS 30 (NIPS
   2017)}, pages 5998--6008, 2017.
+
+\bibitem{wang_dcn_2017}
+Ruoxi Wang, Bin Fu, Gang Fu, and Mingliang Wang.
+\newblock Deep &amp; cross network for ad click predictions.
+\newblock In {\em Proceedings of the ADKDD'17}, ADKDD'17, New York, NY, USA,
+  2017. Association for Computing Machinery.
+
+\bibitem{wang_dcnv2_2021}
+Ruoxi Wang, Rakesh Shivanna, Derek Cheng, Sagar Jain, Dong Lin, Lichan Hong,
+  and Ed~Chi.
+\newblock Dcn v2: Improved deep &amp; cross network and practical lessons for
+  web-scale learning to rank systems.
+\newblock In {\em Proceedings of the Web Conference 2021}, WWW '21, page
+  1785–1797, New York, NY, USA, 2021. Association for Computing Machinery.
 
 \end{thebibliography}

@@ -1,50 +1,53 @@
-This is BibTeX, Version 0.99d (TeX Live 2021/W32TeX)
+This is BibTeX, Version 0.99d (TeX Live 2020/W32TeX)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: setup/content.aux
 The style file: plain.bst
 Database file #1: references.bib
 Warning--I didn't find a database entry for "bivaswani2017attentionbid"
+Warning--empty journal in piotr_fasttext_2017
+Warning--empty journal in armand_fasttext_2016
+Warning--empty booktitle in juan_ffm_2016
 Warning--empty journal in junqiu2019nezha
-You've used 24 entries,
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            625 strings with 8807 characters,
-and the built_in function-call counts, 10688 in all, are:
-= -- 1050
-> -- 640
-< -- 13
-+ -- 253
-- -- 228
-* -- 745
-:= -- 1725
-add.period$ -- 74
-call.type$ -- 24
-change.case$ -- 186
+            669 strings with 10687 characters,
+and the built_in function-call counts, 15372 in all, are:
+= -- 1519
+> -- 922
+< -- 20
++ -- 364
+- -- 330
+* -- 1062
+:= -- 2440
+add.period$ -- 106
+call.type$ -- 33
+change.case$ -- 264
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 409
-empty$ -- 662
-format.name$ -- 228
-if$ -- 2257
+cite$ -- 37
+duplicate$ -- 616
+empty$ -- 947
+format.name$ -- 330
+if$ -- 3296
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 24
-newline$ -- 123
-num.names$ -- 48
-pop$ -- 193
+int.to.str$ -- 33
+missing$ -- 33
+newline$ -- 168
+num.names$ -- 66
+pop$ -- 279
 preamble$ -- 1
-purify$ -- 162
+purify$ -- 231
 quote$ -- 0
-skip$ -- 361
+skip$ -- 551
 stack$ -- 0
-substring$ -- 583
-swap$ -- 166
-text.length$ -- 13
+substring$ -- 781
+swap$ -- 266
+text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
-warning$ -- 1
-while$ -- 86
-width$ -- 26
-write$ -- 262
-(There were 2 warnings)
+type$ -- 132
+warning$ -- 4
+while$ -- 113
+width$ -- 35
+write$ -- 373
+(There were 5 warnings)

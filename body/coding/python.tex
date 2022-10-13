@@ -182,3 +182,5 @@ Global Interpreter Lock, 全局解释器锁, 是 CPython 解释器的特性. 在
 既然已经有了 GIL, 那就一定线程安全了吗? 并不是. GIL 保证的是每一条字节码在执行过程中的独占性, 即每一条字节码的执行都是原子性的. 但在多个字节码之间, GIL 可能被释放, 则可能会产生多个线程修改临界区的问题. 因此 python 的 \mintinline{python}{multithreading} 模块中还有一个线程锁, 用来对临界区进行加锁.
 
 参考资料: \href{http://cenalulu.github.io/python/gil-in-python/#:~:text=GIL%E5%85%A8%E7%A7%B0Global%20Interpreter%20Lock%E4%B8%BA%E4%BA%86%E9%81%BF%E5%85%8D%E8%AF%AF%E5%AF%BC%EF%BC%8C%E6%88%91%E4%BB%AC%E8%BF%98%E6%98%AF%E6%9D%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E5%AE%98%E6%96%B9%E7%BB%99%E5%87%BA%E7%9A%84%E8%A7%A3%E9%87%8A%EF%BC%9A%20In%20CPython%2C%20the%20global%20interpreter,mainly%20because%20CPython%E2%80%99s%20memory%20management%20is%20not%20thread-safe.}{Python的GIL是什么鬼，多线程性能究竟如何}.
+	
+\subsection{python 内存管理}

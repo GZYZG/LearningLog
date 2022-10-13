@@ -263,17 +263,27 @@ $\boldsymbol{w}_c$ 表示类别 $c$ 的权重.
 \subsubsection{Focal Loss}
 Focal Loss(后续简称为 FL)为解决样本不平衡的问题, 更准确地讲, 是为解决难分类样本 (Hard Example) 和易分类样本 (Easy Example) 的不平衡问题. 对于样本不平衡, 其实通过上面的带权重的交叉熵损失便可以一定程度上解决这个问题, 但是在实际问题中, 以权重来解决样本不平衡问题的效果不够理想. 为什么呢？表面上是因为样本不平衡, 但实质上导致效果不好的原因也许并不是简单地因为样本不平衡, 而是因为样本中存在一些 Hard Example, 同时存在许多 Easy Example, Easy Example 虽然容易被分类器分辨, 损失较小, 但是由于其数量大, 它们累积起来依然于大于 Hard Example 的损失值, 因此我们需要给 Hard Example 较大的权重, 给 Easy Example 较小的权重. FL 是基于交叉熵损失的, 其定义为: 
 $$
-FL(\boldsymbol{y}, \hat{\boldsymbol{y}}) = -(1-\hat{\boldsymbol{y}}_c) \log \hat{\boldsymbol{y}}_c
+FL(\boldsymbol{y}, \hat{\boldsymbol{p}}) = -(1-\boldsymbol{p}) \log \boldsymbol{p}
 $$
-可以看到, 与交叉熵相比, FL 多了一个 $(1-\hat{\boldsymbol{y}}_c)$, 显然, 当模型对该样本分类的置信度越高, 则样本的损失越小（相比交叉熵更小）, $(1-\hat{\boldsymbol{y}}_c)$ 可以起到样本权重的作用, 该值越小说明样本越容易被分类, 即为 Easy Example. 为了更好控制该权重, 改写 FL 为: 
+
+其中 $\boldsymbol{p}, \hat{\boldsymbol{p}}$ 均为向量, 后者表示预测的各个类别的概率:
+
 $$
-FL(\boldsymbol{y}, \hat{\boldsymbol{y}}) = -(1-\hat{\boldsymbol{y}}_c)^\gamma \log \hat{\boldsymbol{y}}_c
+\boldsymbol{p}_i= \begin{cases}
+		\hat{\boldsymbol{p}}_i & \text { if } \boldsymbol{y}_i=1 \\ 
+		1-\hat{\boldsymbol{p}}_i & \text { otherwise }
+	\end{cases}
+$$
+
+可以看到, 与交叉熵相比, FL 多了一个 $(1-\boldsymbol{p})$, 显然, 当模型对该样本分类的置信度越高 (体现为对正样本其预测概率很大, 对负样本预测概率很低), 则样本的损失越小（相比交叉熵更小）, $(1-\boldsymbol{p})$ 可以起到样本权重的作用, 该值越小说明样本越容易被分类, 即为 Easy Example. 为了更好控制该权重, 改写 FL 为: 
+$$
+FL(\boldsymbol{y}, \hat{\boldsymbol{p}}) = -(1-\boldsymbol{p})^\gamma \log \boldsymbol{p}
 $$
 其中 $\gamma$ 为超参数, $\gamma=0$ 则为交叉熵损失, 一般取 2, $\gamma$ 越大 Easy Example 带来的损失就越小, 对 Easy Example 起到的抑制就越大. 如果再要处理样本不均衡的问题, 可以再加上类别权重, 则 FL 改写为: 
 $$
-FL(\boldsymbol{y}, \hat{\boldsymbol{y}}) = - \alpha_c (1-\hat{\boldsymbol{y}}_c)^\gamma \log \hat{\boldsymbol{y}}_c
+FL(\boldsymbol{y}, \hat{\boldsymbol{p}}) = - \boldsymbol{\alpha} (1-\boldsymbol{p})^\gamma \log \boldsymbol{p}
 $$
-其中 $\alpha_c$ 为类别 $c$ 的权重. 
+其中 $\boldsymbol{\alpha}$ 为类别权重向量. 
 
 \subsubsection{Sampled Softmax}
 

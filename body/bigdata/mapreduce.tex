@@ -1,0 +1,12 @@
+一个 MR job 通常会把输入数据划分成独立的 chunks. 每个 chunk 会被 map tasks 并行地处理. 然后 MR 这个框架会对 map 地输出进行排序, 然后输入给 reduce tasks. 通常输入和输出都存储在文件系统中. tasks 地调度由 MR 这个框架负责, 监控它们地执行并再执行失败的任务. MR 框架中有一个 ResourceManager, 每个 worker 节点一个 NodeManager, 每个应用一个 MRAppMaster. 最低程度上，一个 MR 应用等于：输入/输出 + map 和 reduce 函数（实现了相应的接口）+ 关于 job 的一些参数（job configuration）. 有了 job 后, Hadoop 的 job-client 会提交 job (即可执行文件) 以及配置给 ResourceManager, 它会把这些\textbf{可执行文件}和\textbf{配置}分发到各个 workers, 调度和监控 tasks 的执行并把状态数据发送给 job-client.
+
+\subsection{一些基本概念}
+
+\par{\textbf{\textcolor{red}{Mapper}}}$\quad$ 对于 InputFormat 生成的每个 InputSplit, MR 都会产生一个对应的 map task 进行处理. map 输入输出的类型和数量不一定要相同. 对于 mapper 输出的 k-v pairs. 并不是直接输入给 reducer, 而是会由框架进行一次处理后在输入给 reducer. 处理的方式: 按照 key 对输出进行聚合. Mapper 任务的输出还会再进行一次排序然后进行划分, 每个 reducer 一个 partition. 如果没有 Reducer, 则 mapper 的输出会直接写道文件系统中, 此时则不会对输出进行排序. 
+
+\par{\textbf{\textcolor{red}{Reducer}}}$\quad$ Reducer 主要分成三成三个阶段: shuffle, sort 和 reduce. Reducer 的输出一般会写到文件系统中. 在真的执行 reduce 函数时, 会对 pair 进行聚合, 得到 <key, list of values> 这样的 pair, reduce 函数实际的输入就是这样的 pair. 
+
+\par{\textbf{\textcolor{red}{Combiner}}}$\quad$ 对 Mapper 输出的数据进行规约处理, 减小传送到reduce端的数据量, 缩短传输时间和作业的整体时间. Combiner 是在 Mapper 任务内完成的, 不能跨 Mapper, 但 Reducer可以接收多个 Mapper 的输出.
+
+\par{\textbf{\textcolor{red}{InputFormat}}}$\quad$ MR 程序获取的数据类型多种多样, 当程序把数据输入给 Mapper 时, 需要格式化读取, 例如读取普通文本文件使用 TextInputFormat. 所有的输入格式类都继承于 InputFormat, 它的主要作用是将输入数据切分成分片 (比如多少行为一个分片，即 InputSplit), 以及如何读取分片中的数据 (比如按行读取), 前者由 getSplits() 完成, 后者由 RecordReader 完成.
+
