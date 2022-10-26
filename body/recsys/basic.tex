@@ -204,7 +204,7 @@ $$
 \end{itemize}
 
 \subsection{特征交叉}
-DNN 时代依然将来, 号称拟合一切函数的 DNN 貌似带来了新的问题解决方式 --- 数据, 模型, 学习. DNN 刚开始大行其道时, 其中一个显著的优点就是不用做过多的特征工程, 貌似要抢走工程师们挖掘特征的工作. 不过热潮过后, 特征工程再度进入人们视野, 特别是在某些领域 --- 推荐搜索广告等. 
+DNN 时代已然到来, 号称拟合一切函数的 DNN 貌似带来了新的问题解决方式 --- 数据, 模型, 学习. DNN 刚开始大行其道时, 其中一个显著的优点就是不用做过多的特征工程, 貌似要抢走工程师们挖掘特征的工作. 不过热潮过后, 特征工程再度进入人们视野, 特别是在某些领域 --- 推荐搜索广告等. 
 
 为什么这几个领域如此重视特征工程呢? 愚见: 这些领域使用的通常是表格类型的, 大多是结构化或者半结构化的数据, 参与预测的实体 (如用户, 商品等) 都含有丰富的属性, 这些信息构建在\textbf{人与物之间的联系, 人的社会行为}之上. 当然, 不可忽略搜推里的数据通常是稀疏且高维的. 总的来说, 其包含的规律信息是我们可预见的. 像 CV,  NLP, Speech 等领域, 虽然大部分的信息也是以人类的行为为基础, 大多也是有迹可循的, 但是其中牵扯到很多的自然界中的信息, 如视觉, 语音这些本来就存在与自然界中的信息, 现在很多的工作可能更多地是去理解这些一直以来存在的信息的载体的本质. 
 
@@ -253,13 +253,91 @@ FFM 的特点: 1) 其参数要远大于 FM, 时间复杂度也更高, 不能像 
 
 \subsubsection{DCN}
 
-DCN\cite{wang_dcn_2017} 及其升级版 DCN-V2\cite{wang_dcnv2_2021} 由 google 提出来的, 二者都属于泛 Wide\&Deep 类的模型. 
+DCN\cite{wang_dcn_2017} 及其升级版 DCN-V2\cite{wang_dcnv2_2021} 由 google 提出来的, 二者都属于泛 Wide\&Deep 类的模型. 泛 Wide\&Deep 类的模型主要变化在于 Wide 部分. DCN 提出了 Cross Network 作为其 wide 部分:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.85\textwidth]{pics/dcn.png}
+	\caption{The Deep \& Cross Network}
+	\label{fig:dcn}
+\end{figure} 
+
+Fig.\ref{fig:dcn} 左边即为 Cross Network. DCN 中的输入由离散特征的 embedding 和 连续特征拼接得到, 然后分别输入到 wide 和 deep 部分, 我们重点关注 wide --- Cross Network 部分. Cross Network 是由 Cross Layer 组成的, 第 $l+1$ 层 Cross Layer 的计算方式:
+
+$$
+x_{l+1} = x_0 x_l^T w_l + b_l + x_l = f(x_l, w_l, b_l) + x_l
+$$
+
+Cross Network 的第 $l$ 层可以获得 1 至 $l+1$ 阶的特征交叉. 从 DCN 的输入可以看到, 离散特征被替换成了 embedding, 在进行交叉的时候实际是 embedding 的每一位 (及连续特征) 间进行交叉, 并不是以特征为粒度进行交叉的. 
 
 一些缺点: 1) CrossNet 的输出与输入之间存在某种特定形式的关系; 2) CrossNet 的输入是稀疏特征的嵌入, 是 \textit{bit-wise} 方式的特征交叉, 交叉的含义不明显.
 
+DCN-V2 对 DCN 进行了升级. 相比 DCN, DCN-V2 变化主要在 Cross Network. DCN-V2 中 cross layer 的计算方式:
+
+$$
+\mathrm{x}_{l+1}=\mathrm{x}_0 \odot\left(W_l \mathrm{x}_l+\mathrm{b}_l\right)+\mathrm{x}_l
+$$
+
+其中 $\odot$ 表示逐元素的乘积. 除了 cross layer 的变化, DCN-V2 中 wide 和 deep 部分的结合方式可以是串行的也可以是并行的. 并且为了降低计算开销, 对 cross layer 进行了优化: 将 $W \in \mathbb{R}^{d \times d}$ 变成低秩 (low-rank, 一般认为低秩的矩阵中含有更多信息) 的. DCN-V2 中用两个细长的矩阵来表示 $W = U V^T,\ U, V \in \mathbb{R}^{d \times r}, r \ll \frac{d}{2}$. 因此新的 corss layer 计算方式为:
+
+$$
+x_{l+1} = x_0 \odot (U_l (V_l^T x_l) + b_l) + x_l
+$$
+
+文中对这种做法给出的一个解释: 在子空间中学习交叉. 因此文中将其与 MMOE 进行结合:
+
+$$
+\begin{aligned}
+	\mathrm{x}_{l+1} &=\sum_{i=1}^K G_i\left(\mathrm{x}_l\right) E_i\left(\mathrm{x}_l\right)+\mathrm{x}_l \\
+	E_i\left(\mathrm{x}_l\right) &=\mathrm{x}_0 \odot\left(U_l^i\left(V_l^{i \top} \mathrm{x}_l\right)+\mathrm{b}_l\right)
+\end{aligned}
+$$
+
+DCN-V2 的特点: 1) 延续 DCN 的功能, 能以叠加层数的方式获得各阶的特征交叉 (\textit{bit-wise}); 2) 还是 \textit{bit-wise} 粒度的交叉, 不是特征粒度的交叉, 交叉的含义不明确; 3) 增加参数 cross network 的表达能力进行了增强, DCN 中 wide 部分的参数要远小于 deep 部分的参数. 
+
 \subsubsection{xDeepFM}
 
-初看 xDeepFM\cite{jianxun_xdeepfm_2018} 感觉写的啥玩意儿, 写的那么复杂, 而且估计参数量也要比其他模型高很多. 
+初看 xDeepFM (eXtreme Deep Factorization Machine)\cite{jianxun_xdeepfm_2018} 感觉写的啥玩意儿, 写的那么复杂, 参数量也要比其他模型高很多, 虽然内心抗拒但还是秉持着完整的心态来写一些吧. xDeepFM 也是泛 Wide\&Deep 类的模型, 相比其他方法, xDeepFM 做的是 \textit{\textbf{vector-wise}} 的特征交叉, 其 wide 部分是 Compressed Interaction Network (CIN). 与其他模型的 wide 部分不同, CIN 的输入是一个矩阵 $\bm{X}^k \in \mathbb{R}^{H_k \times D}$, 输出也是一个矩阵, 矩阵每一行表示一个特征的表征, $\bm{X}^k$ 每一行表示的是一个 $k+1$ 阶的特征.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{pics/cin.png}
+	\caption{Components and architecture of the Compressed Interaction Network (CIN).}
+	\label{fig:cin}
+\end{figure} 
+
+CIN 的计算方式如 Fig.\ref{fig:cin} 所示, 公式为, $\circ$ 表示逐元素乘积:
+
+$$
+\mathbf{X}_{h, *}^k=\sum_{i=1}^{H_{k-1}} \sum_{j=1}^m \mathbf{W}_{i j}^{k, h}\left(\mathbf{X}_{i, *}^{k-1} \circ \mathbf{X}_{j, *}^0\right)
+$$
+
+结合公式来理解一下 Fig.\ref{fig:cin}. 先通过 $x^k$ 与 $x^0$ 得到 $z^{k+1}$, Fig.\ref{fig:cin}(a) 中的外积, 但其实可以看作是 $x^k$ 的每一行分别与 $x^0$ 的每一行进行逐元素乘积得到张量 $z^{k+1} \in \mathbb{R}^{H_k \times m \times D}$. 所以 $z^{k+1}_{i,j,*}$ 表示一个 \textit{vector-wise} 的交叉, 及 $k+1$ 阶的特征交叉. 因此 $z^{k+1}$ 相当于 $H_k \times m$ 个 $k+1$ 阶的交叉特征, 那这个张量怎么变成一个矩阵呢? 看 Fig.\ref{fig:cin}(b). 结合公式, $x^{k+1}$ 的每一行是通过一个矩阵与 $z^{k+1}$ 计算得到的. 虽然公式看起来复杂, 其实 $x^{k+1}$ 的一行可以看作是 $z^{k+1}$ 中所有 $k+1$ 阶特征的一个线性组合. 由于 CIN 的每一层输出的是 $k$ 阶的交叉特征, 而不是 $1 \sim k$ 阶的交叉特征, 因此需要对 CIN 每层的输出按行进行 \textit{pooling}, 即如 Fig.\ref{fig:cin}(c) 所示, 所有 CIN 层的输出按行进行 \textit{sum pooling} 后进行拼接得到交叉特征. 
+
+需要注意: $H_k$ 是一个超参数, $x^k$ 的每一行都是 $k+1$ 阶的交叉特征, 为什么不直接把 $z^{k+1}$ 按前两个维度展开呢, 这样每个一行都是一个 $k+1$ 阶的交叉特征? 首先, 如果这样做, 那么 $x^k$ 的维度就会一直是 $m^{k+1} \times D$, 这样就相当于一种完全的特征交叉. 显然, 随着层数的加深, 这参数是顶不住的. 因此 CIN 中使用 $H_k$ 个矩阵 $W^{k, h}$ 得到 $H_k$ 种 $k+1$ 阶特征的组合, 起到 \textit{compress} 的作用, 每个 $W^{k, h}$ 相当于一种不同的组合模型. 
+
+xDeepFM 的特点: 1) \textit{vector-wise} 的特征交叉; 2) 参数量大大增加; 3) 每个特征的 embedding 的维度必须相同.
 
 \subsubsection{AutoInt}
-AutoInt\cite{song_autoint_2019} 也算一篇看起来很复杂的论文了
+AutoInt (Automatic feature Interaction Learning)\cite{song_autoint_2019} 也是一篇看起来很复杂的论文, AutoInt 不是泛 Wide\&Deep 的结构. AutoInt 的目标是给定一个特征向量, 学习特征的低维表示, 其蕴含了高阶的交叉特征. AutoInt 的模型结构如 Fig.\ref{fig:autoint} 所示, 简言之: 通过 \textit{self-attention} 学习每个特征的高阶表示. 所以重点就是 \textit{self-attention}, 如果熟悉这个的话其实就已经知道 AutoInt 是怎么做的了. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.65\textwidth]{pics/autoint.png}
+	\caption{Overview of AutoInt.}
+	\label{fig:autoint}
+\end{figure} 
+
+AutoInt 中为每个特征 (包括离散特征和连续特征) 学习一个表征. AutoInt 中使用的是多头自注意力 (Multi-head Self-Attention), 并且加了一个残差, head $h$ 的计算方式:
+
+$$
+\begin{gathered}
+	\alpha_{\mathrm{m}, \mathbf{k}}^{(\mathrm{h})}=\frac{\exp (\psi^{(h)}\left(\mathbf{e}_{\mathrm{m}}, \mathbf{e}_{\mathbf{k}}\right))}{\sum_{l=1}^M \exp (\psi^{(h)}\left(\mathbf{e}_{\mathbf{m}}, \mathbf{e}_{\mathbf{l}}\right))} \\
+	\psi^{(h)}(\mathbf{e}_{\mathrm{m}}, \mathbf{e}_{\mathrm{k}})=\langle\mathbf{W}_{\text {Query }}^{(\mathbf{h})} \mathbf{e}_{\mathbf{m}}, \mathbf{W}_{\text {Key }}^{(\mathbf{h})} \mathbf{e}_{\mathbf{k}}\rangle \\
+	\widetilde{\mathbf{e}}_{\mathbf{m}}^{(\mathbf{h})}=\sum_{k=1}^M \alpha_{\mathrm{m}, \mathbf{k}}^{(\mathbf{h})}(\mathbf{W}_{\text {Value }}^{(\mathbf{h})} \mathbf{e}_{\mathbf{k}})
+\end{gathered}
+$$
+
+$\widetilde{\mathbf{e}}_{\mathbf{m}}^{(\mathbf{h})}$ 就是特征 $m$ 经过 head $h$ 的输出, 将多个头的输出进行拼接即是特征 $m$ 经过多头注意力的输出, 再加上残差即可 (残差是不可少的, 类似于 DCN 中的残差, 保证每一层的输出能够得到所有阶数的交叉特征). 注意到, 交叉的阶数随着层数指数增长, 因为自注意力层做特征交叉时是高阶特征与高阶特征交叉, 而不是高阶特征与原始特征交叉. 
+
+AutoInt 的特点: 1) 通过 \textit{self-attention} 机制做特征交叉; 2) 交叉的阶数随层数指数增长; 3) 通过 \textit{attention} 有更好的解释性(其他方法也可以通过类似的方式获得解释性?).
